@@ -1,0 +1,191 @@
+[
+  {
+    "id": "demo-cowos",
+    "kind": "following",
+    "title": "台积电 CoWoS-L/S 产能 2025 年超预期扩建：关键封测机台交期拆解与供需缺口反转点",
+    "source": "SemiAnalysis",
+    "time": "今日 10:45",
+    "core": "【研判核心】：2025Q2 CoWoS 理论月产将达 6.5 万片（较原预估 +18%），Blackwell Ultra 晶圆瓶颈主要转移至硅光子 CPO 耦合治具，而非硅中介层。",
+    "body": "【研判核心】：2025Q2 CoWoS 理论月产将达 6.5 万片（较原预估 +18%），Blackwell Ultra 晶圆瓶颈主要转移至硅光子 CPO 耦合治具，而非硅中介层。",
+    "takeaways": [
+      "AP8/AP7 先进封测厂无尘室设备提前 4 周入场，新购两台高精度步进对准机完成校准。",
+      "下游云厂商 CAPEX 支出预期在 Q3 财报季将迎来上调，网络互连光模块采购节奏将提前至 2025Q1。"
+    ],
+    "tags": [
+      "NVDA",
+      "TSM",
+      "AVGO"
+    ],
+    "topics": [
+      "先进封装",
+      "算力互连"
+    ],
+    "score": 94,
+    "date": "2026-09-08T10:45",
+    "category": "硬科技与半导体"
+  },
+  {
+    "id": "demo-anthropic-energy",
+    "kind": "following",
+    "title": "Anthropic 与核能供应商签署 2.2GW 独占供电备忘录：大规模集群并网拓扑透析",
+    "source": "Anthropic Eng / SEC 监控",
+    "time": "今日 09:12",
+    "core": "【研判核心】：大模型前沿训练中心正加速与小型模块化反应堆 (SMR) 基地直接物理绑定，单点功耗已从 100MW 跃迁至 GW 级。",
+    "body": "【研判核心】：大模型前沿训练中心正加速与小型模块化反应堆 (SMR) 基地直接物理绑定，单点功耗已从 100MW 跃迁至 GW 级。",
+    "takeaways": [
+      "PPA 协议周期 15 年，离网直供使变电传输损耗降低 6.8%，全周期 LCOE 锁定在 5.2 美分/度。",
+      "下一代巨无霸多模态模型的训练周期不再受各州区域电网配额审查延误。"
+    ],
+    "tags": [
+      "AMZN",
+      "CEG",
+      "VST"
+    ],
+    "topics": [
+      "算力互连"
+    ],
+    "score": 89,
+    "date": "2026-09-08T09:12",
+    "category": "硬科技与半导体"
+  },
+  {
+    "id": "demo-rsd",
+    "kind": "following",
+    "title": "递归推测解码（RSD）实测：M4 Max 芯片无量化运行 70B 模型吞吐达到 42 tokens/s",
+    "source": "Latent.Space 核心专栏",
+    "time": "昨天 21:30",
+    "core": "【工程突破】：借助分层轻量草稿树与统一内存零拷贝，端侧大模型计算瓶颈从显存带宽大幅转向推测命中率。",
+    "body": "【工程突破】：借助分层轻量草稿树与统一内存零拷贝，端侧大模型计算瓶颈从显存带宽大幅转向推测命中率。",
+    "takeaways": [
+      "以 1.5B 小型语言模型作为先验验证树，在多轮代码生成场景中获得 78.4% 并行验证通过率。"
+    ],
+    "tags": [
+      "AAPL",
+      "ARM"
+    ],
+    "topics": [
+      "端侧推理",
+      "开源权重"
+    ],
+    "score": 84,
+    "date": "2026-09-07T21:30",
+    "category": "AI 算法与工程"
+  },
+  {
+    "id": "demo-sama-compute",
+    "kind": "following",
+    "title": "“The steepness of the compute curve for agentic reasoning architectures is outpacing our internal forecasts.”",
+    "source": "Sam Altman (@sama)",
+    "time": "3小时前",
+    "core": "【语义透视】：内部对多步推理智能体（Reasoning Agents）的算力消耗弹性预期出现非线性拉升，将颠覆现行 Token 定价与边际成本模型。",
+    "body": "【语义透视】：内部对多步推理智能体（Reasoning Agents）的算力消耗弹性预期出现非线性拉升，将颠覆现行 Token 定价与边际成本模型。",
+    "takeaways": [
+      "呼应近期 o-series 系列模型在长链路规划与工具调用测试中算力消耗比通用对话高出 14-22 倍。"
+    ],
+    "tags": [
+      "MSFT",
+      "AI_AGENTS",
+      "REASONING"
+    ],
+    "topics": [
+      "算力互连"
+    ],
+    "score": 92,
+    "date": "2026-09-08T11:28",
+    "category": "宏观策略与独家"
+  },
+  {
+    "id": "demo-deepseek-v3",
+    "kind": "following",
+    "title": "DeepSeek-V3 架构解析：细粒度 MoE 路由与全节点 DualPipe 通信计算双重叠机制",
+    "source": "DeepSeek AI Lab",
+    "time": "4小时前",
+    "core": "【研判核心】：无辅助损失负载均衡（Auxiliary-loss-free）与 FP8 混合精度训练，实现近乎零通信气泡的跨机调度效率。",
+    "body": "【研判核心】：无辅助损失负载均衡（Auxiliary-loss-free）与 FP8 混合精度训练，实现近乎零通信气泡的跨机调度效率。",
+    "takeaways": [
+      "671B 激活参数仅 37B，训练成本仅为美系同代前沿模型的 1/10，跨集群 All-to-All 延迟降至 18μs。",
+      "国产算力集群软件栈与以太网 RoCEv2 交换机方案迎来结构性验证与商业部署提速。"
+    ],
+    "tags": [
+      "DEEPSEEK",
+      "MOE",
+      "FP8"
+    ],
+    "topics": [
+      "开源权重",
+      "算力互连"
+    ],
+    "score": 91,
+    "date": "2026-09-08T10:28",
+    "category": "AI 算法与工程"
+  },
+  {
+    "id": "demo-meta-synthetic",
+    "kind": "following",
+    "title": "Meta 建立全新自进化合成数据管线：解决下一代 Llama 预训练公网文本耗尽危机",
+    "source": "Meta FAIR 追踪组",
+    "time": "6小时前",
+    "core": "【技术范式】：以对抗式多智能体博弈环境自动生成结构化长文本，合成数据占比预计将在 Llama 4 中突破 45%。",
+    "body": "【技术范式】：以对抗式多智能体博弈环境自动生成结构化长文本，合成数据占比预计将在 Llama 4 中突破 45%。",
+    "takeaways": [
+      "在数学与逻辑推理基准中，纯高质量合成数据微调的模型崩溃率较传统抽样过滤降低 34%。"
+    ],
+    "tags": [
+      "META",
+      "LLAMA4",
+      "SYNTH_DATA"
+    ],
+    "topics": [
+      "开源权重"
+    ],
+    "score": 82,
+    "date": "2026-09-08T08:28",
+    "category": "AI 算法与工程"
+  },
+  {
+    "id": "demo-operator",
+    "kind": "following",
+    "title": "OpenAI 秘密内测 Operator 自主代理服务：从被动工具调用全面转向多步主动执行",
+    "source": "OpenAI Research 简报",
+    "time": "8小时前",
+    "core": "【产品动向】：深度融合视觉与 DOM 树解析引擎，支持跨 SaaS 应用自动订票、财务审计报销与复杂数据表自动填报。",
+    "body": "【产品动向】：深度融合视觉与 DOM 树解析引擎，支持跨 SaaS 应用自动订票、财务审计报销与复杂数据表自动填报。",
+    "takeaways": [
+      "RPA 行业传统巨头面临技术底座重构压力，端到端多模态代理将在企业端触发新一轮集成替换潮。"
+    ],
+    "tags": [
+      "OPERATOR",
+      "RPA",
+      "AUTOMATION"
+    ],
+    "topics": [
+      "智能体与工作流"
+    ],
+    "score": 88,
+    "date": "2026-09-08T06:28",
+    "category": "AI 算法与工程"
+  },
+  {
+    "id": "demo-stripe-agents",
+    "kind": "following",
+    "title": "Stripe 发布 Agentic Commerce SDK：支持智能体自授权支付与多方可信担保闭环",
+    "source": "Stripe 开发者内参",
+    "time": "10小时前",
+    "core": "【商业基建】：通过将人类授权额度凭证（Delegated Credentials）与动态风控结合，首度打通无人参与下的机器间微支付。",
+    "body": "【商业基建】：通过将人类授权额度凭证（Delegated Credentials）与动态风控结合，首度打通无人参与下的机器间微支付。",
+    "takeaways": [
+      "首批接入测试包括 GitHub Copilot 与 Perplexity 自动订阅采购，结算转化成功率达 99.2%。"
+    ],
+    "tags": [
+      "STRIPE",
+      "COMMERCE",
+      "FINTECH"
+    ],
+    "topics": [
+      "智能体与工作流"
+    ],
+    "score": 80,
+    "date": "2026-09-08T04:28",
+    "category": "AI 算法与工程"
+  }
+]

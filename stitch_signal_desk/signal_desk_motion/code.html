@@ -1,0 +1,968 @@
+<!DOCTYPE html><html lang="zh-CN" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-active":"#a9583e","on-secondary-container":"#006f61","on-error":"#ffffff","secondary-container":"#95f0dd","error-container":"#ffdad6","primary-container":"#ad5f45","primary-fixed":"#ffdbd0","secondary":"#006b5c","secondary-fixed-dim":"#7cd7c4","outline-variant":"#dac1ba","on-tertiary":"#ffffff","tertiary":"#845008","ink":"#141413","canvas":"#faf9f5","muted-soft":"#8e8b82","surface-container":"#f0edeb","on-surface":"#1c1c1a","surface-dim":"#dcd9d7","warning":"#d4a017","body":"#3d3d3a","accent-teal":"#5db8a6","on-background":"#1c1c1a","on-primary":"#ffffff","on-tertiary-fixed":"#2c1700","surface-dark":"#181715","tertiary-fixed-dim":"#feb86b","on-dark-soft":"#a09d96","accent-amber":"#e8a55a","surface-dark-elevated":"#252320","on-primary-fixed":"#390c00","on-tertiary-fixed-variant":"#683d00","on-surface-variant":"#54433e","surface-dark-soft":"#1f1e1b","on-primary-container":"#fffbff","surface-container-high":"#ebe8e5","surface-container-low":"#f6f3f1","surface":"#fcf9f6","muted":"#6c6a64","surface-cream-strong":"#e8e0d2","surface-soft":"#f5f0e8","body-strong":"#252523","surface-card":"#efe9de","inverse-primary":"#ffb59d","primary-fixed-dim":"#ffb59d","primary":"#8f482f","surface-container-lowest":"#ffffff","on-secondary-fixed-variant":"#005045","on-tertiary-container":"#fffbff","tertiary-fixed":"#ffdcbc","tertiary-container":"#a16823","hairline-soft":"#ebe6df","background":"#fcf9f6","on-secondary-fixed":"#00201b","surface-bright":"#fcf9f6","on-primary-fixed-variant":"#75331c","inverse-surface":"#31302f","error":"#c64545","success":"#5db872","on-error-container":"#93000a","hairline":"#e6dfd8","on-dark":"#faf9f5","secondary-fixed":"#98f3e0","surface-tint":"#924a31","primary-disabled":"#e6dfd8","outline":"#87736d","on-secondary":"#ffffff","surface-variant":"#e5e2e0","surface-container-highest":"#e5e2e0","inverse-on-surface":"#f3f0ee"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin-tablet":"24px","lg":"24px","xxl":"48px","xl":"32px","margin-desktop":"32px","sm":"12px","gutter":"16px","xs":"8px","xxs":"4px","section":"96px","md":"16px","margin-mobile":"16px"},fontFamily:{"body-sm":["Inter"],"caption":["Inter"],"title-lg":["Inter"],"display-md-mobile":["EB Garamond"],"display-md":["EB Garamond"],"code":["JetBrains Mono"],"body-md":["Inter"],"title-md":["Inter"]},fontSize:{"body-sm":["13px",{lineHeight:"20px",letterSpacing:"0px",fontWeight:"400"}],"caption":["12px",{lineHeight:"17px",letterSpacing:"0px",fontWeight:"500"}],"title-lg":["20px",{lineHeight:"26px",letterSpacing:"0px",fontWeight:"500"}],"display-md-mobile":["24px",{lineHeight:"30px",letterSpacing:"-0.3px",fontWeight:"400"}],"display-md":["28px",{lineHeight:"34px",letterSpacing:"-0.5px",fontWeight:"400"}],"code":["13px",{lineHeight:"21px",letterSpacing:"0px",fontWeight:"400"}],"body-md":["14px",{lineHeight:"22px",letterSpacing:"0px",fontWeight:"400"}],"title-md":["16px",{lineHeight:"22px",letterSpacing:"0px",fontWeight:"500"}]}}}};</script></head><body class="bg-canvas text-body font-body-md antialiased selection:bg-primary-fixed selection:text-ink"><aside class="fixed left-0 top-0 h-full w-[200px] bg-canvas z-50 flex flex-col justify-between select-none shadow-[1px_0_0_0_rgba(230,223,216,1)]"><div class="flex flex-col flex-1 min-h-0"><div class="h-14 px-md flex items-center gap-xs shadow-[0_1px_0_0_rgba(230,223,216,1)]"><div class="w-5 h-5 rounded-full bg-ink flex items-center justify-center"><span class="material-symbols-outlined text-canvas text-[13px]">auto_awesome</span></div><div class="flex items-baseline gap-xxs"><span class="font-display-md text-ink text-[17px] font-semibold tracking-tight">Signal Desk</span></div></div><div class="flex-1 overflow-y-auto px-xs py-sm space-y-md"><div class="space-y-xxs"><div class="px-xs py-xxs font-caption text-caption text-muted tracking-wider uppercase">个人空间</div><nav class="space-y-[2px]" data-active-classes="bg-surface-cream-strong text-ink font-medium"><a class="flex items-center gap-xs px-xs py-[6px] rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-soft hover:text-on-surface transition-colors" data-path="personal-morning-brief" href="#"><span class="material-symbols-outlined text-[17px] text-muted">wb_twilight</span><span class="">私人早报</span></a><a class="flex items-center gap-xs px-xs py-[6px] rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-soft hover:text-on-surface transition-colors" data-path="following" href="#"><span class="material-symbols-outlined text-[17px] text-muted">radar</span><span class="">正在关注</span></a><a class="flex items-center gap-xs px-xs py-[6px] rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-soft hover:text-on-surface transition-colors" data-path="my-reading" href="#"><span class="material-symbols-outlined text-[17px] text-muted">menu_book</span><span class="">我的阅读</span></a><a class="flex items-center gap-xs px-xs py-[6px] rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-soft hover:text-on-surface transition-colors" data-path="footprint" href="#"><span class="material-symbols-outlined text-[17px] text-muted">history</span><span class="">浏览足迹</span></a><a class="flex items-center gap-xs px-xs py-[6px] rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-soft hover:text-on-surface transition-colors" data-path="daily-review" href="#"><span class="material-symbols-outlined text-[17px] text-muted">fact_check</span><span class="">今日回顾</span></a></nav></div><div class="space-y-xxs"><div class="px-xs py-xxs font-caption text-caption text-muted tracking-wider uppercase">公共广场</div><nav class="space-y-[2px]" data-active-classes="bg-surface-cream-strong text-ink font-medium"><a class="flex items-center gap-xs px-xs py-[6px] rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-soft hover:text-on-surface transition-colors" data-path="featured-events" href="#"><span class="material-symbols-outlined text-[17px] text-muted">verified</span><span class="">精选事件</span></a><a class="flex items-center gap-xs px-xs py-[6px] rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-soft hover:text-on-surface transition-colors" data-path="content-square" href="#"><span class="material-symbols-outlined text-[17px] text-muted">dashboard</span><span class="">内容广场</span></a><a class="flex items-center gap-xs px-xs py-[6px] rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-soft hover:text-on-surface transition-colors" data-path="daily-dispatch" href="#"><span class="material-symbols-outlined text-[17px] text-muted">newspaper</span><span class="">每日早报</span></a><a aria-current="page" class="flex items-center gap-xs px-xs py-[6px] rounded-lg transition-colors bg-surface-cream-strong text-ink font-medium" data-path="curated-weekly" href="#"><span class="material-symbols-outlined text-[17px] text-muted">auto_stories</span><span class="">精选周刊</span></a><a class="flex items-center gap-xs px-xs py-[6px] rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-soft hover:text-on-surface transition-colors" data-path="topic-analysis" href="#"><span class="material-symbols-outlined text-[17px] text-muted">insights</span><span class="">主题解读</span></a><a class="flex items-center gap-xs px-xs py-[6px] rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-soft hover:text-on-surface transition-colors" data-path="event-timeline" href="#"><span class="material-symbols-outlined text-[17px] text-muted">timeline</span><span class="">事件时间轴</span></a></nav></div></div></div><div class="p-xs shadow-[0_-1px_0_0_rgba(230,223,216,1)] space-y-xxs bg-canvas"><div class="flex items-center justify-between px-xs py-xxs rounded-lg bg-surface-soft/60"><div class="flex items-center gap-xs"><span class="w-2 h-2 rounded-full bg-success animate-pulse"></span><span class="font-caption text-caption text-body">本地服务运行中</span></div><span class="material-symbols-outlined text-[14px] text-muted">terminal</span></div><nav data-active-classes="bg-surface-cream-strong text-ink font-medium"><a class="flex items-center gap-xs px-xs py-[6px] rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-soft hover:text-on-surface transition-colors" data-path="system-settings" href="#"><span class="material-symbols-outlined text-[17px] text-muted">settings</span><span class="">系统设置</span></a></nav></div></aside><div class="pl-[200px]"><header class="fixed top-0 left-[200px] right-0 h-14 bg-canvas/90 backdrop-blur-md z-40 flex items-center justify-between px-lg shadow-[0_1px_0_0_rgba(230,223,216,1)]"><div class="flex items-center w-full max-w-md"><div class="flex items-center w-full bg-surface-card/60 hover:bg-surface-card transition-colors rounded-lg px-sm py-[6px] shadow-[0_0_0_1px_rgba(230,223,216,1)] text-muted focus-within:shadow-[0_0_0_1px_#cc785c] focus-within:bg-surface-container-lowest"><span class="material-symbols-outlined text-[17px] mr-xs text-muted">search</span><span class="font-body-sm text-body-sm text-muted-soft select-none flex-1 truncate">搜索事件、信源、笔记...</span><kbd class="font-code text-code px-xxs py-[1px] bg-surface-soft rounded shadow-[0_0_0_1px_rgba(230,223,216,1)] text-muted text-[11px]">⌘K</kbd></div></div><div class="flex items-center gap-md"><button class="flex items-center gap-xxs px-xs py-[5px] rounded-lg font-body-sm text-body-sm text-body hover:bg-surface-soft transition-colors" type="button"><span class="material-symbols-outlined text-[16px] text-muted">translate</span><span class="">简体中文</span><span class="material-symbols-outlined text-[14px] text-muted">expand_more</span></button><button aria-label="Toggle Theme" class="w-8 h-8 rounded-lg flex items-center justify-center text-muted hover:text-ink hover:bg-surface-soft transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">light_mode</span></button><div class="h-4 w-[1px] bg-hairline"></div><div class="flex items-center gap-xs pl-xxs pr-xs py-[4px] rounded-lg hover:bg-surface-soft cursor-pointer transition-colors"><div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[16px]">person</span></div><div class="flex flex-col text-left"><span class="font-body-sm text-body-sm font-medium text-ink leading-tight">首席分析师</span><span class="font-caption text-[11px] text-muted leading-tight">工作台</span></div><span class="material-symbols-outlined text-[16px] text-muted">unfold_more</span></div></div></header><main class="relative pt-14 w-full min-h-screen bg-canvas"><div class="flex flex-col w-full">
+<!-- Macro Intelligence Radar Header -->
+<section class="px-xl py-lg bg-surface-container-low shadow-[0_1px_0_0_rgba(230,223,216,1)]">
+<div class="max-w-[1400px] mx-auto flex flex-col gap-lg">
+<!-- Top Title Bar with Actions -->
+<div class="flex flex-wrap items-center justify-between gap-md">
+<div class="flex flex-col gap-xxs">
+<div class="flex items-center gap-xs">
+<span class="font-caption-uppercase text-caption-uppercase text-primary uppercase tracking-widest flex items-center gap-xxs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>正在关注</span>
+
+
+</div>
+
+</div>
+<!-- Action Micro-interaction Group -->
+<div class="flex items-center gap-sm">
+<!-- Hold to Confirm Archive Button (Motion Pattern 4) -->
+<div class="relative group select-none">
+<button class="relative overflow-hidden flex items-center gap-xs px-md py-[8px] rounded-lg bg-surface-card shadow-sm hover:shadow text-body font-button text-button transition-all cursor-pointer" id="holdArchiveBtn">
+<!-- Internal Progress Layer -->
+<span class="absolute left-0 top-0 bottom-0 bg-primary-light transition-[width] duration-75 ease-linear pointer-events-none" id="holdProgress" style="width: 0%;"></span>
+<span class="material-symbols-outlined text-[17px] text-muted transition-transform group-active:scale-90" id="holdIcon">archive</span>
+<span class="relative z-10 font-medium" id="holdLabel">批量归档已读</span>
+
+</button>
+</div>
+<!-- Refresh Data Counter Trigger (Motion Pattern 5) -->
+<button class="flex items-center gap-xs px-md py-[8px] rounded-lg bg-primary hover:bg-primary-hover text-on-primary font-button text-button shadow-sm hover:shadow transition-all active:scale-95 cursor-pointer" id="refreshDataBtn">
+<span class="material-symbols-outlined text-[17px] transition-transform duration-500" id="refreshIcon">sync</span>
+<span class="">刷新情报</span>
+</button>
+</div>
+</div>
+<!-- Metric Cards Grid (Motion Pattern 5: Number Roll & Trend) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
+<!-- Metric 1: Core Events -->
+<div class="bg-surface-card rounded-xl p-md shadow-sm hover:shadow transition-all duration-300 flex flex-col justify-between">
+<div class="flex items-center justify-between text-muted">
+<span class="font-caption text-caption flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">priority_high</span>
+              今日核心突发事件
+            </span>
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+</div>
+<div class="mt-sm flex items-baseline justify-between">
+<div class="flex items-baseline gap-xxs">
+<span class="font-display-lg text-display-lg font-bold text-ink transition-all" id="metricEvents">18</span>
+<span class="font-caption text-caption text-muted">件</span>
+</div>
+<div class="flex items-center gap-xxs px-xs py-[3px] rounded-full bg-success/10 text-success text-[11px] font-caption font-semibold">
+<span class="material-symbols-outlined text-[13px]">arrow_upward</span>
+<span class="">+4 环比今日</span>
+</div>
+</div>
+
+</div>
+<!-- Metric 2: Cross Source Validation -->
+<div class="bg-surface-card rounded-xl p-md shadow-sm hover:shadow transition-all duration-300 flex flex-col justify-between">
+<div class="flex items-center justify-between text-muted">
+<span class="font-caption text-caption flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px] text-accent-teal">fact_check</span>
+              交叉验证信源置信度
+            </span>
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+<div class="mt-sm flex items-baseline justify-between">
+<div class="flex items-baseline gap-xxs">
+<span class="font-display-lg text-display-lg font-bold text-ink transition-all" id="metricSources">96.4</span>
+<span class="font-caption text-caption text-muted">%</span>
+</div>
+<div class="w-16 bg-surface-soft h-2 rounded-full overflow-hidden self-center">
+<div class="bg-accent-teal h-full rounded-full transition-all duration-700" id="metricSourcesBar" style="width: 96.4%;"></div>
+</div>
+</div>
+
+</div>
+<!-- Metric 3: Weekly Output -->
+<div class="bg-surface-card rounded-xl p-md shadow-sm hover:shadow transition-all duration-300 flex flex-col justify-between">
+<div class="flex items-center justify-between text-muted">
+<span class="font-caption text-caption flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px] text-warning">library_books</span>
+              近 7 天收录情报
+            </span>
+<span class="material-symbols-outlined text-[16px]">cloud_upload</span>
+</div>
+<div class="mt-sm flex items-baseline justify-between">
+<div class="flex items-baseline gap-xxs">
+<span class="font-display-lg text-display-lg font-bold text-ink transition-all" id="metricWeekly">142</span>
+<span class="font-caption text-caption text-muted">篇</span>
+</div>
+<div class="flex items-center gap-xxs px-xs py-[3px] rounded-full bg-primary-light text-on-primary-dark text-[11px] font-caption font-semibold">
+<span class="">日均 20.3 篇</span>
+</div>
+</div>
+
+</div>
+<!-- Metric 4: Active Watchdogs -->
+<div class="bg-surface-card rounded-xl p-md shadow-sm hover:shadow transition-all duration-300 flex flex-col justify-between">
+<div class="flex items-center justify-between text-muted">
+<span class="font-caption text-caption flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px] text-primary-active">radar</span>
+              正在活跃监听通道
+            </span>
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-success"></span>
+</span>
+</div>
+<div class="mt-sm flex items-baseline justify-between">
+<div class="flex items-baseline gap-xxs">
+<span class="font-display-lg text-display-lg font-bold text-ink transition-all" id="metricWatch">50</span>
+<span class="font-caption text-caption text-muted">个信源</span>
+</div>
+<div class="font-code text-[11px] text-muted bg-surface-soft px-xs py-[2px] rounded">
+              0 离线异常
+            </div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+<!-- Sticky Dynamic Filter & Morph Tab Bar (Motion Pattern 2) -->
+<div class="sticky top-14 z-30 bg-canvas/95 backdrop-blur-md px-xl py-sm shadow-[0_1px_0_0_rgba(230,223,216,1)]">
+<div class="max-w-[1400px] mx-auto flex flex-wrap items-center justify-between gap-md">
+<!-- Smooth Pill Tab Navigation with Spring Sliding Indicator -->
+<div class="relative flex items-center bg-surface-card p-[3px] rounded-xl shadow-inner select-none" id="tabContainer">
+<!-- Floating Spring Pill Element -->
+<div class="absolute top-[3px] bottom-[3px] bg-ink rounded-lg transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] pointer-events-none shadow-sm" id="slidingPill" style="left: 3px; width: 119px;"></div>
+<button class="tab-item relative z-10 px-md py-[6px] rounded-lg font-caption text-caption transition-colors duration-200 flex items-center gap-xs cursor-pointer text-on-primary" data-cat="all">
+<span class="">全部情报</span>
+<span class="pill-count text-[11px] px-1.5 py-0.2 rounded bg-white/20 text-on-primary">142</span>
+</button>
+<button class="tab-item relative z-10 px-md py-[6px] rounded-lg hover:text-ink font-caption text-caption transition-colors duration-200 flex items-center gap-xs cursor-pointer text-muted" data-cat="compute">
+<span class="">大模型算力</span>
+<span class="pill-count text-[11px] px-1.5 py-0.2 rounded bg-surface-soft text-muted">48</span>
+</button>
+<button class="tab-item relative z-10 px-md py-[6px] rounded-lg hover:text-ink font-caption text-caption transition-colors duration-200 flex items-center gap-xs cursor-pointer text-muted" data-cat="agents">
+<span class="">智能体 Agent</span>
+<span class="pill-count text-[11px] px-1.5 py-0.2 rounded bg-surface-soft text-muted">36</span>
+</button>
+<button class="tab-item relative z-10 px-md py-[6px] rounded-lg hover:text-ink font-caption text-caption transition-colors duration-200 flex items-center gap-xs cursor-pointer text-muted" data-cat="robotics">
+<span class="">具身智能</span>
+<span class="pill-count text-[11px] px-1.5 py-0.2 rounded bg-surface-soft text-muted">28</span>
+</button>
+<button class="tab-item relative z-10 px-md py-[6px] rounded-lg hover:text-ink font-caption text-caption transition-colors duration-200 flex items-center gap-xs cursor-pointer text-muted" data-cat="open-source">
+<span class="">开源与生态</span>
+<span class="pill-count text-[11px] px-1.5 py-0.2 rounded bg-surface-soft text-muted">30</span>
+</button>
+</div>
+<!-- Quick Drag & Sorter Hint -->
+<div class="hidden md:flex items-center gap-md font-caption text-caption text-muted">
+<div class="flex items-center gap-xxs">
+
+
+</div>
+<div class="h-3 w-[1px] bg-hairline"></div>
+<div class="flex items-center gap-xxs">
+<span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+<span class="">按重要度优先排序</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Reorderable Intelligence Cards Feed (Motion Pattern 3 & 1) -->
+<main class="max-w-[1400px] mx-auto w-full px-xl py-lg">
+<div class="flex flex-col gap-md" id="cardsList"><!-- Card Item 1: OpenAI Broadcom -->
+<article class="intelligence-card group relative bg-surface-card hover:bg-surface-card-hover rounded-xl p-md shadow-sm hover:shadow-md transition-all duration-200 border border-hairline flex flex-col gap-xs cursor-pointer select-none" data-cat="compute" data-id="1" draggable="true">
+  <div class="flex items-center justify-between gap-xs pb-xxs border-b border-hairline/60">
+    <div class="flex flex-wrap items-center gap-xs min-w-0">
+      <div class="drag-handle text-muted-soft hover:text-ink cursor-grab active:cursor-grabbing rounded flex items-center justify-center transition-colors" title="按住拖拽排序">
+        <span class="material-symbols-outlined text-[16px]">drag_indicator</span>
+      </div>
+      <span class="font-caption text-[11px] px-xs py-[2px] rounded bg-primary-light text-on-primary-dark font-medium">大模型算力</span>
+      <span class="font-caption text-[11px] text-body-strong font-medium">Broadcom 8-K • Reuters</span>
+      <span class="text-hairline-strong">•</span>
+      <span class="font-caption text-[11px] text-muted">9 分钟前</span>
+      <span class="font-caption text-[11px] text-accent-teal font-medium flex items-center gap-[2px] ml-xs bg-success/10 px-1.5 py-[1px] rounded-full">
+        <span class="material-symbols-outlined text-[12px]">verified</span> 3源交叉核实
+      </span>
+    </div>
+    <div class="flex items-center gap-xxs shrink-0">
+      <span class="font-code text-[11px] text-primary font-semibold bg-primary-fixed/50 px-xs py-[2px] rounded">S-Rank 极高重要</span>
+    </div>
+  </div>
+  <div class="flex flex-col gap-xxs">
+    <h2 class="font-title-md text-title-md text-ink group-hover:text-primary transition-colors line-clamp-1">
+      OpenAI 与博通敲定 10nm 定制张量芯片（ASIC）投片排期，首批算力预计 2026 年中交付
+    </h2>
+    <p class="font-body-sm text-body-sm text-body line-clamp-2 leading-snug">
+      内部代号「Prometheus」的专用神经网络集群协同架构披露，台积电 CoWoS-L 产线已预留超高规格中介层产能。旨在彻底降低对第三方 GPU 溢价与 CUDA 软件生态的绝对依赖，能效比预估提升 2.8 倍。
+    </p>
+  </div>
+  <div class="flex items-center justify-between pt-xxs mt-xxs border-t border-hairline/60 font-caption text-caption text-muted">
+    <div class="flex items-center gap-md">
+      <span class="flex items-center gap-xxs text-muted"><span class="material-symbols-outlined text-[15px] text-accent-teal">schema</span> 影响范式: 硬件成本重构</span>
+      <span class="flex items-center gap-xxs text-muted"><span class="material-symbols-outlined text-[15px]">attachment</span> 3 篇原始研报</span>
+    </div>
+    <div class="flex items-center gap-xs shrink-0">
+      <button class="copy-link-btn flex items-center gap-xxs px-xs py-1 rounded text-muted hover:text-ink hover:bg-surface-soft transition-all text-[12px] font-caption" data-title="OpenAI 与博通定制芯片投片" title="快速复制研判摘要">
+        <span class="material-symbols-outlined text-[15px] copy-icon">content_copy</span>
+        <span class="copy-label">引用</span>
+      </button>
+      <button class="flex items-center gap-xxs px-xs py-1 rounded text-primary hover:bg-primary-light/50 transition-all text-[12px] font-caption font-medium">
+        <span class="">研读洞察</span>
+        <span class="material-symbols-outlined text-[15px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+      </button>
+    </div>
+  </div>
+</article>
+
+<!-- Card Item 2: Anthropic TAU-Bench -->
+<article class="intelligence-card group relative bg-surface-card hover:bg-surface-card-hover rounded-xl p-md shadow-sm hover:shadow-md transition-all duration-200 border border-hairline flex flex-col gap-xs cursor-pointer select-none" data-cat="agents" data-id="2" draggable="true">
+  <div class="flex items-center justify-between gap-xs pb-xxs border-b border-hairline/60">
+    <div class="flex flex-wrap items-center gap-xs min-w-0">
+      <div class="drag-handle text-muted-soft hover:text-ink cursor-grab active:cursor-grabbing rounded flex items-center justify-center transition-colors" title="按住拖拽排序">
+        <span class="material-symbols-outlined text-[16px]">drag_indicator</span>
+      </div>
+      <span class="font-caption text-[11px] px-xs py-[2px] rounded bg-secondary-container/50 text-on-secondary-container font-medium">智能体 Agent</span>
+      <span class="font-caption text-[11px] text-body-strong font-medium">Anthropic Research • GitHub</span>
+      <span class="text-hairline-strong">•</span>
+      <span class="font-caption text-[11px] text-muted">26 分钟前</span>
+      <span class="font-caption text-[11px] text-accent-teal font-medium flex items-center gap-[2px] ml-xs bg-success/10 px-1.5 py-[1px] rounded-full">
+        <span class="material-symbols-outlined text-[12px]">verified</span> 4仓库复现
+      </span>
+    </div>
+    <div class="flex items-center gap-xxs shrink-0">
+      <span class="font-code text-[11px] text-body-strong bg-surface-soft px-xs py-[2px] rounded font-semibold">A-Rank 核心指标</span>
+    </div>
+  </div>
+  <div class="flex flex-col gap-xxs">
+    <h2 class="font-title-md text-title-md text-ink group-hover:text-primary transition-colors line-clamp-1">
+      Anthropic 发布 Computer Use 核心评估基准 TAU-Bench 2.0，自主长程执行解决率跃升至 41.2%
+    </h2>
+    <p class="font-body-sm text-body-sm text-body line-clamp-2 leading-snug">
+      针对跨系统原生桌面键鼠操作的长程执行任务，最新基准引入动态不确定弹窗、异步网络延迟与反爬风控自我纠错链条，在航空公司改签与复杂 CRM 录入任务中表现出显著低幻觉稳定性。
+    </p>
+  </div>
+  <div class="flex items-center justify-between pt-xxs mt-xxs border-t border-hairline/60 font-caption text-caption text-muted">
+    <div class="flex items-center gap-md">
+      <span class="flex items-center gap-xxs text-muted"><span class="material-symbols-outlined text-[15px] text-accent-teal">query_stats</span> 解决率: 41.2% (前值 25.7%)</span>
+      <span class="flex items-center gap-xxs text-muted"><span class="material-symbols-outlined text-[15px]">code</span> 官方开源测试集</span>
+    </div>
+    <div class="flex items-center gap-xs shrink-0">
+      <button class="copy-link-btn flex items-center gap-xxs px-xs py-1 rounded text-muted hover:text-ink hover:bg-surface-soft transition-all text-[12px] font-caption" data-title="TAU-Bench 2.0 基准发布" title="快速复制研判摘要">
+        <span class="material-symbols-outlined text-[15px] copy-icon">content_copy</span>
+        <span class="copy-label">引用</span>
+      </button>
+      <button class="flex items-center gap-xxs px-xs py-1 rounded text-primary hover:bg-primary-light/50 transition-all text-[12px] font-caption font-medium">
+        <span class="">研读洞察</span>
+        <span class="material-symbols-outlined text-[15px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+      </button>
+    </div>
+  </div>
+</article>
+
+<!-- Card Item 3: Figure 02 -->
+<article class="intelligence-card group relative bg-surface-card hover:bg-surface-card-hover rounded-xl p-md shadow-sm hover:shadow-md transition-all duration-200 border border-hairline flex flex-col gap-xs cursor-pointer select-none" data-cat="robotics" data-id="3" draggable="true">
+  <div class="flex items-center justify-between gap-xs pb-xxs border-b border-hairline/60">
+    <div class="flex flex-wrap items-center gap-xs min-w-0">
+      <div class="drag-handle text-muted-soft hover:text-ink cursor-grab active:cursor-grabbing rounded flex items-center justify-center transition-colors" title="按住拖拽排序">
+        <span class="material-symbols-outlined text-[16px]">drag_indicator</span>
+      </div>
+      <span class="font-caption text-[11px] px-xs py-[2px] rounded bg-primary-light text-on-primary-dark font-medium">具身智能</span>
+      <span class="font-caption text-[11px] text-body-strong font-medium">BMW Group Factory • Figure AI</span>
+      <span class="text-hairline-strong">•</span>
+      <span class="font-caption text-[11px] text-muted">1 小时前</span>
+      <span class="font-caption text-[11px] text-warning font-medium flex items-center gap-[2px] ml-xs bg-primary-light/50 px-1.5 py-[1px] rounded-full">
+        <span class="material-symbols-outlined text-[12px]">schedule</span> 工业工况实测中
+      </span>
+    </div>
+    <div class="flex items-center gap-xxs shrink-0">
+      <span class="font-code text-[11px] text-body-strong bg-surface-soft px-xs py-[2px] rounded font-semibold">A-Rank 产业实操</span>
+    </div>
+  </div>
+  <div class="flex flex-col gap-xxs">
+    <h2 class="font-title-md text-title-md text-ink group-hover:text-primary transition-colors line-clamp-1">
+      Figure 02 人形机器人产线实测闭环：连续 320 循环标准件抓取装配实现零脱手、零停线
+    </h2>
+    <p class="font-body-sm text-body-sm text-body line-clamp-2 leading-snug">
+      在宝马斯帕坦堡冲压车间，Figure 02 结合微调端到端视觉语言模型（VLM）与毫秒级触觉反馈伺服控制，首次达成全班次无人工干涉自主补位，工件放置精度达到 ±0.8mm。
+    </p>
+  </div>
+  <div class="flex items-center justify-between pt-xxs mt-xxs border-t border-hairline/60 font-caption text-caption text-muted">
+    <div class="flex items-center gap-md">
+      <span class="flex items-center gap-xxs text-muted"><span class="material-symbols-outlined text-[15px] text-primary">precision_manufacturing</span> 吞吐量: 320 件/小时</span>
+      <span class="flex items-center gap-xxs text-muted"><span class="material-symbols-outlined text-[15px]">speed</span> MTBF &gt; 48h</span>
+    </div>
+    <div class="flex items-center gap-xs shrink-0">
+      <button class="copy-link-btn flex items-center gap-xxs px-xs py-1 rounded text-muted hover:text-ink hover:bg-surface-soft transition-all text-[12px] font-caption" data-title="Figure 02 宝马实测" title="快速复制研判摘要">
+        <span class="material-symbols-outlined text-[15px] copy-icon">content_copy</span>
+        <span class="copy-label">引用</span>
+      </button>
+      <button class="flex items-center gap-xxs px-xs py-1 rounded text-primary hover:bg-primary-light/50 transition-all text-[12px] font-caption font-medium">
+        <span class="">研读洞察</span>
+        <span class="material-symbols-outlined text-[15px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+      </button>
+    </div>
+  </div>
+</article>
+
+<!-- Card Item 4: Chameleon-Next -->
+<article class="intelligence-card group relative bg-surface-card hover:bg-surface-card-hover rounded-xl p-md shadow-sm hover:shadow-md transition-all duration-200 border border-hairline flex flex-col gap-xs cursor-pointer select-none" data-cat="open-source" data-id="4" draggable="true">
+  <div class="flex items-center justify-between gap-xs pb-xxs border-b border-hairline/60">
+    <div class="flex flex-wrap items-center gap-xs min-w-0">
+      <div class="drag-handle text-muted-soft hover:text-ink cursor-grab active:cursor-grabbing rounded flex items-center justify-center transition-colors" title="按住拖拽排序">
+        <span class="material-symbols-outlined text-[16px]">drag_indicator</span>
+      </div>
+      <span class="font-caption text-[11px] px-xs py-[2px] rounded bg-surface-card-subtle text-body-strong font-medium">开源与生态</span>
+      <span class="font-caption text-[11px] text-body-strong font-medium">Meta AI • ENS Paris</span>
+      <span class="text-hairline-strong">•</span>
+      <span class="font-caption text-[11px] text-muted">2 小时前</span>
+      <span class="font-caption text-[11px] text-accent-teal font-medium flex items-center gap-[2px] ml-xs bg-success/10 px-1.5 py-[1px] rounded-full">
+        <span class="material-symbols-outlined text-[12px]">verified</span> Apache 2.0 官方声明
+      </span>
+    </div>
+    <div class="flex items-center gap-xxs shrink-0">
+      <span class="font-code text-[11px] text-body-strong bg-surface-soft px-xs py-[2px] rounded font-semibold">B-Rank 重点观察</span>
+    </div>
+  </div>
+  <div class="flex flex-col gap-xxs">
+    <h2 class="font-title-md text-title-md text-ink group-hover:text-primary transition-colors line-clamp-1">
+      Meta 联合巴黎高师开源 128k 上下文轻量视觉 MoE「Chameleon-Next」权重与推断代码
+    </h2>
+    <p class="font-body-sm text-body-sm text-body line-clamp-2 leading-snug">
+      消费级单卡 RTX 4090 即可运行 30 FPS 高清视频流理解与实时多模态交互，激活参数仅 3.2B，大幅降低边缘侧高精度视频理解的部署门槛，已同步发布 vLLM 兼容加速分支。
+    </p>
+  </div>
+  <div class="flex items-center justify-between pt-xxs mt-xxs border-t border-hairline/60 font-caption text-caption text-muted">
+    <div class="flex items-center gap-md">
+      <span class="flex items-center gap-xxs text-muted"><span class="material-symbols-outlined text-[15px] text-accent-teal">memory</span> 单卡 4090 (24GB) 适配</span>
+      <span class="flex items-center gap-xxs text-muted"><span class="material-symbols-outlined text-[15px]">star</span> GitHub 4.6k Stars</span>
+    </div>
+    <div class="flex items-center gap-xs shrink-0">
+      <button class="copy-link-btn flex items-center gap-xxs px-xs py-1 rounded text-muted hover:text-ink hover:bg-surface-soft transition-all text-[12px] font-caption" data-title="Meta Chameleon-Next 开源" title="快速复制研判摘要">
+        <span class="material-symbols-outlined text-[15px] copy-icon">content_copy</span>
+        <span class="copy-label">引用</span>
+      </button>
+      <button class="flex items-center gap-xxs px-xs py-1 rounded text-primary hover:bg-primary-light/50 transition-all text-[12px] font-caption font-medium">
+        <span class="">研读洞察</span>
+        <span class="material-symbols-outlined text-[15px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+      </button>
+    </div>
+  </div>
+</article>
+
+<!-- Card Item 5: Groq LPU Cluster -->
+<article class="intelligence-card group relative bg-surface-card hover:bg-surface-card-hover rounded-xl p-md shadow-sm hover:shadow-md transition-all duration-200 border border-hairline flex flex-col gap-xs cursor-pointer select-none" data-cat="compute" data-id="5" draggable="true">
+  <div class="flex items-center justify-between gap-xs pb-xxs border-b border-hairline/60">
+    <div class="flex flex-wrap items-center gap-xs min-w-0">
+      <div class="drag-handle text-muted-soft hover:text-ink cursor-grab active:cursor-grabbing rounded flex items-center justify-center transition-colors" title="按住拖拽排序">
+        <span class="material-symbols-outlined text-[16px]">drag_indicator</span>
+      </div>
+      <span class="font-caption text-[11px] px-xs py-[2px] rounded bg-primary-light text-on-primary-dark font-medium">大模型算力</span>
+      <span class="font-caption text-[11px] text-body-strong font-medium">SemiAnalysis • Groq Inc</span>
+      <span class="text-hairline-strong">•</span>
+      <span class="font-caption text-[11px] text-muted">3 小时前</span>
+      <span class="font-caption text-[11px] text-accent-teal font-medium flex items-center gap-[2px] ml-xs bg-success/10 px-1.5 py-[1px] rounded-full">
+        <span class="material-symbols-outlined text-[12px]">verified</span> 独立能效审计
+      </span>
+    </div>
+    <div class="flex items-center gap-xxs shrink-0">
+      <span class="font-code text-[11px] text-primary font-semibold bg-primary-fixed/50 px-xs py-[2px] rounded">S-Rank 战略态势</span>
+    </div>
+  </div>
+  <div class="flex flex-col gap-xxs">
+    <h2 class="font-title-md text-title-md text-ink group-hover:text-primary transition-colors line-clamp-1">
+      Groq 首个万卡级 SRAM 直连 LPU 集群实测：Llama-3.3-70B 首字延迟压至 14ms，能效较 H100 改善 4.2 倍
+    </h2>
+    <p class="font-body-sm text-body-sm text-body line-clamp-2 leading-snug">
+      利用确定性芯片间网络（TSN）舍弃传统 GPU 繁重的 HBM 显存调度，在超大并发金融高频风控与语音流式对话场景中，将推理延迟标准差缩小至微秒级区间。
+    </p>
+  </div>
+  <div class="flex items-center justify-between pt-xxs mt-xxs border-t border-hairline/60 font-caption text-caption text-muted">
+    <div class="flex items-center gap-md">
+      <span class="flex items-center gap-xxs text-muted"><span class="material-symbols-outlined text-[15px] text-warning">bolt</span> TTFT: 14ms • 750 T/s</span>
+      <span class="flex items-center gap-xxs text-muted"><span class="material-symbols-outlined text-[15px]">database</span> 纯片上 SRAM 架构</span>
+    </div>
+    <div class="flex items-center gap-xs shrink-0">
+      <button class="copy-link-btn flex items-center gap-xxs px-xs py-1 rounded text-muted hover:text-ink hover:bg-surface-soft transition-all text-[12px] font-caption" data-title="Groq 万卡 LPU 实测" title="快速复制研判摘要">
+        <span class="material-symbols-outlined text-[15px] copy-icon">content_copy</span>
+        <span class="copy-label">引用</span>
+      </button>
+      <button class="flex items-center gap-xxs px-xs py-1 rounded text-primary hover:bg-primary-light/50 transition-all text-[12px] font-caption font-medium">
+        <span class="">研读洞察</span>
+        <span class="material-symbols-outlined text-[15px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+      </button>
+    </div>
+  </div>
+</article>
+
+<!-- Card Item 6: Microsoft Copilot Studio Autonomous Agents -->
+<article class="intelligence-card group relative bg-surface-card hover:bg-surface-card-hover rounded-xl p-md shadow-sm hover:shadow-md transition-all duration-200 border border-hairline flex flex-col gap-xs cursor-pointer select-none" data-cat="agents" data-id="6" draggable="true">
+  <div class="flex items-center justify-between gap-xs pb-xxs border-b border-hairline/60">
+    <div class="flex flex-wrap items-center gap-xs min-w-0">
+      <div class="drag-handle text-muted-soft hover:text-ink cursor-grab active:cursor-grabbing rounded flex items-center justify-center transition-colors" title="按住拖拽排序">
+        <span class="material-symbols-outlined text-[16px]">drag_indicator</span>
+      </div>
+      <span class="font-caption text-[11px] px-xs py-[2px] rounded bg-secondary-container/50 text-on-secondary-container font-medium">智能体 Agent</span>
+      <span class="font-caption text-[11px] text-body-strong font-medium">Microsoft Build • ZDNet</span>
+      <span class="text-hairline-strong">•</span>
+      <span class="font-caption text-[11px] text-muted">4 小时前</span>
+      <span class="font-caption text-[11px] text-accent-teal font-medium flex items-center gap-[2px] ml-xs bg-success/10 px-1.5 py-[1px] rounded-full">
+        <span class="material-symbols-outlined text-[12px]">verified</span> 微软官方发布会
+      </span>
+    </div>
+    <div class="flex items-center gap-xxs shrink-0">
+      <span class="font-code text-[11px] text-body-strong bg-surface-soft px-xs py-[2px] rounded font-semibold">A-Rank 商业闭环</span>
+    </div>
+  </div>
+  <div class="flex flex-col gap-xxs">
+    <h2 class="font-title-md text-title-md text-ink group-hover:text-primary transition-colors line-clamp-1">
+      微软全面上线 Copilot Studio 自主智能体网络：支持跨 ERP 与供应链全托管事务自动化
+    </h2>
+    <p class="font-body-sm text-body-sm text-body line-clamp-2 leading-snug">
+      新增十项企业级开箱即用 Agent，打通 SAP、Workday 及 ServiceNow 数据孤岛，企业可一键设定多 Agent 协同授权边界与人类审核（HITL）兜底策略。
+    </p>
+  </div>
+  <div class="flex items-center justify-between pt-xxs mt-xxs border-t border-hairline/60 font-caption text-caption text-muted">
+    <div class="flex items-center gap-md">
+      <span class="flex items-center gap-xxs text-muted"><span class="material-symbols-outlined text-[15px] text-accent-teal">domain</span> 覆盖 60% 财富500强集成协议</span>
+      <span class="flex items-center gap-xxs text-muted"><span class="material-symbols-outlined text-[15px]">security</span> SOC2 / ISO27001</span>
+    </div>
+    <div class="flex items-center gap-xs shrink-0">
+      <button class="copy-link-btn flex items-center gap-xxs px-xs py-1 rounded text-muted hover:text-ink hover:bg-surface-soft transition-all text-[12px] font-caption" data-title="Copilot Studio 自主智能体" title="快速复制研判摘要">
+        <span class="material-symbols-outlined text-[15px] copy-icon">content_copy</span>
+        <span class="copy-label">引用</span>
+      </button>
+      <button class="flex items-center gap-xxs px-xs py-1 rounded text-primary hover:bg-primary-light/50 transition-all text-[12px] font-caption font-medium">
+        <span class="">研读洞察</span>
+        <span class="material-symbols-outlined text-[15px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+      </button>
+    </div>
+  </div>
+</article>
+
+<!-- Card Item 7: DeepSeek-V3 Open Source Multi-Head Latent Attention -->
+<article class="intelligence-card group relative bg-surface-card hover:bg-surface-card-hover rounded-xl p-md shadow-sm hover:shadow-md transition-all duration-200 border border-hairline flex flex-col gap-xs cursor-pointer select-none" data-cat="open-source" data-id="7" draggable="true">
+  <div class="flex items-center justify-between gap-xs pb-xxs border-b border-hairline/60">
+    <div class="flex flex-wrap items-center gap-xs min-w-0">
+      <div class="drag-handle text-muted-soft hover:text-ink cursor-grab active:cursor-grabbing rounded flex items-center justify-center transition-colors" title="按住拖拽排序">
+        <span class="material-symbols-outlined text-[16px]">drag_indicator</span>
+      </div>
+      <span class="font-caption text-[11px] px-xs py-[2px] rounded bg-surface-card-subtle text-body-strong font-medium">开源与生态</span>
+      <span class="font-caption text-[11px] text-body-strong font-medium">DeepSeek AI • arXiv</span>
+      <span class="text-hairline-strong">•</span>
+      <span class="font-caption text-[11px] text-muted">5 小时前</span>
+      <span class="font-caption text-[11px] text-accent-teal font-medium flex items-center gap-[2px] ml-xs bg-success/10 px-1.5 py-[1px] rounded-full">
+        <span class="material-symbols-outlined text-[12px]">verified</span> 完整权重开放
+      </span>
+    </div>
+    <div class="flex items-center gap-xxs shrink-0">
+      <span class="font-code text-[11px] text-primary font-semibold bg-primary-fixed/50 px-xs py-[2px] rounded">S-Rank 重磅突破</span>
+    </div>
+  </div>
+  <div class="flex flex-col gap-xxs">
+    <h2 class="font-title-md text-title-md text-ink group-hover:text-primary transition-colors line-clamp-1">
+      DeepSeek-V3 架构细节与全量权重公布：多头潜在注意力（MLA）使 KV 缓存压缩达 93.3%
+    </h2>
+    <p class="font-body-sm text-body-sm text-body line-clamp-2 leading-snug">
+      采用 671B 总参数与 37B 激活参数的无辅助损失负载均衡 MoE 架构，全面刷新同规模开源模型基准，训练总算力成本仅 557 万美元，为业界树立极致能效范式。
+    </p>
+  </div>
+  <div class="flex items-center justify-between pt-xxs mt-xxs border-t border-hairline/60 font-caption text-caption text-muted">
+    <div class="flex items-center gap-md">
+      <span class="flex items-center gap-xxs text-muted"><span class="material-symbols-outlined text-[15px] text-accent-teal">compress</span> KV Cache -93.3%</span>
+      <span class="flex items-center gap-xxs text-muted"><span class="material-symbols-outlined text-[15px]">attach_money</span> 训练成本 $5.57M</span>
+    </div>
+    <div class="flex items-center gap-xs shrink-0">
+      <button class="copy-link-btn flex items-center gap-xxs px-xs py-1 rounded text-muted hover:text-ink hover:bg-surface-soft transition-all text-[12px] font-caption" data-title="DeepSeek-V3 权重公布" title="快速复制研判摘要">
+        <span class="material-symbols-outlined text-[15px] copy-icon">content_copy</span>
+        <span class="copy-label">引用</span>
+      </button>
+      <button class="flex items-center gap-xxs px-xs py-1 rounded text-primary hover:bg-primary-light/50 transition-all text-[12px] font-caption font-medium">
+        <span class="">研读洞察</span>
+        <span class="material-symbols-outlined text-[15px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+      </button>
+    </div>
+  </div>
+</article></div>
+<!-- Empty State (Conditional) -->
+<div class="hidden flex-col items-center justify-center py-xxl text-center" id="emptyNotice">
+<span class="material-symbols-outlined text-[48px] text-muted-soft">filter_list_off</span>
+<h3 class="font-title-md text-ink mt-sm">当前分类下暂无新的未读条目</h3>
+<p class="font-body-sm text-muted mt-xxs">所有监听信源均保持最新状态，系统将在新变动时自动推流。</p>
+</div>
+</main>
+<!-- Deep Study Shared Drawer (Motion Pattern 1) -->
+<div class="fixed inset-0 bg-ink/30 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300" id="drawerBackdrop"></div>
+<aside class="fixed right-0 top-0 bottom-0 w-full max-w-[620px] bg-canvas z-50 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] select-none" id="studyDrawer">
+<!-- Drawer Header -->
+<div class="px-lg py-md shadow-[0_1px_0_0_rgba(230,223,216,1)] bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">menu_book</span>
+<div>
+<span class="font-caption-uppercase text-caption-uppercase text-primary">Intelligence Briefing</span>
+<h3 class="font-title-md text-title-md text-ink">深度研读与交叉溯源工作区</h3>
+</div>
+</div>
+<div class="flex items-center gap-xs">
+<button class="flex items-center gap-xxs px-sm py-[6px] rounded-lg bg-surface-card shadow-sm hover:shadow text-body font-caption text-caption transition-all" id="copyDrawerBtn">
+<span class="material-symbols-outlined text-[15px]" id="drawerCopyIcon">content_copy</span>
+<span id="drawerCopyText" class="">导出 Markdown</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-muted hover:text-ink hover:bg-surface-soft transition-colors cursor-pointer" id="closeDrawerBtn" title="关闭 (ESC)">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</div>
+<!-- Drawer Body -->
+<div class="flex-1 overflow-y-auto p-lg space-y-lg">
+<!-- Drawer Active Headline -->
+<div class="space-y-xs">
+<div class="flex items-center gap-xs">
+<span class="font-caption text-[11px] px-xs py-[2px] rounded bg-primary-light text-on-primary-dark font-medium" id="drawerCategoryPill">大模型算力</span>
+<span class="text-hairline-strong">•</span>
+<span class="font-caption text-[11px] text-muted" id="drawerTime">9 分钟前收录</span>
+<span class="text-hairline-strong">•</span>
+<span class="font-code text-[11px] text-accent-teal">P-Index: 0.94</span>
+</div>
+<h2 class="font-display-md text-display-md text-ink leading-snug" id="drawerTitle">
+          OpenAI 与博通敲定 10nm 定制张量加速芯片投片排期，首批算力预计 2026 年中交付
+        </h2>
+</div>
+<!-- Fact vs Opinion Matrix -->
+<div class="bg-surface-card rounded-xl p-md shadow-sm space-y-sm">
+<div class="flex items-center justify-between shadow-[0_1px_0_0_rgba(230,223,216,0.7)] pb-xs">
+<span class="font-caption-uppercase text-caption-uppercase text-muted flex items-center gap-xxs">
+<span class="material-symbols-outlined text-[16px] text-primary">balance</span>
+            事实 VS 观点研判矩阵
+          </span>
+<span class="font-code text-[11px] text-muted">AI 自动萃取</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+<div class="bg-surface-soft/60 rounded-lg p-sm space-y-xxs">
+<span class="font-caption text-caption text-success font-semibold flex items-center gap-xxs">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> 交叉核实验证事实 (Facts)
+            </span>
+<ul class="font-body-sm text-body-sm text-body space-y-1 list-disc list-inside">
+<li class="">博通 2024 Q3 财报电话会确认两家顶级云服务商定制 ASIC 新项目进入试产阶段；</li>
+<li class="">台积电 CoWoS-L 产能预定名单中出现博通代订的高规格硅中介层指标。</li>
+</ul>
+</div>
+<div class="bg-surface-soft/60 rounded-lg p-sm space-y-xxs">
+<span class="font-caption text-caption text-warning font-semibold flex items-center gap-xxs">
+<span class="material-symbols-outlined text-[14px]">lightbulb</span> 行业分析师研判 (Opinions)
+            </span>
+<ul class="font-body-sm text-body-sm text-body space-y-1 list-disc list-inside">
+<li class="">OpenAI 试图通过自研架构降低对英伟达 CUDA 软件生态的强绑定，构建硬件议价护城河；</li>
+<li class="">2026 投产时间线意味着 GPT-6 早期训练仍将完全倚赖现有通用 GPU 集群。</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Source Cross-reference Chain -->
+<div class="space-y-xs">
+<h4 class="font-caption-uppercase text-caption-uppercase text-muted">信源溯源链条 (Provenance Sources)</h4>
+<div class="flex flex-col gap-xxs">
+<a class="flex items-center justify-between p-sm rounded-lg bg-surface-card hover:bg-surface-card-hover shadow-sm transition-all text-body" href="#">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px] text-accent-teal">link</span>
+<span class="font-body-sm text-body-sm font-medium text-ink">Broadcom Investor Relations - Form 8-K Filing</span>
+</div>
+<span class="font-code text-caption text-muted">100% 原始信源</span>
+</a>
+<a class="flex items-center justify-between p-sm rounded-lg bg-surface-card hover:bg-surface-card-hover shadow-sm transition-all text-body" href="#">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px] text-accent-teal">link</span>
+<span class="font-body-sm text-body-sm font-medium text-ink">Reuters Tech Wire: Inside OpenAI's Silicon Blueprint</span>
+</div>
+<span class="font-code text-caption text-muted">权威二手交叉</span>
+</a>
+</div>
+</div>
+<!-- Timeline of Causality -->
+<div class="space-y-xs">
+<h4 class="font-caption-uppercase text-caption-uppercase text-muted">因果演进时间线 (Causality Roadmap)</h4>
+<div class="relative pl-md space-y-md before:absolute before:left-1 before:top-2 before:bottom-2 before:w-[2px] before:bg-hairline">
+<div class="relative flex flex-col gap-xxs">
+<span class="absolute -left-[19px] top-1 w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-canvas"></span>
+<span class="font-code text-[11px] text-primary font-medium">2024.Q4 (当前阶段)</span>
+<span class="font-body-sm text-body-sm text-ink font-medium">流片架构设计封顶，协同编译器团队启动指令集定制</span>
+</div>
+<div class="relative flex flex-col gap-xxs">
+<span class="absolute -left-[19px] top-1 w-2.5 h-2.5 rounded-full bg-hairline-strong ring-4 ring-canvas"></span>
+<span class="font-code text-[11px] text-muted font-medium">2025.Q3 (预估)</span>
+<span class="font-body-sm text-body-sm text-body">首批 A0 步进工程样片交付，搭建内部 1024-Node 小型验证集群</span>
+</div>
+<div class="relative flex flex-col gap-xxs">
+<span class="absolute -left-[19px] top-1 w-2.5 h-2.5 rounded-full bg-hairline-strong ring-4 ring-canvas"></span>
+<span class="font-code text-[11px] text-muted font-medium">2026.Q2 (全面量产)</span>
+<span class="font-body-sm text-body-sm text-body">投入十万卡级推理数据中心，全面替换既有高功耗节点</span>
+</div>
+</div>
+</div>
+<!-- Analyst Quick Note Pad -->
+<div class="bg-surface-card rounded-xl p-md shadow-sm space-y-xs">
+<div class="flex items-center justify-between">
+<span class="font-caption-uppercase text-caption-uppercase text-muted flex items-center gap-xxs">
+<span class="material-symbols-outlined text-[15px] text-primary">edit_note</span>
+            分析师随行笔记
+          </span>
+<span class="font-code text-[11px] text-muted" id="noteSavedStatus">已实时自动暂存</span>
+</div>
+<textarea class="w-full bg-surface-soft/60 rounded-lg p-sm font-body-sm text-body-sm text-ink focus:outline-none focus:bg-surface-card transition-all h-24 resize-none" id="analystNotes" placeholder="输入您的研判批注，按 Enter 自动关联至本条事件卡片..."></textarea>
+</div>
+</div>
+<!-- Drawer Footer Actions -->
+<div class="px-lg py-sm shadow-[0_-1px_0_0_rgba(230,223,216,1)] bg-surface-card flex items-center justify-between">
+<div class="flex items-center gap-xs">
+<button class="px-sm py-1.5 rounded text-error hover:bg-error-container/30 text-caption font-caption transition-colors">
+          标记为误报噪声
+        </button>
+</div>
+<div class="flex items-center gap-xs">
+<button class="px-md py-1.5 rounded-lg bg-surface-soft hover:bg-surface-container-high text-body font-button text-button transition-colors" id="closeDrawerFooterBtn">
+          收起抽屉
+        </button>
+<button class="px-md py-1.5 rounded-lg bg-primary hover:bg-primary-hover text-on-primary font-button text-button transition-colors">
+          加入核心监测雷达
+        </button>
+</div>
+</div>
+</aside>
+<!-- Notification Toast Container -->
+<div class="fixed bottom-6 right-6 bg-ink text-on-dark px-md py-sm rounded-xl shadow-xl z-50 flex items-center gap-xs transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300" id="toast">
+<span class="material-symbols-outlined text-accent-amber text-[18px]" id="toastIcon">check_circle</span>
+<span class="font-body-sm text-body-sm" id="toastMessage">已成功归档 14 条已读情报</span>
+</div>
+</div>
+<script>
+  // Pure Vanilla JavaScript Implementation of all 5 Motion.dev Patterns
+
+  // Pattern 5: Metric Roll Animation
+  function rollNumber(elemId, targetValue, duration = 800, isFloat = false) {
+    const el = document.getElementById(elemId);
+    if (!el) return;
+    const startValue = parseFloat(el.innerText) || 0;
+    const startTime = performance.now();
+
+    function update(time) {
+      const elapsed = time - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const current = startValue + (targetValue - startValue) * ease;
+      
+      el.innerText = isFloat ? current.toFixed(1) : Math.round(current);
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.innerText = isFloat ? targetValue.toFixed(1) : targetValue;
+      }
+    }
+    requestAnimationFrame(update);
+  }
+
+  // Handle Manual Refresh
+  const refreshBtn = document.getElementById('refreshDataBtn');
+  const refreshIcon = document.getElementById('refreshIcon');
+  refreshBtn?.addEventListener('click', () => {
+    refreshIcon.classList.add('rotate-180');
+    setTimeout(() => refreshIcon.classList.remove('rotate-180'), 500);
+
+    // Roll metric values dynamically
+    rollNumber('metricEvents', Math.floor(18 + Math.random() * 5));
+    rollNumber('metricSources', 95.0 + Math.random() * 3.5, 800, true);
+    rollNumber('metricWeekly', 142 + Math.floor(Math.random() * 8));
+    rollNumber('metricWatch', 50 + Math.floor(Math.random() * 3));
+
+    // Stagger reload cards
+    staggerCards();
+    showToast('情报流与信源节点已全量更新同步', 'sync');
+  });
+
+  // Stagger Cards In Animation (Pattern 3 stagger effect)
+  function staggerCards() {
+    const cards = document.querySelectorAll('.intelligence-card');
+    cards.forEach((card, idx) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(12px)';
+      card.style.transition = 'none';
+      setTimeout(() => {
+        card.style.transition = 'opacity 300ms ease, transform 300ms cubic-bezier(0.16, 1, 0.3, 1)';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, idx * 45);
+    });
+  }
+  staggerCards();
+
+  // Pattern 2: Smooth Tabs with Floating Anchor Pill
+  const tabContainer = document.getElementById('tabContainer');
+  const slidingPill = document.getElementById('slidingPill');
+  const tabItems = document.querySelectorAll('.tab-item');
+  const cards = document.querySelectorAll('.intelligence-card');
+
+  tabItems.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Move sliding pill
+      const left = tab.offsetLeft;
+      const width = tab.offsetWidth;
+      slidingPill.style.left = left + 'px';
+      slidingPill.style.width = width + 'px';
+
+      // Update active tab styles
+      tabItems.forEach(t => {
+        t.classList.remove('text-on-primary');
+        t.classList.add('text-muted');
+        const count = t.querySelector('.pill-count');
+        if (count) {
+          count.classList.remove('bg-white/20', 'text-on-primary');
+          count.classList.add('bg-surface-soft', 'text-muted');
+        }
+      });
+      tab.classList.remove('text-muted');
+      tab.classList.add('text-on-primary');
+      const activeCount = tab.querySelector('.pill-count');
+      if (activeCount) {
+        activeCount.classList.remove('bg-surface-soft', 'text-muted');
+        activeCount.classList.add('bg-white/20', 'text-on-primary');
+      }
+
+      // Filter cards
+      const category = tab.getAttribute('data-cat');
+      let visibleCount = 0;
+      cards.forEach((card, index) => {
+        const itemCat = card.getAttribute('data-cat');
+        if (category === 'all' || itemCat === category) {
+          card.style.display = 'flex';
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(8px)';
+          setTimeout(() => {
+            card.style.transition = 'opacity 250ms ease, transform 250ms cubic-bezier(0.16,1,0.3,1)';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, visibleCount * 35);
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      const emptyNotice = document.getElementById('emptyNotice');
+      if (visibleCount === 0) {
+        emptyNotice.classList.remove('hidden');
+        emptyNotice.classList.add('flex');
+      } else {
+        emptyNotice.classList.add('hidden');
+        emptyNotice.classList.remove('flex');
+      }
+    });
+  });
+
+  // Pattern 3: Drag and Drop Reordering of Intelligence Items
+  const cardsList = document.getElementById('cardsList');
+  let draggedCard = null;
+
+  cards.forEach(card => {
+    card.addEventListener('dragstart', (e) => {
+      draggedCard = card;
+      e.dataTransfer.effectAllowed = 'move';
+      card.classList.add('opacity-40', 'scale-[0.99]', 'shadow-lg');
+    });
+
+    card.addEventListener('dragend', () => {
+      card.classList.remove('opacity-40', 'scale-[0.99]', 'shadow-lg');
+      draggedCard = null;
+    });
+
+    card.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      const bounding = card.getBoundingClientRect();
+      const offset = e.clientY - bounding.top;
+      if (offset > bounding.height / 2) {
+        card.after(draggedCard);
+      } else {
+        card.before(draggedCard);
+      }
+    });
+  });
+
+  // Pattern 4: Hold-to-Confirm Button Micro-interaction
+  const holdBtn = document.getElementById('holdArchiveBtn');
+  const holdProgress = document.getElementById('holdProgress');
+  const holdLabel = document.getElementById('holdLabel');
+  const holdIcon = document.getElementById('holdIcon');
+  let holdTimer = null;
+  let holdStart = null;
+  const HOLD_DURATION = 1000;
+
+  function startHold(e) {
+    e.preventDefault();
+    holdStart = performance.now();
+    holdIcon.innerText = 'hourglass_top';
+
+    function tick(now) {
+      const elapsed = now - holdStart;
+      const pct = Math.min((elapsed / HOLD_DURATION) * 100, 100);
+      holdProgress.style.width = pct + '%';
+
+      if (pct < 100) {
+        holdTimer = requestAnimationFrame(tick);
+      } else {
+        triggerArchiveComplete();
+      }
+    }
+    holdTimer = requestAnimationFrame(tick);
+  }
+
+  function cancelHold() {
+    if (holdTimer) cancelAnimationFrame(holdTimer);
+    holdProgress.style.width = '0%';
+    if (holdLabel.innerText !== '已归档完毕') {
+      holdIcon.innerText = 'archive';
+    }
+  }
+
+  function triggerArchiveComplete() {
+    cancelAnimationFrame(holdTimer);
+    holdProgress.style.width = '100%';
+    holdIcon.innerText = 'check_circle';
+    holdIcon.classList.add('text-success');
+    holdLabel.innerText = '已归档完毕';
+    showToast('所有已阅核心情报已归档至分析报告库', 'verified');
+
+    setTimeout(() => {
+      holdProgress.style.width = '0%';
+      holdIcon.innerText = 'archive';
+      holdIcon.classList.remove('text-success');
+      holdLabel.innerText = '按住 1s 批量归档已读';
+    }, 2400);
+  }
+
+  holdBtn.addEventListener('mousedown', startHold);
+  holdBtn.addEventListener('touchstart', startHold, { passive: false });
+  window.addEventListener('mouseup', cancelHold);
+  window.addEventListener('touchend', cancelHold);
+
+  // Pattern 4: Micro-motion Copy Feedback
+  document.querySelectorAll('.copy-link-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const title = btn.getAttribute('data-title') || '情报卡片';
+      navigator.clipboard?.writeText(window.location.href + '#' + encodeURIComponent(title));
+
+      const icon = btn.querySelector('.copy-icon');
+      const label = btn.querySelector('.copy-label');
+      
+      icon.innerText = 'check';
+      icon.classList.add('text-success');
+      label.innerText = '已复制';
+      btn.classList.add('bg-success/10');
+
+      showToast('已复制研判引用链接至剪贴板', 'link');
+
+      setTimeout(() => {
+        icon.innerText = 'content_copy';
+        icon.classList.remove('text-success');
+        label.innerText = '引用';
+        btn.classList.remove('bg-success/10');
+      }, 1800);
+    });
+  });
+
+  // Drawer Copy Button
+  const drawerCopyBtn = document.getElementById('copyDrawerBtn');
+  const drawerCopyIcon = document.getElementById('drawerCopyIcon');
+  const drawerCopyText = document.getElementById('drawerCopyText');
+  drawerCopyBtn?.addEventListener('click', () => {
+    const title = document.getElementById('drawerTitle').innerText;
+    navigator.clipboard?.writeText('# ' + title + '\n\n来源: Signal Desk 交叉验证引擎\n置信度: 96.4%');
+
+    drawerCopyIcon.innerText = 'check';
+    drawerCopyIcon.classList.add('text-success');
+    drawerCopyText.innerText = '已复制 Markdown';
+
+    showToast('完整研判报告 Markdown 已写入剪贴板', 'description');
+
+    setTimeout(() => {
+      drawerCopyIcon.innerText = 'content_copy';
+      drawerCopyIcon.classList.remove('text-success');
+      drawerCopyText.innerText = '导出 Markdown';
+    }, 1800);
+  });
+
+  // Pattern 1: Shared Layout & Drawer Interaction
+  const drawer = document.getElementById('studyDrawer');
+  const backdrop = document.getElementById('drawerBackdrop');
+  const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+  const closeDrawerFooterBtn = document.getElementById('closeDrawerFooterBtn');
+
+  function openDrawer(titleText, categoryText) {
+    if (titleText) document.getElementById('drawerTitle').innerText = titleText;
+    if (categoryText) document.getElementById('drawerCategoryPill').innerText = categoryText;
+
+    backdrop.classList.remove('pointer-events-none', 'opacity-0');
+    backdrop.classList.add('opacity-100');
+
+    drawer.classList.remove('translate-x-full');
+    drawer.classList.add('translate-x-0');
+  }
+
+  function closeDrawer() {
+    backdrop.classList.remove('opacity-100');
+    backdrop.classList.add('opacity-0', 'pointer-events-none');
+
+    drawer.classList.remove('translate-x-0');
+    drawer.classList.add('translate-x-full');
+  }
+
+  cards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      // Prevent opening drawer if user clicked drag handle or copy button
+      if (e.target.closest('.drag-handle') || e.target.closest('.copy-link-btn')) return;
+
+      const title = card.querySelector('h2').innerText;
+      const cat = card.querySelector('.font-caption').innerText;
+      openDrawer(title, cat);
+    });
+  });
+
+  closeDrawerBtn?.addEventListener('click', closeDrawer);
+  closeDrawerFooterBtn?.addEventListener('click', closeDrawer);
+  backdrop?.addEventListener('click', closeDrawer);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDrawer();
+  });
+
+  // Toast Helper
+  function showToast(msg, iconName = 'check_circle') {
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toastMessage');
+    const toastIcon = document.getElementById('toastIcon');
+
+    toastMsg.innerText = msg;
+    toastIcon.innerText = iconName;
+
+    toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+    toast.classList.add('translate-y-0', 'opacity-100');
+
+    setTimeout(() => {
+      toast.classList.remove('translate-y-0', 'opacity-100');
+      toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+    }, 2800);
+  }
+
+  // Autosave notes indicator micro-feedback
+  const notesArea = document.getElementById('analystNotes');
+  const notesStatus = document.getElementById('noteSavedStatus');
+  let noteTimer = null;
+  notesArea?.addEventListener('input', () => {
+    notesStatus.innerText = '正在保存...';
+    notesStatus.classList.add('text-primary');
+    clearTimeout(noteTimer);
+    noteTimer = setTimeout(() => {
+      notesStatus.innerText = '已实时自动暂存';
+      notesStatus.classList.remove('text-primary');
+    }, 600);
+  });
+</script></main></div>
+
+</body></html>

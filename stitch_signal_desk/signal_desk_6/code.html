@@ -1,0 +1,1226 @@
+<!DOCTYPE html><html lang="zh-CN" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-active":"#b45309","on-secondary-container":"#006f66","on-error":"#ffffff","secondary-container":"#86f2e4","error-container":"#ffdad6","primary-container":"#b15f00","primary-fixed":"#ffdcc3","secondary":"#006a61","secondary-fixed-dim":"#6bd8cb","outline-variant":"#dbc2b0","on-tertiary":"#ffffff","tertiary":"#006096","ink":"#171614","canvas":"#faf8f5","muted-soft":"#a39f93","surface-container":"#f2ede9","on-surface":"#1c1b19","surface-dim":"#ded9d5","warning":"#d97706","body":"#46443e","accent-teal":"#0d9488","on-background":"#1c1b19","on-primary":"#ffffff","on-tertiary-fixed":"#001d32","surface-dark":"#1c1b18","tertiary-fixed-dim":"#96ccff","on-dark-soft":"#a8a49a","accent-amber":"#d97706","surface-dark-elevated":"#2b2924","on-primary-fixed":"#2f1500","on-tertiary-fixed-variant":"#004a75","on-surface-variant":"#554336","surface-dark-soft":"#252320","on-primary-container":"#fffbff","surface-container-high":"#ece7e3","surface-container-low":"#f8f3ef","surface":"#f5f2eb","muted":"#757269","surface-cream-strong":"#f3efe6","surface-soft":"#f5f0e8","body-strong":"#2b2926","surface-card":"#ffffff","inverse-primary":"#ffb77d","primary-fixed-dim":"#ffb77d","primary":"#8d4b00","surface-container-lowest":"#ffffff","on-secondary-fixed-variant":"#005049","on-tertiary-container":"#fdfcff","tertiary-fixed":"#cee5ff","tertiary-container":"#007abd","hairline-soft":"#ebe6df","background":"#fdf8f5","on-secondary-fixed":"#00201d","surface-bright":"#fdf8f5","on-primary-fixed-variant":"#6e3900","inverse-surface":"#32302e","error":"#dc2626","success":"#16a34a","on-error-container":"#93000a","hairline":"#e8e3d8","on-dark":"#faf8f5","secondary-fixed":"#89f5e7","surface-tint":"#904d00","primary-disabled":"#e8e3d8","outline":"#887364","on-secondary":"#ffffff","surface-variant":"#e6e2de","surface-container-highest":"#e6e2de","inverse-on-surface":"#f5f0ec","primary-hover":"#a35600"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"margin-tablet":"24px","lg":"24px","xxl":"48px","xl":"32px","margin-desktop":"32px","sm":"12px","gutter":"16px","xs":"8px","xxs":"4px","section":"96px","md":"16px","margin-mobile":"16px"},fontFamily:{"body-sm":["Inter"],"caption":["Inter"],"title-lg":["Inter"],"display-md-mobile":["Newsreader"],"display-md":["Newsreader"],"code":["JetBrains Mono"],"body-md":["Inter"],"title-md":["Inter"]},fontSize:{"body-sm":["13px",{lineHeight:"20px",letterSpacing:"0px",fontWeight:"400"}],"caption":["12px",{lineHeight:"17px",letterSpacing:"0px",fontWeight:"500"}],"title-lg":["20px",{lineHeight:"26px",letterSpacing:"-0.2px",fontWeight:"600"}],"display-md-mobile":["24px",{lineHeight:"30px",letterSpacing:"-0.3px",fontWeight:"500"}],"display-md":["28px",{lineHeight:"34px",letterSpacing:"-0.5px",fontWeight:"500"}],"code":["13px",{lineHeight:"20px",letterSpacing:"0px",fontWeight:"400"}],"body-md":["15px",{lineHeight:"24px",letterSpacing:"0px",fontWeight:"400"}],"title-md":["16px",{lineHeight:"22px",letterSpacing:"0px",fontWeight:"600"}]}}}};</script></head><body class="bg-canvas text-body font-body-md antialiased selection:bg-primary-fixed selection:text-ink"><aside class="fixed left-0 top-0 h-full w-[200px] bg-[#faf6f1] border-r border-hairline flex flex-col justify-between z-50 select-none"><div class="flex flex-col flex-1 min-h-0"><div class="h-14 px-4 flex items-center gap-3 border-b border-hairline"><div class="size-6 text-warning flex items-center justify-center"><svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path><path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path></svg></div><div class="flex flex-col"><span class="text-ink font-display-md font-semibold tracking-tight text-[16px] leading-none">Signal Desk</span></div></div><div class="p-3 flex flex-col gap-4 overflow-y-auto flex-1"><div class="space-y-1"><div class="px-2 py-1 text-[11px] font-caption uppercase tracking-wider text-muted font-semibold">个人空间</div><a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150" href="#"><span class="material-symbols-outlined text-[18px]">bookmark_heart</span><span class="">私人早报</span></a><a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150" href="#"><span class="material-symbols-outlined text-[18px]">radar</span><span class="">正在关注</span></a><a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150 group" href="#"><span class="material-symbols-outlined text-[18px]">folder_special</span><span class="">我的阅读</span><span class="ml-auto text-[10px] bg-[#ebe5dc] group-hover:bg-primary-fixed group-hover:text-primary text-muted font-code px-1.5 py-0.5 rounded transition-colors">3</span></a><a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150" href="#"><span class="material-symbols-outlined text-[18px]">history</span><span class="">浏览足迹</span></a><a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150" href="#"><span class="material-symbols-outlined text-[18px]">summarize</span><span class="">今日回顾</span></a></div><div class="space-y-1 pt-1 border-t border-hairline/60"><div class="px-2 py-1 text-[11px] font-caption uppercase tracking-wider text-muted font-semibold">公共广场</div><a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150" href="#"><span class="material-symbols-outlined text-[18px]">bolt</span><span class="">精选事件</span></a><a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150" href="#"><span class="material-symbols-outlined text-[18px]">explore</span><span class="">内容广场</span></a><a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150" href="#"><span class="material-symbols-outlined text-[18px]">newspaper</span><span class="">每日早报</span></a><a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150" href="#"><span class="material-symbols-outlined text-[18px]">menu_book</span><span class="">精选周刊</span></a><a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150" href="#"><span class="material-symbols-outlined text-[18px]">lightbulb</span><span class="">主题解读</span></a><a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150" href="#"><span class="material-symbols-outlined text-[18px]">timeline</span><span class="">事件时间轴</span></a></div></div></div><div class="p-3 border-t border-hairline flex flex-col gap-2 bg-[#fcf9f6]"><div class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-[#f7f3ec] border border-hairline"><span class="relative flex w-2 h-2"><span class="animate-pulse absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span><span class="relative inline-flex rounded-full w-2 h-2 bg-success"></span></span><div class="flex flex-col"><span class="text-[11px] font-semibold text-ink leading-tight">本地服务运行中</span><span class="text-[10px] text-muted font-code">端口: 8080 · 双向同步</span></div></div><a aria-current="page" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-warning/10 text-primary font-semibold text-xs border-l-2 border-warning shadow-sm transition-all" href="#"><span class="material-symbols-outlined text-[17px] text-primary">settings</span><span class="">系统设置</span><span class="ml-auto w-1.5 h-1.5 rounded-full bg-primary"></span></a></div></aside><div class="pl-[200px]"><header class="fixed top-0 left-[200px] right-0 h-14 bg-[#fcf9f6]/95 backdrop-blur-md border-b border-[#e8e3d8] z-40 flex items-center justify-between px-8 py-2.5">
+<div class="flex items-center w-80 md:w-96">
+<div class="flex items-center w-full bg-[#f4efe6]/70 border border-[#e5dfd3] rounded-lg px-3 py-1.5 text-xs text-[#171614] shadow-sm transition-all focus-within:border-primary focus-within:bg-surface-container-lowest focus-within:shadow-[0_0_0_1px_#8d4b00] cursor-text">
+<span class="material-symbols-outlined text-[17px] mr-2 text-[#8c827a]">search</span>
+<input class="bg-transparent border-none outline-none text-xs text-[#171614] placeholder-[#8c827a] flex-1 font-body-sm min-w-0" id="header-search-input" oninput="onGlobalSearch(this.value)" placeholder="搜索事件、信源、笔记..." type="text">
+<kbd class="font-code text-[10px] px-1.5 py-0.5 bg-[#ebe5dc] border border-[#e5dfd3] rounded text-muted select-none ml-1">⌘K</kbd>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1 px-2 py-1 rounded-lg font-body-sm text-xs text-body hover:bg-surface-soft transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-muted">translate</span>
+<span class="">简体中文</span>
+<span class="material-symbols-outlined text-[14px] text-muted">expand_more</span>
+</button>
+<button aria-label="Toggle Theme" class="w-8 h-8 rounded-lg flex items-center justify-center text-muted hover:text-ink hover:bg-surface-soft transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">light_mode</span>
+</button>
+<div class="h-4 w-[1px] bg-hairline"></div>
+<div class="flex items-center gap-2 pl-1 pr-2 py-1 rounded-lg hover:bg-surface-soft cursor-pointer transition-colors">
+<div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[16px]">person</span>
+</div>
+<div class="flex flex-col text-left">
+<span class="font-body-sm text-xs font-semibold text-ink leading-tight">首席分析师</span>
+<span class="font-caption text-[10px] text-muted leading-tight">战略工作台</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-muted ml-0.5">unfold_more</span>
+</div>
+</div>
+</header><main class="relative pt-14 w-full min-h-screen bg-canvas"><div class="p-8 max-w-7xl mx-auto space-y-6"><div class="flex items-center gap-2 text-xs font-caption text-muted"><a class="hover:text-primary transition-colors" href="#">系统设置</a><span class="text-hairline-strong">/</span><span class="text-ink font-medium" id="breadcrumb-current-tab">信源与抓取管理</span></div><div class="flex items-center justify-between flex-wrap gap-4 pt-1"><div class="flex items-center gap-1 bg-surface-container rounded-lg p-1 overflow-x-auto max-w-full" id="system-settings-nav-tabs"><button class="settings-nav-tab px-3 py-1.5 rounded-md bg-surface-card text-ink font-semibold text-xs shadow-sm flex items-center gap-1.5 transition-all" data-tab="rss" onclick="switchSettingsTab('rss', this)" type="button"><span class="material-symbols-outlined text-[15px] text-primary">rss_feed</span><span id="top-tab-rss-count" class="">RSS 信源管理 (50)</span></button><button class="settings-nav-tab px-3 py-1.5 rounded-md text-muted hover:text-ink text-xs font-medium transition-colors flex items-center gap-1.5" data-tab="podcasts" onclick="switchSettingsTab('podcasts', this)" type="button"><span class="material-symbols-outlined text-[15px]">podcasts</span><span class="">播客与长视频 (12)</span></button><button class="settings-nav-tab px-3 py-1.5 rounded-md text-muted hover:text-ink text-xs font-medium transition-colors flex items-center gap-1.5" data-tab="llm" onclick="switchSettingsTab('llm', this)" type="button"><span class="material-symbols-outlined text-[15px]">neurology</span><span class="">AI 研判模型调度</span></button><button class="settings-nav-tab px-3 py-1.5 rounded-md text-muted hover:text-ink text-xs font-medium transition-colors flex items-center gap-1.5" data-tab="general" onclick="switchSettingsTab('general', this)" type="button"><span class="material-symbols-outlined text-[15px]">tune</span><span class="">通用与本地服务偏好</span></button></div><div class="flex items-center gap-2.5"><button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-card hover:bg-surface-cream-strong border border-hairline text-body text-xs font-medium shadow-sm transition-colors" onclick="exportOpmlFile()" type="button"><span class="material-symbols-outlined text-[16px] text-muted">download</span><span class="">导出 OPML</span></button><button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-card hover:bg-surface-cream-strong border border-hairline text-body text-xs font-medium shadow-sm transition-colors" onclick="document.getElementById('opml-file-input').click()" type="button"><span class="material-symbols-outlined text-[16px] text-muted">upload</span><span class="">导入 OPML</span></button><input class="hidden" id="opml-file-input" onchange="showToast('已成功解析 OPML 文件，同步校验 50 个信源配置')" type="file"><button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary hover:bg-primary-hover text-on-primary text-xs font-medium shadow-sm transition-colors" onclick="document.getElementById('quick-add-name').focus()" type="button"><span class="material-symbols-outlined text-[16px]">add</span><span class="">新增信源</span></button></div></div><div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start" id="settings-view-rss"><div class="xl:col-span-8 space-y-4"><div class="flex items-center justify-between gap-4 flex-wrap bg-surface-card border border-hairline rounded-xl px-4 py-3 shadow-sm"><div class="flex items-center gap-1 bg-surface-container rounded-lg p-0.5 text-xs overflow-x-auto" id="category-pills"><button class="category-tab px-2.5 py-1 rounded text-ink font-semibold bg-surface-card shadow-sm transition-all" data-cat="all" onclick="setCategoryFilter('all', this)">全部 (50)</button><button class="category-tab px-2.5 py-1 rounded text-muted hover:text-ink transition-all" data-cat="semi" onclick="setCategoryFilter('semi', this)">硬科技与半导体 (19)</button><button class="category-tab px-2.5 py-1 rounded text-muted hover:text-ink transition-all" data-cat="macro" onclick="setCategoryFilter('macro', this)">宏观策略与独家 (14)</button><button class="category-tab px-2.5 py-1 rounded text-muted hover:text-ink transition-all" data-cat="ai" onclick="setCategoryFilter('ai', this)">AI 算法与模型 (17)</button><button class="category-tab px-2.5 py-1 rounded text-muted hover:text-ink transition-all" data-cat="error" onclick="setCategoryFilter('error', this)">异常/超时 (0)</button></div><div class="relative flex-1 max-w-xs min-w-[200px]"><div class="flex items-center w-full bg-surface-soft border border-hairline rounded-lg px-2.5 py-1 text-xs text-ink focus-within:border-primary focus-within:bg-white transition-all"><span class="material-symbols-outlined text-[16px] text-muted mr-1.5">filter_alt</span><input class="w-full bg-transparent border-none outline-none text-xs text-ink placeholder-muted-soft font-body-sm" id="table-inline-search" oninput="onInlineSearch(this.value)" placeholder="当前分类内过滤..." type="text"><button class="text-muted hover:text-ink hidden" id="clear-inline-search-btn" onclick="clearInlineSearch()"><span class="material-symbols-outlined text-[14px]">close</span></button></div></div></div><div class="bg-surface-card border border-hairline rounded-xl overflow-hidden shadow-sm"><div class="overflow-x-auto"><table class="w-full text-left text-xs text-body border-collapse select-none"><colgroup><col style="width: 54%;"><col style="width: 26%;"><col style="width: 20%;"></colgroup><thead class="bg-surface-container-low/90 border-b border-hairline text-muted font-caption uppercase tracking-wider text-[11px]"><tr><th class="py-3 pl-4 pr-3 font-semibold hover:text-ink hover:bg-surface cursor-pointer transition-colors group text-muted" id="th-name" onclick="sortByColumn('name')" title="点击按信源名称排序 (A-Z / Z-A)"><div class="inline-flex items-center gap-1.5"><span class="">信源信息 &amp; 订阅协议</span><span class="sort-icon flex items-center text-muted group-hover:text-primary transition-colors"><span class="material-symbols-outlined text-[14px]">unfold_more</span></span></div></th><th class="py-3 px-3 font-semibold text-muted hover:text-ink hover:bg-surface cursor-pointer transition-colors group" id="th-category" onclick="sortByColumn('category')" title="点击按分类与重要层级排序"><div class="inline-flex items-center gap-1.5"><span class="">分类与层级</span><span class="sort-icon flex items-center text-muted group-hover:text-primary transition-colors"><span class="material-symbols-outlined text-[14px]">unfold_more</span></span></div></th><th class="py-3 pr-4 pl-3 font-semibold hover:text-ink hover:bg-surface cursor-pointer text-right transition-colors group text-muted" id="th-status" onclick="sortByColumn('status')" title="点击按运行启停状态排序"><div class="inline-flex items-center justify-end gap-1.5 w-full"><span class="">启停 / 操作</span><span class="sort-icon flex items-center text-muted group-hover:text-primary transition-colors"><span class="material-symbols-outlined text-[14px]">unfold_more</span></span></div></th></tr></thead><tbody class="divide-y divide-hairline/60" id="feed-table-body"><tr class="hover:bg-surface-cream-strong/50 transition-colors feed-row group" data-id="1">
+        <td class="py-3.5 pl-4 pr-3 align-middle">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg text-primary bg-primary/10 font-bold text-xs flex items-center justify-center border border-hairline flex-shrink-0 shadow-xs">S</div>
+            <div class="space-y-0.5 min-w-0 flex-1">
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-ink text-xs truncate max-w-[150px]">SemiAnalysis</span>
+                <span class="px-1.5 py-[1px] rounded bg-surface-soft font-code text-[10px] text-muted inline-flex items-center border border-hairline/60">RSS 2.0</span>
+              </div>
+              <div class="flex items-center gap-1.5 text-[11px] text-muted-soft">
+                <span class="truncate font-mono max-w-[150px]">semianalysis.com/feed</span>
+                <button class="hover:text-primary p-0.5 text-muted transition-colors" onclick="copyFeedUrl('https://semianalysis.com/feed')" title="复制订阅链接">
+                  <span class="material-symbols-outlined text-[13px]">content_copy</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f0e8] text-body text-[11px] font-medium border border-hairline/60">硬科技与半导体</span>
+            <div class="text-[10px] text-muted font-caption flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              Tier 1 核心源
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-0.5 font-code text-[11px]">
+            <div class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+              <span class="text-ink font-medium">162ms</span>
+              <span class="text-muted-soft text-[10px]">· 100%</span>
+            </div>
+            <div class="text-[10px] text-muted font-caption">2 分钟前</div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-1 max-w-[90px]">
+            <div class="flex items-center justify-between text-[11px] font-code">
+              <span class="text-muted text-[10px]">权重</span>
+              <span class="font-semibold text-primary">95%</span>
+            </div>
+            <div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+              <div class="bg-primary h-full rounded-full transition-all duration-300" style="width: 95%"></div>
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 pr-4 pl-3 text-right align-middle">
+          <div class="flex items-center justify-end gap-1.5">
+            <label class="inline-flex items-center cursor-pointer mr-1" title="切换启停轮询">
+              <input type="checkbox" class="sr-only peer" checked="" onchange="toggleFeedSwitch(1, this.checked)">
+              <div class="relative w-7 h-4 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-primary"></div>
+            </label>
+            <button class="p-1 rounded text-muted hover:text-primary hover:bg-surface-soft transition-colors" onclick="refreshFeedItem(1, 'SemiAnalysis')" title="即刻刷新抓取">
+              <span class="material-symbols-outlined text-[15px]">sync</span>
+            </button>
+            <button class="p-1 rounded text-muted hover:text-ink hover:bg-surface-soft transition-colors" onclick="editFeedItem(1, 'SemiAnalysis', 95)" title="调整权重与配置">
+              <span class="material-symbols-outlined text-[15px]">tune</span>
+            </button>
+            <button class="p-1 rounded text-muted hover:text-error hover:bg-surface-soft transition-colors" onclick="deleteFeedItem(1, 'SemiAnalysis')" title="删除信源">
+              <span class="material-symbols-outlined text-[15px]">delete</span>
+            </button>
+          </div>
+        </td>
+      </tr><tr class="hover:bg-surface-cream-strong/50 transition-colors feed-row group" data-id="2">
+        <td class="py-3.5 pl-4 pr-3 align-middle">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg text-tertiary bg-surface-container font-bold text-xs flex items-center justify-center border border-hairline flex-shrink-0 shadow-xs">L</div>
+            <div class="space-y-0.5 min-w-0 flex-1">
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-ink text-xs truncate max-w-[150px]">Latent.Space</span>
+                <span class="px-1.5 py-[1px] rounded bg-surface-soft font-code text-[10px] text-muted inline-flex items-center border border-hairline/60">Substack</span>
+              </div>
+              <div class="flex items-center gap-1.5 text-[11px] text-muted-soft">
+                <span class="truncate font-mono max-w-[150px]">latent.space/feed</span>
+                <button class="hover:text-primary p-0.5 text-muted transition-colors" onclick="copyFeedUrl('https://latent.space/feed')" title="复制订阅链接">
+                  <span class="material-symbols-outlined text-[13px]">content_copy</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f0e8] text-body text-[11px] font-medium border border-hairline/60">AI 算法与模型</span>
+            <div class="text-[10px] text-muted font-caption flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              高频播客与专栏
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-0.5 font-code text-[11px]">
+            <div class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+              <span class="text-ink font-medium">210ms</span>
+              <span class="text-muted-soft text-[10px]">· 99.8%</span>
+            </div>
+            <div class="text-[10px] text-muted font-caption">5 分钟前</div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-1 max-w-[90px]">
+            <div class="flex items-center justify-between text-[11px] font-code">
+              <span class="text-muted text-[10px]">权重</span>
+              <span class="font-semibold text-primary">90%</span>
+            </div>
+            <div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+              <div class="bg-primary h-full rounded-full transition-all duration-300" style="width: 90%"></div>
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 pr-4 pl-3 text-right align-middle">
+          <div class="flex items-center justify-end gap-1.5">
+            <label class="inline-flex items-center cursor-pointer mr-1" title="切换启停轮询">
+              <input type="checkbox" class="sr-only peer" checked="" onchange="toggleFeedSwitch(2, this.checked)">
+              <div class="relative w-7 h-4 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-primary"></div>
+            </label>
+            <button class="p-1 rounded text-muted hover:text-primary hover:bg-surface-soft transition-colors" onclick="refreshFeedItem(2, 'Latent.Space')" title="即刻刷新抓取">
+              <span class="material-symbols-outlined text-[15px]">sync</span>
+            </button>
+            <button class="p-1 rounded text-muted hover:text-ink hover:bg-surface-soft transition-colors" onclick="editFeedItem(2, 'Latent.Space', 90)" title="调整权重与配置">
+              <span class="material-symbols-outlined text-[15px]">tune</span>
+            </button>
+            <button class="p-1 rounded text-muted hover:text-error hover:bg-surface-soft transition-colors" onclick="deleteFeedItem(2, 'Latent.Space')" title="删除信源">
+              <span class="material-symbols-outlined text-[15px]">delete</span>
+            </button>
+          </div>
+        </td>
+      </tr><tr class="hover:bg-surface-cream-strong/50 transition-colors feed-row group" data-id="3">
+        <td class="py-3.5 pl-4 pr-3 align-middle">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg text-secondary bg-secondary-container font-bold text-xs flex items-center justify-center border border-hairline flex-shrink-0 shadow-xs">A</div>
+            <div class="space-y-0.5 min-w-0 flex-1">
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-ink text-xs truncate max-w-[150px]">Anthropic Engineering</span>
+                <span class="px-1.5 py-[1px] rounded bg-surface-soft font-code text-[10px] text-muted inline-flex items-center border border-hairline/60">Atom</span>
+              </div>
+              <div class="flex items-center gap-1.5 text-[11px] text-muted-soft">
+                <span class="truncate font-mono max-w-[150px]">anthropic.com/engineering/rss.xml</span>
+                <button class="hover:text-primary p-0.5 text-muted transition-colors" onclick="copyFeedUrl('https://anthropic.com/engineering/rss.xml')" title="复制订阅链接">
+                  <span class="material-symbols-outlined text-[13px]">content_copy</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f0e8] text-body text-[11px] font-medium border border-hairline/60">AI 算法与模型</span>
+            <div class="text-[10px] text-muted font-caption flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              官方工程博客
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-0.5 font-code text-[11px]">
+            <div class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+              <span class="text-ink font-medium">128ms</span>
+              <span class="text-muted-soft text-[10px]">· 100%</span>
+            </div>
+            <div class="text-[10px] text-muted font-caption">刚刚探测</div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-1 max-w-[90px]">
+            <div class="flex items-center justify-between text-[11px] font-code">
+              <span class="text-muted text-[10px]">权重</span>
+              <span class="font-semibold text-primary">98%</span>
+            </div>
+            <div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+              <div class="bg-primary h-full rounded-full transition-all duration-300" style="width: 98%"></div>
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 pr-4 pl-3 text-right align-middle">
+          <div class="flex items-center justify-end gap-1.5">
+            <label class="inline-flex items-center cursor-pointer mr-1" title="切换启停轮询">
+              <input type="checkbox" class="sr-only peer" checked="" onchange="toggleFeedSwitch(3, this.checked)">
+              <div class="relative w-7 h-4 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-primary"></div>
+            </label>
+            <button class="p-1 rounded text-muted hover:text-primary hover:bg-surface-soft transition-colors" onclick="refreshFeedItem(3, 'Anthropic Engineering')" title="即刻刷新抓取">
+              <span class="material-symbols-outlined text-[15px]">sync</span>
+            </button>
+            <button class="p-1 rounded text-muted hover:text-ink hover:bg-surface-soft transition-colors" onclick="editFeedItem(3, 'Anthropic Engineering', 98)" title="调整权重与配置">
+              <span class="material-symbols-outlined text-[15px]">tune</span>
+            </button>
+            <button class="p-1 rounded text-muted hover:text-error hover:bg-surface-soft transition-colors" onclick="deleteFeedItem(3, 'Anthropic Engineering')" title="删除信源">
+              <span class="material-symbols-outlined text-[15px]">delete</span>
+            </button>
+          </div>
+        </td>
+      </tr><tr class="hover:bg-surface-cream-strong/50 transition-colors feed-row group" data-id="4">
+        <td class="py-3.5 pl-4 pr-3 align-middle">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg text-warning bg-warning/10 font-bold text-xs flex items-center justify-center border border-hairline flex-shrink-0 shadow-xs">C</div>
+            <div class="space-y-0.5 min-w-0 flex-1">
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-ink text-xs truncate max-w-[150px]">Cloudflare Blog</span>
+                <span class="px-1.5 py-[1px] rounded bg-surface-soft font-code text-[10px] text-muted inline-flex items-center border border-hairline/60">RSS 2.0</span>
+              </div>
+              <div class="flex items-center gap-1.5 text-[11px] text-muted-soft">
+                <span class="truncate font-mono max-w-[150px]">blog.cloudflare.com/rss</span>
+                <button class="hover:text-primary p-0.5 text-muted transition-colors" onclick="copyFeedUrl('https://blog.cloudflare.com/rss')" title="复制订阅链接">
+                  <span class="material-symbols-outlined text-[13px]">content_copy</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f0e8] text-body text-[11px] font-medium border border-hairline/60">硬科技与半导体</span>
+            <div class="text-[10px] text-muted font-caption flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              边缘计算与网关
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-0.5 font-code text-[11px]">
+            <div class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+              <span class="text-ink font-medium">94ms</span>
+              <span class="text-muted-soft text-[10px]">· 100%</span>
+            </div>
+            <div class="text-[10px] text-muted font-caption">1 分钟前</div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-1 max-w-[90px]">
+            <div class="flex items-center justify-between text-[11px] font-code">
+              <span class="text-muted text-[10px]">权重</span>
+              <span class="font-semibold text-primary">88%</span>
+            </div>
+            <div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+              <div class="bg-primary h-full rounded-full transition-all duration-300" style="width: 88%"></div>
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 pr-4 pl-3 text-right align-middle">
+          <div class="flex items-center justify-end gap-1.5">
+            <label class="inline-flex items-center cursor-pointer mr-1" title="切换启停轮询">
+              <input type="checkbox" class="sr-only peer" checked="" onchange="toggleFeedSwitch(4, this.checked)">
+              <div class="relative w-7 h-4 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-primary"></div>
+            </label>
+            <button class="p-1 rounded text-muted hover:text-primary hover:bg-surface-soft transition-colors" onclick="refreshFeedItem(4, 'Cloudflare Blog')" title="即刻刷新抓取">
+              <span class="material-symbols-outlined text-[15px]">sync</span>
+            </button>
+            <button class="p-1 rounded text-muted hover:text-ink hover:bg-surface-soft transition-colors" onclick="editFeedItem(4, 'Cloudflare Blog', 88)" title="调整权重与配置">
+              <span class="material-symbols-outlined text-[15px]">tune</span>
+            </button>
+            <button class="p-1 rounded text-muted hover:text-error hover:bg-surface-soft transition-colors" onclick="deleteFeedItem(4, 'Cloudflare Blog')" title="删除信源">
+              <span class="material-symbols-outlined text-[15px]">delete</span>
+            </button>
+          </div>
+        </td>
+      </tr><tr class="hover:bg-surface-cream-strong/50 transition-colors feed-row group" data-id="5">
+        <td class="py-3.5 pl-4 pr-3 align-middle">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg text-ink bg-[#ebe5dc] font-bold text-xs flex items-center justify-center border border-hairline flex-shrink-0 shadow-xs">S</div>
+            <div class="space-y-0.5 min-w-0 flex-1">
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-ink text-xs truncate max-w-[150px]">Sam Altman (@sama)</span>
+                <span class="px-1.5 py-[1px] rounded bg-surface-soft font-code text-[10px] text-muted inline-flex items-center border border-hairline/60">Nitter RSS</span>
+              </div>
+              <div class="flex items-center gap-1.5 text-[11px] text-muted-soft">
+                <span class="truncate font-mono max-w-[150px]">nitter.net/sama/rss</span>
+                <button class="hover:text-primary p-0.5 text-muted transition-colors" onclick="copyFeedUrl('https://nitter.net/sama/rss')" title="复制订阅链接">
+                  <span class="material-symbols-outlined text-[13px]">content_copy</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f0e8] text-body text-[11px] font-medium border border-hairline/60">宏观策略与独家</span>
+            <div class="text-[10px] text-muted font-caption flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-warning"></span>
+              行业领袖动态
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-0.5 font-code text-[11px]">
+            <div class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+              <span class="text-ink font-medium">310ms</span>
+              <span class="text-muted-soft text-[10px]">· 99.2%</span>
+            </div>
+            <div class="text-[10px] text-muted font-caption">12 分钟前</div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-1 max-w-[90px]">
+            <div class="flex items-center justify-between text-[11px] font-code">
+              <span class="text-muted text-[10px]">权重</span>
+              <span class="font-semibold text-primary">92%</span>
+            </div>
+            <div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+              <div class="bg-primary h-full rounded-full transition-all duration-300" style="width: 92%"></div>
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 pr-4 pl-3 text-right align-middle">
+          <div class="flex items-center justify-end gap-1.5">
+            <label class="inline-flex items-center cursor-pointer mr-1" title="切换启停轮询">
+              <input type="checkbox" class="sr-only peer" checked="" onchange="toggleFeedSwitch(5, this.checked)">
+              <div class="relative w-7 h-4 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-primary"></div>
+            </label>
+            <button class="p-1 rounded text-muted hover:text-primary hover:bg-surface-soft transition-colors" onclick="refreshFeedItem(5, 'Sam Altman (@sama)')" title="即刻刷新抓取">
+              <span class="material-symbols-outlined text-[15px]">sync</span>
+            </button>
+            <button class="p-1 rounded text-muted hover:text-ink hover:bg-surface-soft transition-colors" onclick="editFeedItem(5, 'Sam Altman (@sama)', 92)" title="调整权重与配置">
+              <span class="material-symbols-outlined text-[15px]">tune</span>
+            </button>
+            <button class="p-1 rounded text-muted hover:text-error hover:bg-surface-soft transition-colors" onclick="deleteFeedItem(5, 'Sam Altman (@sama)')" title="删除信源">
+              <span class="material-symbols-outlined text-[15px]">delete</span>
+            </button>
+          </div>
+        </td>
+      </tr><tr class="hover:bg-surface-cream-strong/50 transition-colors feed-row group" data-id="6">
+        <td class="py-3.5 pl-4 pr-3 align-middle">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg text-primary bg-primary/10 font-bold text-xs flex items-center justify-center border border-hairline flex-shrink-0 shadow-xs">D</div>
+            <div class="space-y-0.5 min-w-0 flex-1">
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-ink text-xs truncate max-w-[150px]">DeepSeek AI Lab</span>
+                <span class="px-1.5 py-[1px] rounded bg-surface-soft font-code text-[10px] text-muted inline-flex items-center border border-hairline/60">ArXiv RSS</span>
+              </div>
+              <div class="flex items-center gap-1.5 text-[11px] text-muted-soft">
+                <span class="truncate font-mono max-w-[150px]">deepseek.com/blog/feed</span>
+                <button class="hover:text-primary p-0.5 text-muted transition-colors" onclick="copyFeedUrl('https://deepseek.com/blog/feed')" title="复制订阅链接">
+                  <span class="material-symbols-outlined text-[13px]">content_copy</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f0e8] text-body text-[11px] font-medium border border-hairline/60">AI 算法与模型</span>
+            <div class="text-[10px] text-muted font-caption flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              开源模型研报
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-0.5 font-code text-[11px]">
+            <div class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+              <span class="text-ink font-medium">185ms</span>
+              <span class="text-muted-soft text-[10px]">· 100%</span>
+            </div>
+            <div class="text-[10px] text-muted font-caption">4 分钟前</div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-1 max-w-[90px]">
+            <div class="flex items-center justify-between text-[11px] font-code">
+              <span class="text-muted text-[10px]">权重</span>
+              <span class="font-semibold text-primary">96%</span>
+            </div>
+            <div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+              <div class="bg-primary h-full rounded-full transition-all duration-300" style="width: 96%"></div>
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 pr-4 pl-3 text-right align-middle">
+          <div class="flex items-center justify-end gap-1.5">
+            <label class="inline-flex items-center cursor-pointer mr-1" title="切换启停轮询">
+              <input type="checkbox" class="sr-only peer" checked="" onchange="toggleFeedSwitch(6, this.checked)">
+              <div class="relative w-7 h-4 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-primary"></div>
+            </label>
+            <button class="p-1 rounded text-muted hover:text-primary hover:bg-surface-soft transition-colors" onclick="refreshFeedItem(6, 'DeepSeek AI Lab')" title="即刻刷新抓取">
+              <span class="material-symbols-outlined text-[15px]">sync</span>
+            </button>
+            <button class="p-1 rounded text-muted hover:text-ink hover:bg-surface-soft transition-colors" onclick="editFeedItem(6, 'DeepSeek AI Lab', 96)" title="调整权重与配置">
+              <span class="material-symbols-outlined text-[15px]">tune</span>
+            </button>
+            <button class="p-1 rounded text-muted hover:text-error hover:bg-surface-soft transition-colors" onclick="deleteFeedItem(6, 'DeepSeek AI Lab')" title="删除信源">
+              <span class="material-symbols-outlined text-[15px]">delete</span>
+            </button>
+          </div>
+        </td>
+      </tr><tr class="hover:bg-surface-cream-strong/50 transition-colors feed-row group" data-id="7">
+        <td class="py-3.5 pl-4 pr-3 align-middle">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg text-primary bg-surface-container font-bold text-xs flex items-center justify-center border border-hairline flex-shrink-0 shadow-xs">G</div>
+            <div class="space-y-0.5 min-w-0 flex-1">
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-ink text-xs truncate max-w-[150px]">Google DeepMind</span>
+                <span class="px-1.5 py-[1px] rounded bg-surface-soft font-code text-[10px] text-muted inline-flex items-center border border-hairline/60">Atom</span>
+              </div>
+              <div class="flex items-center gap-1.5 text-[11px] text-muted-soft">
+                <span class="truncate font-mono max-w-[150px]">deepmind.google/blog/rss.xml</span>
+                <button class="hover:text-primary p-0.5 text-muted transition-colors" onclick="copyFeedUrl('https://deepmind.google/blog/rss.xml')" title="复制订阅链接">
+                  <span class="material-symbols-outlined text-[13px]">content_copy</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f0e8] text-body text-[11px] font-medium border border-hairline/60">AI 算法与模型</span>
+            <div class="text-[10px] text-muted font-caption flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              前沿论文与系统
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-0.5 font-code text-[11px]">
+            <div class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+              <span class="text-ink font-medium">152ms</span>
+              <span class="text-muted-soft text-[10px]">· 100%</span>
+            </div>
+            <div class="text-[10px] text-muted font-caption">刚刚探测</div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-1 max-w-[90px]">
+            <div class="flex items-center justify-between text-[11px] font-code">
+              <span class="text-muted text-[10px]">权重</span>
+              <span class="font-semibold text-primary">94%</span>
+            </div>
+            <div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+              <div class="bg-primary h-full rounded-full transition-all duration-300" style="width: 94%"></div>
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 pr-4 pl-3 text-right align-middle">
+          <div class="flex items-center justify-end gap-1.5">
+            <label class="inline-flex items-center cursor-pointer mr-1" title="切换启停轮询">
+              <input type="checkbox" class="sr-only peer" checked="" onchange="toggleFeedSwitch(7, this.checked)">
+              <div class="relative w-7 h-4 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-primary"></div>
+            </label>
+            <button class="p-1 rounded text-muted hover:text-primary hover:bg-surface-soft transition-colors" onclick="refreshFeedItem(7, 'Google DeepMind')" title="即刻刷新抓取">
+              <span class="material-symbols-outlined text-[15px]">sync</span>
+            </button>
+            <button class="p-1 rounded text-muted hover:text-ink hover:bg-surface-soft transition-colors" onclick="editFeedItem(7, 'Google DeepMind', 94)" title="调整权重与配置">
+              <span class="material-symbols-outlined text-[15px]">tune</span>
+            </button>
+            <button class="p-1 rounded text-muted hover:text-error hover:bg-surface-soft transition-colors" onclick="deleteFeedItem(7, 'Google DeepMind')" title="删除信源">
+              <span class="material-symbols-outlined text-[15px]">delete</span>
+            </button>
+          </div>
+        </td>
+      </tr></tbody></table></div><div class="px-4 py-3 bg-surface-container-low border-t border-hairline flex items-center justify-between text-xs text-muted flex-wrap gap-3"><div class="flex items-center gap-3 font-caption text-[11px]"><span id="page-summary-text" class="">展示 <span class="text-ink font-semibold">1-7</span> / 共 50 个已配置信源</span><span class="text-hairline-strong hidden sm:inline">|</span><span class="text-muted hidden sm:inline" id="current-sort-badge">默认预设顺序</span></div><div class="flex items-center gap-1.5"><button class="px-2.5 py-1 rounded bg-surface-card border border-hairline hover:text-ink text-[11px] disabled:opacity-40 disabled:cursor-not-allowed transition-colors shadow-sm font-medium flex items-center gap-1" id="prev-page-btn" onclick="changePage(-1)" disabled=""><span class="material-symbols-outlined text-[13px]">chevron_left</span><span class="">上一页</span></button><div class="flex items-center gap-1" id="pagination-page-numbers"><button class="w-7 h-7 rounded bg-ink text-canvas font-code text-xs font-semibold shadow-xs">1</button><button class="w-7 h-7 rounded bg-surface-card hover:bg-surface-cream-strong border border-hairline text-body font-code text-xs transition-colors">2</button><button class="w-7 h-7 rounded bg-surface-card hover:bg-surface-cream-strong border border-hairline text-body font-code text-xs transition-colors">3</button><button class="w-7 h-7 rounded bg-surface-card hover:bg-surface-cream-strong border border-hairline text-body font-code text-xs transition-colors">4</button><button class="w-7 h-7 rounded bg-surface-card hover:bg-surface-cream-strong border border-hairline text-body font-code text-xs transition-colors">5</button><button class="w-7 h-7 rounded bg-surface-card hover:bg-surface-cream-strong border border-hairline text-body font-code text-xs transition-colors">6</button><button class="w-7 h-7 rounded bg-surface-card hover:bg-surface-cream-strong border border-hairline text-body font-code text-xs transition-colors">7</button><button class="w-7 h-7 rounded bg-surface-card hover:bg-surface-cream-strong border border-hairline text-body font-code text-xs transition-colors">8</button></div><button class="px-2.5 py-1 rounded bg-surface-card border border-hairline hover:text-ink text-[11px] disabled:opacity-40 disabled:cursor-not-allowed transition-colors shadow-sm font-medium flex items-center gap-1" id="next-page-btn" onclick="changePage(1)"><span class="">下一页</span><span class="material-symbols-outlined text-[13px]">chevron_right</span></button></div></div></div></div><div class="xl:col-span-4 space-y-5"><div class="bg-surface-card border border-hairline rounded-xl p-4 shadow-sm space-y-3"><div class="flex items-center justify-between pb-2 border-b border-hairline"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">add_circle</span><h2 class="font-semibold text-ink text-sm">快速登记新信源</h2></div><span class="text-[10px] font-code text-muted">自动探测 RSS</span></div><form class="space-y-3" onsubmit="handleAddNewFeed(event)"><div class="space-y-1"><label class="block text-[11px] font-medium text-body">信源名称 (Source Name)</label><input class="w-full px-3 py-1.5 bg-surface-soft border border-hairline rounded-lg text-xs text-ink placeholder-muted-soft focus:outline-none focus:border-primary" id="quick-add-name" placeholder="例如：OpenAI Engineering Blog" required="" type="text"></div><div class="space-y-1"><label class="block text-[11px] font-medium text-body">RSS / Atom 订阅地址 URL</label><div class="relative"><input class="w-full pl-3 pr-16 py-1.5 bg-surface-soft border border-hairline rounded-lg text-xs text-ink placeholder-muted-soft focus:outline-none focus:border-primary" id="quick-add-url" placeholder="https://.../feed.xml" required="" type="url"><button class="absolute right-1 top-1 px-2 py-0.5 rounded bg-surface-card border border-hairline text-[10px] text-primary hover:bg-surface-cream-strong font-medium transition-colors" onclick="testUrlConnectivity()" type="button">探测协议</button></div></div><div class="space-y-1"><label class="block text-[11px] font-medium text-body">归属分类</label><select class="w-full px-2.5 py-1.5 bg-surface-soft border border-hairline rounded-lg text-xs text-ink focus:outline-none focus:border-primary" id="quick-add-cat"><option value="semi">硬科技与半导体</option><option selected="" value="ai">AI 算法与模型</option><option value="macro">宏观策略与独家</option></select></div><button class="w-full py-2 rounded-lg bg-primary hover:bg-primary-hover text-on-primary text-xs font-medium transition-colors shadow-sm flex items-center justify-center gap-1" type="submit"><span class="material-symbols-outlined text-[16px]">save</span><span class="">加入订阅库并开启轮询</span></button></form></div><div class="bg-surface-card border border-hairline rounded-xl p-4 shadow-sm space-y-3"><div class="flex items-center justify-between pb-2 border-b border-hairline"><div class="space-y-0.5"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">package_2</span><h2 class="font-semibold text-ink text-sm">预设信源包推荐</h2></div><p class="text-[11px] text-muted-soft">点击卡片即可一键导入对应信源包</p></div><span class="text-[10px] font-caption text-primary bg-primary/10 px-2 py-0.5 rounded-full border border-primary/20">3组推荐</span></div><div class="space-y-2" id="preset-packs-container"><div class="preset-pack-card p-2.5 rounded-lg border border-hairline flex items-center justify-between cursor-pointer hover:bg-surface-cream-strong hover:border-primary/40 transition-all duration-150 group bg-success/10 border-success/30" onclick="importPresetPack(this, '顶尖大模型工程团队包', 8, 'ai')" role="button" data-imported="true"><div class="space-y-0.5"><div class="flex items-center gap-1.5"><div class="font-semibold text-ink text-xs group-hover:text-primary transition-colors">顶尖大模型工程团队包</div><span class="px-1.5 py-[1px] rounded bg-primary/10 text-primary text-[10px] font-caption">AI核心</span></div><div class="text-[11px] text-muted">OpenAI, Anthropic, DeepSeek 等 8 个一手源</div></div></div><div class="preset-pack-card p-2.5 rounded-lg border border-hairline flex items-center justify-between cursor-pointer hover:bg-surface-cream-strong hover:border-primary/40 transition-all duration-150 group bg-success/10 border-success/30" onclick="importPresetPack(this, '半导体先进制造情报包', 6, 'semi')" role="button" data-imported="true"><div class="space-y-0.5"><div class="flex items-center gap-1.5"><div class="font-semibold text-ink text-xs group-hover:text-primary transition-colors">半导体先进制造情报包</div><span class="px-1.5 py-[1px] rounded bg-surface-container text-body text-[10px] font-caption">硬件生态</span></div><div class="text-[11px] text-muted">SemiAnalysis, AnandTech, WikiChip 等 6 个源</div></div></div><div class="preset-pack-card p-2.5 rounded-lg border border-hairline flex items-center justify-between cursor-pointer hover:bg-surface-cream-strong hover:border-primary/40 transition-all duration-150 group bg-success/10 border-success/30" onclick="importPresetPack(this, 'AI 宏观政策与合规监管包', 5, 'macro')" role="button" data-imported="true"><div class="space-y-0.5"><div class="flex items-center gap-1.5"><div class="font-semibold text-ink text-xs group-hover:text-primary transition-colors">AI 宏观政策与合规监管包</div><span class="px-1.5 py-[1px] rounded bg-surface-container text-body text-[10px] font-caption">宏观监管</span></div><div class="text-[11px] text-muted">SEC AI Disclosure, NIST, EU AI Act 等 5 个源</div></div></div></div></div><div class="bg-surface-card border border-hairline rounded-xl p-4 shadow-sm space-y-3"><div class="flex items-center gap-2 pb-2 border-b border-hairline"><span class="material-symbols-outlined text-primary text-[18px]">dns</span><h2 class="font-semibold text-ink text-sm">抓取引擎与网络状态</h2></div><div class="space-y-2 text-xs"><div class="flex items-center justify-between py-1 border-b border-hairline/50"><span class="text-muted">定时抓取轮询周期</span><span class="font-code text-ink font-medium">每 30 分钟 (自动避让高峰)</span></div><div class="flex items-center justify-between py-1 border-b border-hairline/50"><span class="text-muted">网页正文清洗引擎</span><span class="font-code text-success flex items-center gap-1 font-medium"><span class="w-1.5 h-1.5 rounded-full bg-success"></span>Readability + DOM 过滤</span></div><div class="flex items-center justify-between py-1 border-b border-hairline/50"><span class="text-muted">本地网络出海代理</span><span class="font-code text-ink font-medium">127.0.0.1:7890 (已连通)</span></div><div class="flex items-center justify-between py-1"><span class="text-muted">每日入库吞吐量</span><span class="font-code text-ink font-medium">~ 120 篇深度研报/日</span></div></div></div></div></div><div class="hidden space-y-6" id="settings-view-podcasts"><div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start"><div class="xl:col-span-8 space-y-4"><div class="flex items-center justify-between bg-surface-card border border-hairline rounded-xl p-4 shadow-sm flex-wrap gap-3"><div class="space-y-1"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">podcasts</span><h2 class="font-semibold text-ink text-sm">多模态音视频频道监控队列 (12)</h2><span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-caption">Whisper + LLM 多模态引擎</span></div><p class="text-xs text-muted">PRD 规范：仅在拥有完整字幕/音频轨时输出长音频精研；仅提取元数据时强制标明<span class="text-warning font-medium">「基于元数据」</span></p></div><div class="flex items-center gap-2"><button class="px-3 py-1.5 rounded-lg bg-primary hover:bg-primary-hover text-on-primary text-xs font-medium shadow-sm transition-all flex items-center gap-1.5" onclick="triggerBatchPodcastStudy()"><span class="material-symbols-outlined text-[15px]">play_arrow</span><span class="">启动全频道多模态研读</span></button></div></div><div class="bg-surface-card border border-hairline rounded-xl overflow-hidden shadow-sm"><div class="divide-y divide-hairline/60"><div class="p-4 flex items-center justify-between gap-4 hover:bg-surface-soft/60 transition-colors"><div class="flex items-center gap-3 min-w-0 flex-1"><div class="w-10 h-10 rounded-lg bg-primary/10 text-primary font-bold text-sm flex items-center justify-center flex-shrink-0 border border-hairline">DP</div><div class="space-y-1 min-w-0 flex-1"><div class="flex items-center gap-2 flex-wrap"><span class="font-semibold text-ink text-xs">Dwarkesh Patel Podcast</span><span class="px-1.5 py-[1px] rounded bg-surface-container text-body text-[10px] font-caption">深度长对谈 · 2-3h</span><span class="text-success text-[10px] bg-success/10 px-1.5 py-[1px] rounded border border-success/30 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-success"></span>音轨与字幕可用</span></div><div class="text-[11px] text-muted flex items-center gap-2"><span class="">最新期: Demis Hassabis on Frontier Lab Scaling &amp; Agentic Coding</span><span class="text-hairline-strong">·</span><span class="text-muted-soft">抓取周期: 2小时</span></div></div></div><div class="flex items-center gap-3 flex-shrink-0"><span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-code text-[11px] font-medium">全量转写研读</span><button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-cream-strong border border-hairline text-xs text-ink transition-colors flex items-center gap-1" onclick="triggerSinglePodcast('Dwarkesh Patel', true)"><span class="material-symbols-outlined text-[13px]">refresh</span><span class="">研读最新期</span></button></div></div><div class="p-4 flex items-center justify-between gap-4 hover:bg-surface-soft/60 transition-colors"><div class="flex items-center gap-3 min-w-0 flex-1"><div class="w-10 h-10 rounded-lg bg-tertiary/10 text-tertiary font-bold text-sm flex items-center justify-center flex-shrink-0 border border-hairline">LS</div><div class="space-y-1 min-w-0 flex-1"><div class="flex items-center gap-2 flex-wrap"><span class="font-semibold text-ink text-xs">Latent Space: The AI Engineer</span><span class="px-1.5 py-[1px] rounded bg-surface-container text-body text-[10px] font-caption">架构实战 · 1.5h</span><span class="text-success text-[10px] bg-success/10 px-1.5 py-[1px] rounded border border-success/30 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-success"></span>音轨完整</span></div><div class="text-[11px] text-muted flex items-center gap-2"><span class="">最新期: Cursor Team on Spec-Driven Code Generation</span><span class="text-hairline-strong">·</span><span class="text-muted-soft">抓取周期: 4小时</span></div></div></div><div class="flex items-center gap-3 flex-shrink-0"><span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-code text-[11px] font-medium">全量转写研读</span><button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-cream-strong border border-hairline text-xs text-ink transition-colors flex items-center gap-1" onclick="triggerSinglePodcast('Latent Space', true)"><span class="material-symbols-outlined text-[13px]">refresh</span><span class="">研读最新期</span></button></div></div><div class="p-4 flex items-center justify-between gap-4 hover:bg-surface-soft/60 transition-colors"><div class="flex items-center gap-3 min-w-0 flex-1"><div class="w-10 h-10 rounded-lg bg-[#ebe5dc] text-ink font-bold text-sm flex items-center justify-center flex-shrink-0 border border-hairline">AI</div><div class="space-y-1 min-w-0 flex-1"><div class="flex items-center gap-2 flex-wrap"><span class="font-semibold text-ink text-xs">All-In Podcast (E186)</span><span class="px-1.5 py-[1px] rounded bg-surface-container text-body text-[10px] font-caption">宏观创投 · 1.8h</span><span class="text-warning text-[10px] bg-warning/10 px-1.5 py-[1px] rounded border border-warning/30 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-warning"></span>仅限视频元数据与摘要</span></div><div class="text-[11px] text-muted flex items-center gap-2"><span class="">最新期: US-China AI Race, Compute Clusters, Macro Tariffs</span><span class="text-hairline-strong">·</span><span class="text-muted-soft">无公开长音频文件</span></div></div></div><div class="flex items-center gap-3 flex-shrink-0"><span class="px-2 py-0.5 rounded bg-warning/15 text-warning font-code text-[11px] font-medium border border-warning/30">基于元数据研读</span><button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-cream-strong border border-hairline text-xs text-ink transition-colors flex items-center gap-1" onclick="triggerSinglePodcast('All-In Podcast', false)"><span class="material-symbols-outlined text-[13px]">refresh</span><span class="">提取元数据</span></button></div></div><div class="p-4 flex items-center justify-between gap-4 hover:bg-surface-soft/60 transition-colors"><div class="flex items-center gap-3 min-w-0 flex-1"><div class="w-10 h-10 rounded-lg bg-secondary/10 text-secondary font-bold text-sm flex items-center justify-center flex-shrink-0 border border-hairline">LF</div><div class="space-y-1 min-w-0 flex-1"><div class="flex items-center gap-2 flex-wrap"><span class="font-semibold text-ink text-xs">Lex Fridman Podcast (#450)</span><span class="px-1.5 py-[1px] rounded bg-surface-container text-body text-[10px] font-caption">全景访谈 · 3.5h</span><span class="text-success text-[10px] bg-success/10 px-1.5 py-[1px] rounded border border-success/30 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-success"></span>音轨与字幕可用</span></div><div class="text-[11px] text-muted flex items-center gap-2"><span class="">最新期: Ilya Sutskever on Safe Superintelligence &amp; Reasoning</span><span class="text-hairline-strong">·</span><span class="text-muted-soft">抓取周期: 6小时</span></div></div></div><div class="flex items-center gap-3 flex-shrink-0"><span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-code text-[11px] font-medium">全量转写研读</span><button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-cream-strong border border-hairline text-xs text-ink transition-colors flex items-center gap-1" onclick="triggerSinglePodcast('Lex Fridman', true)"><span class="material-symbols-outlined text-[13px]">refresh</span><span class="">研读最新期</span></button></div></div></div></div></div><div class="xl:col-span-4 space-y-5"><div class="bg-surface-card border border-hairline rounded-xl p-4 shadow-sm space-y-3"><div class="flex items-center justify-between pb-2 border-b border-hairline"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">hourglass_top</span><h3 class="font-semibold text-ink text-sm">正在执行的研究任务</h3></div><span class="text-[10px] font-code text-primary bg-primary/10 px-1.5 py-0.5 rounded">1 进行中</span></div><div class="space-y-3" id="podcast-task-progress-box"><div class="space-y-1.5 bg-surface-soft p-3 rounded-lg border border-hairline"><div class="flex items-center justify-between text-xs"><span class="font-semibold text-ink truncate max-w-[170px]">Dwarkesh Patel #244</span><span class="font-code text-primary font-semibold" id="podcast-task-percent">68%</span></div><div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden"><div class="bg-primary h-full rounded-full transition-all duration-300" id="podcast-task-bar" style="width: 68%;"></div></div><div class="flex items-center justify-between text-[11px] text-muted-soft"><span id="podcast-task-status-text" class="">音视频转写清洗中 (Whisper Large v3)</span><span class="font-code text-[10px]">剩 45s</span></div></div><div class="space-y-2 text-xs"><div class="flex items-center justify-between py-1 border-b border-hairline/50"><span class="text-muted">今日多模态转写时长</span><span class="font-code text-ink font-medium">7 小时 42 分钟</span></div><div class="flex items-center justify-between py-1 border-b border-hairline/50"><span class="text-muted">本地 Whisper 显存占用</span><span class="font-code text-ink font-medium">3.4 GB / 16 GB (Metal/CUDA)</span></div><div class="flex items-center justify-between py-1"><span class="text-muted">元数据兜底研报率</span><span class="font-code text-warning font-medium">16.7% (符合PRD规范)</span></div></div></div></div><div class="bg-surface-card border border-hairline rounded-xl p-4 shadow-sm space-y-3"><div class="flex items-center gap-2 pb-2 border-b border-hairline"><span class="material-symbols-outlined text-primary text-[18px]">add_link</span><h3 class="font-semibold text-ink text-sm">登记音视频 RSS / YouTube 频道</h3></div><div class="space-y-2.5"><div class="space-y-1"><label class="block text-[11px] font-medium text-body">频道名称 / 播客标题</label><input class="w-full px-3 py-1.5 bg-surface-soft border border-hairline rounded-lg text-xs text-ink placeholder-muted-soft focus:outline-none focus:border-primary" id="new-podcast-title" placeholder="例如：Acquired Podcast" type="text"></div><div class="space-y-1"><label class="block text-[11px] font-medium text-body">Feed / 频道主页 URL</label><input class="w-full px-3 py-1.5 bg-surface-soft border border-hairline rounded-lg text-xs text-ink placeholder-muted-soft focus:outline-none focus:border-primary" id="new-podcast-url" placeholder="https://feeds.megaphone.fm/..." type="url"></div><button class="w-full py-2 rounded-lg bg-primary hover:bg-primary-hover text-on-primary text-xs font-medium transition-colors shadow-sm flex items-center justify-center gap-1" onclick="addNewPodcastChannel()"><span class="material-symbols-outlined text-[16px]">add</span><span class="">加入多模态监控</span></button></div></div></div></div></div><div class="hidden space-y-6" id="settings-view-llm"><div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start"><div class="xl:col-span-8 space-y-5"><div class="bg-surface-card border border-hairline rounded-xl p-5 shadow-sm space-y-4"><div class="flex items-center justify-between pb-3 border-b border-hairline"><div class="space-y-0.5"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">neurology</span><h2 class="font-semibold text-ink text-sm">AI 研判模型路由与权重分配</h2></div><p class="text-xs text-muted">按情报重要级自动调度强推理思考模型（Claude 3.7 / DeepSeek-R1）或本地零延时模型</p></div><button class="px-3 py-1.5 rounded-lg bg-surface-card hover:bg-surface-cream-strong border border-hairline text-ink text-xs font-medium shadow-xs transition-colors flex items-center gap-1.5" onclick="testAllModelEndpoints()"><span class="material-symbols-outlined text-[15px] text-primary">bolt</span><span class="">测试全部模型延迟</span></button></div><div class="space-y-3"><div class="p-3.5 rounded-xl border border-primary/30 bg-primary/5 space-y-2.5 relative"><div class="flex items-center justify-between flex-wrap gap-2"><div class="flex items-center gap-2.5"><div class="w-3 h-3 rounded-full bg-primary flex items-center justify-center"><div class="w-1.5 h-1.5 rounded-full bg-white"></div></div><div><div class="flex items-center gap-2"><span class="font-semibold text-ink text-xs">Claude 3.7 Sonnet (Thinking Hybrid)</span><span class="px-1.5 py-[1px] rounded bg-primary text-on-primary text-[10px] font-caption">主研判模型</span></div><span class="text-[11px] text-muted-soft font-mono">claude-3-7-sonnet-20250219</span></div></div><div class="flex items-center gap-2"><span class="text-success font-code text-xs font-medium flex items-center gap-1" id="latency-claude"><span class="w-1.5 h-1.5 rounded-full bg-success"></span>340ms (可用)</span><button class="px-2 py-1 rounded bg-surface-card border border-hairline text-[11px] text-body hover:text-ink hover:bg-surface-soft" onclick="pingSingleModel('claude-3-7')">单点测速</button></div></div><div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2 border-t border-hairline/60 text-xs"><div class="space-y-1"><span class="text-muted text-[11px]">思考预算 (Max Thinking Tokens)</span><input class="w-full px-2.5 py-1 bg-surface-card border border-hairline rounded text-ink font-code text-xs" type="number" value="8192"></div><div class="space-y-1"><span class="text-muted text-[11px]">研判采样温度 (Temperature)</span><input class="w-full px-2.5 py-1 bg-surface-card border border-hairline rounded text-ink font-code text-xs" max="1.0" min="0.0" step="0.1" type="number" value="0.3"></div><div class="space-y-1"><span class="text-muted text-[11px]">调度权重</span><select class="w-full px-2 py-1 bg-surface-card border border-hairline rounded text-ink text-xs"><option selected="">首选主路由 (80%)</option><option>仅重大事件启用</option></select></div></div></div><div class="p-3.5 rounded-xl border border-hairline bg-surface-soft/60 space-y-2.5"><div class="flex items-center justify-between flex-wrap gap-2"><div class="flex items-center gap-2.5"><div class="w-3 h-3 rounded-full border border-muted-soft flex items-center justify-center"></div><div><div class="flex items-center gap-2"><span class="font-semibold text-ink text-xs">DeepSeek-R1 (Full Reasoning 671B)</span><span class="px-1.5 py-[1px] rounded bg-surface-container text-body text-[10px] font-caption">深度逻辑链验证</span></div><span class="text-[11px] text-muted-soft font-mono">deepseek-reasoner</span></div></div><div class="flex items-center gap-2"><span class="text-success font-code text-xs font-medium flex items-center gap-1" id="latency-deepseek"><span class="w-1.5 h-1.5 rounded-full bg-success"></span>280ms (可用)</span><button class="px-2 py-1 rounded bg-surface-card border border-hairline text-[11px] text-body hover:text-ink hover:bg-surface-soft" onclick="pingSingleModel('deepseek-r1')">单点测速</button></div></div><div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2 border-t border-hairline/60 text-xs"><div class="space-y-1"><span class="text-muted text-[11px]">最大上下文窗口</span><input class="w-full px-2.5 py-1 bg-surface-card border border-hairline rounded text-ink font-code text-xs" readonly="" type="text" value="64k Context"></div><div class="space-y-1"><span class="text-muted text-[11px]">逻辑对齐严格度</span><input class="w-full px-2.5 py-1 bg-surface-card border border-hairline rounded text-ink font-code text-xs" max="1.0" min="0.0" step="0.1" type="number" value="0.2"></div><div class="space-y-1"><span class="text-muted text-[11px]">调度权重</span><select class="w-full px-2 py-1 bg-surface-card border border-hairline rounded text-ink text-xs"><option selected="">复杂事件二次交叉验证 (20%)</option><option>主研判候选</option></select></div></div></div><div class="p-3.5 rounded-xl border border-hairline bg-surface-soft/60 space-y-2.5"><div class="flex items-center justify-between flex-wrap gap-2"><div class="flex items-center gap-2.5"><div class="w-3 h-3 rounded-full border border-muted-soft flex items-center justify-center"></div><div><div class="flex items-center gap-2"><span class="font-semibold text-ink text-xs">本地 Ollama / Llama-3.3-70B 离线引擎</span><span class="px-1.5 py-[1px] rounded bg-[#ebe5dc] text-ink text-[10px] font-caption">隐私离线/断网备用</span></div><span class="text-[11px] text-muted-soft font-mono">http://127.0.0.1:11434</span></div></div><div class="flex items-center gap-2"><span class="text-muted-soft font-code text-xs font-medium flex items-center gap-1" id="latency-ollama"><span class="w-1.5 h-1.5 rounded-full bg-success"></span>18ms (本地直连)</span><button class="px-2 py-1 rounded bg-surface-card border border-hairline text-[11px] text-body hover:text-ink hover:bg-surface-soft" onclick="pingSingleModel('ollama-local')">连接校验</button></div></div><div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2 border-t border-hairline/60 text-xs"><div class="space-y-1"><span class="text-muted text-[11px]">本地服务监听接口</span><input class="w-full px-2.5 py-1 bg-surface-card border border-hairline rounded text-ink font-code text-xs" type="text" value="http://localhost:11434/v1"></div><div class="space-y-1"><span class="text-muted text-[11px]">降级触发条件</span><select class="w-full px-2 py-1 bg-surface-card border border-hairline rounded text-ink text-xs"><option selected="">网络离线或 API 熔断时代替</option><option>始终双引擎并行</option></select></div></div></div></div><div class="flex justify-end pt-2"><button class="px-4 py-2 rounded-lg bg-primary hover:bg-primary-hover text-on-primary text-xs font-medium transition-colors shadow-sm flex items-center gap-1.5" onclick="saveLlmSettings()"><span class="material-symbols-outlined text-[15px]">check</span><span class="">保存模型调度参数</span></button></div></div></div><div class="xl:col-span-4 space-y-5"><div class="bg-surface-card border border-hairline rounded-xl p-4 shadow-sm space-y-3"><div class="flex items-center gap-2 pb-2 border-b border-hairline"><span class="material-symbols-outlined text-primary text-[18px]">style</span><h3 class="font-semibold text-ink text-sm">研判报告文风与输出控制</h3></div><div class="space-y-3 text-xs"><div class="space-y-1"><label class="block text-body font-medium text-[11px]">分析师研报文风基调</label><select class="w-full px-2.5 py-1.5 bg-surface-soft border border-hairline rounded-lg text-xs text-ink focus:outline-none focus:border-primary"><option selected="">战略智库风格 (冷静、结构化、深度归因)</option><option>投研简报风格 (高密度要点、财务影响)</option><option>硬核架构师风格 (技术拆解、实现路径)</option></select></div><div class="space-y-1"><label class="block text-body font-medium text-[11px]">置信度度量输出</label><div class="flex items-center justify-between p-2 rounded bg-surface-soft border border-hairline"><span class="text-muted text-[11px]">强制在摘要中标注事实来源信度</span><input checked="" class="rounded text-primary" type="checkbox"></div></div><div class="space-y-1"><label class="block text-body font-medium text-[11px]">自动反思与反脆弱对抗验证</label><div class="flex items-center justify-between p-2 rounded bg-surface-soft border border-hairline"><span class="text-muted text-[11px]">对 Tier 1 核心观点进行反例压力测试</span><input checked="" class="rounded text-primary" type="checkbox"></div></div></div></div><div class="bg-surface-card border border-hairline rounded-xl p-4 shadow-sm space-y-3"><div class="flex items-center gap-2 pb-2 border-b border-hairline"><span class="material-symbols-outlined text-primary text-[18px]">payments</span><h3 class="font-semibold text-ink text-sm">Token 吞吐与成本统计</h3></div><div class="space-y-2 text-xs"><div class="flex items-center justify-between py-1 border-b border-hairline/50"><span class="text-muted">本月研判调用量</span><span class="font-code text-ink font-medium">184,200 Tokens</span></div><div class="flex items-center justify-between py-1 border-b border-hairline/50"><span class="text-muted">本地离线推理占比</span><span class="font-code text-success font-medium">42.8% (0 成本)</span></div><div class="flex items-center justify-between py-1"><span class="text-muted">平均单篇研报生成耗时</span><span class="font-code text-ink font-medium">3.2 秒</span></div></div></div></div></div></div><div class="hidden space-y-6" id="settings-view-general"><div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start"><div class="xl:col-span-8 space-y-5"><div class="bg-surface-card border border-hairline rounded-xl p-5 shadow-sm space-y-4"><div class="flex items-center justify-between pb-3 border-b border-hairline"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">tune</span><h2 class="font-semibold text-ink text-sm">通用环境与本地服务配置</h2></div><span class="text-[11px] text-muted font-caption">当前服务进程: PID 48201</span></div><div class="space-y-4 text-xs"><div class="space-y-1.5"><label class="block font-medium text-body text-[11px]">自动化抓取与轮询周期</label><div class="grid grid-cols-1 sm:grid-cols-3 gap-2"><button class="p-2.5 rounded-lg border border-primary bg-primary/5 text-left transition-all" onclick="selectPollInterval(this, 30)" type="button"><div class="font-semibold text-ink text-xs flex items-center justify-between"><span class="">每 30 分钟</span><span class="material-symbols-outlined text-[15px] text-primary">check_circle</span></div><div class="text-[10px] text-muted mt-0.5">高峰智能避让模式 (推荐)</div></button><button class="p-2.5 rounded-lg border border-hairline bg-surface-soft hover:bg-surface-cream-strong text-left transition-all" onclick="selectPollInterval(this, 60)" type="button"><div class="font-semibold text-ink text-xs flex items-center justify-between"><span class="">每 1 小时</span></div><div class="text-[10px] text-muted mt-0.5">节能与低带宽模式</div></button><button class="p-2.5 rounded-lg border border-hairline bg-surface-soft hover:bg-surface-cream-strong text-left transition-all" onclick="selectPollInterval(this, 0)" type="button"><div class="font-semibold text-ink text-xs flex items-center justify-between"><span class="">仅手动触发</span></div><div class="text-[10px] text-muted mt-0.5">关闭后台静默探测</div></button></div></div><div class="space-y-2 pt-2 border-t border-hairline"><label class="block font-medium text-body text-[11px]">本地出海代理服务 (Proxy Settings)</label><div class="grid grid-cols-1 sm:grid-cols-3 gap-2"><div class="sm:col-span-2"><input class="w-full px-3 py-1.5 bg-surface-soft border border-hairline rounded-lg text-xs font-mono text-ink" id="proxy-addr-input" type="text" value="http://127.0.0.1:7890"></div><button class="px-3 py-1.5 rounded-lg bg-surface-card hover:bg-surface-cream-strong border border-hairline text-xs text-ink font-medium shadow-xs transition-colors flex items-center justify-center gap-1" onclick="testProxyConnectivity()" type="button"><span class="material-symbols-outlined text-[14px] text-success">wifi_tethering</span><span class="">测试代理连通性</span></button></div><p class="text-[10px] text-muted-soft">用于保证境外一流学者博客与 RSS/Substack 顺畅拉取，支持 HTTP / SOCKS5 协议</p></div><div class="space-y-2 pt-2 border-t border-hairline"><label class="block font-medium text-body text-[11px]">外部双链笔记与 Markdown 导出路径 (Obsidian / Logseq Vault)</label><div class="flex items-center gap-2"><input class="w-full px-3 py-1.5 bg-surface-soft border border-hairline rounded-lg text-xs font-mono text-ink" id="obsidian-path-input" type="text" value="~/Documents/ObsidianVault/SignalDesk-Archive"><button class="px-3 py-1.5 rounded-lg bg-surface-card hover:bg-surface-cream-strong border border-hairline text-xs text-ink font-medium shadow-xs whitespace-nowrap" onclick="chooseVaultFolder()" type="button">选择文件夹</button></div><p class="text-[10px] text-muted-soft">所有完成的研报、事件时间轴均自动生成 YAML 前置元数据并保存至本地 Markdown 仓库</p></div><div class="space-y-2 pt-2 border-t border-hairline"><label class="block font-medium text-body text-[11px]">界面主题与纸质阅读排版风格</label><div class="grid grid-cols-1 sm:grid-cols-2 gap-2"><label class="flex items-center justify-between p-3 rounded-lg border border-primary bg-primary/5 cursor-pointer"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">newspaper</span><div><div class="font-medium text-ink text-xs">温润燕麦纸（Amber Ink Editorial）</div><div class="text-[10px] text-muted">柔和纸质基底，长文阅读舒适</div></div></div><input checked="" class="text-primary" name="paper-theme" type="radio"></label><label class="flex items-center justify-between p-3 rounded-lg border border-hairline bg-surface-soft hover:bg-surface-cream-strong cursor-pointer"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-muted text-[18px]">dark_mode</span><div><div class="font-medium text-ink text-xs">暗色黑曜石（Obsidian Dark）</div><div class="text-[10px] text-muted">夜间护眼模式，深空灰阶对比</div></div></div><input class="text-primary" name="paper-theme" onchange="showToast('已保存主题偏好：温润燕麦纸为首选')" type="radio"></label></div></div></div><div class="flex justify-end pt-2 border-t border-hairline"><button class="px-4 py-2 rounded-lg bg-primary hover:bg-primary-hover text-on-primary text-xs font-medium transition-colors shadow-sm flex items-center gap-1.5" onclick="saveGeneralPreferences()"><span class="material-symbols-outlined text-[15px]">save</span><span class="">保存通用偏好配置</span></button></div></div></div><div class="xl:col-span-4 space-y-5"><div class="bg-surface-card border border-hairline rounded-xl p-4 shadow-sm space-y-3"><div class="flex items-center gap-2 pb-2 border-b border-hairline"><span class="material-symbols-outlined text-primary text-[18px]">memory</span><h3 class="font-semibold text-ink text-sm">系统自检与硬件加速状态</h3></div><div class="space-y-2 text-xs"><div class="flex items-center justify-between py-1 border-b border-hairline/50"><span class="text-muted">本地 SQLite 数据库</span><span class="font-code text-ink font-medium">14.2 MB (WAL 模式)</span></div><div class="flex items-center justify-between py-1 border-b border-hairline/50"><span class="text-muted">全文字符倒排索引</span><span class="font-code text-success flex items-center gap-1 font-medium"><span class="w-1.5 h-1.5 rounded-full bg-success"></span>BM25 + 向量索引就绪</span></div><div class="flex items-center justify-between py-1 border-b border-hairline/50"><span class="text-muted">系统内存总开销</span><span class="font-code text-ink font-medium">218 MB</span></div><div class="flex items-center justify-between py-1"><span class="text-muted">后台守护线程</span><span class="font-code text-ink font-medium">4 活跃 (调度池正常)</span></div></div></div><div class="bg-surface-card border border-hairline rounded-xl p-4 shadow-sm space-y-3"><div class="flex items-center gap-2 pb-2 border-b border-hairline"><span class="material-symbols-outlined text-primary text-[18px]">backup</span><h3 class="font-semibold text-ink text-sm">数据冷备与迁移</h3></div><p class="text-xs text-muted">一键将全部 50 个信源、研报归档以及个人标注打包导出为离线备份包。</p><div class="flex items-center gap-2"><button class="flex-1 py-1.5 rounded-lg bg-surface-card hover:bg-surface-cream-strong border border-hairline text-xs text-ink font-medium transition-colors shadow-xs flex items-center justify-center gap-1" onclick="showToast('已打包导出 signals_backup_20250228.tar.gz')"><span class="material-symbols-outlined text-[14px]">download</span><span class="">生成全量冷备</span></button></div></div></div></div></div></div></main></div>
+<!-- 全局浮动 Toast 提示组件 -->
+<div class="fixed bottom-6 right-6 z-50 pointer-events-none flex flex-col gap-2" id="toast-container"></div>
+<!-- 核心脚本：完整的 50 个真实信源数据集、支持按列升降序切换、多页真实分页、即时过滤与联动 -->
+<script id="full-feeds-manager-engine">
+// 1. 扩充完整 50 条信源数据库
+const INITIAL_FEEDS = [
+  { id: 1, name: "SemiAnalysis", cat: "semi", catLabel: "硬科技与半导体", tier: "Tier 1 核心源", protocol: "RSS 2.0", url: "https://semianalysis.com/feed", latency: 162, uptime: 100, lastCheck: "2 分钟前", weight: 95, enabled: true, color: "text-primary bg-primary/10" },
+  { id: 2, name: "Latent.Space", cat: "ai", catLabel: "AI 算法与模型", tier: "高频播客与专栏", protocol: "Substack", url: "https://latent.space/feed", latency: 210, uptime: 99.8, lastCheck: "5 分钟前", weight: 90, enabled: true, color: "text-tertiary bg-surface-container" },
+  { id: 3, name: "Anthropic Engineering", cat: "ai", catLabel: "AI 算法与模型", tier: "官方工程博客", protocol: "Atom", url: "https://anthropic.com/engineering/rss.xml", latency: 128, uptime: 100, lastCheck: "刚刚探测", weight: 98, enabled: true, color: "text-secondary bg-secondary-container" },
+  { id: 4, name: "Cloudflare Blog", cat: "semi", catLabel: "硬科技与半导体", tier: "边缘计算与网关", protocol: "RSS 2.0", url: "https://blog.cloudflare.com/rss", latency: 94, uptime: 100, lastCheck: "1 分钟前", weight: 88, enabled: true, color: "text-warning bg-warning/10" },
+  { id: 5, name: "Sam Altman (@sama)", cat: "macro", catLabel: "宏观策略与独家", tier: "行业领袖动态", protocol: "Nitter RSS", url: "https://nitter.net/sama/rss", latency: 310, uptime: 99.2, lastCheck: "12 分钟前", weight: 92, enabled: true, color: "text-ink bg-[#ebe5dc]" },
+  { id: 6, name: "DeepSeek AI Lab", cat: "ai", catLabel: "AI 算法与模型", tier: "开源模型研报", protocol: "ArXiv RSS", url: "https://deepseek.com/blog/feed", latency: 185, uptime: 100, lastCheck: "4 分钟前", weight: 96, enabled: true, color: "text-primary bg-primary/10" },
+  { id: 7, name: "Google DeepMind", cat: "ai", catLabel: "AI 算法与模型", tier: "前沿论文与系统", protocol: "Atom", url: "https://deepmind.google/blog/rss.xml", latency: 152, uptime: 100, lastCheck: "刚刚探测", weight: 94, enabled: true, color: "text-primary bg-surface-container" },
+  { id: 8, name: "AnandTech Hardware", cat: "semi", catLabel: "硬科技与半导体", tier: "微架构深度拆解", protocol: "RSS 2.0", url: "https://anandtech.com/rss", latency: 240, uptime: 99.5, lastCheck: "8 分钟前", weight: 89, enabled: true, color: "text-secondary bg-surface-container" },
+  { id: 9, name: "OpenAI Research", cat: "ai", catLabel: "AI 算法与模型", tier: "Tier 1 核心源", protocol: "Atom", url: "https://openai.com/research/rss", latency: 115, uptime: 100, lastCheck: "3 分钟前", weight: 99, enabled: true, color: "text-primary bg-primary-light" },
+  { id: 10, name: "TSMC Investors Intel", cat: "semi", catLabel: "硬科技与半导体", tier: "晶圆先进制程", protocol: "RSS 2.0", url: "https://tsmc.com/investor/feed", latency: 290, uptime: 99.9, lastCheck: "15 分钟前", weight: 93, enabled: true, color: "text-warning bg-warning/10" },
+  { id: 11, name: "Stratechery by Ben Thompson", cat: "macro", catLabel: "宏观策略与独家", tier: "商业战略视角", protocol: "Substack", url: "https://stratechery.com/feed", latency: 140, uptime: 100, lastCheck: "6 分钟前", weight: 91, enabled: true, color: "text-ink bg-surface-cream-strong" },
+  { id: 12, name: "Hugging Face Daily Papers", cat: "ai", catLabel: "AI 算法与模型", tier: "开源模型研报", protocol: "RSS 2.0", url: "https://huggingface.co/papers/rss", latency: 175, uptime: 99.9, lastCheck: "4 分钟前", weight: 92, enabled: true, color: "text-warning bg-warning/10" },
+  { id: 13, name: "ASML Global Insights", cat: "semi", catLabel: "硬科技与半导体", tier: "EUV 光刻设备跟踪", protocol: "Atom", url: "https://asml.com/news/feed.xml", latency: 260, uptime: 99.6, lastCheck: "20 分钟前", weight: 87, enabled: true, color: "text-secondary bg-secondary-container" },
+  { id: 14, name: "Nvidia Technical Blog", cat: "semi", catLabel: "硬科技与半导体", tier: "GPU 算力互连栈", protocol: "RSS 2.0", url: "https://developer.nvidia.com/blog/feed", latency: 132, uptime: 100, lastCheck: "5 分钟前", weight: 97, enabled: true, color: "text-success bg-success/10" },
+  { id: 15, name: "The Information Exclusive", cat: "macro", catLabel: "宏观策略与独家", tier: "硅谷独家内幕", protocol: "RSS 2.0", url: "https://theinformation.com/rss", latency: 195, uptime: 99.7, lastCheck: "10 分钟前", weight: 94, enabled: true, color: "text-ink bg-primary-fixed" },
+  { id: 16, name: "Meta AI Research", cat: "ai", catLabel: "AI 算法与模型", tier: "官方工程博客", protocol: "Atom", url: "https://ai.meta.com/blog/rss", latency: 145, uptime: 100, lastCheck: "2 分钟前", weight: 93, enabled: true, color: "text-primary bg-primary/10" },
+  { id: 17, name: "WikiChip Fuse", cat: "semi", catLabel: "硬科技与半导体", tier: "封装与节点度量", protocol: "RSS 2.0", url: "https://fuse.wikichip.org/feed", latency: 275, uptime: 99.4, lastCheck: "35 分钟前", weight: 86, enabled: true, color: "text-body bg-surface-container" },
+  { id: 18, name: "SEC AI Regulatory Filings", cat: "macro", catLabel: "宏观策略与独家", tier: "宏观政策与监管", protocol: "Atom", url: "https://sec.gov/edgar/searchedgar/rss", latency: 330, uptime: 99.1, lastCheck: "18 分钟前", weight: 88, enabled: true, color: "text-secondary bg-surface-cream-strong" },
+  { id: 19, name: "Morgan Stanley TMT Pulse", cat: "macro", catLabel: "宏观策略与独家", tier: "投行研报解读", protocol: "RSS 2.0", url: "https://morganstanley.com/tmt/feed", latency: 220, uptime: 99.8, lastCheck: "9 分钟前", weight: 89, enabled: true, color: "text-primary bg-surface-container" },
+  { id: 20, name: "Broadcom NetX Insights", cat: "semi", catLabel: "硬科技与半导体", tier: "交换芯片与以太网", protocol: "RSS 2.0", url: "https://broadcom.com/blog/feed", latency: 205, uptime: 100, lastCheck: "11 分钟前", weight: 85, enabled: true, color: "text-warning bg-warning/10" },
+  { id: 21, name: "Berkeley BAIR Blog", cat: "ai", catLabel: "AI 算法与模型", tier: "学术前沿与实验室", protocol: "Atom", url: "https://bair.berkeley.edu/blog/feed.xml", latency: 190, uptime: 100, lastCheck: "14 分钟前", weight: 91, enabled: true, color: "text-primary bg-primary/10" },
+  { id: 22, name: "Dan Wang Dispatches", cat: "macro", catLabel: "宏观策略与独家", tier: "中外产业与制造", protocol: "Substack", url: "https://danwang.co/feed", latency: 165, uptime: 100, lastCheck: "40 分钟前", weight: 90, enabled: true, color: "text-ink bg-[#f5f0e8]" },
+  { id: 23, name: "EE Times Semiconductor", cat: "semi", catLabel: "硬科技与半导体", tier: "产业供应链新闻", protocol: "RSS 2.0", url: "https://eetimes.com/rss-feeds", latency: 280, uptime: 99.3, lastCheck: "25 分钟前", weight: 82, enabled: true, color: "text-muted text-ink bg-surface-container" },
+  { id: 24, name: "Simons Foundation Quantum", cat: "semi", catLabel: "硬科技与半导体", tier: "前沿物理与计算", protocol: "RSS 2.0", url: "https://simonsfoundation.org/feed", latency: 215, uptime: 100, lastCheck: "19 分钟前", weight: 84, enabled: true, color: "text-tertiary bg-surface-container" },
+  { id: 25, name: "Lilian Weng (Lil'Log)", cat: "ai", catLabel: "AI 算法与模型", tier: "深度体系拆解", protocol: "RSS 2.0", url: "https://lilianweng.github.io/index.xml", latency: 110, uptime: 100, lastCheck: "3 分钟前", weight: 97, enabled: true, color: "text-primary bg-primary-light" },
+  { id: 26, name: "EU AI Act Compliance Monitor", cat: "macro", catLabel: "宏观策略与独家", tier: "宏观政策与监管", protocol: "Atom", url: "https://artificialintelligenceact.eu/feed", latency: 315, uptime: 99.5, lastCheck: "30 分钟前", weight: 86, enabled: true, color: "text-secondary bg-surface-container" },
+  { id: 27, name: "Arm Architecture Journal", cat: "semi", catLabel: "硬科技与半导体", tier: "端侧与服务器核", protocol: "RSS 2.0", url: "https://community.arm.com/feed", latency: 180, uptime: 100, lastCheck: "7 分钟前", weight: 87, enabled: true, color: "text-tertiary bg-surface-soft" },
+  { id: 28, name: "Distill.pub Archive & Feed", cat: "ai", catLabel: "AI 算法与模型", tier: "可视化神经机制", protocol: "RSS 2.0", url: "https://distill.pub/rss.xml", latency: 198, uptime: 100, lastCheck: "50 分钟前", weight: 88, enabled: true, color: "text-secondary bg-secondary-container" },
+  { id: 29, name: "Paul Graham Essays", cat: "macro", catLabel: "宏观策略与独家", tier: "行业领袖动态", protocol: "RSS 2.0", url: "https://paulgraham.com/rss.html", latency: 135, uptime: 100, lastCheck: "22 分钟前", weight: 93, enabled: true, color: "text-ink bg-surface-cream-strong" },
+  { id: 30, name: "Applied Materials Blog", cat: "semi", catLabel: "硬科技与半导体", tier: "晶圆沉积与刻蚀", protocol: "RSS 2.0", url: "https://appliedmaterials.com/blog/feed", latency: 255, uptime: 99.6, lastCheck: "1 小时前", weight: 81, enabled: true, color: "text-primary bg-surface-container" },
+  { id: 31, name: "Stanford HAI Research", cat: "ai", catLabel: "AI 算法与模型", tier: "学术前沿与实验室", protocol: "Atom", url: "https://hai.stanford.edu/news/rss", latency: 160, uptime: 100, lastCheck: "16 分钟前", weight: 91, enabled: true, color: "text-primary bg-primary/10" },
+  { id: 32, name: "Goldman Sachs Top of Mind", cat: "macro", catLabel: "宏观策略与独家", tier: "投行研报解读", protocol: "RSS 2.0", url: "https://goldmansachs.com/insights/feed", latency: 230, uptime: 99.8, lastCheck: "13 分钟前", weight: 90, enabled: true, color: "text-ink bg-surface-soft" },
+  { id: 33, name: "Micron Tech HBM Stream", cat: "semi", catLabel: "硬科技与半导体", tier: "高带宽存储互连", protocol: "RSS 2.0", url: "https://micron.com/blog/feed", latency: 245, uptime: 99.7, lastCheck: "28 分钟前", weight: 85, enabled: true, color: "text-warning bg-warning/10" },
+  { id: 34, name: "Andrej Karpathy Dispatches", cat: "ai", catLabel: "AI 算法与模型", tier: "行业领袖动态", protocol: "Substack", url: "https://karpathy.substack.com/feed", latency: 125, uptime: 100, lastCheck: "6 分钟前", weight: 98, enabled: true, color: "text-primary bg-primary-fixed" },
+  { id: 35, name: "Semiconductor Engineering", cat: "semi", catLabel: "硬科技与半导体", tier: "EDA与光刻分析", protocol: "RSS 2.0", url: "https://semiengineering.com/feed", latency: 295, uptime: 99.2, lastCheck: "45 分钟前", weight: 83, enabled: true, color: "text-body bg-surface-container" },
+  { id: 36, name: "Matt Levine (Money Stuff)", cat: "macro", catLabel: "宏观策略与独家", tier: "金融内幕与策略", protocol: "Bloomberg RSS", url: "https://bloomberg.com/opinion/moneystuff.xml", latency: 170, uptime: 100, lastCheck: "17 分钟前", weight: 92, enabled: true, color: "text-ink bg-surface-cream-strong" },
+  { id: 37, name: "Mistral AI Engineering", cat: "ai", catLabel: "AI 算法与模型", tier: "官方工程博客", protocol: "Atom", url: "https://mistral.ai/news/index.xml", latency: 148, uptime: 100, lastCheck: "8 分钟前", weight: 94, enabled: true, color: "text-warning bg-warning/10" },
+  { id: 38, name: "Intel Technology Blog", cat: "semi", catLabel: "硬科技与半导体", tier: "先进工艺代工", protocol: "RSS 2.0", url: "https://intel.com/content/www/us/en/newsroom/feed", latency: 225, uptime: 99.8, lastCheck: "31 分钟前", weight: 86, enabled: true, color: "text-tertiary bg-surface-container" },
+  { id: 39, name: "FT Tech Strategy Wire", cat: "macro", catLabel: "宏观策略与独家", tier: "行业领袖动态", protocol: "RSS 2.0", url: "https://ft.com/technology/rss", latency: 200, uptime: 100, lastCheck: "21 分钟前", weight: 89, enabled: true, color: "text-ink bg-surface-container" },
+  { id: 40, name: "Interconnects by Nathan Lambert", cat: "ai", catLabel: "AI 算法与模型", tier: "强化学习与对齐", protocol: "Substack", url: "https://interconnects.ai/feed", latency: 155, uptime: 100, lastCheck: "10 分钟前", weight: 92, enabled: true, color: "text-secondary bg-secondary-container" },
+  { id: 41, name: "Synopsys Design Insights", cat: "semi", catLabel: "硬科技与半导体", tier: "EDA 工具链演进", protocol: "RSS 2.0", url: "https://synopsys.com/blogs/feed", latency: 265, uptime: 99.5, lastCheck: "42 分钟前", weight: 84, enabled: true, color: "text-primary bg-surface-container" },
+  { id: 42, name: "VentureBeat AI Beat", cat: "ai", catLabel: "AI 算法与模型", tier: "产业模型落地", protocol: "RSS 2.0", url: "https://venturebeat.com/category/ai/feed", latency: 210, uptime: 99.7, lastCheck: "15 分钟前", weight: 87, enabled: true, color: "text-ink bg-surface-container" },
+  { id: 43, name: "Marc Andreessen (pmarca)", cat: "macro", catLabel: "宏观策略与独家", tier: "商业战略视角", protocol: "Substack", url: "https://pmarca.substack.com/feed", latency: 160, uptime: 100, lastCheck: "38 分钟前", weight: 91, enabled: true, color: "text-primary bg-primary-light" },
+  { id: 44, name: "KLA Metrology Insights", cat: "semi", catLabel: "硬科技与半导体", tier: "良率量测与检测", protocol: "RSS 2.0", url: "https://kla.com/advance/feed", latency: 305, uptime: 99.4, lastCheck: "1 小时前", weight: 82, enabled: true, color: "text-muted bg-surface-container" },
+  { id: 45, name: "Together AI Research", cat: "ai", catLabel: "AI 算法与模型", tier: "推理加速与系统", protocol: "Atom", url: "https://together.ai/blog/rss", latency: 142, uptime: 100, lastCheck: "9 分钟前", weight: 93, enabled: true, color: "text-primary bg-primary/10" },
+  { id: 46, name: "NIST AI Safety Institute", cat: "macro", catLabel: "宏观策略与独家", tier: "宏观政策与监管", protocol: "Atom", url: "https://nist.gov/itl/ai-risk-mgmt/feed", latency: 285, uptime: 99.6, lastCheck: "55 分钟前", weight: 88, enabled: true, color: "text-secondary bg-surface-cream-strong" },
+  { id: 47, name: "Lam Research Tech Brief", cat: "semi", catLabel: "硬科技与半导体", tier: "3D NAND 与干刻", protocol: "RSS 2.0", url: "https://lamresearch.com/feed", latency: 270, uptime: 99.5, lastCheck: "49 分钟前", weight: 83, enabled: true, color: "text-primary bg-surface-container" },
+  { id: 48, name: "Chip Huyen AI Systems", cat: "ai", catLabel: "AI 算法与模型", tier: "工程部署与架构", protocol: "RSS 2.0", url: "https://chiphuyen.com/feed", latency: 138, uptime: 100, lastCheck: "12 分钟前", weight: 93, enabled: true, color: "text-success bg-surface-container" },
+  { id: 49, name: "ARK Invest Innovation Wire", cat: "macro", catLabel: "宏观策略与独家", tier: "颠覆性技术模型", protocol: "RSS 2.0", url: "https://ark-invest.com/feed", latency: 215, uptime: 99.8, lastCheck: "27 分钟前", weight: 85, enabled: true, color: "text-ink bg-surface-soft" },
+  { id: 50, name: "Cadence EDA Frontiers", cat: "semi", catLabel: "硬科技与半导体", tier: "EDA与系统集成", protocol: "RSS 2.0", url: "https://community.cadence.com/rss", latency: 250, uptime: 99.7, lastCheck: "33 分钟前", weight: 84, enabled: true, color: "text-body bg-surface-container" }
+];
+
+// 全局状态管理器
+const state = {
+  feeds: [...INITIAL_FEEDS],
+  category: "all",
+  searchQuery: "",
+  currentPage: 1,
+  pageSize: 7,
+  sortCol: "default", // name, category, latency, weight, status
+  sortDir: "asc"      // asc, desc
+};
+
+// 2. 渲染主函数
+function render() {
+  // 筛选流程
+  let list = state.feeds.filter(feed => {
+    // 类别过滤
+    if (state.category === "error") {
+      if (feed.uptime >= 100 && feed.latency < 400) return false;
+    } else if (state.category !== "all" && feed.cat !== state.category) {
+      return false;
+    }
+    // 搜索词过滤 (支持信源名、URL、分类)
+    if (state.searchQuery) {
+      const q = state.searchQuery.toLowerCase();
+      const match = feed.name.toLowerCase().includes(q) ||
+                    feed.url.toLowerCase().includes(q) ||
+                    feed.catLabel.toLowerCase().includes(q) ||
+                    feed.tier.toLowerCase().includes(q);
+      if (!match) return false;
+    }
+    return true;
+  });
+
+  // 排序流程
+  if (state.sortCol !== "default") {
+    list.sort((a, b) => {
+      let res = 0;
+      if (state.sortCol === "name") {
+        res = a.name.localeCompare(b.name, "zh-Hans-CN");
+      } else if (state.sortCol === "category") {
+        res = a.catLabel.localeCompare(b.catLabel, "zh-Hans-CN");
+      } else if (state.sortCol === "latency") {
+        res = a.latency - b.latency;
+      } else if (state.sortCol === "weight") {
+        res = a.weight - b.weight;
+      } else if (state.sortCol === "status") {
+        res = (a.enabled === b.enabled) ? 0 : a.enabled ? -1 : 1;
+      }
+      return state.sortDir === "asc" ? res : -res;
+    });
+  }
+
+  // 分页计算
+  const totalItems = list.length;
+  const totalPages = Math.max(1, Math.ceil(totalItems / state.pageSize));
+  if (state.currentPage > totalPages) {
+    state.currentPage = totalPages;
+  }
+  const startIndex = (state.currentPage - 1) * state.pageSize;
+  const pageItems = list.slice(startIndex, startIndex + state.pageSize);
+
+  // 渲染表格行
+  const tbody = document.getElementById("feed-table-body");
+  tbody.innerHTML = "";
+
+  if (pageItems.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="5" class="py-12 text-center text-muted"><div class="flex flex-col items-center gap-2"><span class="material-symbols-outlined text-[32px] text-muted-soft">search_off</span><p class="text-xs">未找到符合当前过滤条件的信源条目</p></div></td></tr>`;
+  } else {
+    pageItems.forEach(feed => {
+      const tr = document.createElement("tr");
+      tr.className = "hover:bg-surface-cream-strong/50 transition-colors feed-row group";
+      tr.setAttribute("data-id", feed.id);
+
+      const initialChar = feed.name.replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '').charAt(0).toUpperCase() || 'S';
+      
+      tr.innerHTML = `
+        <td class="py-3.5 pl-4 pr-3 align-middle">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg ${feed.color || 'bg-primary/10 text-primary'} font-bold text-xs flex items-center justify-center border border-hairline flex-shrink-0 shadow-xs">${initialChar}</div>
+            <div class="space-y-0.5 min-w-0 flex-1">
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-ink text-xs truncate max-w-[150px] ${!feed.enabled ? 'line-through opacity-60' : ''}">${feed.name}</span>
+                <span class="px-1.5 py-[1px] rounded bg-surface-soft font-code text-[10px] text-muted inline-flex items-center border border-hairline/60">${feed.protocol}</span>
+              </div>
+              <div class="flex items-center gap-1.5 text-[11px] text-muted-soft">
+                <span class="truncate font-mono max-w-[150px]">${feed.url.replace(/^https?:\/\//, '')}</span>
+                <button class="hover:text-primary p-0.5 text-muted transition-colors" onclick="copyFeedUrl('${feed.url}')" title="复制订阅链接">
+                  <span class="material-symbols-outlined text-[13px]">content_copy</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded bg-[#f5f0e8] text-body text-[11px] font-medium border border-hairline/60">${feed.catLabel}</span>
+            <div class="text-[10px] text-muted font-caption flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full ${feed.cat === 'ai' ? 'bg-secondary' : feed.cat === 'semi' ? 'bg-primary' : 'bg-warning'}"></span>
+              ${feed.tier}
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-0.5 font-code text-[11px]">
+            <div class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full ${feed.enabled ? 'bg-success' : 'bg-muted-soft'}"></span>
+              <span class="text-ink font-medium">${feed.latency}ms</span>
+              <span class="text-muted-soft text-[10px]">· ${feed.uptime}%</span>
+            </div>
+            <div class="text-[10px] text-muted font-caption">${feed.lastCheck}</div>
+          </div>
+        </td>
+        <td class="py-3.5 px-3 align-middle">
+          <div class="space-y-1 max-w-[90px]">
+            <div class="flex items-center justify-between text-[11px] font-code">
+              <span class="text-muted text-[10px]">权重</span>
+              <span class="font-semibold text-primary">${feed.weight}%</span>
+            </div>
+            <div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+              <div class="bg-primary h-full rounded-full transition-all duration-300" style="width: ${feed.weight}%"></div>
+            </div>
+          </div>
+        </td>
+        <td class="py-3.5 pr-4 pl-3 text-right align-middle">
+          <div class="flex items-center justify-end gap-1.5">
+            <label class="inline-flex items-center cursor-pointer mr-1" title="切换启停轮询">
+              <input type="checkbox" class="sr-only peer" ${feed.enabled ? 'checked' : ''} onchange="toggleFeedSwitch(${feed.id}, this.checked)">
+              <div class="relative w-7 h-4 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-primary"></div>
+            </label>
+            <button class="p-1 rounded text-muted hover:text-primary hover:bg-surface-soft transition-colors" onclick="refreshFeedItem(${feed.id}, '${feed.name}')" title="即刻刷新抓取">
+              <span class="material-symbols-outlined text-[15px]">sync</span>
+            </button>
+            <button class="p-1 rounded text-muted hover:text-ink hover:bg-surface-soft transition-colors" onclick="editFeedItem(${feed.id}, '${feed.name}', ${feed.weight})" title="调整权重与配置">
+              <span class="material-symbols-outlined text-[15px]">tune</span>
+            </button>
+            <button class="p-1 rounded text-muted hover:text-error hover:bg-surface-soft transition-colors" onclick="deleteFeedItem(${feed.id}, '${feed.name}')" title="删除信源">
+              <span class="material-symbols-outlined text-[15px]">delete</span>
+            </button>
+          </div>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  // 渲染表头活动排序列的高亮状态与上下箭头指示
+  updateHeaderSortVisuals();
+
+  // 渲染底部分页文字与页码按钮
+  renderPagination(totalItems, totalPages, startIndex, pageItems.length);
+
+  // 渲染分类胶囊徽章计数
+  updateCategoryBadges();
+}
+
+// 3. 表头排序视觉状态更新
+function updateHeaderSortVisuals() {
+  const cols = [
+    { id: "th-name", key: "name" },
+    { id: "th-category", key: "category" },
+    { id: "th-latency", key: "latency" },
+    { id: "th-weight", key: "weight" },
+    { id: "th-status", key: "status" }
+  ];
+
+  cols.forEach(c => {
+    const th = document.getElementById(c.id);
+    if (!th) return;
+    const iconSpan = th.querySelector(".sort-icon");
+    if (state.sortCol === c.key) {
+      th.classList.add("text-primary", "bg-primary/5");
+      th.classList.remove("text-muted");
+      if (iconSpan) {
+        iconSpan.innerHTML = state.sortDir === "asc"
+          ? '<span class="material-symbols-outlined text-[15px] text-primary font-bold">arrow_upward</span>'
+          : '<span class="material-symbols-outlined text-[15px] text-primary font-bold">arrow_downward</span>';
+      }
+    } else {
+      th.classList.remove("text-primary", "bg-primary/5");
+      th.classList.add("text-muted");
+      if (iconSpan) {
+        iconSpan.innerHTML = '<span class="material-symbols-outlined text-[14px]">unfold_more</span>';
+      }
+    }
+  });
+
+  const badge = document.getElementById("current-sort-badge");
+  if (badge) {
+    if (state.sortCol === "default") {
+      badge.innerText = "默认预设顺序";
+    } else {
+      const colLabels = { name: "名称", category: "分类", latency: "探测延时", weight: "入选权重", status: "启停状态" };
+      badge.innerHTML = `排序: <span class="text-primary font-medium">${colLabels[state.sortCol]} (${state.sortDir === "asc" ? "升序" : "降序"})</span>`;
+    }
+  }
+}
+
+// 4. 表头排序触发
+function sortByColumn(colKey) {
+  if (state.sortCol === colKey) {
+    if (state.sortDir === "asc") {
+      state.sortDir = "desc";
+    } else {
+      // 循环切回默认
+      state.sortCol = "default";
+      state.sortDir = "asc";
+    }
+  } else {
+    state.sortCol = colKey;
+    state.sortDir = "asc";
+  }
+  state.currentPage = 1; // 排序后重置到第1页
+  render();
+
+  const labels = { name: "信源名称", category: "分类与层级", latency: "探测延时", weight: "入选权重", status: "启停状态", default: "默认" };
+  if (state.sortCol === "default") {
+    showToast("已重置为默认订阅源排列");
+  } else {
+    showToast(`已按【${labels[state.sortCol]}】进行 ${state.sortDir === 'asc' ? '升序 ↑' : '降序 ↓'} 排列`);
+  }
+}
+
+// 5. 分页组件渲染
+function renderPagination(totalItems, totalPages, startIndex, pageCount) {
+  const summary = document.getElementById("page-summary-text");
+  if (summary) {
+    if (totalItems === 0) {
+      summary.innerHTML = `共 <span class="text-ink font-semibold">0</span> 个信源`;
+    } else {
+      const endItem = startIndex + pageCount;
+      summary.innerHTML = `展示 <span class="text-ink font-semibold">${startIndex + 1}-${endItem}</span> / 共 ${totalItems} 个已配置信源`;
+    }
+  }
+
+  // 健康率状态
+  const activeCount = state.feeds.filter(f => f.enabled).length;
+  const healthBadge = document.getElementById("page-health-text");
+  if (healthBadge) {
+    healthBadge.innerHTML = `健康度率: <span class="text-success font-medium font-code">100% (${activeCount}/${state.feeds.length} 活跃)</span>`;
+  }
+
+  // 上下页按钮状态
+  const prevBtn = document.getElementById("prev-page-btn");
+  const nextBtn = document.getElementById("next-page-btn");
+  if (prevBtn) prevBtn.disabled = state.currentPage <= 1;
+  if (nextBtn) nextBtn.disabled = state.currentPage >= totalPages;
+
+  // 数字页码按钮组
+  const container = document.getElementById("pagination-page-numbers");
+  if (container) {
+    container.innerHTML = "";
+    for (let p = 1; p <= totalPages; p++) {
+      const btn = document.createElement("button");
+      btn.className = (p === state.currentPage)
+        ? "w-7 h-7 rounded bg-ink text-canvas font-code text-xs font-semibold shadow-xs"
+        : "w-7 h-7 rounded bg-surface-card hover:bg-surface-cream-strong border border-hairline text-body font-code text-xs transition-colors";
+      btn.innerText = p;
+      btn.onclick = () => goToPage(p);
+      container.appendChild(btn);
+    }
+  }
+}
+
+function changePage(delta) {
+  state.currentPage += delta;
+  render();
+  window.scrollTo({ top: 120, behavior: 'smooth' });
+}
+
+function goToPage(page) {
+  if (state.currentPage === page) return;
+  state.currentPage = page;
+  render();
+  window.scrollTo({ top: 120, behavior: 'smooth' });
+}
+
+// 6. 分类标签联动切换
+function setCategoryFilter(cat, btn) {
+  state.category = cat;
+  state.currentPage = 1; // 重置至第一页
+  
+  document.querySelectorAll('.category-tab').forEach(b => {
+    b.className = 'category-tab px-2.5 py-1 rounded text-muted hover:text-ink transition-all';
+  });
+  if (btn) {
+    btn.className = 'category-tab px-2.5 py-1 rounded text-ink font-semibold bg-surface-card shadow-sm transition-all';
+  }
+
+  render();
+
+  const map = {
+    all: "全部信源",
+    semi: "硬科技与半导体",
+    macro: "宏观策略与独家",
+    ai: "AI 算法与模型",
+    error: "异常/超时"
+  };
+  showToast(`已筛选至「${map[cat] || cat}」`);
+}
+
+function updateCategoryBadges() {
+  const total = state.feeds.length;
+  const semi = state.feeds.filter(f => f.cat === "semi").length;
+  const macro = state.feeds.filter(f => f.cat === "macro").length;
+  const ai = state.feeds.filter(f => f.cat === "ai").length;
+  const error = state.feeds.filter(f => !f.enabled || f.latency > 400).length;
+
+  const pills = document.querySelectorAll("#category-pills .category-tab");
+  pills.forEach(p => {
+    const cat = p.getAttribute("data-cat");
+    if (cat === "all") p.innerText = `全部 (${total})`;
+    if (cat === "semi") p.innerText = `硬科技与半导体 (${semi})`;
+    if (cat === "macro") p.innerText = `宏观策略与独家 (${macro})`;
+    if (cat === "ai") p.innerText = `AI 算法与模型 (${ai})`;
+    if (cat === "error") p.innerText = `异常/超时 (${error})`;
+  });
+
+  const topBadge = document.getElementById("top-tab-rss-count");
+  if (topBadge) topBadge.innerText = `RSS 信源管理 (${total})`;
+  const inspectBadge = document.getElementById("health-inspect-badge");
+  if (inspectBadge) inspectBadge.innerText = `健康巡检: ${total}/${total} 正常`;
+}
+
+// 7. 信源状态与操作交互
+function toggleFeedSwitch(id, isChecked) {
+  const feed = state.feeds.find(f => f.id === id);
+  if (feed) {
+    feed.enabled = isChecked;
+    showToast(`已${isChecked ? '激活' : '暂停'}【${feed.name}】轮询调度`);
+    render();
+  }
+}
+
+function refreshFeedItem(id, name) {
+  const feed = state.feeds.find(f => f.id === id);
+  if (feed) {
+    feed.latency = Math.floor(Math.random() * 80) + 90;
+    feed.lastCheck = "刚刚刷新";
+  }
+  showToast(`已对「${name}」发起实时抓取探测，耗时 ${feed ? feed.latency : 140}ms`);
+  render();
+}
+
+function editFeedItem(id, name, currentWeight) {
+  const newWeight = prompt(`请输入「${name}」的新入选权重 (0-100)：`, currentWeight);
+  if (newWeight !== null && !isNaN(newWeight)) {
+    const val = Math.min(100, Math.max(0, parseInt(newWeight, 10)));
+    const feed = state.feeds.find(f => f.id === id);
+    if (feed) feed.weight = val;
+    showToast(`已更新「${name}」权重为 ${val}%`);
+    render();
+  }
+}
+
+function deleteFeedItem(id, name) {
+  if (confirm(`确认从订阅库移除信源「${name}」？此操作不可逆。`)) {
+    state.feeds = state.feeds.filter(f => f.id !== id);
+    showToast(`已成功移除信源「${name}」`);
+    render();
+  }
+}
+
+function copyFeedUrl(url) {
+  navigator.clipboard.writeText(url);
+  showToast(`已复制 RSS URL 到剪贴板: ${url}`);
+}
+
+// 8. 搜索与过滤联动
+function onInlineSearch(val) {
+  state.searchQuery = val.trim();
+  state.currentPage = 1;
+  const clearBtn = document.getElementById("clear-inline-search-btn");
+  if (clearBtn) {
+    clearBtn.classList.toggle("hidden", !state.searchQuery);
+  }
+  render();
+}
+
+function clearInlineSearch() {
+  const input = document.getElementById("table-inline-search");
+  if (input) input.value = "";
+  onInlineSearch("");
+}
+
+function onGlobalSearch(val) {
+  const tableInput = document.getElementById("table-inline-search");
+  if (tableInput) tableInput.value = val;
+  onInlineSearch(val);
+}
+
+// 9. 快速登记新信源
+function handleAddNewFeed(e) {
+  e.preventDefault();
+  const name = document.getElementById("quick-add-name").value.trim();
+  const url = document.getElementById("quick-add-url").value.trim();
+  const cat = document.getElementById("quick-add-cat").value;
+  const weight = parseInt(document.getElementById("quick-add-weight").value, 10);
+
+  const catMap = {
+    semi: "硬科技与半导体",
+    ai: "AI 算法与模型",
+    macro: "宏观策略与独家"
+  };
+
+  const newFeed = {
+    id: Date.now(),
+    name: name,
+    cat: cat,
+    catLabel: catMap[cat] || "前沿追踪",
+    tier: "Tier 1 自定义接入",
+    protocol: url.endsWith(".xml") ? "Atom" : "RSS 2.0",
+    url: url,
+    latency: Math.floor(Math.random() * 60) + 120,
+    uptime: 100,
+    lastCheck: "刚刚接入",
+    weight: weight,
+    enabled: true,
+    color: "text-primary bg-primary/10"
+  };
+
+  state.feeds.unshift(newFeed);
+  state.currentPage = 1;
+  render();
+
+  document.getElementById("quick-add-name").value = "";
+  document.getElementById("quick-add-url").value = "";
+  showToast(`成功接入新信源「${name}」，已排入首批调度队列`);
+}
+
+function testUrlConnectivity() {
+  const url = document.getElementById("quick-add-url").value.trim();
+  if (!url) {
+    showToast("请先输入 RSS 订阅 URL 地址");
+    return;
+  }
+  showToast(`正在探测 ${url} ... 200 OK 连通正常 (时延 136ms)`);
+}
+
+// 10. 预设信源包导入
+function importPresetPack(card, packName, count, catKey) {
+  const statusBtn = card.querySelector('.pack-status-btn');
+  if (card.getAttribute('data-imported') === 'true') {
+    showToast(`信源包【${packName}】已在订阅库中，无需重复导入`);
+    return;
+  }
+  card.setAttribute('data-imported', 'true');
+  card.classList.remove('bg-surface-soft/80');
+  card.classList.add('bg-success/10', 'border-success/30');
+  if (statusBtn) {
+    statusBtn.innerHTML = `<span class="material-symbols-outlined text-[14px] text-success">check_circle</span><span class="text-success font-medium">已导入 (${count})</span>`;
+    statusBtn.classList.add('border-success/30', 'bg-surface-card');
+  }
+
+  // 模拟增量导入 3 个精选条目
+  const sampleNew = [
+    { id: Date.now() + 1, name: `${packName} · 专刊精要`, cat: catKey, catLabel: catKey === 'ai' ? 'AI 算法与模型' : (catKey === 'semi' ? '硬科技与半导体' : '宏观策略与独家'), tier: "专属精要源", protocol: "RSS 2.0", url: `https://signals.desk/${catKey}/pack.xml`, latency: 120, uptime: 100, lastCheck: "刚刚导入", weight: 96, enabled: true, color: "text-primary bg-primary/10" }
+  ];
+  state.feeds.unshift(...sampleNew);
+  render();
+
+  showToast(`已成功导入「${packName}」(${count} 个高信度信源)，已开启增量巡检`);
+}
+
+// 11. 全量巡检
+function runGlobalInspection() {
+  showToast("正在执行全量 50 个信源并行 DNS 解析与 TCP 握手巡检...");
+  setTimeout(() => {
+    state.feeds.forEach(f => {
+      f.lastCheck = "刚刚探测";
+      f.latency = Math.floor(Math.random() * 120) + 80;
+    });
+    render();
+    showToast("全量巡检完毕：50/50 信源均处于毫秒级极速响应，无断连异常");
+  }, 600);
+}
+
+// 12. 导出 OPML
+function exportOpmlFile() {
+  showToast(`已成功生成并下载信源导出包 (包含 ${state.feeds.length} 个配置源): signals_desk_opml.xml`);
+}
+
+// 13. Toast 系统
+function showToast(msg, duration = 3000) {
+  const container = document.getElementById('toast-container');
+  if (!container) return;
+  const toast = document.createElement('div');
+  toast.className = 'pointer-events-auto bg-surface-dark-elevated text-on-dark px-4 py-2.5 rounded-lg shadow-xl border border-hairline/20 font-body-sm text-[13px] flex items-center gap-2 transform translate-y-4 opacity-0 transition-all duration-300';
+  toast.innerHTML = '<span class="material-symbols-outlined text-primary-fixed text-[16px]">info</span><span>' + msg + '</span>';
+  container.appendChild(toast);
+  requestAnimationFrame(() => {
+    toast.classList.remove('translate-y-4', 'opacity-0');
+  });
+  setTimeout(() => {
+    toast.classList.add('opacity-0', 'translate-y-2');
+    setTimeout(() => toast.remove(), 300);
+  }, duration);
+}
+
+// 初始化渲染表格与分页
+window.addEventListener('DOMContentLoaded', () => {
+  render();
+});
+</script><script id="system-settings-tab-switcher-controller">
+// 顶层四大设置标签无缝切换逻辑
+function switchSettingsTab(tabKey, targetBtn) {
+  const views = {
+    rss: document.getElementById('settings-view-rss'),
+    podcasts: document.getElementById('settings-view-podcasts'),
+    llm: document.getElementById('settings-view-llm'),
+    general: document.getElementById('settings-view-general')
+  };
+
+  const breadcrumbs = {
+    rss: '信源与抓取管理',
+    podcasts: '播客与长视频调度',
+    llm: 'AI 研判模型调度',
+    general: '通用与本地偏好设置'
+  };
+
+  // 切换视窗显示
+  Object.keys(views).forEach(key => {
+    if (views[key]) {
+      views[key].classList.toggle('hidden', key !== tabKey);
+    }
+  });
+
+  // 更新标签高亮
+  document.querySelectorAll('#system-settings-nav-tabs .settings-nav-tab').forEach(b => {
+    b.className = 'settings-nav-tab px-3 py-1.5 rounded-md text-muted hover:text-ink text-xs font-medium transition-colors flex items-center gap-1.5';
+  });
+  if (targetBtn) {
+    targetBtn.className = 'settings-nav-tab px-3 py-1.5 rounded-md bg-surface-card text-ink font-semibold text-xs shadow-sm flex items-center gap-1.5 transition-all';
+  }
+
+  // 更新面包屑
+  const bc = document.getElementById('breadcrumb-current-tab');
+  if (bc) {
+    bc.innerText = breadcrumbs[tabKey] || '信源与抓取管理';
+  }
+
+  // 针对 RSS 表格进行重新刷新
+  if (tabKey === 'rss' && typeof render === 'function') {
+    render();
+  }
+
+  showToast(`已切换至「系统设置 / ${breadcrumbs[tabKey]}」`);
+}
+
+// 播客与长视频交互函数
+function triggerBatchPodcastStudy() {
+  showToast('正在向调度池广播任务：全量扫描 12 个多模态音视频频道...');
+  const bar = document.getElementById('podcast-task-bar');
+  const percent = document.getElementById('podcast-task-percent');
+  const statusText = document.getElementById('podcast-task-status-text');
+  
+  if (bar && percent && statusText) {
+    let progress = 15;
+    bar.style.width = progress + '%';
+    percent.innerText = progress + '%';
+    statusText.innerText = '拉取音轨与时间戳 (Whisper Large v3)...';
+    
+    const interval = setInterval(() => {
+      progress += 20;
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(interval);
+        bar.style.width = '100%';
+        percent.innerText = '100%';
+        statusText.innerText = '研读完毕 · 已生成多模态结构化研报 (含基于元数据兜底标记)';
+        showToast('播客多模态研究任务全部完成，共沉淀 4 篇深度研读');
+      } else {
+        bar.style.width = progress + '%';
+        percent.innerText = progress + '%';
+        if (progress === 35) statusText.innerText = '音频转写 DOM 清洗中...';
+        if (progress === 75) statusText.innerText = '结构化论点提炼与反脆弱校对中...';
+      }
+    }, 450);
+  }
+}
+
+function triggerSinglePodcast(name, hasAudio) {
+  if (hasAudio) {
+    showToast(`正在启动「${name}」最新期音频转写与 LLM 深度研读`);
+  } else {
+    showToast(`提示：该频道暂无公开全音频轨，将严格按照规范「基于元数据」提取核心研读`, 4000);
+  }
+}
+
+function addNewPodcastChannel() {
+  const title = document.getElementById('new-podcast-title').value.trim();
+  const url = document.getElementById('new-podcast-url').value.trim();
+  if (!title || !url) {
+    showToast('请输入频道名称与 Feed 订阅地址');
+    return;
+  }
+  showToast(`已成功录入音视频频道「${title}」，正在探测元数据与音轨流...`);
+  document.getElementById('new-podcast-title').value = '';
+  document.getElementById('new-podcast-url').value = '';
+}
+
+// AI模型路由交互函数
+function testAllModelEndpoints() {
+  showToast('正在并行测试 Claude 3.7、DeepSeek-R1 与本地 Ollama 延迟...');
+  const claudeEl = document.getElementById('latency-claude');
+  const deepseekEl = document.getElementById('latency-deepseek');
+  const ollamaEl = document.getElementById('latency-ollama');
+  
+  setTimeout(() => {
+    if (claudeEl) claudeEl.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-success"></span>322ms (可用)';
+    if (deepseekEl) deepseekEl.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-success"></span>264ms (可用)';
+    if (ollamaEl) ollamaEl.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-success"></span>16ms (本地直连)';
+    showToast('模型端点探测完毕：所有核心模型健康度 100%');
+  }, 500);
+}
+
+function pingSingleModel(modelKey) {
+  showToast(`测试 ${modelKey} 握手延迟... HTTP 200 OK (280ms)`);
+}
+
+function saveLlmSettings() {
+  showToast('已持久化 AI 研判模型调度参数与温度设置至本地 config.yaml');
+}
+
+// 通用偏好交互函数
+function selectPollInterval(btn, minutes) {
+  const parent = btn.parentElement;
+  if (parent) {
+    parent.querySelectorAll('button').forEach(b => {
+      b.className = 'p-2.5 rounded-lg border border-hairline bg-surface-soft hover:bg-surface-cream-strong text-left transition-all';
+      const check = b.querySelector('.material-symbols-outlined');
+      if (check) check.remove();
+    });
+  }
+  btn.className = 'p-2.5 rounded-lg border border-primary bg-primary/5 text-left transition-all';
+  const titleDiv = btn.querySelector('.text-ink');
+  if (titleDiv && !titleDiv.querySelector('.material-symbols-outlined')) {
+    const span = document.createElement('span');
+    span.className = 'material-symbols-outlined text-[15px] text-primary';
+    span.innerText = 'check_circle';
+    titleDiv.appendChild(span);
+  }
+  showToast(minutes === 0 ? '抓取周期已设为「仅手动触发」' : `轮询周期已更新为每 ${minutes} 分钟`);
+}
+
+function testProxyConnectivity() {
+  const addr = document.getElementById('proxy-addr-input').value.trim();
+  showToast(`正在通过 ${addr} 验证全球信源连通性... 响应正常 (110ms)`);
+}
+
+function chooseVaultFolder() {
+  showToast('已重新映射双链笔记同步目录路径');
+}
+
+function saveGeneralPreferences() {
+  showToast('已保存通用偏好、本地代理及 Obsidian 导出规则');
+}
+</script>
+<!-- 全局辅助快捷键与微交互 -->
+<script>
+// ⌘K / Ctrl+K 聚焦检索
+window.addEventListener('keydown', (e) => {
+  if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+    e.preventDefault();
+    const input = document.getElementById('header-search-input');
+    if (input) {
+      input.focus();
+      input.select();
+    }
+  }
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+</body></html>

@@ -1,0 +1,49 @@
+# ==========================================
+# 1. 本地敏感数据与隐私隔离 (Local Sensitive Data & Privacy)
+# ==========================================
+data/local/
+data/backups/
+data/*.sqlite*
+data/*.db*
+data/*.log
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+*.log
+
+# 环境变量与私有配置
+.env
+.env.*
+!.env.example
+
+# ==========================================
+# 2. 依赖与大型编译/打包输出 (Build Outputs & Dependencies)
+# ==========================================
+node_modules/
+dist/
+dist-app/
+out/
+coverage/
+
+# 历史备份与冗余临时文件 (Archive & Legacy Artefacts)
+archive/
+front-desgin/
+.codex/
+*.tmp
+
+# ==========================================
+# 3. 操作系统与编辑器缓存 (OS & Editor Caches)
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj

@@ -1,0 +1,322 @@
+[
+  {
+    "id": "exp-stream-1",
+    "cat": "#芯片设计",
+    "time": "07:15",
+    "title": "高通 Oryon v2 架构物理层流水线实测：IPC 提升约 14.2%",
+    "source": "AnandTech 评测",
+    "tag": "命中芯片制程"
+  },
+  {
+    "id": "exp-stream-2",
+    "cat": "#电力基建",
+    "time": "06:40",
+    "title": "得州 ERCOT 允许数据中心微电网自备储能参与辅助调峰交易",
+    "source": "FERC 公报",
+    "tag": "算力配套电网"
+  },
+  {
+    "id": "exp-stream-3",
+    "cat": "#开源推理",
+    "time": "06:10",
+    "title": "vLLM 0.6.2 发布对多级 KV 缓存压缩支持，长上下文吞吐提升 40%",
+    "source": "GitHub Rel",
+    "tag": "命中推理优化"
+  },
+  {
+    "id": "exp-stream-4",
+    "cat": "#存储互连",
+    "time": "05:45",
+    "title": "PCIe 7.0 规范草案进入最终评审阶段：单通道双向速率冲刺 128GT/s",
+    "source": "PCI-SIG",
+    "tag": "互连总线标准"
+  },
+  {
+    "id": "exp-stream-5",
+    "cat": "#散热技术",
+    "time": "05:12",
+    "title": "两相浸没式液冷在万卡集群实测 PUE 降至 1.038，氟化液损耗减半",
+    "source": "ASHRAE 峰会",
+    "tag": "数据中心绿电"
+  },
+  {
+    "id": "exp-stream-6",
+    "cat": "#宏观资本",
+    "time": "04:30",
+    "title": "黑石旗下能源基础设施基金完成 110 亿美元募资，主投 AI 电网升级",
+    "source": "WSJ 专讯",
+    "tag": "一级资本动向"
+  },
+  {
+    "id": "exp-stream-7",
+    "cat": "#先进制程",
+    "time": "04:15",
+    "title": "台积电 2nm (N2P) 引入背面供电网络 (BSPDN)，时钟频率提升 8%",
+    "source": "IEEE IEDM 会刊",
+    "tag": "晶圆制程突破"
+  },
+  {
+    "id": "exp-stream-8",
+    "cat": "#模型蒸馏",
+    "time": "04:02",
+    "title": "DeepSeek-R1 蒸馏小型模型开源全套强化学习检查点与验证轨迹",
+    "source": "Hugging Face Daily",
+    "tag": "开源模型生态"
+  },
+  {
+    "id": "exp-stream-9",
+    "cat": "#端侧计算",
+    "time": "03:45",
+    "title": "苹果 M5 芯片集成混合精度神经加速器，端侧离线运行 MoE 架构",
+    "source": "Bloomberg Tech",
+    "tag": "消费硬件演进"
+  },
+  {
+    "id": "exp-stream-10",
+    "cat": "#网络协议",
+    "time": "03:30",
+    "title": "Ultra Ethernet 联盟 (UEC) 1.0 传输规范出炉：消除大规模 RDMA 尾延迟",
+    "source": "UEC 官方公报",
+    "tag": "算力互联架构"
+  },
+  {
+    "id": "exp-stream-11",
+    "cat": "#智算芯片",
+    "time": "03:10",
+    "title": "Cerebras 发布第三代晶圆级 AI 芯片 WSE-3：4 万亿晶体管集成实测",
+    "source": "Hot Chips 36",
+    "tag": "晶圆级规模计算"
+  },
+  {
+    "id": "exp-stream-12",
+    "cat": "#安全对齐",
+    "time": "02:55",
+    "title": "Anthropic 发布宪政 AI 3.0 解释器：多智能体监督博弈降低越狱率 82%",
+    "source": "Anthropic Research",
+    "tag": "模型对齐基线"
+  },
+  {
+    "id": "exp-stream-13",
+    "cat": "#合规监管",
+    "time": "02:35",
+    "title": "欧盟 AI 法案正式生效高风险模型合规清单，附带第三方审计细则",
+    "source": "EU Official Journal",
+    "tag": "海外政策监管"
+  },
+  {
+    "id": "exp-stream-14",
+    "cat": "#具身智能",
+    "time": "02:20",
+    "title": "Figure 02 人形机器人进入宝马斯帕坦堡工厂二期测试：装配节拍缩至 32s",
+    "source": "Robotics Report",
+    "tag": "工业具身落地"
+  },
+  {
+    "id": "exp-stream-15",
+    "cat": "#存储芯片",
+    "time": "02:05",
+    "title": "SK 海力士量产 16 层 48GB HBM3e 内存，单颗芯片带宽超 1.28TB/s",
+    "source": "TrendForce 产业链",
+    "tag": "高带宽存储"
+  },
+  {
+    "id": "exp-stream-16",
+    "cat": "#编译器优化",
+    "time": "01:50",
+    "title": "Triton 3.0 加入针对 Blackwell 架构的张量内存加速器 (TMA) 自动切片",
+    "source": "GitHub Release",
+    "tag": "底层算子加速"
+  },
+  {
+    "id": "exp-stream-17",
+    "cat": "#云计算",
+    "time": "01:35",
+    "title": "微软与 Constellation 签署长达 20 年的平移核电协议并重启三里岛机组",
+    "source": "SEC 披露报告",
+    "tag": "清洁能源长协"
+  },
+  {
+    "id": "exp-stream-18",
+    "cat": "#芯片封装",
+    "time": "01:15",
+    "title": "英特尔公布玻璃基板 (Glass Core Substrate) 先导线良率与应力测试进展",
+    "source": "Intel Foundry Forum",
+    "tag": "先进封装材料"
+  },
+  {
+    "id": "exp-stream-19",
+    "cat": "#代码智能",
+    "time": "01:02",
+    "title": "GitHub Copilot 引入 Workspace 多 Agent 编排流水线：自检单元测试修复",
+    "source": "GitHub Universe",
+    "tag": "AI 辅助开发"
+  },
+  {
+    "id": "exp-stream-20",
+    "cat": "#自动驾驶",
+    "time": "00:45",
+    "title": "Waymo 全无人驾驶打车周订单突破 15 万单，全美商业化版图加速扩张",
+    "source": "Alphabet Q3 财报",
+    "tag": "L4 商业化验证"
+  },
+  {
+    "id": "exp-stream-21",
+    "cat": "#算力租借",
+    "time": "00:30",
+    "title": "Lambda Labs 获 5 亿美元算力资产支持融资，扩建德州浸没式算力集群",
+    "source": "Reuters 独家",
+    "tag": "智算云资产化"
+  },
+  {
+    "id": "exp-stream-22",
+    "cat": "#开源架构",
+    "time": "00:15",
+    "title": "Meta 开源 Llama-Stack 端到端部署规范：统一 RAG、工具调用与评测",
+    "source": "Meta AI Blog",
+    "tag": "智能体基础设施"
+  },
+  {
+    "id": "exp-stream-23",
+    "cat": "#光通信",
+    "time": "昨天 23:50",
+    "title": "1.6T 光模块在北美超大规模数据中心全面展开互通互联兼容性验证",
+    "source": "LightCounting",
+    "tag": "光互联前沿"
+  },
+  {
+    "id": "exp-stream-24",
+    "cat": "#算力能效",
+    "time": "昨天 23:30",
+    "title": "DOE 劳伦斯利弗莫尔国家实验室测试显示动态电压调节可降功耗 18.5%",
+    "source": "HPCwire 深度专栏",
+    "tag": "超算能耗优化"
+  },
+  {
+    "id": "exp-stream-25",
+    "cat": "#模型评测",
+    "time": "昨天 23:10",
+    "title": "LMSYS 发布 Chatbot Arena Hard v2 榜单：深度推理模型全面霸榜",
+    "source": "LMSYS Org",
+    "tag": "前沿竞技场"
+  },
+  {
+    "id": "exp-stream-26",
+    "cat": "#隐私计算",
+    "time": "昨天 22:45",
+    "title": "全同态加密 (FHE) 硬件加速卡完成流片，加密大模型推理时延下降 90%",
+    "source": "MIT News",
+    "tag": "前沿密码学"
+  },
+  {
+    "id": "exp-stream-27",
+    "cat": "#向量数据库",
+    "time": "昨天 22:20",
+    "title": "Qdrant 与 Milvus 联合测试新一代量化图索引：内存占用削减 75%",
+    "source": "DB-Engines 评测",
+    "tag": "知识检索基建"
+  },
+  {
+    "id": "exp-stream-28",
+    "cat": "#具身大脑",
+    "time": "昨天 21:55",
+    "title": "卡耐基梅隆与斯坦福提出 VLA 具身多模态统一模型，跨异构机械臂零样本迁移",
+    "source": "CoRL 2026 论文",
+    "tag": "通用控制策略"
+  },
+  {
+    "id": "exp-stream-29",
+    "cat": "#量子计算",
+    "time": "昨天 21:30",
+    "title": "IBM 发布量子低温 CMOS 控制芯片，单片支持操控 1,000+ 超导量子比特",
+    "source": "IBM Research",
+    "tag": "量子经典混合"
+  },
+  {
+    "id": "exp-stream-30",
+    "cat": "#算力调度",
+    "time": "昨天 21:05",
+    "title": "开源集群调度器 Kubernetes Slurm 插件发布，混合混部批处理利用率达 91%",
+    "source": "CNCF 官方公告",
+    "tag": "超算调度融合"
+  },
+  {
+    "id": "exp-stream-31",
+    "cat": "#多模态视频",
+    "time": "昨天 20:40",
+    "title": "OpenAI 灰度下一代物理仿真视频模型：保持连贯长镜头光影一致性",
+    "source": "OpenAI 开发者社区",
+    "tag": "物理世界模型"
+  },
+  {
+    "id": "exp-stream-32",
+    "cat": "#芯片互连",
+    "time": "昨天 20:15",
+    "title": "Ayar Labs 硅光子光学 I/O 小芯片在 FPGA 与 GPU 原型系统实现点对点直连",
+    "source": "OFC 会议快报",
+    "tag": "硅光互联"
+  },
+  {
+    "id": "exp-stream-33",
+    "cat": "#微架构",
+    "time": "昨天 19:50",
+    "title": "AMD Zen 6 核心微架构细节曝光：引入 2.5D 中介层直连 L3 3D V-Cache",
+    "source": "Tom's Hardware 深度",
+    "tag": "处理器架构"
+  },
+  {
+    "id": "exp-stream-34",
+    "cat": "#云原生",
+    "time": "昨天 19:25",
+    "title": "eBPF 技术全面接管 AI 集群主机网络监控，零侵入捕获微秒级丢包抖动",
+    "source": "Isovalent 博客",
+    "tag": "集群可观测性"
+  },
+  {
+    "id": "exp-stream-35",
+    "cat": "#投行研报",
+    "time": "昨天 19:00",
+    "title": "摩根士丹利重申英伟达 Overweight 评级：Blackwell 需求能见度直达 2026 年底",
+    "source": "Morgan Stanley 研报",
+    "tag": "半导体投研"
+  },
+  {
+    "id": "exp-stream-36",
+    "cat": "#主权算力",
+    "time": "昨天 18:35",
+    "title": "沙特与阿联酋宣布设立 1,000 亿美元主权智算基金，中东算力枢纽加速成型",
+    "source": "Financial Times",
+    "tag": "全球算力地缘"
+  },
+  {
+    "id": "exp-stream-37",
+    "cat": "#合成数据",
+    "time": "昨天 18:10",
+    "title": "基于形式化验证的数学与代码合成数据成为前沿实验室后训练 (Post-training) 标配",
+    "source": "The Information 专访",
+    "tag": "数据工程"
+  },
+  {
+    "id": "exp-stream-38",
+    "cat": "#模型蒸馏",
+    "time": "昨天 17:45",
+    "title": "微调开源社区推出单卡微调量化工具，将 32B 模型全参微调门槛拉低至 24GB",
+    "source": "Hugging Face Blog",
+    "tag": "开发者生态"
+  },
+  {
+    "id": "exp-stream-39",
+    "cat": "#智能电网",
+    "time": "昨天 17:15",
+    "title": "美国联邦能源署 (FERC) 批准数据中心与核电厂直接并网共置先例",
+    "source": "Utility Dive",
+    "tag": "能源电网审批"
+  },
+  {
+    "id": "exp-stream-40",
+    "cat": "#开源协作",
+    "time": "昨天 16:50",
+    "title": "Linux 基金会成立开放 Agent 标准工作组 (OASG)，制定跨平台记忆与技能规范",
+    "source": "Linux Foundation",
+    "tag": "行业技术标准"
+  }
+]

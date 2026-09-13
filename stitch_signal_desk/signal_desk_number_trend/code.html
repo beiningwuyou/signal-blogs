@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>今日回顾 · Signal Desk</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-thumb { background-color: #dcd4c5; border-radius: 9999px; }
+    ::-webkit-scrollbar-track { background-color: transparent; }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+    .animate-pulse-dot {
+      animation: pulse-dot 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    /* Number Trend 微动画浮动标签动效 */
+    @keyframes trend-float-up {
+      0% { opacity: 0; transform: translateY(6px) scale(0.92); }
+      20% { opacity: 1; transform: translateY(0) scale(1); }
+      80% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0.85; transform: translateY(0) scale(1); }
+    }
+    .trend-badge-animate {
+      animation: trend-float-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .metric-card {
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .metric-card:hover {
+      box-shadow: 0 4px 16px -2px rgba(217, 119, 6, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+      border-color: #d4cdc0;
+    }
+    .metric-card:hover .metric-number {
+      transform: scale(1.03);
+    }
+    .metric-number {
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    /* 火花线点缀渐变与平滑绘制 */
+    .sparkline-path {
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
+      animation: dash 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes dash {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+</style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "canvas": "#fcf9f6",
+            "canvas-subtle": "#fbf8f4",
+            "paper-sidebar": "#f5efe6",
+            "paper-card": "#ffffff",
+            "paper-card-subtle": "#f8f4ed",
+            "paper-border": "#e6decb",
+            "hairline": "#e8e1d3",
+            "hairline-subtle": "#efe9de",
+            "ink": "#252320",
+            "ink-strong": "#1c1917",
+            "ink-body": "#44403c",
+            "ink-muted": "#78716c",
+            "ink-faint": "#a8a29e",
+            "primary": "#b45309",
+            "primary-hover": "#92400e",
+            "primary-active": "#78350f",
+            "primary-light": "#fef3c7",
+            "primary-surface": "#faecc8",
+            "amber-accent": "#d97706",
+            "terracotta": "#c26928",
+            "paper-tag": "#f2ebe0",
+            "paper-tag-text": "#57534e",
+            "success-warm": "#2d6a4f",
+            "warning-warm": "#d97706"
+          },
+          fontFamily: {
+            "display": ["Newsreader", "serif"],
+            "sans": ["Inter", "-apple-system", "BlinkMacSystemFont", "PingFang SC", "Microsoft YaHei", "sans-serif"],
+            "mono": ["JetBrains Mono", "Menlo", "Consolas", "monospace"]
+          }
+        }
+      }
+    }
+</script>
+</head>
+<body class="bg-canvas font-sans text-ink antialiased selection:bg-primary-light selection:text-ink-strong min-h-screen">
+<!-- 左侧黄灰纸质侧边栏 (规范 190px 紧凑利落) -->
+<aside class="fixed left-0 top-0 h-screen w-[190px] bg-[#faf6f1] border-r border-[#e6decb] z-50 flex flex-col justify-between select-none">
+<div class="flex flex-col flex-1 min-h-0 overflow-hidden">
+<!-- 顶部品牌标识区：高 56px 与顶部 Header 严格对齐 -->
+<div class="h-14 px-3.5 flex items-center border-b border-[#e6decb]/80 bg-[#faf6f1]/95 backdrop-blur-sm shrink-0">
+<a class="flex items-center gap-2.5 text-ink group focus:outline-none w-full" href="#">
+<div class="w-6 h-6 text-warning flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-105">
+<svg class="w-full h-full text-[#d97706]" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-serif font-semibold text-[14.5px] text-ink-strong tracking-tight leading-none truncate">Signal Desk</span>
+<span class="text-[9px] font-mono text-ink-faint tracking-wider uppercase leading-none mt-1 truncate">INTELLIGENCE</span>
+</div>
+</a>
+</div>
+<!-- 导航菜单列表 -->
+<div class="p-2 flex flex-col gap-2.5 overflow-y-auto flex-1">
+<!-- 个人空间 -->
+<div class="space-y-0.5">
+<div class="px-2.5 py-1 text-[10.5px] font-semibold text-ink-faint uppercase tracking-wider select-none">个人空间</div>
+<a class="nav-item flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-ink-muted hover:bg-paper-card/80 hover:text-ink text-[12.5px] transition-colors duration-150" data-name="私人早报" href="#" onclick="showToast('进入私人早报订阅池', 'bookmark_heart'); return false;">
+<span class="material-symbols-outlined text-[17px]">bookmark_heart</span>
+<span class="">私人早报</span>
+</a>
+<a class="nav-item flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-ink-muted hover:bg-paper-card/80 hover:text-ink text-[12.5px] transition-colors duration-150" data-name="正在关注" href="#" onclick="showToast('关注列表更新：12 组实体活跃', 'radar'); return false;">
+<span class="material-symbols-outlined text-[17px]">radar</span>
+<span class="">正在关注</span>
+</a>
+<a class="nav-item group flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-ink-muted hover:bg-paper-card/80 hover:text-ink text-[12.5px] transition-colors duration-150" data-name="我的阅读" href="#" onclick="showToast('打开我的阅读清单', 'folder_special'); return false;">
+<span class="material-symbols-outlined text-[17px]">folder_special</span>
+<span class="">我的阅读</span>
+<span class="ml-auto text-[10px] bg-[#ebe5dc] group-hover:bg-amber-100 group-hover:text-amber-900 text-ink-muted font-mono px-1.5 py-0.2 rounded transition-colors" id="savedReadCountBadge">3</span>
+</a>
+<a class="nav-item flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-ink-muted hover:bg-paper-card/80 hover:text-ink text-[12.5px] transition-colors duration-150" data-name="浏览足迹" href="#" onclick="showToast('打开最近 7 天浏览足迹', 'history'); return false;">
+<span class="material-symbols-outlined text-[17px]">history</span>
+<span class="">浏览足迹</span>
+</a>
+<a class="nav-item flex items-center justify-between px-2.5 py-1.5 rounded-md bg-amber-100/70 text-amber-900 font-semibold border-l-4 border-amber-accent shadow-2xs text-[12.5px] transition-all" data-name="今日回顾" href="#" onclick="return false;">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[17px] text-amber-accent" style="font-variation-settings: 'FILL' 1;">summarize</span>
+<span class="">今日回顾</span>
+</span>
+<span class="text-[10px] bg-amber-accent text-white px-1.5 py-0.2 rounded font-mono font-bold tracking-tight shadow-2xs">今日</span>
+</a>
+</div>
+<!-- 公共广场 -->
+<div class="space-y-0.5 pt-2 border-t border-[#e6decb]/80">
+<div class="px-2.5 py-1 text-[10.5px] font-semibold text-ink-faint uppercase tracking-wider select-none">公共广场</div>
+<a class="nav-item flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-ink-muted hover:bg-paper-card/80 hover:text-ink text-[12.5px] transition-colors duration-150" data-name="精选事件" href="#" onclick="showToast('切换至精选事件流', 'bolt'); return false;">
+<span class="material-symbols-outlined text-[17px]">bolt</span>
+<span class="">精选事件</span>
+</a>
+<a class="nav-item flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-ink-muted hover:bg-paper-card/80 hover:text-ink text-[12.5px] transition-colors duration-150" data-name="内容广场" href="#" onclick="showToast('探索全网情报广场', 'explore'); return false;">
+<span class="material-symbols-outlined text-[17px]">explore</span>
+<span class="">内容广场</span>
+</a>
+<a class="nav-item flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-ink-muted hover:bg-paper-card/80 hover:text-ink text-[12.5px] transition-colors duration-150" data-name="每日早报" href="#" onclick="showToast('切换至每日早报', 'newspaper'); return false;">
+<span class="material-symbols-outlined text-[17px]">newspaper</span>
+<span class="">每日早报</span>
+</a>
+<a class="nav-item flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-ink-muted hover:bg-paper-card/80 hover:text-ink text-[12.5px] transition-colors duration-150" data-name="精选周刊" href="#" onclick="showToast('正在调取精选周刊合辑', 'menu_book'); return false;">
+<span class="material-symbols-outlined text-[17px]">menu_book</span>
+<span class="">精选周刊</span>
+</a>
+<a class="nav-item flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-ink-muted hover:bg-paper-card/80 hover:text-ink text-[12.5px] transition-colors duration-150" data-name="主题解读" href="#" onclick="showToast('正在打开主题深度研判', 'lightbulb'); return false;">
+<span class="material-symbols-outlined text-[17px]">lightbulb</span>
+<span class="">主题解读</span>
+</a>
+<a class="nav-item flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-ink-muted hover:bg-paper-card/80 hover:text-ink text-[12.5px] transition-colors duration-150" data-name="事件时间轴" href="#" onclick="showToast('正在加载产业事件演进轴', 'timeline'); return false;">
+<span class="material-symbols-outlined text-[17px]">timeline</span>
+<span class="">事件时间轴</span>
+</a>
+</div>
+</div>
+</div>
+<!-- 底部服务运行状态与系统设置区 -->
+<div class="p-2.5 border-t border-[#e6decb] flex flex-col gap-1.5 bg-[#faf6f1]/95 shrink-0 select-none">
+<div class="flex items-center gap-2 px-2 py-1.5 rounded-md bg-[#f4efe6]/70 border border-[#e6decb]/70">
+<span class="relative flex h-2 w-2 shrink-0 ml-0.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+</span>
+<div class="flex flex-col min-w-0">
+<span class="text-[11px] font-semibold text-ink-strong leading-tight truncate">本地服务运行中</span>
+<span class="text-[9.5px] text-ink-muted font-mono leading-none mt-0.5 truncate">端口: 8080 · 双向同步</span>
+</div>
+</div>
+<button class="flex items-center gap-2 w-full text-left px-2 py-1.5 rounded-md text-ink-muted hover:text-ink hover:bg-paper-card/90 transition-colors text-[12px] focus:outline-none border border-transparent hover:border-[#e6decb]/60" id="btn-open-settings" onclick="openModal('modal-settings')">
+<span class="material-symbols-outlined text-[17px]">settings</span>
+<span class="">系统设置</span>
+</button>
+</div>
+</aside>
+<!-- 主内容区域 -->
+<div class="pl-[190px] w-full min-h-screen bg-canvas"><header class="h-14 bg-[#fcf9f6]/95 backdrop-blur-md border-b border-[#e8e3d8] px-8 py-2.5 flex items-center justify-between sticky top-0 z-40">
+<!-- 左侧全局搜索框 -->
+<div class="relative w-80 md:w-96 flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-[18px] text-[#8c827a] pointer-events-none select-none">search</span>
+<input class="w-full pl-9 pr-12 py-1.5 bg-[#f4efe6]/70 border border-[#e5dfd3] rounded-lg text-xs text-[#171614] placeholder-[#8c827a] focus:outline-none focus:border-amber-500/60 focus:bg-white transition-all font-sans" placeholder="搜索事件、信源、笔记..." type="text"/>
+<kbd class="absolute right-2.5 px-1.5 py-0.5 text-[10px] font-mono text-[#8c827a] bg-[#ebe5dc] border border-[#dcd4c5] rounded pointer-events-none select-none">⌘K</kbd>
+</div>
+<!-- 右侧工具集 -->
+<div class="flex items-center gap-4">
+<!-- 语言切换 -->
+<button class="flex items-center gap-1.5 px-2.5 py-1 text-xs text-ink-body hover:text-ink hover:bg-paper-card rounded-md border border-transparent hover:border-[#e6decb] transition-all" title="切换语言">
+<span class="material-symbols-outlined text-[16px] text-ink-muted">translate</span>
+<span class="font-medium">简体中文</span>
+<span class="material-symbols-outlined text-[14px] text-ink-muted">expand_more</span>
+</button>
+<!-- 亮色/暗色模式切换 -->
+<button class="p-1.5 text-ink-muted hover:text-ink hover:bg-paper-card rounded-md border border-transparent hover:border-[#e6decb] transition-all" onclick="showToast('已切换至浅色书卷质感模式', 'light_mode');" title="切换外观模式">
+<span class="material-symbols-outlined text-[18px]">light_mode</span>
+</button>
+<!-- 首席分析师工作台入口 -->
+<div class="h-5 w-[1px] bg-[#e6decb]"></div>
+<a class="flex items-center gap-2.5 pl-1 py-0.5 rounded-lg hover:bg-paper-card transition-all group select-none" href="#" onclick="showToast('进入首席分析师工作台', 'badge'); return false;">
+<div class="w-7 h-7 rounded-full bg-gradient-to-tr from-amber-700 to-amber-500 flex items-center justify-center text-white font-serif font-bold text-xs shadow-2xs group-hover:scale-105 transition-transform">
+        析
+      </div>
+<div class="flex flex-col text-left">
+<span class="text-[12px] font-semibold text-ink-strong leading-tight group-hover:text-primary transition-colors">首席分析师</span>
+<span class="text-[9.5px] font-mono text-ink-faint uppercase tracking-wider leading-none mt-0.5">战略工作台</span>
+</div>
+</a>
+</div>
+</header>
+<main class="px-6 lg:px-10 max-w-6xl mx-auto flex flex-col gap-6 pt-6 pb-6">
+<!-- 方案 C：Number Trend 柔和数字变化动效与趋势联动系统 -->
+<section class="flex flex-col gap-3">
+<!-- 顶部控制与操作功能条 -->
+<div class="bg-paper-card rounded-lg border border-paper-border px-4 py-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<!-- 日期与状态态势标题 -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5 text-xs text-ink-strong font-semibold">
+<span class="material-symbols-outlined text-amber-accent text-[18px]">insights</span>
+<span>今日研读态势矩阵</span>
+</div>
+<span class="text-hairline">|</span>
+<div class="flex items-center gap-1.5 text-[11.5px] text-ink-muted font-mono bg-paper-tag px-2.5 py-0.5 rounded border border-paper-border/60">
+<span class="material-symbols-outlined text-[13px] text-ink-muted">calendar_today</span>
+<span id="stat-current-date">2026-09-08</span>
+</div>
+<!-- 柔和刷新统计按键 -->
+<button class="flex items-center gap-1 text-[11.5px] text-ink-body hover:text-amber-800 bg-paper-card-subtle hover:bg-amber-100/60 px-2 py-0.5 rounded border border-paper-border/70 transition-all active:scale-95 group" id="btn-refresh-stats" title="点击刷新统计并平滑激活动画">
+<span class="material-symbols-outlined text-[14px] text-terracotta group-hover:rotate-180 transition-transform duration-500" id="refresh-icon">refresh</span>
+<span class="font-sans">重新测算</span>
+</button>
+</div>
+<!-- 右侧操作按键 -->
+<div class="flex items-center gap-2 shrink-0 self-start sm:self-auto">
+<button class="flex items-center gap-1.5 h-8 px-3 rounded bg-paper-tag hover:bg-paper-border/60 text-ink-body text-[12.5px] border border-paper-border transition-colors active:scale-98" id="btn-export-markdown">
+<span class="material-symbols-outlined text-[15px] text-ink-muted">markdown</span>
+<span>导出简报</span>
+</button>
+<button class="flex items-center gap-1.5 h-8 px-3 rounded bg-paper-tag hover:bg-paper-border/60 text-ink-body text-[12.5px] border border-paper-border transition-all active:scale-98" id="btn-sync-obsidian">
+<span class="material-symbols-outlined text-[15px] text-terracotta transition-transform" id="sync-icon">sync_alt</span>
+<span id="sync-text">同步 Obsidian</span>
+</button>
+<button class="flex items-center gap-1.5 h-8 px-3.5 rounded bg-primary hover:bg-primary-hover text-white text-[12.5px] font-medium transition-colors shadow-2xs active:scale-98" id="btn-archive-day">
+<span class="material-symbols-outlined text-[15px]">inventory_2</span>
+<span id="archive-text">归档</span>
+</button>
+</div>
+</div>
+<!-- Number Trend 态势矩阵四维卡片群 -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+<!-- 指标 1：今日深度精读 -->
+<div class="metric-card bg-paper-card rounded-lg border border-paper-border p-3.5 flex flex-col justify-between gap-2.5 relative overflow-hidden group select-none shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-ink-muted font-medium flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary/70"></span>今日深度精读
+        </span>
+<span class="text-[10px] font-mono font-medium px-1.5 py-0.5 rounded bg-amber-50 text-amber-900 border border-amber-200/80">完读 83%</span>
+</div>
+<div class="flex items-end justify-between mt-0.5">
+<div class="flex items-baseline gap-1.5">
+<span class="metric-number font-display text-[32px] leading-none font-bold text-ink-strong tracking-tight" data-target="5" id="val-reads">5</span>
+<span class="text-[12px] text-ink-muted font-serif">篇</span>
+</div>
+<!-- 柔和环比微徽标 -->
+<div class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-emerald-50/90 border border-emerald-200 text-emerald-800 text-[10.5px] font-mono trend-diff-badge" id="badge-reads">
+<span class="material-symbols-outlined text-[12px]">arrow_upward</span>
+<span class="font-semibold">+2 篇</span>
+</div>
+</div>
+<!-- 7日平滑火花线趋势图 -->
+<div class="pt-2 border-t border-hairline/80 flex items-center justify-between">
+<span class="text-[10.5px] text-ink-muted">近 7 天研读频次</span>
+<svg class="w-24 h-5 overflow-visible" viewbox="0 0 96 20">
+<defs>
+<lineargradient id="spark-grad-1" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#b45309" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#b45309" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<path class="sparkline-path" d="M2,16 L18,14 L34,17 L50,11 L66,8 L82,12 L94,4" fill="none" stroke="#b45309" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+<circle cx="94" cy="4" fill="#b45309" r="2.5"></circle>
+</svg>
+</div>
+</div>
+<!-- 指标 2：沉淀核心高光 -->
+<div class="metric-card bg-paper-card rounded-lg border border-paper-border p-3.5 flex flex-col justify-between gap-2.5 relative overflow-hidden group select-none shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-ink-muted font-medium flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-amber-accent"></span>沉淀核心高光
+        </span>
+<span class="text-[10px] font-mono font-medium px-1.5 py-0.5 rounded bg-amber-50 text-amber-900 border border-amber-200/80">研判引用</span>
+</div>
+<div class="flex items-end justify-between mt-0.5">
+<div class="flex items-baseline gap-1.5">
+<span class="metric-number font-display text-[32px] leading-none font-bold text-ink-strong tracking-tight" data-target="4" id="val-quotes">4</span>
+<span class="text-[12px] text-ink-muted font-serif">处</span>
+</div>
+<!-- 柔和环比微徽标 -->
+<div class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-emerald-50/90 border border-emerald-200 text-emerald-800 text-[10.5px] font-mono trend-diff-badge" id="badge-quotes">
+<span class="material-symbols-outlined text-[12px]">arrow_upward</span>
+<span class="font-semibold">+1 处</span>
+</div>
+</div>
+<!-- 7日趋势微柱状图 -->
+<div class="pt-2 border-t border-hairline/80 flex items-center justify-between">
+<span class="text-[10.5px] text-ink-muted">重点金句提炼</span>
+<div class="flex items-end gap-1 h-5">
+<span class="w-1.5 h-2 bg-amber-200 rounded-xs"></span>
+<span class="w-1.5 h-3 bg-amber-300 rounded-xs"></span>
+<span class="w-1.5 h-2.5 bg-amber-300 rounded-xs"></span>
+<span class="w-1.5 h-3.5 bg-amber-400 rounded-xs"></span>
+<span class="w-1.5 h-3 bg-amber-300 rounded-xs"></span>
+<span class="w-1.5 h-4 bg-amber-500 rounded-xs"></span>
+<span class="w-1.5 h-5 bg-amber-accent rounded-xs shadow-xs"></span>
+</div>
+</div>
+</div>
+<!-- 指标 3：信源覆盖跨度 -->
+<div class="metric-card bg-paper-card rounded-lg border border-paper-border p-3.5 flex flex-col justify-between gap-2.5 relative overflow-hidden group select-none shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-ink-muted font-medium flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#0d9488]"></span>信源覆盖跨度
+        </span>
+<span class="text-[10px] font-mono font-medium px-1.5 py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200/80">信度 96.4%</span>
+</div>
+<div class="flex items-end justify-between mt-0.5">
+<div class="flex items-baseline gap-1.5">
+<span class="metric-number font-display text-[32px] leading-none font-bold text-ink-strong tracking-tight" data-target="18" id="val-sources">18</span>
+<span class="text-[12px] text-ink-muted font-serif">个</span>
+</div>
+<!-- 柔和环比微徽标 -->
+<div class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-emerald-50/90 border border-emerald-200 text-emerald-800 text-[10.5px] font-mono trend-diff-badge" id="badge-sources">
+<span class="material-symbols-outlined text-[12px]">arrow_upward</span>
+<span class="font-semibold">+3 源</span>
+</div>
+</div>
+<!-- 7日平滑火花线趋势图 -->
+<div class="pt-2 border-t border-hairline/80 flex items-center justify-between">
+<span class="text-[10.5px] text-ink-muted">研报 / 论文 / 博客</span>
+<svg class="w-24 h-5 overflow-visible" viewbox="0 0 96 20">
+<path class="sparkline-path" d="M2,15 L18,12 L34,14 L50,8 L66,10 L82,6 L94,3" fill="none" stroke="#0d9488" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+<circle cx="94" cy="3" fill="#0d9488" r="2.5"></circle>
+</svg>
+</div>
+</div>
+<!-- 指标 4：认知密度增量 -->
+<div class="metric-card bg-paper-card rounded-lg border border-paper-border p-3.5 flex flex-col justify-between gap-2.5 relative overflow-hidden group select-none shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-ink-muted font-medium flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-terracotta"></span>认知密度增量
+        </span>
+<span class="text-[10px] font-mono font-medium px-1.5 py-0.5 rounded bg-orange-50 text-orange-900 border border-orange-200/80">沉淀转化</span>
+</div>
+<div class="flex items-end justify-between mt-0.5">
+<div class="flex items-baseline gap-1">
+<span class="metric-number font-display text-[32px] leading-none font-bold text-ink-strong tracking-tight" data-target="3840" id="val-words">3,840</span>
+<span class="text-[12px] text-ink-muted font-serif">字</span>
+</div>
+<!-- 柔和环比微徽标 -->
+<div class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-amber-50/90 border border-amber-200 text-amber-800 text-[10.5px] font-mono trend-diff-badge" id="badge-words">
+<span class="material-symbols-outlined text-[12px]">trending_up</span>
+<span class="font-semibold">+18.5%</span>
+</div>
+</div>
+<!-- 7日平滑火花线趋势图 -->
+<div class="pt-2 border-t border-hairline/80 flex items-center justify-between">
+<span class="text-[10.5px] text-ink-muted">笔记与架构推演</span>
+<svg class="w-24 h-5 overflow-visible" viewbox="0 0 96 20">
+<path class="sparkline-path" d="M2,17 L18,15 L34,13 L50,11 L66,7 L82,8 L94,2" fill="none" stroke="#c26928" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+<circle cx="94" cy="2" fill="#c26928" r="2.5"></circle>
+</svg>
+</div>
+</div>
+</div>
+</section>
+<!-- 板块一：今日核心洞察提炼 -->
+<section class="bg-paper-card rounded-lg border border-paper-border p-4 flex flex-col gap-3 shadow-[0_1px_2px_rgba(0,0,0,0.02)] transition-opacity duration-200" id="section-insights" style="display: flex;">
+<div class="flex items-center justify-between pb-2 border-b border-hairline">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded bg-primary-light text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">psychology</span>
+</span>
+<h2 class="text-[14px] text-ink-strong font-semibold tracking-tight">今日洞察</h2>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<!-- 洞察 1 -->
+<div class="bg-paper-card-subtle p-3.5 rounded border border-paper-border/70 flex flex-col justify-between gap-3 hover:border-amber-400/50 transition-colors">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-3.5 bg-primary rounded-full"></span>
+<h3 class="text-[13.5px] text-ink-strong font-semibold">Agent 演进范式</h3>
+</div>
+<p class="text-[13px] text-ink-body leading-relaxed">
+              Anthropic 技术研报明确指出，从单一提示词走向 <strong class="text-ink font-semibold">Orchestrator-Workers</strong> 多智能体协同已成标配。动态上下文边界与沙盒隔离直接决定复杂任务稳定性。
+            </p>
+</div>
+<div class="pt-2 flex items-center justify-between text-ink-muted text-[11.5px] border-t border-hairline">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">link</span>Anthropic News
+            </span>
+<span class="font-mono text-primary font-semibold">高确定性</span>
+</div>
+</div>
+<!-- 洞察 2 -->
+<div class="bg-paper-card-subtle p-3.5 rounded border border-paper-border/70 flex flex-col justify-between gap-3 hover:border-amber-400/50 transition-colors">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-3.5 bg-terracotta rounded-full"></span>
+<h3 class="text-[13.5px] text-ink-strong font-semibold">工具与工程落地</h3>
+</div>
+<p class="text-[13px] text-ink-body leading-relaxed">
+              研发辅助工具正从单纯度量 KPI 转向投射工程师心理模型与代码品味；本地自动化重构与测试闭环逐步与日常 CI 解耦，转向开发者工作台本地常驻 Agent。
+            </p>
+</div>
+<div class="pt-2 flex items-center justify-between text-ink-muted text-[11.5px] border-t border-hairline">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">link</span>腾讯云开发者
+            </span>
+<span class="font-mono text-terracotta font-semibold">工程实践</span>
+</div>
+</div>
+<!-- 洞察 3 -->
+<div class="bg-paper-card-subtle p-3.5 rounded border border-paper-border/70 flex flex-col justify-between gap-3 hover:border-amber-400/50 transition-colors">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-3.5 bg-amber-accent rounded-full"></span>
+<h3 class="text-[13.5px] text-ink-strong font-semibold">边缘与端侧计算</h3>
+</div>
+<p class="text-[13px] text-ink-body leading-relaxed">
+              Simon Willison 持续深耕 Datasette <strong class="text-ink font-semibold">SQLite WASM</strong> 客户端单文件生态。零网络开销、静态托管的高交互数据探索正在重塑个人分析工具范式。
+            </p>
+</div>
+<div class="pt-2 flex items-center justify-between text-ink-muted text-[11.5px] border-t border-hairline">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">link</span>Simon Willison's Weblog
+            </span>
+<span class="font-mono text-amber-accent font-semibold">生态观察</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 板块二：精读文献与高光划线时间轴 -->
+<section class="flex flex-col gap-4" id="section-articles" style="display: flex;">
+<!-- 研读卡片 1 -->
+<article class="article-card bg-paper-card rounded-lg border border-paper-border p-5 flex flex-col gap-3.5 shadow-[0_1px_2px_rgba(0,0,0,0.02)] hover:border-ink-faint/60 transition-all group" data-quote="“Orchestrator-Workers 模式在处理长周期任务时表现出最佳的容错与上下文隔离性。将负责全局状态调度的 Orchestrator 与执行无状态子任务的 Worker 解耦，能使幻觉蔓延风险降低 67%。”" data-section="第 4 节 · 架构模式对比与容错测试" data-source="Anthropic News" data-title="Building Effective Agents: A Year of Production Multi-Agent Systems" data-url="https://www.anthropic.com/research/building-effective-agents" style="display: flex;">
+<!-- 头部：来源、类型、时间、时长标签与操作 -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 flex-wrap text-[12px] text-ink-muted font-mono">
+<span class="font-bold text-primary font-sans">Anthropic News</span>
+<span class="text-hairline">·</span>
+<span class="font-sans">技术研报</span>
+<span class="text-hairline">·</span>
+<span class="">今日 10:24 AM</span>
+<span class="text-hairline">·</span>
+<span class="flex items-center gap-1 text-ink-body font-sans cursor-pointer hover:text-amber-800" onclick="showToast('断点记录：在第 4 节停留 6 分 12 秒，已自动同步断点')" title="点击查看进度停顿记录">
+<span class="material-symbols-outlined text-[13.5px]">timer</span>深度研读 14 分钟 20 秒
+              </span>
+<span class="text-hairline">·</span>
+<span class="px-1.5 py-0.2 rounded bg-paper-tag text-paper-tag-text font-mono text-[11px]">4 处划线</span>
+<span class="px-1.5 py-0.2 rounded bg-primary-light text-primary font-mono text-[11px] font-semibold">1 处备忘</span>
+</div>
+<h3 class="font-display text-[19px] text-ink-strong font-semibold group-hover:text-primary transition-colors cursor-pointer flex items-center gap-1.5" onclick="openOriginalArticle('Building Effective Agents', 'https://www.anthropic.com/research/building-effective-agents')">
+              Building Effective Agents: A Year of Production Multi-Agent Systems
+              <span class="material-symbols-outlined text-[16px] text-ink-faint opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
+</h3>
+</div>
+<!-- 右侧操作 -->
+<div class="flex items-center gap-2 shrink-0">
+<button class="btn-star p-1 rounded hover:bg-paper-tag text-amber-accent transition-colors" data-starred="true" title="取消收藏">
+<span class="material-symbols-outlined text-[19px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="btn-copy-quote h-7 px-2.5 rounded bg-paper-tag hover:bg-paper-border/60 text-ink-body text-[12px] inline-flex items-center gap-1 border border-paper-border transition-colors">
+<span class="material-symbols-outlined text-[13.5px] text-ink-muted">content_copy</span>
+<span class="">引用</span>
+</button>
+<button class="btn-view-orig h-7 px-2.5 rounded bg-paper-tag hover:bg-paper-border/60 text-ink font-medium text-[12px] inline-flex items-center gap-1 border border-paper-border transition-colors">
+<span class="">查看原文</span>
+<span class="material-symbols-outlined text-[13.5px]">arrow_outward</span>
+</button>
+</div>
+</div>
+<!-- 暖黄墨水划线引用块 -->
+<div class="quote-block bg-primary-surface/60 p-3.5 rounded border-l-4 border-primary border-y border-r border-paper-border/80 flex flex-col gap-1.5">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 select-none">format_quote</span>
+<blockquote class="font-serif italic text-[14.5px] text-ink leading-relaxed">
+              “Orchestrator-Workers 模式在处理长周期任务时表现出最佳的容错与上下文隔离性。将负责全局状态调度的 Orchestrator 与执行无状态子任务的 Worker 解耦，能使幻觉蔓延风险降低 67%。”
+            </blockquote>
+</div>
+<div class="flex items-center justify-between pl-7 pt-0.5 text-ink-muted text-[11.5px]">
+<span class="">第 4 节 · 架构模式对比与容错测试</span>
+<span class="font-mono text-primary font-semibold">高光引用 #1</span>
+</div>
+</div>
+<!-- 个人研判批注 -->
+<div class="flex items-start gap-2.5 px-3.5 py-2 rounded bg-paper-card-subtle border border-paper-border/60 text-ink-body text-[12.5px]">
+<span class="material-symbols-outlined text-terracotta text-[16px] shrink-0 mt-0.5">edit_note</span>
+<div class="flex flex-col gap-0.5 leading-relaxed">
+<span class="text-ink-strong font-semibold">notes</span>
+<p class="">已沉淀至团队 Agent 架构选型规范第 2.4 条。下周一针对本地代码分析沙盒进行动态权限限制测试，验证该拓扑结构的异常自动回滚机制。</p>
+</div>
+</div>
+</article>
+<!-- 研读卡片 2 -->
+<article class="article-card bg-paper-card rounded-lg border border-paper-border p-5 flex flex-col gap-3.5 shadow-[0_1px_2px_rgba(0,0,0,0.02)] hover:border-ink-faint/60 transition-all group" data-quote="“核心不仅停留在 Prompt 工程表层，更深入探讨如何将大模型原生整合进大型分布式系统的日常工程与架构审查。工具必须贴合工程师的心流状态，而不是强制打断。”" data-section="正文第 3 部分 · 工程工具重塑与工程师心流保持" data-source="腾讯云开发者" data-title="拥抱 AI 这一年：我的工具、实践和思考" data-url="https://cloud.tencent.com/developer/article" style="display: flex;">
+<!-- 头部：来源、类型、时间、时长标签与操作 -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 flex-wrap text-[12px] text-ink-muted font-mono">
+<span class="font-bold text-primary font-sans">腾讯云开发者</span>
+<span class="text-hairline">·</span>
+<span class="font-sans">专栏文章</span>
+<span class="text-hairline">·</span>
+<span class="">今日 08:50 AM</span>
+<span class="text-hairline">·</span>
+<span class="flex items-center gap-1 text-ink-body font-sans cursor-pointer hover:text-amber-800" onclick="showToast('断点记录：通读全文 100%，耗时 8 分 40 秒')" title="点击查看进度停顿记录">
+<span class="material-symbols-outlined text-[13.5px]">timer</span>研读 8 分 40 秒
+              </span>
+<span class="text-hairline">·</span>
+<span class="px-1.5 py-0.2 rounded bg-paper-tag text-paper-tag-text font-mono text-[11px]">2 处划线</span>
+<span class="px-1.5 py-0.2 rounded bg-paper-tag text-success-warm font-mono text-[11px] font-medium border border-paper-border">已归档</span>
+</div>
+<h3 class="font-display text-[19px] text-ink-strong font-semibold group-hover:text-primary transition-colors cursor-pointer flex items-center gap-1.5" onclick="openOriginalArticle('拥抱 AI 这一年：我的工具、实践和思考', 'https://cloud.tencent.com/developer/article')">
+              拥抱 AI 这一年：我的工具、实践和思考
+              <span class="material-symbols-outlined text-[16px] text-ink-faint opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
+</h3>
+</div>
+<!-- 右侧操作 -->
+<div class="flex items-center gap-2 shrink-0">
+<button class="btn-star p-1 rounded hover:bg-paper-tag text-ink-muted hover:text-amber-accent transition-colors" data-starred="false" title="添加收藏">
+<span class="material-symbols-outlined text-[19px]" style="font-variation-settings: 'FILL' 0;">star</span>
+</button>
+<button class="btn-copy-quote h-7 px-2.5 rounded bg-paper-tag hover:bg-paper-border/60 text-ink-body text-[12px] inline-flex items-center gap-1 border border-paper-border transition-colors">
+<span class="material-symbols-outlined text-[13.5px] text-ink-muted">content_copy</span>
+<span class="">引用</span>
+</button>
+<button class="btn-view-orig h-7 px-2.5 rounded bg-paper-tag hover:bg-paper-border/60 text-ink font-medium text-[12px] inline-flex items-center gap-1 border border-paper-border transition-colors">
+<span class="">查看原文</span>
+<span class="material-symbols-outlined text-[13.5px]">arrow_outward</span>
+</button>
+</div>
+</div>
+<!-- 暖黄墨水划线引用块 -->
+<div class="quote-block bg-primary-surface/60 p-3.5 rounded border-l-4 border-terracotta border-y border-r border-paper-border/80 flex flex-col gap-1.5">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-terracotta text-[20px] shrink-0 select-none">format_quote</span>
+<blockquote class="font-serif italic text-[14.5px] text-ink leading-relaxed">
+              “核心不仅停留在 Prompt 工程表层，更深入探讨如何将大模型原生整合进大型分布式系统的日常工程与架构审查。工具必须贴合工程师的心流状态，而不是强制打断。”
+            </blockquote>
+</div>
+<div class="flex items-center justify-between pl-7 pt-0.5 text-ink-muted text-[11.5px]">
+<span class="">正文第 3 部分 · 工程工具重塑与工程师心流保持</span>
+<span class="font-mono text-terracotta font-semibold">高光引用 #2</span>
+</div>
+</div>
+</article>
+</section>
+<!-- 板块三：底部双栏 (明日研读待办 + 今日复盘备忘草稿箱) -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+<!-- 左列：明日研读待办 -->
+<div class="bg-paper-card p-5 rounded-lg border border-paper-border shadow-[0_1px_2px_rgba(0,0,0,0.02)] flex flex-col justify-between gap-4">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between pb-2 border-b border-hairline">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">next_plan</span>
+<h3 class="text-[14px] text-ink-strong font-semibold">明日继续关注与研读待办</h3>
+</div>
+<span class="text-[11.5px] text-ink-muted font-sans" id="todo-stats">待办 2 / 3 项已完成</span>
+</div>
+<!-- 待办清单列表 -->
+<div class="flex flex-col gap-2" id="todo-container">
+<!-- 待办 1 -->
+<div class="todo-item p-2.5 rounded bg-paper-card-subtle border border-paper-border/70 flex items-start justify-between gap-3 transition-colors">
+<div class="flex items-start gap-2.5">
+<input checked="" class="todo-checkbox mt-0.5 rounded border-paper-border text-primary focus:ring-0 cursor-pointer accent-primary h-4 w-4" type="checkbox"/>
+<div class="flex flex-col">
+<span class="todo-title text-[13px] text-ink-muted font-medium line-through cursor-pointer transition-all">Claude Code 最佳实践指南与工作流实录</span>
+<span class="text-[11.5px] text-ink-muted flex items-center gap-1 mt-0.5 font-mono">
+<span class="material-symbols-outlined text-[13px]">timer</span>预计 18 分钟 · 重点查看 Hooks 拦截设计
+                  </span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-primary-light text-primary font-mono text-[10.5px] font-bold shrink-0">高优先级</span>
+</div>
+<!-- 待办 2 -->
+<div class="todo-item p-2.5 rounded bg-paper-card-subtle border border-paper-border/70 flex items-start justify-between gap-3 transition-colors">
+<div class="flex items-start gap-2.5">
+<input class="todo-checkbox mt-0.5 rounded border-paper-border text-primary focus:ring-0 cursor-pointer accent-primary h-4 w-4" type="checkbox"/>
+<div class="flex flex-col">
+<span class="todo-title text-[13px] text-ink-strong font-medium cursor-pointer transition-all">跟进：GPT-6 Astra 评测数据流出分析</span>
+<span class="text-[11.5px] text-ink-muted flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[13px]">hub</span>关联标的：OpenAI / 基础设施重组
+                  </span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-paper-tag text-ink-muted font-mono text-[10.5px] shrink-0">跟进观察</span>
+</div>
+<!-- 待办 3 -->
+<div class="todo-item p-2.5 rounded bg-paper-card-subtle border border-paper-border/70 flex items-start justify-between gap-3 transition-colors">
+<div class="flex items-start gap-2.5">
+<input class="todo-checkbox mt-0.5 rounded border-paper-border text-primary focus:ring-0 cursor-pointer accent-primary h-4 w-4" type="checkbox"/>
+<div class="flex flex-col">
+<span class="todo-title text-[13px] text-ink-strong font-medium cursor-pointer transition-all">SQLite WASM OPFS 多线程并发写限制实验</span>
+<span class="text-[11.5px] text-ink-muted flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[13px]">terminal</span>技术验证任务 · Simon Willison 方案复现
+                  </span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-paper-tag text-ink-muted font-mono text-[10.5px] shrink-0">技术验证</span>
+</div>
+</div>
+<!-- 原地快速追加输入框 (点击按钮后展开) -->
+<div class="p-2.5 rounded bg-amber-50/70 border border-amber-300/80 flex-col gap-2 hidden" id="new-todo-box">
+<input class="w-full text-[13px] px-2.5 py-1.5 rounded border border-paper-border bg-white text-ink placeholder-ink-faint focus:border-primary focus:ring-0" id="new-todo-input" placeholder="输入研读标题或线索..." type="text"/>
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-1">
+<select class="text-[11.5px] py-0.5 px-2 rounded border border-paper-border bg-white text-ink-muted" id="new-todo-tag">
+<option value="高优先级">高优先级</option>
+<option value="技术验证">技术验证</option>
+<option selected="" value="跟进观察">跟进观察</option>
+</select>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="px-2.5 py-1 text-[12px] text-ink-muted hover:text-ink" id="btn-cancel-todo" type="button">取消</button>
+<button class="px-3 py-1 text-[12px] rounded bg-primary text-white font-medium hover:bg-primary-hover" id="btn-confirm-todo" type="button">添加</button>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full py-1.5 rounded bg-paper-tag hover:bg-paper-border/60 text-ink-body font-medium text-[12.5px] flex items-center justify-center gap-1 border border-paper-border transition-colors" id="btn-show-add-todo">
+<span class="material-symbols-outlined text-[15px]">add</span>
+<span class="">添加明日研读线索</span>
+</button>
+</div>
+<!-- 右列：今日复盘备忘草稿箱 (纯粹纸张质感) -->
+<div class="bg-paper-card p-5 rounded-lg border border-paper-border shadow-[0_1px_2px_rgba(0,0,0,0.02)] flex flex-col justify-between gap-3">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between pb-2 border-b border-hairline">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-accent text-[18px]">note_alt</span>
+<h3 class="text-[14px] text-ink-strong font-semibold">今日复盘备忘与随想</h3>
+</div>
+<span class="text-[11.5px] text-ink-muted font-mono flex items-center gap-1.5" id="save-status">
+<span class="w-1.5 h-1.5 rounded-full bg-success-warm"></span>
+<span class="">已保存至本地</span>
+</span>
+</div>
+<div class="relative rounded border border-paper-border/80 bg-paper-card-subtle p-3 transition-colors focus-within:border-amber-500/60 focus-within:bg-white">
+<textarea class="w-full bg-transparent border-0 p-0 text-[13px] text-ink leading-relaxed font-sans focus:ring-0 resize-none" id="daily-memo" placeholder="记录直觉推论与明日团队沟通技术结论..." rows="6">今天研读完 Anthropic 架构指南后，最大的体感是：
+
+不要过早把复杂状态交给单一 Agent。
+
+明日晨会可以提议将我们现有的文档生成模块拆分为 Plan 和 Review 两个独立模型调用通道，能直接减少 40% 的重试损耗。</textarea>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-hairline text-[12px] text-ink-muted">
+<span class="font-mono text-[11.5px]" id="char-count-wrap">字数统计：<span class="font-semibold text-ink-body" id="char-count">118</span> 字</span>
+<div class="flex items-center gap-2">
+<button class="h-8 px-3.5 rounded bg-primary hover:bg-primary-hover text-white text-[12.5px] font-medium flex items-center gap-1.5 transition-all shadow-[0_1px_2px_rgba(0,0,0,0.04)] active:scale-98" id="btn-save-memo">
+<span class="material-symbols-outlined text-[15px]" id="save-memo-icon">save</span>
+<span class="" id="save-memo-text">保存笔记</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- ================= 弹窗集合 (纸质书卷感风格) ================= -->
+<!-- 1. 导出简报预览弹窗 -->
+<div class="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-[2px] hidden items-center justify-center p-4" id="modal-export">
+<div class="bg-paper-card w-full max-w-2xl rounded-xl border border-paper-border shadow-2xl overflow-hidden flex flex-col max-h-[85vh] animate-in fade-in zoom-in-95 duration-150">
+<div class="px-5 py-3.5 border-b border-[#e6decb] bg-paper-card-subtle flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">description</span>
+<h3 class="text-[15px] font-semibold text-ink-strong">今日复盘简报导出预览</h3>
+</div>
+<button class="btn-close-modal text-ink-muted hover:text-ink p-1 rounded hover:bg-paper-tag" data-target="modal-export">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-5 overflow-y-auto flex-1 flex flex-col gap-3 font-mono text-[12.5px] leading-relaxed text-ink-body bg-[#faf6ef] border-y border-[#ede4d2]">
+<pre class="whitespace-pre-wrap selection:bg-amber-200" id="export-preview-content"># 2026-09-08 每日研读与洞察复盘 · Signal Desk
+
+## 态势矩阵概要 (Number Trend)
+- 深度精读：5 篇 (完读率 83%, +2 篇)
+- 沉淀高光：4 处 (研判引用, +1 处)
+- 信源跨度：18 个 (高信度 96.4%, +3 源)
+- 认知增量：3,840 字 (日均 +18.5%)
+
+## 核心洞察提炼
+1. Agent 演进范式：从单一提示词走向 Orchestrator-Workers 架构，解耦调度与执行是控住幻觉的关键。
+2. 工具与工程落地：研发工作台由 KPI 转向工程师心流投射，本地 Agent 正在解耦 CI 依赖。
+3. 边缘与端侧计算：Datasette SQLite WASM 客户端单文件生态重塑个人分析敏捷度。
+
+## 研读文献与高光划线
+### Building Effective Agents: A Year of Production Multi-Agent Systems (Anthropic News)
+- 划线：“Orchestrator-Workers 模式在处理长周期任务时表现出最佳的容错与上下文隔离性。将负责全局状态调度的 Orchestrator 与执行无状态子任务的 Worker 解耦，能使幻觉蔓延风险降低 67%。”
+- 备忘：已沉淀至团队规范 2.4，下周展开本地测试。
+
+### 拥抱 AI 这一年：我的工具、实践和思考 (腾讯云开发者)
+- 划线：“核心不仅停留在 Prompt 工程表层，更深入探讨如何将大模型原生整合进大型分布式系统的日常工程与架构审查。工具必须贴合工程师的心流状态，而不是强制打断。”
+
+## 明日待办计划
+- [x] Claude Code 最佳实践指南与工作流实录
+- [ ] 跟进：GPT-6 Astra 评测数据流出分析
+- [ ] SQLite WASM OPFS 多线程并发写限制实验
+
+---
+Generated by Signal Desk (Local SQLite Vault)</pre>
+</div>
+<div class="px-5 py-3 border-t border-[#e6decb] bg-paper-card flex items-center justify-between">
+<span class="text-[12px] text-ink-muted">格式：Markdown · 兼容 Obsidian / Logseq / Notion</span>
+<div class="flex items-center gap-2">
+<button class="btn-close-modal px-3 py-1.5 rounded text-[12.5px] text-ink-body hover:bg-paper-card-subtle" data-target="modal-export">取消</button>
+<button class="px-4 py-1.5 rounded bg-primary text-white hover:bg-primary-hover font-medium text-[12.5px] flex items-center gap-1.5 shadow-sm" id="btn-copy-export-text">
+<span class="material-symbols-outlined text-[15px]">content_copy</span>
+<span class="">复制到剪贴板</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. 引用复制弹窗 -->
+<div class="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-[2px] hidden items-center justify-center p-4" id="modal-quote">
+<div class="bg-paper-card w-full max-w-xl rounded-xl border border-paper-border shadow-2xl overflow-hidden flex flex-col animate-in fade-in zoom-in-95 duration-150">
+<div class="px-5 py-3.5 border-b border-[#e6decb] bg-paper-card-subtle flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-accent text-[20px]">format_quote</span>
+<h3 class="text-[15px] font-semibold text-ink-strong">引用卡片与文段导出</h3>
+</div>
+<button class="btn-close-modal text-ink-muted hover:text-ink p-1 rounded hover:bg-paper-tag" data-target="modal-quote">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-5 flex flex-col gap-3">
+<div class="p-4 rounded-lg bg-primary-surface/70 border-l-4 border-primary border border-paper-border/80">
+<p class="font-serif italic text-[14px] text-ink-strong leading-relaxed" id="quote-modal-body">
+          引用文段正文加载中...
+        </p>
+<div class="mt-2 text-[12px] text-ink-muted flex items-center justify-between" id="quote-modal-meta">
+<span class="">来源文献</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-[11.5px] font-mono text-ink-muted uppercase">标准学术 / 笔记 Markdown 引用格式：</label>
+<textarea class="w-full text-[12px] font-mono p-2.5 rounded bg-paper-card-subtle border border-paper-border text-ink-body focus:ring-0" id="quote-modal-markdown" readonly="" rows="3"></textarea>
+</div>
+</div>
+<div class="px-5 py-3 border-t border-[#e6decb] bg-paper-card flex items-center justify-end gap-2">
+<button class="btn-close-modal px-3 py-1.5 rounded text-[12.5px] text-ink-body hover:bg-paper-card-subtle" data-target="modal-quote">关闭</button>
+<button class="px-4 py-1.5 rounded bg-primary text-white hover:bg-primary-hover font-medium text-[12.5px] flex items-center gap-1.5 shadow-sm" id="btn-copy-quote-action">
+<span class="material-symbols-outlined text-[15px]">content_paste</span>
+<span class="">一键复制引用</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 3. 原文外链/抽屉模拟弹窗 -->
+<div class="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-[2px] hidden items-center justify-center p-4" id="modal-reader">
+<div class="bg-paper-card w-full max-w-2xl rounded-xl border border-paper-border shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
+<div class="px-5 py-3.5 border-b border-[#e6decb] bg-paper-card-subtle flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">auto_stories</span>
+<h3 class="text-[15px] font-semibold text-ink-strong" id="reader-title">原文快照阅读</h3>
+</div>
+<button class="btn-close-modal text-ink-muted hover:text-ink p-1 rounded hover:bg-paper-tag" data-target="modal-reader">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-6 overflow-y-auto flex-1 flex flex-col gap-4 text-[13.5px] text-ink leading-relaxed">
+<div class="p-3 bg-amber-50 rounded border border-amber-200 text-amber-900 text-[12.5px] flex items-center justify-between">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+          已加载本地离线可读版本快照 (DOM Snapshot)
+        </span>
+<a class="font-medium underline hover:text-primary flex items-center gap-0.5" href="#" id="reader-outlink" target="_blank">在新标签页打开外部源 ↗</a>
+</div>
+<div class="border-b border-hairline pb-3">
+<h2 class="font-display text-[22px] font-bold text-ink-strong" id="reader-heading">文章原标题</h2>
+<div class="text-[12px] text-ink-muted font-mono mt-1">本地解析引擎：Readability.js · 已清洗噪音脚本与广告</div>
+</div>
+<div class="font-serif leading-loose text-ink-body space-y-3">
+<p class="">在大模型工程落地的初期，业界倾向于构建单个庞大的通用提示词，让模型在单轮调用中完成从检索、逻辑推理到代码生成的全链路。但在生产级并发和严苛边缘案例下，这种单体策略迅速暴露了幻觉聚集与调试黑盒的问题。</p>
+<p class="">通过多智能体拆解，Orchestrator 负责维护状态转移图与任务上下文边界，Workers 则被约束在严格的沙盒与局部工具调用范围。这种机制不仅使异常重试开销大幅收敛，更关键的是赋予了系统确定性的回退能力。</p>
+</div>
+</div>
+<div class="px-5 py-3 border-t border-[#e6decb] bg-paper-card flex items-center justify-end">
+<button class="btn-close-modal px-4 py-1.5 rounded bg-paper-tag hover:bg-paper-border/60 text-ink-strong font-medium text-[12.5px]" data-target="modal-reader">关闭预览</button>
+</div>
+</div>
+</div>
+<!-- 4. 系统设置弹窗 (侧边栏左下角点击唤起) -->
+<div class="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-[2px] hidden items-center justify-center p-4" id="modal-settings">
+<div class="bg-paper-card w-full max-w-xl rounded-xl border border-paper-border shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+<div class="px-5 py-3.5 border-b border-[#e6decb] bg-paper-card-subtle flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-ink-strong text-[20px]">settings</span>
+<h3 class="text-[15px] font-semibold text-ink-strong">工作台与信源系统设置</h3>
+</div>
+<button class="btn-close-modal text-ink-muted hover:text-ink p-1 rounded hover:bg-paper-tag" data-target="modal-settings">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-5 overflow-y-auto flex-1 flex flex-col gap-4 text-[13px]">
+<!-- 存储路径设置 -->
+<div class="flex flex-col gap-1.5">
+<label class="font-semibold text-ink-strong flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-amber-accent">folder</span>
+          本地数据库与知识库路径
+        </label>
+<div class="flex gap-2">
+<input class="w-full text-[12px] font-mono p-2 rounded bg-paper-card-subtle border border-paper-border text-ink-body" readonly="" type="text" value="~/.signal-desk/daily-review.sqlite"/>
+<button class="px-3 py-1.5 rounded bg-paper-tag border border-paper-border text-ink text-[12px] hover:bg-paper-border/60" onclick="showToast('已验证 SQLite 读写连接正常')">检测</button>
+</div>
+</div>
+<!-- Obsidian Vault 关联 -->
+<div class="flex flex-col gap-1.5">
+<label class="font-semibold text-ink-strong flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-terracotta">sync_alt</span>
+          Obsidian Vault 同步目标
+        </label>
+<input class="w-full text-[12px] font-mono p-2 rounded bg-paper-card-subtle border border-paper-border text-ink-body" type="text" value="~/Documents/Obsidian/Personal-Intelligence/Daily"/>
+</div>
+<!-- RSS / 内容订阅源管理 -->
+<div class="flex flex-col gap-2 pt-2 border-t border-hairline">
+<div class="flex items-center justify-between">
+<label class="font-semibold text-ink-strong flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">rss_feed</span>
+            当前活跃情报源 (3/3 连通)
+          </label>
+<span class="text-[11px] text-success-warm font-mono font-medium">每 30 分钟轮询</span>
+</div>
+<div class="space-y-1.5">
+<div class="p-2 rounded bg-paper-card-subtle border border-paper-border/70 flex items-center justify-between text-[12px]">
+<span class="font-medium text-ink-strong">Anthropic News &amp; Research</span>
+<span class="font-mono text-emerald-700 bg-emerald-100/70 px-1.5 py-0.2 rounded text-[10px]">Active</span>
+</div>
+<div class="p-2 rounded bg-paper-card-subtle border border-paper-border/70 flex items-center justify-between text-[12px]">
+<span class="font-medium text-ink-strong">腾讯云开发者架构专栏</span>
+<span class="font-mono text-emerald-700 bg-emerald-100/70 px-1.5 py-0.2 rounded text-[10px]">Active</span>
+</div>
+<div class="p-2 rounded bg-paper-card-subtle border border-paper-border/70 flex items-center justify-between text-[12px]">
+<span class="font-medium text-ink-strong">Simon Willison's Weblog</span>
+<span class="font-mono text-emerald-700 bg-emerald-100/70 px-1.5 py-0.2 rounded text-[10px]">Active</span>
+</div>
+</div>
+</div>
+</div>
+<div class="px-5 py-3 border-t border-[#e6decb] bg-paper-card flex items-center justify-between">
+<span class="text-[11.5px] text-ink-faint">版本 v2.4.1 (Paper-Desk Engine)</span>
+<div class="flex items-center gap-2">
+<button class="btn-close-modal px-3 py-1.5 rounded text-[12.5px] text-ink-body hover:bg-paper-card-subtle" data-target="modal-settings">取消</button>
+<button class="px-4 py-1.5 rounded bg-primary text-white hover:bg-primary-hover font-medium text-[12.5px]" onclick="closeModal('modal-settings'); showToast('设置已成功保存！');">保存配置</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 5. 交互轻量 Toast 提示框 -->
+<div class="fixed bottom-6 right-6 z-50 transform transition-all duration-300 flex items-center gap-2 px-4 py-2.5 rounded-lg bg-stone-900 text-stone-100 shadow-xl border border-stone-800 text-[13px] translate-y-10 opacity-0 pointer-events-none" id="toast">
+<span class="material-symbols-outlined text-amber-400 text-[18px]" id="toast-icon">check_circle</span>
+<span class="" id="toast-msg">已显示今日复盘全貌</span>
+</div>
+<!-- 原生 JavaScript 逻辑 -->
+<script>
+  // ================= 辅助函数：Toast 提示 =================
+  let toastTimer = null;
+  function showToast(msg, icon = 'check_circle') {
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toast-msg');
+    const toastIcon = document.getElementById('toast-icon');
+    if (!toast) return;
+    
+    toastMsg.textContent = msg;
+    toastIcon.textContent = icon;
+    toast.classList.remove('translate-y-10', 'opacity-0', 'pointer-events-none');
+    toast.classList.add('translate-y-0', 'opacity-100');
+    
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.add('translate-y-10', 'opacity-0', 'pointer-events-none');
+      toast.classList.remove('translate-y-0', 'opacity-100');
+    }, 2400);
+  }
+
+  // ================= 方案 C：Number Trend 柔和平滑数字滚轮与动效 =================
+  function animateValue(element, start, end, duration = 900, isFormatted = false) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      // easeOutCubic
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
+      const currentVal = Math.floor(easeProgress * (end - start) + start);
+      
+      if (isFormatted) {
+        element.textContent = currentVal.toLocaleString();
+      } else {
+        element.textContent = currentVal;
+      }
+      
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      } else {
+        if (isFormatted) {
+          element.textContent = end.toLocaleString();
+        } else {
+          element.textContent = end;
+        }
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
+
+  function triggerNumberTrendAnimation(dataset = null) {
+    const readsEl = document.getElementById('val-reads');
+    const quotesEl = document.getElementById('val-quotes');
+    const sourcesEl = document.getElementById('val-sources');
+    const wordsEl = document.getElementById('val-words');
+
+    const defaultData = {
+      reads: 5,
+      quotes: 4,
+      sources: 18,
+      words: 3840
+    };
+
+    const data = dataset || defaultData;
+
+    if (readsEl) animateValue(readsEl, 0, data.reads, 850, false);
+    if (quotesEl) animateValue(quotesEl, 0, data.quotes, 800, false);
+    if (sourcesEl) animateValue(sourcesEl, 0, data.sources, 950, false);
+    if (wordsEl) animateValue(wordsEl, 0, data.words, 1100, true);
+
+    // 触发浮动徽标动效
+    document.querySelectorAll('.trend-diff-badge').forEach(badge => {
+      badge.classList.remove('trend-badge-animate');
+      void badge.offsetWidth; // 触发重绘
+      badge.classList.add('trend-badge-animate');
+    });
+
+    // 重新激活动态折线
+    document.querySelectorAll('.sparkline-path').forEach(path => {
+      path.style.animation = 'none';
+      void path.offsetWidth;
+      path.style.animation = 'dash 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+    });
+  }
+
+  // 页面加载完成后自动触发柔和计数与趋势呈现
+  window.addEventListener('DOMContentLoaded', () => {
+    triggerNumberTrendAnimation();
+  });
+
+  // 刷新统计 / 重新测算交互
+  const btnRefreshStats = document.getElementById('btn-refresh-stats');
+  const refreshIcon = document.getElementById('refresh-icon');
+  let currentSimState = 0;
+
+  if (btnRefreshStats) {
+    btnRefreshStats.addEventListener('click', () => {
+      if (refreshIcon) refreshIcon.classList.add('rotate-180');
+      
+      currentSimState = (currentSimState + 1) % 3;
+      let mock;
+      if (currentSimState === 1) {
+        mock = { reads: 6, quotes: 5, sources: 20, words: 4120 };
+        document.getElementById('badge-reads').innerHTML = `<span class="material-symbols-outlined text-[12px]">arrow_upward</span><span class="font-semibold">+3 篇</span>`;
+        document.getElementById('badge-quotes').innerHTML = `<span class="material-symbols-outlined text-[12px]">arrow_upward</span><span class="font-semibold">+2 处</span>`;
+        document.getElementById('badge-sources').innerHTML = `<span class="material-symbols-outlined text-[12px]">arrow_upward</span><span class="font-semibold">+5 源</span>`;
+        document.getElementById('badge-words').innerHTML = `<span class="material-symbols-outlined text-[12px]">trending_up</span><span class="font-semibold">+24.3%</span>`;
+      } else if (currentSimState === 2) {
+        mock = { reads: 4, quotes: 3, sources: 15, words: 3450 };
+        document.getElementById('badge-reads').innerHTML = `<span class="material-symbols-outlined text-[12px]">arrow_upward</span><span class="font-semibold">+1 篇</span>`;
+        document.getElementById('badge-quotes').innerHTML = `<span class="material-symbols-outlined text-[12px]">check</span><span class="font-semibold">持平</span>`;
+        document.getElementById('badge-sources').innerHTML = `<span class="material-symbols-outlined text-[12px]">arrow_upward</span><span class="font-semibold">+1 源</span>`;
+        document.getElementById('badge-words').innerHTML = `<span class="material-symbols-outlined text-[12px]">trending_up</span><span class="font-semibold">+12.0%</span>`;
+      } else {
+        mock = { reads: 5, quotes: 4, sources: 18, words: 3840 };
+        document.getElementById('badge-reads').innerHTML = `<span class="material-symbols-outlined text-[12px]">arrow_upward</span><span class="font-semibold">+2 篇</span>`;
+        document.getElementById('badge-quotes').innerHTML = `<span class="material-symbols-outlined text-[12px]">arrow_upward</span><span class="font-semibold">+1 处</span>`;
+        document.getElementById('badge-sources').innerHTML = `<span class="material-symbols-outlined text-[12px]">arrow_upward</span><span class="font-semibold">+3 源</span>`;
+        document.getElementById('badge-words').innerHTML = `<span class="material-symbols-outlined text-[12px]">trending_up</span><span class="font-semibold">+18.5%</span>`;
+      }
+
+      triggerNumberTrendAnimation(mock);
+      showToast('已联动本地情报池，重新完成趋势态势测算！', 'trending_up');
+
+      setTimeout(() => {
+        if (refreshIcon) refreshIcon.classList.remove('rotate-180');
+      }, 550);
+    });
+  }
+
+  // ================= 弹窗控制 =================
+  function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+  }
+
+  function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  }
+
+  // 绑定关闭按钮
+  document.querySelectorAll('.btn-close-modal').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const targetId = btn.getAttribute('data-target');
+      if (targetId) closeModal(targetId);
+    });
+  });
+
+  // 全局 ESC 键关闭任何弹窗
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      ['modal-export', 'modal-quote', 'modal-reader', 'modal-settings'].forEach(id => closeModal(id));
+    }
+  });
+
+  // 点击遮罩空白处关闭
+  ['modal-export', 'modal-quote', 'modal-reader', 'modal-settings'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('click', (e) => {
+        if (e.target === el) closeModal(id);
+      });
+    }
+  });
+
+  // ================= 1. 左侧栏导航交互 =================
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const pageName = item.getAttribute('data-name');
+      showToast(`已切换至视图：${pageName}`);
+    });
+  });
+
+  // 系统设置弹窗唤起
+  const btnSettings = document.getElementById('btn-open-settings');
+  if (btnSettings) {
+    btnSettings.addEventListener('click', () => openModal('modal-settings'));
+  }
+
+  // ================= 3. 顶部操作栏功能按键 =================
+  // 导出简报
+  const btnExport = document.getElementById('btn-export-markdown');
+  if (btnExport) {
+    btnExport.addEventListener('click', () => openModal('modal-export'));
+  }
+  
+  const btnCopyExportText = document.getElementById('btn-copy-export-text');
+  if (btnCopyExportText) {
+    btnCopyExportText.addEventListener('click', () => {
+      const text = document.getElementById('export-preview-content').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('简报 Markdown 已成功复制到剪贴板！', 'content_paste');
+        closeModal('modal-export');
+      }).catch(() => {
+        showToast('已生成剪报数据！');
+        closeModal('modal-export');
+      });
+    });
+  }
+
+  // 同步 Obsidian
+  const btnSyncObsidian = document.getElementById('btn-sync-obsidian');
+  const syncIcon = document.getElementById('sync-icon');
+  const syncText = document.getElementById('sync-text');
+  if (btnSyncObsidian) {
+    btnSyncObsidian.addEventListener('click', () => {
+      syncIcon.classList.add('animate-spin');
+      syncText.textContent = '同步中...';
+      setTimeout(() => {
+        syncIcon.classList.remove('animate-spin');
+        syncIcon.textContent = 'check';
+        syncIcon.classList.remove('text-terracotta');
+        syncIcon.classList.add('text-success-warm');
+        syncText.textContent = '✓ 已同步';
+        showToast('已成功同步至本地 Obsidian 知识库 (vault: /Daily/2026-09-08.md)');
+      }, 750);
+    });
+  }
+
+  // 归档按钮
+  const btnArchive = document.getElementById('btn-archive-day');
+  const archiveText = document.getElementById('archive-text');
+  if (btnArchive) {
+    btnArchive.addEventListener('click', () => {
+      if (archiveText.textContent === '已归档') {
+        showToast('今日回顾之前已完成闭环归档');
+      } else {
+        archiveText.textContent = '已归档';
+        btnArchive.classList.remove('bg-primary', 'hover:bg-primary-hover');
+        btnArchive.classList.add('bg-stone-700', 'text-stone-200');
+        showToast('今日回顾已完成闭环归档，已存入历史足迹库！', 'inventory_2');
+      }
+    });
+  }
+
+  // ================= 4. 文章卡片交互 =================
+  // 标星/收藏切换
+  document.querySelectorAll('.btn-star').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isStarred = btn.getAttribute('data-starred') === 'true';
+      const icon = btn.querySelector('.material-symbols-outlined');
+      if (isStarred) {
+        btn.setAttribute('data-starred', 'false');
+        btn.classList.remove('text-amber-accent');
+        btn.classList.add('text-ink-muted');
+        icon.style.fontVariationSettings = "'FILL' 0";
+        showToast('已从收藏列表中移除');
+      } else {
+        btn.setAttribute('data-starred', 'true');
+        btn.classList.add('text-amber-accent');
+        btn.classList.remove('text-ink-muted');
+        icon.style.fontVariationSettings = "'FILL' 1";
+        showToast('已成功添加至星标研读！', 'star');
+      }
+    });
+  });
+
+  // 引用弹窗及复制
+  document.querySelectorAll('.btn-copy-quote').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const card = btn.closest('.article-card');
+      const title = card.getAttribute('data-title') || '';
+      const source = card.getAttribute('data-source') || '';
+      const quote = card.getAttribute('data-quote') || '';
+      const section = card.getAttribute('data-section') || '';
+
+      document.getElementById('quote-modal-body').textContent = quote;
+      document.getElementById('quote-modal-meta').textContent = `${source} · ${title} · ${section}`;
+      document.getElementById('quote-modal-markdown').value = `> ${quote}\n\n— 出处：[${title}] (${source} · ${section})`;
+      
+      openModal('modal-quote');
+    });
+  });
+
+  const btnCopyQuoteAction = document.getElementById('btn-copy-quote-action');
+  if (btnCopyQuoteAction) {
+    btnCopyQuoteAction.addEventListener('click', () => {
+      const text = document.getElementById('quote-modal-markdown').value;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('引用已复制到剪贴板！', 'content_paste');
+        closeModal('modal-quote');
+      });
+    });
+  }
+
+  // 查看原文快照
+  function openOriginalArticle(title, url) {
+    document.getElementById('reader-title').textContent = `原文快照 · ${title}`;
+    document.getElementById('reader-heading').textContent = title;
+    document.getElementById('reader-outlink').href = url;
+    openModal('modal-reader');
+  }
+
+  document.querySelectorAll('.btn-view-orig').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.article-card');
+      const title = card.getAttribute('data-title') || '原文详情';
+      const url = card.getAttribute('data-url') || '#';
+      openOriginalArticle(title, url);
+    });
+  });
+
+  // ================= 5. 待办清单动态交互 =================
+  function updateTodoStats() {
+    const total = document.querySelectorAll('.todo-checkbox').length;
+    const checked = document.querySelectorAll('.todo-checkbox:checked').length;
+    const statsEl = document.getElementById('todo-stats');
+    if (statsEl) {
+      statsEl.textContent = `待办 ${checked} / ${total} 项已完成`;
+    }
+  }
+
+  function bindCheckboxEvent(cb) {
+    cb.addEventListener('change', () => {
+      const title = cb.closest('.todo-item').querySelector('.todo-title');
+      if (cb.checked) {
+        title.classList.add('line-through', 'text-ink-muted');
+        title.classList.remove('text-ink-strong');
+      } else {
+        title.classList.remove('line-through', 'text-ink-muted');
+        title.classList.add('text-ink-strong');
+      }
+      updateTodoStats();
+    });
+  }
+
+  document.querySelectorAll('.todo-checkbox').forEach(cb => bindCheckboxEvent(cb));
+
+  // 添加明日研读线索
+  const btnShowAddTodo = document.getElementById('btn-show-add-todo');
+  const newTodoBox = document.getElementById('new-todo-box');
+  const newTodoInput = document.getElementById('new-todo-input');
+  const newTodoTag = document.getElementById('new-todo-tag');
+  const btnConfirmTodo = document.getElementById('btn-confirm-todo');
+  const btnCancelTodo = document.getElementById('btn-cancel-todo');
+  const todoContainer = document.getElementById('todo-container');
+
+  if (btnShowAddTodo) {
+    btnShowAddTodo.addEventListener('click', () => {
+      newTodoBox.classList.remove('hidden');
+      newTodoBox.classList.add('flex');
+      btnShowAddTodo.classList.add('hidden');
+      newTodoInput.focus();
+    });
+  }
+
+  if (btnCancelTodo) {
+    btnCancelTodo.addEventListener('click', () => {
+      newTodoBox.classList.add('hidden');
+      newTodoBox.classList.remove('flex');
+      btnShowAddTodo.classList.remove('hidden');
+      newTodoInput.value = '';
+    });
+  }
+
+  if (btnConfirmTodo) {
+    btnConfirmTodo.addEventListener('click', () => {
+      const val = newTodoInput.value.trim();
+      if (!val) {
+        showToast('请输入研读线索内容', 'error');
+        newTodoInput.focus();
+        return;
+      }
+      const tag = newTodoTag.value;
+      const tagClass = tag === '高优先级' ? 'bg-primary-light text-primary font-bold' : 'bg-paper-tag text-ink-muted';
+
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'todo-item p-2.5 rounded bg-paper-card-subtle border border-paper-border/70 flex items-start justify-between gap-3 transition-colors';
+      itemDiv.innerHTML = `
+        <div class="flex items-start gap-2.5">
+          <input class="todo-checkbox mt-0.5 rounded border-paper-border text-primary focus:ring-0 cursor-pointer accent-primary h-4 w-4" type="checkbox">
+          <div class="flex flex-col">
+            <span class="todo-title text-[13px] text-ink-strong font-medium cursor-pointer transition-all">${val}</span>
+            <span class="text-[11.5px] text-ink-muted flex items-center gap-1 mt-0.5 font-mono">
+              <span class="material-symbols-outlined text-[13px]">timer</span>预估 15 分钟 · 新增研读线索
+            </span>
+          </div>
+        </div>
+        <span class="px-2 py-0.5 rounded ${tagClass} font-mono text-[10.5px] shrink-0">${tag}</span>
+      `;
+
+      todoContainer.appendChild(itemDiv);
+      const newCb = itemDiv.querySelector('.todo-checkbox');
+      bindCheckboxEvent(newCb);
+
+      newTodoInput.value = '';
+      newTodoBox.classList.add('hidden');
+      newTodoBox.classList.remove('flex');
+      btnShowAddTodo.classList.remove('hidden');
+
+      updateTodoStats();
+      showToast('已追加明日研读待办！', 'add_task');
+    });
+  }
+
+  // ================= 6. 复盘备忘随想实时字数与保存 =================
+  const memoTextarea = document.getElementById('daily-memo');
+  const charCount = document.getElementById('char-count');
+  const saveStatus = document.getElementById('save-status');
+  const btnSaveMemo = document.getElementById('btn-save-memo');
+  const saveMemoIcon = document.getElementById('save-memo-icon');
+  const saveMemoText = document.getElementById('save-memo-text');
+
+  if (memoTextarea && charCount) {
+    // 初始统计
+    charCount.textContent = memoTextarea.value.length;
+
+    memoTextarea.addEventListener('input', () => {
+      charCount.textContent = memoTextarea.value.length;
+      if (saveStatus) {
+        saveStatus.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-amber-accent"></span><span>待保存...</span>';
+      }
+    });
+  }
+
+  if (btnSaveMemo) {
+    btnSaveMemo.addEventListener('click', () => {
+      saveMemoIcon.classList.add('animate-spin');
+      saveMemoText.textContent = '保存中...';
+
+      setTimeout(() => {
+        saveMemoIcon.classList.remove('animate-spin');
+        saveMemoIcon.textContent = 'check';
+        saveMemoText.textContent = '已保存';
+        
+        if (saveStatus) {
+          saveStatus.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-success-warm"></span><span>已保存至本地 SQLite</span>';
+        }
+        showToast('✓ 今日备忘随想已安全落盘至本地 SQLite 数据库！');
+
+        setTimeout(() => {
+          saveMemoIcon.textContent = 'save';
+          saveMemoText.textContent = '保存笔记';
+        }, 1800);
+      }, 400);
+    });
+  }
+</script>
+</body></html>

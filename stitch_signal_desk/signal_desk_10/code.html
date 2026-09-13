@@ -1,0 +1,1298 @@
+<!DOCTYPE html><html class="h-full" lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Signal Desk - 研判分析师工作台</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "canvas": "#fcf9f6",
+            "canvas-alt": "#f7f2ea",
+            "surface-card": "#ffffff",
+            "surface-hover": "#faf6ef",
+            "surface-muted": "#f4ede2",
+            "ink": "#1c1917",
+            "body": "#44403c",
+            "muted": "#78716c",
+            "muted-soft": "#a8a29e",
+            "hairline": "#ede8df",
+            "hairline-strong": "#dfd7ca",
+            "primary": "#d97706",
+            "primary-hover": "#b45309",
+            "primary-soft": "#fef3c7",
+            "primary-light": "#fffbeb",
+            "accent-teal": "#0d9488",
+            "teal-soft": "#f0fdfa",
+            "teal-border": "#ccfbf1",
+            "blue-soft": "#eff6ff",
+            "blue-border": "#dbeafe"
+          },
+          fontFamily: {
+            sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+            mono: ["JetBrains Mono", "Menlo", "Consolas", "monospace"],
+            display: ["Newsreader", "Georgia", "serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Custom scrollbar styling for high-density editorial look */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #e5dec4; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #d3c9b4; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    @keyframes toastFadeIn {
+      from { opacity: 0; transform: translate(-50%, 12px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+    .animate-toast {
+      animation: toastFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+</head>
+<body class="h-full bg-canvas font-sans text-ink antialiased flex flex-col overflow-hidden select-none">
+<!-- 轻量全局 Toast 通知容器 -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] flex flex-col gap-2 pointer-events-none items-center" id="toast-container"></div>
+<!-- 全局统一顶栏 (Header) - 固定 56px -->
+<header class="h-14 bg-[#fcf9f6]/95 backdrop-blur-md border-b border-[#e8e3d8] shrink-0 z-50 flex items-center justify-between px-8 py-2.5">
+  <!-- 左侧：全局搜索框 -->
+  <div class="relative w-96 flex items-center group cursor-pointer" id="global-search-trigger">
+    <span class="material-symbols-outlined absolute left-3 text-[#8c827a] text-[18px] transition-colors group-focus-within:text-primary">search</span>
+    <input class="w-full h-9 pl-9 pr-14 bg-[#f4efe6]/70 border border-[#e5dfd3] rounded-lg text-xs text-[#171614] placeholder-[#8c827a] focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all cursor-pointer" placeholder="搜索事件、信源、笔记..." readonly="" type="text">
+    <div class="absolute right-2.5 flex items-center gap-1 pointer-events-none">
+      <kbd class="px-1.5 py-0.5 font-mono text-[11px] text-muted bg-[#ede8df] border border-[#dfd7ca] rounded shadow-[0_1px_0_rgba(0,0,0,0.04)]">⌘K</kbd>
+    </div>
+  </div>
+
+  <!-- 右侧工具集：语言、模式、首席分析师 -->
+  <div class="flex items-center gap-3 shrink-0">
+    <!-- 语言切换 -->
+    <div class="relative">
+      <button class="h-8 px-2.5 bg-surface-card hover:bg-surface-hover border border-hairline rounded-lg flex items-center gap-1.5 text-body hover:text-ink transition-colors text-[12px] font-medium shadow-[0_1px_2px_rgba(0,0,0,0.02)]" id="lang-switch-btn">
+        <span class="material-symbols-outlined text-[16px] text-muted">translate</span>
+        <span class="font-mono text-[12px]" id="current-lang-label">简体中文</span>
+        <span class="material-symbols-outlined text-[14px] text-muted">expand_more</span>
+      </button>
+      <div class="hidden absolute right-0 mt-1.5 w-32 bg-surface-card border border-hairline rounded shadow-lg py-1 z-50 flex flex-col text-[12px]" id="lang-dropdown">
+        <button class="px-3 py-1.5 text-left text-primary font-medium flex items-center justify-between hover:bg-surface-muted lang-opt" data-lang="简体中文">
+          <span class="">简体中文</span>
+          <span class="material-symbols-outlined text-[14px]">check</span>
+        </button>
+        <button class="px-3 py-1.5 text-left text-body hover:bg-surface-muted hover:text-ink lang-opt" data-lang="English">
+          <span class="">English</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 亮色/暗色模式切换 -->
+    <button class="h-8 w-8 bg-surface-card hover:bg-surface-hover border border-hairline rounded-lg flex items-center justify-center text-muted hover:text-ink transition-colors shadow-[0_1px_2px_rgba(0,0,0,0.02)]" id="theme-toggle-btn" title="切换浅色 / 深色主题">
+      <span class="material-symbols-outlined text-[17px] text-muted" id="theme-icon">light_mode</span>
+    </button>
+
+    <!-- 分隔线 -->
+    <div class="w-[1px] h-4 bg-hairline"></div>
+
+    <!-- 首席分析师工作台入口 -->
+    <div class="relative">
+      <button class="h-9 pl-1 pr-3 bg-surface-card hover:bg-surface-hover border border-hairline rounded-lg flex items-center gap-2.5 text-ink transition-all group shadow-[0_1px_2px_rgba(0,0,0,0.02)]" id="user-profile-btn">
+        <div class="w-7 h-7 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center text-[12px] border border-amber-200/80">
+          <span class="material-symbols-outlined text-[18px]">person</span>
+        </div>
+        <div class="flex flex-col text-left">
+          <div class="flex items-center gap-1.5">
+            <span class="text-[12px] font-semibold text-ink leading-tight">首席分析师</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-accent-teal" title="在线状态"></span>
+          </div>
+          <span class="text-[10px] text-muted font-mono leading-none">战略工作台</span>
+        </div>
+        <span class="material-symbols-outlined text-[14px] text-muted group-hover:text-ink transition-colors ml-0.5">expand_more</span>
+      </button>
+      <div class="hidden absolute right-0 mt-1.5 w-48 bg-surface-card border border-hairline rounded shadow-lg py-1.5 z-50 flex flex-col text-[13px]" id="user-dropdown">
+        <div class="px-3 py-1.5 border-b border-hairline flex flex-col">
+          <span class="text-[13px] text-ink font-semibold">首席分析师</span>
+          <span class="font-mono text-[11px] text-muted truncate">analyst@signaldesk.local</span>
+        </div>
+        <a class="px-3 py-1.5 hover:bg-surface-muted text-body hover:text-ink flex items-center gap-2 transition-colors cursor-pointer" onclick="showSettingsModal('preferences');">
+          <span class="material-symbols-outlined text-[15px] text-muted">person</span>
+          <span class="">个人空间配置</span>
+        </a>
+        <a class="px-3 py-1.5 hover:bg-surface-muted text-body hover:text-ink flex items-center gap-2 transition-colors cursor-pointer" onclick="showSettingsModal('sources');">
+          <span class="material-symbols-outlined text-[15px] text-muted">tune</span>
+          <span class="">信源订阅偏好</span>
+        </a>
+        <div class="my-1 border-t border-hairline"></div>
+        <a class="px-3 py-1.5 hover:bg-surface-muted text-red-600 flex items-center gap-2 transition-colors cursor-pointer" onclick="showToast('已安全锁定当前分析师工作空间')">
+          <span class="material-symbols-outlined text-[15px]">logout</span>
+          <span class="">退出当前工作空间</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- 主工作台：固定填满剩余视口高度的三栏结构 -->
+<div class="flex-1 flex w-full h-[calc(100vh-3.5rem)] overflow-hidden">
+<!-- ============================================== -->
+<!-- 1. 左栏：导航与个人/公共频道 (固定 w-56, 224px) -->
+<!-- ============================================== -->
+<aside class="w-56 shrink-0 border-r border-hairline bg-[#faf6f1] flex flex-col justify-between hidden md:flex">
+<div class="p-3.5 flex flex-col gap-5 overflow-y-auto flex-1">
+<div class="space-y-1">
+<div class="px-2.5 py-1 text-[11px] font-caption-uppercase uppercase tracking-wider text-muted font-semibold">个人空间</div>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface-muted hover:text-ink text-xs transition-colors duration-150" href="#" onclick="showToast('进入私人早报订阅池', 'bookmark_heart'); return false;">
+<span class="material-symbols-outlined text-[18px]">bookmark_heart</span>
+<span class="">私人早报</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface-muted hover:text-ink text-xs transition-colors duration-150" href="#" onclick="showToast('关注列表更新：12 组实体活跃', 'radar'); return false;">
+<span class="material-symbols-outlined text-[18px]">radar</span>
+<span class="">正在关注</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface-muted hover:text-ink text-xs transition-colors duration-150 group" href="#" onclick="showToast('打开我的阅读清单', 'folder_special'); return false;">
+<span class="material-symbols-outlined text-[18px]">folder_special</span>
+<span class="">我的阅读</span>
+<span class="ml-auto text-[10px] bg-[#ebe5dc] group-hover:bg-amber-100 group-hover:text-amber-900 text-muted font-mono px-1.5 py-0.5 rounded transition-colors" id="savedReadCountBadge">3</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface-muted hover:text-ink text-xs transition-colors duration-150" href="#" onclick="showToast('打开最近 7 天浏览足迹', 'history'); return false;">
+<span class="material-symbols-outlined text-[18px]">history</span>
+<span class="">浏览足迹</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface-muted hover:text-ink text-xs transition-colors duration-150" href="#" onclick="showToast('今日回顾快照已生成', 'summarize'); return false;">
+<span class="material-symbols-outlined text-[18px]">summarize</span>
+<span class="">今日回顾</span>
+</a>
+</div>
+<div class="space-y-1 pt-1 border-t border-hairline/60">
+<div class="px-2.5 py-1 text-[11px] font-caption-uppercase uppercase tracking-wider text-muted font-semibold">公共广场</div>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg bg-amber-500/10 text-primary font-semibold text-xs border-l-2 border-primary shadow-xs transition-all" href="#" onclick="return false;">
+<span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="">精选事件</span>
+<span class="ml-auto text-[10px] bg-primary text-white px-1.5 py-0.2 rounded font-mono leading-none">5</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface-muted hover:text-ink text-xs transition-colors duration-150" href="#" onclick="showToast('探索全网情报广场', 'explore'); return false;">
+<span class="material-symbols-outlined text-[18px]">explore</span>
+<span class="">内容广场</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface-muted hover:text-ink text-xs transition-colors duration-150" href="#" onclick="showToast('进入每日早报汇编', 'newspaper'); return false;">
+<span class="material-symbols-outlined text-[18px]">newspaper</span>
+<span class="">每日早报</span>
+<span class="ml-auto text-[10px] bg-primary text-white px-1.5 py-0.2 rounded font-mono leading-none">LIVE</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface-muted hover:text-ink text-xs transition-colors duration-150" href="#" onclick="showToast('正在调取精选周刊合辑', 'menu_book'); return false;">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+<span class="">精选周刊</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface-muted hover:text-ink text-xs transition-colors duration-150" href="#" onclick="showToast('正在打开主题深度研判', 'lightbulb'); return false;">
+<span class="material-symbols-outlined text-[18px]">lightbulb</span>
+<span class="">主题解读</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface-muted hover:text-ink text-xs transition-colors duration-150" href="#" onclick="showToast('正在加载产业事件演进轴', 'timeline'); return false;">
+<span class="material-symbols-outlined text-[18px]">timeline</span>
+<span class="">事件时间轴</span>
+</a>
+</div>
+</div>
+<div class="p-3 border-t border-hairline flex flex-col gap-2 bg-[#fcf9f6]">
+<div class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-[#f7f3ec] border border-hairline">
+<span class="relative flex w-2 h-2">
+<span class="animate-pulse absolute inline-flex h-full w-full rounded-full bg-accent-teal opacity-75"></span>
+<span class="relative inline-flex rounded-full w-2 h-2 bg-accent-teal"></span>
+</span>
+<div class="flex flex-col">
+<span class="text-[11px] font-semibold text-ink leading-tight">本地服务运行中</span>
+<span class="text-[10px] text-muted font-mono">端口: 8080 · 双向同步</span>
+</div>
+</div>
+<button class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-muted hover:text-ink hover:bg-surface-muted text-xs transition-colors duration-150 focus:outline-none w-full text-left" onclick="showSettingsModal('all')">
+<span class="material-symbols-outlined text-[17px]">settings</span>
+<span class="">系统设置</span>
+</button>
+</div>
+</aside>
+<!-- ============================================== -->
+<!-- 2. 中栏：精选事件信息流 (自适应宽度 flex-1) -->
+<!-- ============================================== -->
+<main class="flex-1 h-full bg-canvas border-r border-hairline flex flex-col overflow-hidden">
+<!-- 顶端工具栏与过滤胶囊 (粘性吸顶) -->
+<div class="sticky top-0 z-20 bg-canvas/95 backdrop-blur-md border-b border-hairline px-6 py-3 flex flex-col gap-2.5 shrink-0">
+<div class="flex items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-primary ring-2 ring-primary/25"></span>
+<span class="font-mono text-[12px] text-muted font-medium" id="feed-status-meta">10 分钟前更新 · 新增 10 条事件</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-muted-soft text-[15px]">search</span>
+<input class="w-44 h-8 pl-8 pr-7 bg-surface-card text-ink text-[12px] rounded border border-hairline placeholder:text-muted-soft focus:border-primary focus:outline-none transition-all shadow-[0_1px_2px_rgba(0,0,0,0.01)]" id="feed-search-input" placeholder="流内检索事件..." type="text">
+<button class="hidden absolute right-2 text-muted-soft hover:text-ink" id="clear-search-btn">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+<button class="h-8 px-3 bg-surface-card hover:bg-surface-hover active:bg-surface-muted text-body hover:text-ink border border-hairline rounded flex items-center gap-1.5 text-[12px] font-medium transition-all shadow-[0_1px_2px_rgba(0,0,0,0.02)]" id="refresh-feed-btn" title="手动拉取并重新聚合">
+<span class="material-symbols-outlined text-[15px] text-primary transition-transform duration-500" id="refresh-feed-icon">sync</span>
+<span class="">刷新</span>
+</button>
+</div>
+</div>
+<!-- 刷新提示条 -->
+<div class="hidden items-center justify-between px-3 py-1.5 bg-[#f5efe6] rounded border border-hairline-strong text-[12px] text-body transition-all" id="refresh-alert">
+<span class="flex items-center gap-2 font-medium text-ink">
+<span class="w-2 h-2 rounded-full bg-accent-teal"></span>
+<span id="refresh-alert-text" class="">14:35:12 交叉校验完成，已自动归拢 3 篇相关最新报道</span>
+</span>
+<span class="font-mono text-[11px] text-muted">耗时 320ms</span>
+</div>
+<!-- 分类过滤 Tab 标签 -->
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pt-0.5" id="category-tabs">
+<button class="cat-pill px-3 py-1 rounded-full text-[12px] font-semibold bg-ink text-white whitespace-nowrap shadow-sm" data-cat="all">
+          全部 (10)
+        </button>
+<button class="cat-pill px-3 py-1 rounded-full text-[12px] font-medium text-body hover:bg-surface-muted hover:text-ink transition-colors whitespace-nowrap bg-surface-card border border-hairline" data-cat="AI 公司">
+          AI 公司 (4)
+        </button>
+<button class="cat-pill px-3 py-1 rounded-full text-[12px] font-medium text-body hover:bg-surface-muted hover:text-ink transition-colors whitespace-nowrap bg-surface-card border border-hairline" data-cat="科技产品">
+          科技产品 (3)
+        </button>
+<button class="cat-pill px-3 py-1 rounded-full text-[12px] font-medium text-body hover:bg-surface-muted hover:text-ink transition-colors whitespace-nowrap bg-surface-card border border-hairline" data-cat="行业">
+          行业 (1)
+        </button>
+<button class="cat-pill px-3 py-1 rounded-full text-[12px] font-medium text-body hover:bg-surface-muted hover:text-ink transition-colors whitespace-nowrap bg-surface-card border border-hairline" data-cat="政策">
+          政策 (1)
+        </button>
+<button class="cat-pill px-3 py-1 rounded-full text-[12px] font-medium text-body hover:bg-surface-muted hover:text-ink transition-colors whitespace-nowrap bg-surface-card border border-hairline" data-cat="商业">
+          商业 (1)
+        </button>
+</div>
+</div>
+<!-- 事件流滚动列表 (支持卡片点击切换与搜索隐藏) -->
+<div class="flex-1 overflow-y-auto px-6 py-4 flex flex-col gap-3.5" id="event-feed-container">
+<!-- 卡片 1: Claude 3.7 -->
+<article class="event-card relative flex flex-col p-5 bg-[#faf5ed] rounded-lg border border-amber-200/90 border-l-4 border-l-primary cursor-pointer shadow-sm transition-all hover:shadow-md" data-cat="AI 公司" data-id="claude-37">
+<div class="flex items-center justify-between gap-3 mb-2">
+<div class="flex items-center gap-2">
+<span class="font-mono text-[11px] px-2 py-0.5 rounded bg-primary-soft text-primary font-semibold border border-amber-200">新增</span>
+<span class="font-mono text-[11px] px-2 py-0.5 rounded bg-white text-body border border-hairline">AI 公司</span>
+<span class="font-mono text-[12px] text-muted">14:20</span>
+</div>
+<button class="card-star-btn flex items-center gap-1 font-mono text-[11.5px] text-primary font-medium hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="">已收藏</span>
+</button>
+</div>
+<h2 class="text-[16px] font-bold text-ink tracking-tight leading-snug card-title">
+          Anthropic 发布 Claude 3.7 Sonnet 混合推理模型与交互式思考模式
+        </h2>
+<p class="text-[13px] text-body mt-2 line-clamp-2 leading-relaxed card-desc">
+          引入首创的混合推理架构，开发者与普通用户可按需动态调节思考预算，同时发布 Claude Code 命令行智能体工具，大幅提升自动化系统流水线代码调试效率。
+        </p>
+<div class="flex items-center justify-between mt-3.5 pt-2.5 border-t border-amber-200/60 font-mono text-[11.5px] text-muted card-footer">
+<div class="flex items-center gap-2 truncate">
+<span class="">更新于 14:20</span>
+<span class="">·</span>
+<span class="truncate">Anthropic 官方、The Verge 等 3 个信源</span>
+<span class="">·</span>
+<span class="text-ink font-medium">相关报道 3 篇</span>
+</div>
+<div class="card-status-indicator flex items-center gap-1 text-primary font-semibold shrink-0 text-[12px]">
+<span class="">正在研判</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</div>
+</article>
+<!-- 卡片 2: OpenAI o3 -->
+<article class="event-card flex flex-col p-5 bg-surface-card rounded-lg border border-hairline hover:bg-surface-hover cursor-pointer transition-all shadow-[0_1px_2px_rgba(0,0,0,0.02)] hover:border-hairline-strong group" data-cat="AI 公司" data-id="openai-o3">
+<div class="flex items-center justify-between gap-3 mb-2">
+<div class="flex items-center gap-2">
+<span class="font-mono text-[11px] px-2 py-0.5 rounded bg-primary-soft text-primary font-semibold border border-amber-200">有进展</span>
+<span class="font-mono text-[11px] px-2 py-0.5 rounded bg-canvas-alt text-body border border-hairline">AI 公司</span>
+<span class="font-mono text-[12px] text-muted">13:45</span>
+</div>
+<button class="card-star-btn flex items-center gap-1 font-mono text-[11.5px] text-muted hover:text-ink transition-colors">
+<span class="material-symbols-outlined text-[15px]">star</span>
+<span class="">收藏</span>
+</button>
+</div>
+<div class="flex items-center gap-1.5 text-primary font-mono text-[11px] mb-1.5 font-medium">
+<span class="material-symbols-outlined text-[14px]">info</span>
+<span class="">更新：内部安全测试报告发布，预估下月扩大灰度范围</span>
+</div>
+<h2 class="text-[16px] font-semibold text-ink tracking-tight leading-snug group-hover:text-primary transition-colors card-title">
+          OpenAI 推进 o3 强推理模型公开基准测试，数学与竞赛编码再创新高
+        </h2>
+<p class="text-[13px] text-body mt-2 line-clamp-2 leading-relaxed card-desc">
+          最新的竞赛级数学评测 ARC-AGI 达到 87.5%，较上一代 o1-preview 提升近 18 个百分点，研究团队正重点攻关复杂多跳逻辑推理中幻觉自动修正机制。
+        </p>
+<div class="flex items-center justify-between mt-3.5 pt-2.5 border-t border-hairline font-mono text-[11.5px] text-muted card-footer">
+<div class="flex items-center gap-2 truncate">
+<span class="">更新于 13:45</span>
+<span class="">·</span>
+<span class="truncate">来源：OpenAI Research、ArXiv 预印本</span>
+<span class="">·</span>
+<span class="">相关报道 4 篇</span>
+</div>
+<div class="card-status-indicator flex items-center">
+<span class="font-mono text-[11px] text-muted bg-[#f3ede3] px-2 py-0.5 rounded">交叉验证 96%</span>
+</div>
+</div>
+</article>
+<!-- 卡片 3: DeepSeek V3 -->
+<article class="event-card flex flex-col p-5 bg-surface-card rounded-lg border border-hairline hover:bg-surface-hover cursor-pointer transition-all shadow-[0_1px_2px_rgba(0,0,0,0.02)] hover:border-hairline-strong group" data-cat="科技产品" data-id="deepseek-v3">
+<div class="flex items-center justify-between gap-3 mb-2">
+<div class="flex items-center gap-2">
+<span class="font-mono text-[11px] px-2 py-0.5 rounded bg-canvas-alt text-body border border-hairline">科技产品</span>
+<span class="font-mono text-[12px] text-muted">11:10</span>
+</div>
+<button class="card-star-btn flex items-center gap-1 font-mono text-[11.5px] text-muted hover:text-ink transition-colors">
+<span class="material-symbols-outlined text-[15px]">star</span>
+<span class="">收藏</span>
+</button>
+</div>
+<h2 class="text-[16px] font-semibold text-ink tracking-tight leading-snug group-hover:text-primary transition-colors card-title">
+          DeepSeek V3 架构长文解析：MLA 多头潜在注意力机制与无辅助损失负载均衡
+        </h2>
+<p class="text-[13px] text-body mt-2 line-clamp-2 leading-relaxed card-desc">
+          深入拆解 671B MoE 模型的显存占用突破方案，MLA 架构降低了 93% 的 KV Cache 峰值开销，引发开源社区与云厂商对自建推理集群硬件拓扑的重估。
+        </p>
+<div class="flex items-center justify-between mt-3.5 pt-2.5 border-t border-hairline font-mono text-[11.5px] text-muted card-footer">
+<div class="flex items-center gap-2 truncate">
+<span class="">更新于 11:10</span>
+<span class="">·</span>
+<span class="truncate">来源：DeepSeek 技术白皮书、GitHub</span>
+<span class="">·</span>
+<span class="">相关报道 5 篇</span>
+</div>
+<div class="card-status-indicator flex items-center">
+<span class="font-mono text-[11px] text-muted bg-[#f3ede3] px-2 py-0.5 rounded">技术复核</span>
+</div>
+</div>
+</article>
+<!-- 卡片 4: 欧盟合规政策 -->
+<article class="event-card flex flex-col p-5 bg-surface-card rounded-lg border border-hairline hover:bg-surface-hover cursor-pointer transition-all shadow-[0_1px_2px_rgba(0,0,0,0.02)] hover:border-hairline-strong group" data-cat="政策" data-id="eu-ai-act">
+<div class="flex items-center justify-between gap-3 mb-2">
+<div class="flex items-center gap-2">
+<span class="font-mono text-[11px] px-2 py-0.5 rounded bg-canvas-alt text-body border border-hairline">政策</span>
+<span class="font-mono text-[12px] text-muted">09:30</span>
+</div>
+<button class="card-star-btn flex items-center gap-1 font-mono text-[11.5px] text-muted hover:text-ink transition-colors">
+<span class="material-symbols-outlined text-[15px]">star</span>
+<span class="">收藏</span>
+</button>
+</div>
+<h2 class="text-[16px] font-semibold text-ink tracking-tight leading-snug group-hover:text-primary transition-colors card-title">
+          欧盟人工智能法案核心治理条款分步生效，通用大模型开启 90 天合规审计窗口
+        </h2>
+<p class="text-[13px] text-body mt-2 line-clamp-2 leading-relaxed card-desc">
+          高风险系统治理框架细则实施，跨国 AI 实验室需向欧盟人工智能办公室递交架构透明度公报与版权训练集清洗声明。
+        </p>
+<div class="flex items-center justify-between mt-3.5 pt-2.5 border-t border-hairline font-mono text-[11.5px] text-muted card-footer">
+<div class="flex items-center gap-2 truncate">
+<span class="">更新于 09:30</span>
+<span class="">·</span>
+<span class="truncate">来源：EUR-Lex 官方公报、金融时报</span>
+<span class="">·</span>
+<span class="">相关报道 2 篇</span>
+</div>
+<div class="card-status-indicator flex items-center">
+<span class="font-mono text-[11px] text-muted bg-[#f3ede3] px-2 py-0.5 rounded">权威法规</span>
+</div>
+</div>
+</article>
+<!-- 卡片 5: 台积电 2nm -->
+<article class="event-card flex flex-col p-5 bg-surface-card rounded-lg border border-hairline hover:bg-surface-hover cursor-pointer transition-all shadow-[0_1px_2px_rgba(0,0,0,0.02)] hover:border-hairline-strong group" data-cat="商业" data-id="tsmc-2nm">
+<div class="flex items-center justify-between gap-3 mb-2">
+<div class="flex items-center gap-2">
+<span class="font-mono text-[11px] px-2 py-0.5 rounded bg-canvas-alt text-body border border-hairline">商业</span>
+<span class="font-mono text-[12px] text-muted">08:15</span>
+</div>
+<button class="card-star-btn flex items-center gap-1 font-mono text-[11.5px] text-muted hover:text-ink transition-colors">
+<span class="material-symbols-outlined text-[15px]">star</span>
+<span class="">收藏</span>
+</button>
+</div>
+<h2 class="text-[16px] font-semibold text-ink tracking-tight leading-snug group-hover:text-primary transition-colors card-title">
+          台积电 2nm GAA 制程试产良率超预期，2025 年下半年量产节点已锁定首批旗舰客户
+        </h2>
+<p class="text-[13px] text-body mt-2 line-clamp-2 leading-relaxed card-desc">
+          新竹宝山晶圆厂良率突破内部标准线，纳米片晶体管（Nanosheet）架构相比 3nm 性能提升 10-15%，能耗降低 25-30%，关键算力订单饱和。
+        </p>
+<div class="flex items-center justify-between mt-3.5 pt-2.5 border-t border-hairline font-mono text-[11.5px] text-muted card-footer">
+<div class="flex items-center gap-2 truncate">
+<span class="">更新于 08:15</span>
+<span class="">·</span>
+<span class="truncate">来源：台湾经济日报、彭博商业周刊</span>
+<span class="">·</span>
+<span class="">相关报道 3 篇</span>
+</div>
+<div class="card-status-indicator flex items-center">
+<span class="font-mono text-[11px] text-muted bg-[#f3ede3] px-2 py-0.5 rounded">供应链信源</span>
+</div>
+</div>
+</article>
+<!-- 检索空状态提示 -->
+<div class="hidden flex-col items-center justify-center py-16 text-center text-muted" id="no-results-msg">
+<span class="material-symbols-outlined text-4xl mb-2 text-muted-soft">find_in_page</span>
+<p class="text-[14px] font-medium text-ink">没有找到匹配的事件</p>
+<p class="text-[12px] mt-1">请尝试更换检索关键词或点击切换至「全部」分类</p>
+</div>
+<!-- 列表底部温和收尾与分页提示 -->
+<div class="py-4 flex items-center justify-center gap-3 text-muted font-mono text-[12px]" id="feed-end-indicator">
+<span class="w-8 h-[1px] bg-hairline"></span>
+<span id="feed-end-text" class="">已显示全部 5 条精选事件 · 实时流守候中</span>
+<span class="w-8 h-[1px] bg-hairline"></span>
+</div>
+</div>
+</main>
+<!-- ============================================================== -->
+<!-- 3. 右栏：深度研读与分析师判断台 (固定 w-[440px], 垂直通栏饱满) -->
+<!-- ============================================================== -->
+<aside class="w-[440px] h-full bg-surface-card flex flex-col justify-between shrink-0 shadow-[-1px_0_0_rgba(0,0,0,0.03)] overflow-hidden">
+<!-- 上半区：可滚动研判细节（严密填满空间，不留突兀白斑） -->
+<div class="flex-1 overflow-y-auto divide-y divide-hairline" id="detail-scrollable">
+<!-- a) 顶部文章元信息区 -->
+<div class="p-5 flex flex-col gap-3 bg-[#faf7f2]/70" id="detail-header-card">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-mono text-[11px] px-2.5 py-0.5 rounded bg-white text-body font-semibold border border-hairline shadow-xs" id="detail-category-badge">AI 公司</span>
+<span class="font-mono text-[12px] text-muted" id="detail-meta-time">今天 14:20 · 深度聚类</span>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="h-7 px-2.5 bg-white hover:bg-surface-hover border border-amber-300 rounded-full flex items-center gap-1 text-primary text-[12px] font-semibold transition-all shadow-[0_1px_2px_rgba(0,0,0,0.02)]" id="detail-star-btn">
+<span class="material-symbols-outlined text-[15px]" id="detail-star-icon" style="font-variation-settings: 'FILL' 1;">star</span>
+<span id="star-btn-text" class="">已收藏</span>
+</button>
+<button class="h-7 px-2.5 bg-white hover:bg-surface-hover text-body border border-hairline rounded-full flex items-center gap-1 text-[12px] font-medium transition-all shadow-[0_1px_2px_rgba(0,0,0,0.02)]" id="copy-summary-btn" title="复制格式化研判快报">
+<span class="material-symbols-outlined text-[14px] text-muted">content_copy</span>
+<span class="">复制</span>
+</button>
+</div>
+</div>
+<h1 class="text-[18px] text-ink font-bold tracking-tight leading-[1.38]" id="detail-title">Anthropic 发布 Claude 3.7 Sonnet 混合推理模型与交互式思考模式</h1>
+</div>
+<!-- b) 【摘要分层研判】三层折叠/展开卡片 -->
+<div class="p-5 flex flex-col gap-3">
+<div class="flex items-center justify-between pb-1 border-b border-hairline">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">auto_awesome</span>
+<span class="font-bold text-[13px] text-ink tracking-wide">摘要分层研判</span>
+</div>
+<span class="font-mono text-[11px] text-muted">三级认知切片</span>
+</div>
+<div class="flex flex-col gap-2.5 mt-1">
+<!-- 层级 1: 客观事实 -->
+<div class="p-3 bg-[#faf8f5] rounded-md border-l-4 border-l-[#54433e] border border-hairline flex flex-col gap-1.5 shadow-[0_1px_2px_rgba(0,0,0,0.01)]">
+<div class="flex items-center gap-1.5 text-[#54433e] text-[12px] font-bold">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span class="">【客观事实】</span>
+</div>
+<p class="text-[12.5px] text-[#2b2724] leading-relaxed" id="detail-fact">模型采用原生混合思考（Hybrid Reasoning）架构，API 端支持最高 128k 思考 token，用户可精准控制思考预算与超时限制。SWE-bench Verified 软件工程基准评测得分达到 70.3%，刷新当前公开发布模型的领先纪录。</p>
+</div>
+<!-- 层级 2: 来源观点 -->
+<div class="p-3 bg-teal-soft rounded-md border-l-4 border-l-accent-teal border border-teal-border flex flex-col gap-1.5 shadow-[0_1px_2px_rgba(0,0,0,0.01)]">
+<div class="flex items-center gap-1.5 text-accent-teal text-[12px] font-bold">
+<span class="material-symbols-outlined text-[15px]">forum</span>
+<span class="">【来源观点】</span>
+</div>
+<p class="text-[12.5px] text-[#134e4a] leading-relaxed" id="detail-view">The Verge 分析指出，动态思考控制消除了“即时交互”与“重度推理”的分野，对 OpenAI o 系列固定思考架构形成差异化夹击；SemiAnalysis 强调其命令行 Agent 工具链 Claude Code 的开发落地场景更为直接。</p>
+</div>
+<!-- 层级 3: 模型推断 -->
+<div class="p-3 bg-primary-light/70 rounded-md border-l-4 border-l-primary border border-amber-200/80 flex flex-col gap-1.5 shadow-[0_1px_2px_rgba(0,0,0,0.01)]">
+<div class="flex items-center gap-1.5 text-primary text-[12px] font-bold">
+<span class="material-symbols-outlined text-[15px]">psychology</span>
+<span class="">【模型推断】</span>
+</div>
+<p class="text-[12.5px] text-[#78350f] leading-relaxed" id="detail-inference">预计企业级自动化编程（Coding Agent）的 Token 综合调用成本在未来 90 天内下降 35-40%，开源生态（如 DeepSeek R1 衍生微调版本）将在两周内跟进推出类似思考预算控制的推理客户端规范。</p>
+</div>
+</div>
+</div>
+<!-- c) 【相关文章与来源】完整列表卡片 -->
+<div class="p-5 flex flex-col gap-3 bg-[#faf8f4]/60">
+<div class="flex items-center justify-between pb-1 border-b border-hairline">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-muted">link</span>
+<span class="font-bold text-[13px] text-ink tracking-wide" id="sources-header-label">相关文章与来源 (3)</span>
+</div>
+<span class="font-mono text-[11px] text-accent-teal font-medium">已交叉校验</span>
+</div>
+<div class="flex flex-col gap-2 mt-1" id="detail-sources-list"><a class="p-2.5 bg-surface-card hover:bg-white hover:border-amber-300 border border-hairline rounded-md flex flex-col gap-1 transition-all group shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-pointer">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-[11px] text-primary font-bold">Anthropic 官方公告</span>
+          <span class="font-mono text-[11px] text-muted">14:10</span>
+        </div>
+        <div class="text-[12.5px] text-ink font-semibold group-hover:text-primary transition-colors">
+          Claude 3.7 Sonnet and Claude Code Announcement
+        </div>
+        <div class="flex items-center justify-end text-muted group-hover:text-primary font-mono text-[11px] gap-0.5">
+          <span>查看原文</span>
+          <span class="material-symbols-outlined text-[13px]">north_east</span>
+        </div>
+      </a><a class="p-2.5 bg-surface-card hover:bg-white hover:border-amber-300 border border-hairline rounded-md flex flex-col gap-1 transition-all group shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-pointer">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-[11px] text-body font-bold">The Verge</span>
+          <span class="font-mono text-[11px] text-muted">14:18</span>
+        </div>
+        <div class="text-[12.5px] text-ink font-semibold group-hover:text-primary transition-colors">
+          Anthropic's hybrid reasoning model explained in depth
+        </div>
+        <div class="flex items-center justify-end text-muted group-hover:text-primary font-mono text-[11px] gap-0.5">
+          <span>查看原文</span>
+          <span class="material-symbols-outlined text-[13px]">north_east</span>
+        </div>
+      </a><a class="p-2.5 bg-surface-card hover:bg-white hover:border-amber-300 border border-hairline rounded-md flex flex-col gap-1 transition-all group shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-pointer">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-[11px] text-body font-bold">SemiAnalysis</span>
+          <span class="font-mono text-[11px] text-muted">14:25</span>
+        </div>
+        <div class="text-[12.5px] text-ink font-semibold group-hover:text-primary transition-colors">
+          Benchmarking Sonnet 3.7 Hybrid vs OpenAI o3-mini Cost Matrix
+        </div>
+        <div class="flex items-center justify-end text-muted group-hover:text-primary font-mono text-[11px] gap-0.5">
+          <span>查看原文</span>
+          <span class="material-symbols-outlined text-[13px]">north_east</span>
+        </div>
+      </a></div>
+</div>
+<!-- d) 【有依据的时间线】时序校验节点卡片 -->
+<div class="p-5 flex flex-col gap-3">
+<div class="flex items-center justify-between pb-1 border-b border-hairline">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">schedule</span>
+<span class="font-bold text-[13px] text-ink tracking-wide">有依据的时间线</span>
+</div>
+<span class="font-mono text-[11px] text-muted">UTC+8 溯源</span>
+</div>
+<div class="relative pl-4 flex flex-col gap-3.5 border-l-2 border-amber-200/90 ml-2 mt-2" id="detail-timeline-list"><div class="relative flex flex-col gap-0.5">
+        <span class="absolute -left-[23px] top-1 w-3 h-3 rounded-full bg-white border-2 border-primary ring-primary/20"></span>
+        <div class="flex items-center gap-2">
+          <span class="font-mono text-[11.5px] text-ink font-bold">14:00</span>
+          <span class="font-mono text-[11px] text-muted">来源：Anthropic 官方发布会</span>
+        </div>
+        <p class="text-[12px] text-body leading-relaxed">正式发布 Hybrid Reasoning 架构与技术白皮书，公开 SWE-bench 官方成绩单。</p>
+      </div><div class="relative flex flex-col gap-0.5">
+        <span class="absolute -left-[23px] top-1 w-3 h-3 rounded-full bg-white border-2 border-body ring-stone-200"></span>
+        <div class="flex items-center gap-2">
+          <span class="font-mono text-[11.5px] text-ink font-bold">14:15</span>
+          <span class="font-mono text-[11px] text-muted">来源：SemiAnalysis &amp; 开发者基准</span>
+        </div>
+        <p class="text-[12px] text-body leading-relaxed">多项数学竞赛与终端 Code 性能第三方基准实测数据流出，思考 token 弹性优势明确。</p>
+      </div><div class="relative flex flex-col gap-0.5">
+        <span class="absolute -left-[23px] top-1 w-3 h-3 rounded-full bg-white border-2 border-accent-teal ring-teal-200"></span>
+        <div class="flex items-center gap-2">
+          <span class="font-mono text-[11.5px] text-ink font-bold">14:30</span>
+          <span class="font-mono text-[11px] text-muted">来源：首批开发者实操反馈</span>
+        </div>
+        <p class="text-[12px] text-body leading-relaxed">Tier 4 开发者在 GitHub 与 X 平台上确认 Claude Code 工具流对复杂重构的支持效果。</p>
+      </div></div>
+</div>
+</div>
+<!-- e) 【我的研判与笔记】底座区域：紧凑吸附在右栏底部 -->
+<div class="p-4 bg-[#f8f4ec] border-t border-hairline-strong shrink-0 flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">edit_note</span>
+<span class="font-bold text-[13px] text-ink">我的研判与笔记</span>
+</div>
+<span class="font-mono text-[11px] text-accent-teal flex items-center gap-1" id="save-status-indicator">
+<span class="w-1.5 h-1.5 rounded-full bg-accent-teal animate-pulse"></span>
+          已自动同步
+        </span>
+</div>
+<div class="relative">
+<textarea class="w-full h-20 p-2.5 bg-white border border-amber-200/90 rounded-md text-[12.5px] text-ink placeholder:text-muted-soft focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none resize-none leading-relaxed transition-colors shadow-inner" id="thesis-textarea" maxlength="500" placeholder="写下你针对该事件的独立研判、行动建议或待跟进假说...">该模型兼具快速响应与慢思考，代码工具 Claude Code 是核心变量，建议下周在内部自动化评测流水线中试运行。</textarea>
+</div>
+<div class="flex items-center justify-between pt-0.5">
+<span class="font-mono text-[11.5px] text-muted" id="char-counter">57 / 500 字</span>
+<div class="flex items-center gap-2">
+<button class="h-7 px-2.5 bg-white hover:bg-surface-hover text-body border border-hairline rounded text-[12px] font-medium transition-all shadow-xs flex items-center gap-1" id="clear-draft-btn" title="清空草稿输入">
+<span class="material-symbols-outlined text-[14px] text-muted">restart_alt</span>
+<span class="">重置</span>
+</button>
+<button class="h-7 px-3.5 bg-primary hover:bg-primary-hover active:bg-amber-800 text-white font-semibold text-[12px] rounded transition-all shadow-sm flex items-center gap-1" id="save-thesis-btn">
+<span class="material-symbols-outlined text-[14px]">bookmark_added</span>
+<span class="">保存研判</span>
+</button>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- 全局检索 ⌘K 模态弹窗 -->
+<div class="hidden fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-start justify-center pt-24" id="quick-search-modal">
+<div class="w-full max-w-xl bg-surface-card rounded-xl border border-hairline shadow-2xl overflow-hidden flex flex-col">
+<div class="p-3 border-b border-hairline flex items-center gap-2.5">
+<span class="material-symbols-outlined text-muted text-[20px]">search</span>
+<input class="w-full bg-transparent border-none text-[14px] text-ink focus:ring-0 focus:outline-none placeholder:text-muted-soft" id="modal-search-input" placeholder="键入关键词检索全库事件、人物、机构或技术报告..." type="text">
+<kbd class="px-1.5 py-0.5 text-[11px] font-mono bg-canvas border border-hairline rounded text-muted">ESC</kbd>
+</div>
+<div class="max-h-80 overflow-y-auto p-2 flex flex-col gap-1 text-[13px]" id="modal-search-results">
+<div class="px-3 py-1.5 text-[11px] font-mono text-muted uppercase">最近搜索与热度信号</div>
+<button class="w-full text-left px-3 py-2 rounded-md hover:bg-surface-muted flex items-center justify-between group" onclick="selectCardById('claude-37'); closeSearchModal();">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">bolt</span>
+<span class="">Claude 3.7 Sonnet 混合推理架构</span>
+</span>
+<span class="text-[11px] font-mono text-muted group-hover:text-ink">AI 公司</span>
+</button>
+<button class="w-full text-left px-3 py-2 rounded-md hover:bg-surface-muted flex items-center justify-between group" onclick="selectCardById('openai-o3'); closeSearchModal();">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">bolt</span>
+<span class="">OpenAI o3 逻辑推理与基准评测</span>
+</span>
+<span class="text-[11px] font-mono text-muted group-hover:text-ink">AI 公司</span>
+</button>
+<button class="w-full text-left px-3 py-2 rounded-md hover:bg-surface-muted flex items-center justify-between group" onclick="selectCardById('deepseek-v3'); closeSearchModal();">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">bolt</span>
+<span class="">DeepSeek V3 架构长文解析 MLA</span>
+</span>
+<span class="text-[11px] font-mono text-muted group-hover:text-ink">科技产品</span>
+</button>
+</div>
+<div class="px-4 py-2 bg-[#f9f5ee] border-t border-hairline flex items-center justify-between text-[11px] font-mono text-muted">
+<span class="">支持上下键选择 · 回车直接进入深度研判</span>
+<span class="">Signal Desk Index</span>
+</div>
+</div>
+</div>
+<!-- 系统设置模态弹窗 -->
+<div class="hidden fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4" id="settings-modal">
+<div class="w-full max-w-2xl bg-surface-card rounded-xl border border-hairline shadow-2xl overflow-hidden flex flex-col">
+<div class="px-6 py-4 border-b border-hairline flex items-center justify-between bg-[#faf7f2]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">settings</span>
+<h3 class="font-bold text-[16px] text-ink">系统偏好与信源管理</h3>
+</div>
+<button class="text-muted hover:text-ink" id="close-settings-modal-btn">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-6 flex flex-col gap-5 max-h-[70vh] overflow-y-auto text-[13px]">
+<div class="flex flex-col gap-2">
+<h4 class="font-semibold text-ink text-[14px] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">rss_feed</span>
+<span class="">订阅源抓取频率与聚类灵敏度</span>
+</h4>
+<div class="grid grid-cols-2 gap-3 mt-1">
+<label class="p-3 rounded-lg border border-hairline bg-canvas flex items-start gap-2.5 cursor-pointer hover:border-primary transition-all">
+<input checked="" class="mt-0.5 text-primary focus:ring-primary" name="refresh-rate" type="radio">
+<div>
+<div class="font-medium text-ink">敏捷模式 (每 15 分钟)</div>
+<div class="text-[11.5px] text-muted">针对突破性预印本与官方 X 公告即刻触发交叉复核</div>
+</div>
+</label>
+<label class="p-3 rounded-lg border border-hairline bg-canvas flex items-start gap-2.5 cursor-pointer hover:border-primary transition-all">
+<input class="mt-0.5 text-primary focus:ring-primary" name="refresh-rate" type="radio">
+<div>
+<div class="font-medium text-ink">精粹模式 (每小时归拢)</div>
+<div class="text-[11.5px] text-muted">多源合流，仅聚合具备 2 篇以上可靠媒体佐证的事件</div>
+</div>
+</label>
+</div>
+</div>
+<div class="border-t border-hairline pt-4 flex flex-col gap-2.5">
+<h4 class="font-semibold text-ink text-[14px] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">database</span>
+<span class="">本地研判知识库挂载路径</span>
+</h4>
+<div class="flex items-center gap-2">
+<input class="flex-1 h-9 px-3 bg-canvas-alt text-mono text-[12px] rounded border border-hairline text-body" readonly="" value="~/Library/Application Support/SignalDesk/vault">
+<button class="h-9 px-3 bg-surface-card hover:bg-surface-hover border border-hairline rounded text-[12px] font-medium" onclick="showToast('已重新校准知识库读写权限')">检查权限</button>
+</div>
+</div>
+<div class="border-t border-hairline pt-4 flex items-center justify-between">
+<div>
+<div class="font-medium text-ink">自动导出研判笔记至 Obsidian</div>
+<div class="text-[11.5px] text-muted">保存研判时自动在笔记末尾追加 YAML Frontmatter 与引用原链</div>
+</div>
+<input checked="" class="rounded text-primary focus:ring-primary w-4 h-4" type="checkbox">
+</div>
+</div>
+<div class="px-6 py-3 bg-[#f8f4ec] border-t border-hairline flex items-center justify-end gap-2.5">
+<button class="px-4 py-1.5 rounded text-body border border-hairline bg-white hover:bg-surface-hover text-[12px] font-medium" id="cancel-settings-btn">取消</button>
+<button class="px-4 py-1.5 rounded text-white bg-primary hover:bg-primary-hover text-[12px] font-semibold" id="confirm-settings-btn">保存并应用</button>
+</div>
+</div>
+</div>
+<!-- 数据集与完整交互脚本 -->
+<script>
+  // 1. 数据字典：模拟多条精选事件与详细切片
+  const EVENTS_DATA = {
+    'claude-37': {
+      id: 'claude-37',
+      category: 'AI 公司',
+      time: '今天 14:20 · 深度聚类',
+      title: 'Anthropic 发布 Claude 3.7 Sonnet 混合推理模型与交互式思考模式',
+      isStarred: true,
+      fact: '模型采用原生混合思考（Hybrid Reasoning）架构，API 端支持最高 128k 思考 token，用户可精准控制思考预算与超时限制。SWE-bench Verified 软件工程基准评测得分达到 70.3%，刷新当前公开发布模型的领先纪录。',
+      view: 'The Verge 分析指出，动态思考控制消除了“即时交互”与“重度推理”的分野，对 OpenAI o 系列固定思考架构形成差异化夹击；SemiAnalysis 强调其命令行 Agent 工具链 Claude Code 的开发落地场景更为直接。',
+      inference: '预计企业级自动化编程（Coding Agent）的 Token 综合调用成本在未来 90 天内下降 35-40%，开源生态（如 DeepSeek R1 衍生微调版本）将在两周内跟进推出类似思考预算控制的推理客户端规范。',
+      sources: [
+        { label: 'Anthropic 官方公告', time: '14:10', title: 'Claude 3.7 Sonnet and Claude Code Announcement', isPrimary: true },
+        { label: 'The Verge', time: '14:18', title: 'Anthropic\'s hybrid reasoning model explained in depth', isPrimary: false },
+        { label: 'SemiAnalysis', time: '14:25', title: 'Benchmarking Sonnet 3.7 Hybrid vs OpenAI o3-mini Cost Matrix', isPrimary: false }
+      ],
+      timeline: [
+        { time: '14:00', source: 'Anthropic 官方发布会', desc: '正式发布 Hybrid Reasoning 架构与技术白皮书，公开 SWE-bench 官方成绩单。', ringColor: 'border-primary ring-primary/20' },
+        { time: '14:15', source: 'SemiAnalysis & 开发者基准', desc: '多项数学竞赛与终端 Code 性能第三方基准实测数据流出，思考 token 弹性优势明确。', ringColor: 'border-body ring-stone-200' },
+        { time: '14:30', source: '首批开发者实操反馈', desc: 'Tier 4 开发者在 GitHub 与 X 平台上确认 Claude Code 工具流对复杂重构的支持效果。', ringColor: 'border-accent-teal ring-teal-200' }
+      ],
+      draftNote: '该模型兼具快速响应与慢思考，代码工具 Claude Code 是核心变量，建议下周在内部自动化评测流水线中试运行。'
+    },
+    'openai-o3': {
+      id: 'openai-o3',
+      category: 'AI 公司',
+      time: '今天 13:45 · 基准测试',
+      title: 'OpenAI 推进 o3 强推理模型公开基准测试，数学与竞赛编码再创新高',
+      isStarred: false,
+      fact: 'OpenAI 官方博客披露 o3 早期基准表现，在 ARC-AGI 视觉空间逻辑评测中达到 87.5%，Codeforces 竞技编程测试超越 99.8% 人类选手，全面启用长链条树状验证机制。',
+      view: 'AI 独立分析师认为 o3 标志着模型从“单向模式匹配”转向“内生多轮蒙特卡洛树搜索”，但高昂的单次推理算力成本仍是其商用落地最大阻力。',
+      inference: 'OpenAI 可能会推迟面向普通 ChatGPT Plus 用户的全量推送，优先向国防研发、制药及复杂量化金融机构以受限 API 形式分发。',
+      sources: [
+        { label: 'OpenAI Research', time: '13:30', title: 'Frontier Reasoning Benchmarks: OpenAI o3 Preview Update', isPrimary: true },
+        { label: 'ArXiv 预印本', time: '13:42', title: 'System-2 Search Scaling Laws in Autoregressive Models', isPrimary: false },
+        { label: 'TechCrunch', time: '13:50', title: 'OpenAI pitches o3 to enterprise clients amid compute cost debates', isPrimary: false }
+      ],
+      timeline: [
+        { time: '13:20', source: 'OpenAI 内网简报', desc: '向少数特邀合作伙伴递交 o3 阶段性安全合规评估红队白皮书。', ringColor: 'border-primary ring-primary/20' },
+        { time: '13:45', source: '公开博客发布', desc: '官方公布 ARC-AGI 与数学奥赛解题正确率详实图表。', ringColor: 'border-body ring-stone-200' }
+      ],
+      draftNote: 'o3 的树搜索架构对复杂数理有压倒性优势，密切关注其推理 API 标价，若成本过高可继续沿用 o1-mini。'
+    },
+    'deepseek-v3': {
+      id: 'deepseek-v3',
+      category: '科技产品',
+      time: '今天 11:10 · 架构解析',
+      title: 'DeepSeek V3 架构长文解析：MLA 多头潜在注意力机制与无辅助损失负载均衡',
+      isStarred: false,
+      fact: 'DeepSeek V3 总参数量 671B，激活 37B。创新引入多头潜在注意力（MLA）对 Key-Value 缓存压缩 93%，采用 DualPipe 重叠算法使得通信与计算完全掩蔽。',
+      view: '国内外开源社区给予高度评价，称其重构了大规模 MoE 训练的工程性价比边界，证明即使在受限互联带宽下也能训练顶尖基础模型。',
+      inference: '国内私有化部署浪潮将加速由密集模型转向 DeepSeek MLA 派系，相关芯片厂商正在紧锣密鼓适配其无辅助损失路由通信原语。',
+      sources: [
+        { label: 'DeepSeek 白皮书', time: '10:55', title: 'DeepSeek-V3 Technical Report: Architecture and Training Dynamics', isPrimary: true },
+        { label: 'GitHub Releases', time: '11:05', title: 'deepseek-ai/DeepSeek-V3 Official Checkpoint & Inference Scripts', isPrimary: false }
+      ],
+      timeline: [
+        { time: '10:50', source: '技术白皮书公开', desc: '发布 671B 权重架构细节，MLA 显存压缩收益得到数学公式论证。', ringColor: 'border-primary ring-primary/20' },
+        { time: '11:10', source: 'Hugging Face 上架', desc: '主仓库模型权重公开，并附带 FP8 精度低成本推理配置样例。', ringColor: 'border-accent-teal ring-teal-200' }
+      ],
+      draftNote: '重点评估 MLA 机制对我们本地私有云 8 卡 H800 的显存释放幅度，下周安排本地部署推理基准。'
+    },
+    'eu-ai-act': {
+      id: 'eu-ai-act',
+      category: '政策',
+      time: '今天 09:30 · 政策落地',
+      title: '欧盟人工智能法案核心治理条款分步生效，通用大模型开启 90 天合规审计窗口',
+      isStarred: false,
+      fact: '欧盟《人工智能法案》（EU AI Act）关于通用人工智能（GPAI）提供者的分类审计规则进入法定过渡期，计算量超过 10^25 FLOPs 的前沿大模型需递交风险减缓报告。',
+      view: '欧洲数字权利机构称这是算法透明度的历史性里程碑，而科技行业协会警告严苛的版权溯源要求可能促使部分模型暂缓在欧盟区上线。',
+      inference: '各大模型厂商将普遍设立“欧盟版特供检查节点”，针对合规需求增加训练数据来源的元数据溯源字段与第三方安全红队报告。',
+      sources: [
+        { label: 'EUR-Lex 官方公报', time: '09:00', title: 'Regulation (EU) 2024/1689: Artificial Intelligence Act Enforcement Timetable', isPrimary: true },
+        { label: '金融时报', time: '09:25', title: 'Big Tech prepares for EU AI Act compliance checks', isPrimary: false }
+      ],
+      timeline: [
+        { time: '09:00', source: '欧盟公报刊宪', desc: '法律文本正式生效，启动第一阶段 90 天透明度填报周期。', ringColor: 'border-primary ring-primary/20' },
+        { time: '09:30', source: '法务合规咨询出台', desc: '欧洲主要律所针对跨国 AI 企业的境内代理人设立规则发出通函。', ringColor: 'border-body ring-stone-200' }
+      ],
+      draftNote: '法案对我们海外数据采集接口有潜在连带要求，需提醒法务团队核验 API 日志保留策略。'
+    },
+    'tsmc-2nm': {
+      id: 'tsmc-2nm',
+      category: '商业',
+      time: '今天 08:15 · 供应链情报',
+      title: '台积电 2nm GAA 制程试产良率超预期，2025 年下半年量产节点已锁定首批旗舰客户',
+      isStarred: false,
+      fact: '台积电新竹宝山 Fab 20 试产 2nm（N2）制程晶圆，良率已突破 65% 爬坡门槛。N2 首次放弃 FinFET 全面改用全环绕栅极（GAA）纳米片技术。',
+      view: '供应链分析师指出，台积电先进制程优势进一步拉大与三星电子、英特尔晶圆代工部门的代际差距，首批客户包括苹果与某美系 AI 算力芯片巨头。',
+      inference: '2nm 单颗晶圆代工报价预估超过 3 万美元，将进一步推高 2026 年旗舰 AI 加速卡采购均价，算力中心资本开支预算将持续上升。',
+      sources: [
+        { label: '台湾经济日报', time: '08:00', title: '台积电宝山 2 纳米试产传捷报，首批晶圆良率优于预期', isPrimary: true },
+        { label: '彭博商业周刊', time: '08:12', title: 'TSMC surges ahead in race for next-generation 2nm silicon', isPrimary: false }
+      ],
+      timeline: [
+        { time: '08:00', source: '供应链行业快讯', desc: '台积电供应链伙伴确认关键量测设备机台已通过进场测试。', ringColor: 'border-primary ring-primary/20' },
+        { time: '08:15', source: '券商半导体研报', desc: '主流投行上调 2025 年下半年先进制程晶圆出货估值预期。', ringColor: 'border-body ring-stone-200' }
+      ],
+      draftNote: '持续跟踪下一代芯片流片周期，未来两代算力卡功耗将大幅压降，对液冷机房改造路线有参考意义。'
+    }
+  };
+
+  let currentSelectedId = 'claude-37';
+
+  // 2. 交互函数：轻量 Toast 提示
+  function showToast(message) {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+
+    const toast = document.createElement('div');
+    toast.className = 'animate-toast px-4 py-2 rounded-lg bg-[#1c1917] text-white text-[12px] font-medium shadow-xl border border-white/10 flex items-center gap-2 pointer-events-auto';
+    toast.innerHTML = `<span class="material-symbols-outlined text-primary text-[16px]">info</span><span>${message}</span>`;
+    container.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transition = 'opacity 0.3s ease';
+      setTimeout(() => toast.remove(), 300);
+    }, 2400);
+  }
+
+  // 3. 渲染右侧研判详情
+  function renderDetail(eventData) {
+    if (!eventData) return;
+
+    document.getElementById('detail-category-badge').textContent = eventData.category;
+    document.getElementById('detail-meta-time').textContent = eventData.time;
+    document.getElementById('detail-title').textContent = eventData.title;
+
+    // 收藏状态同步
+    const starBtn = document.getElementById('detail-star-btn');
+    const starText = document.getElementById('star-btn-text');
+    const starIcon = document.getElementById('detail-star-icon');
+
+    if (eventData.isStarred) {
+      starText.textContent = '已收藏';
+      starBtn.className = 'h-7 px-2.5 bg-white hover:bg-surface-hover border border-amber-300 rounded-full flex items-center gap-1 text-primary text-[12px] font-semibold transition-all shadow-[0_1px_2px_rgba(0,0,0,0.02)]';
+      starIcon.style.fontVariationSettings = "'FILL' 1";
+    } else {
+      starText.textContent = '加入收藏';
+      starBtn.className = 'h-7 px-2.5 bg-white hover:bg-surface-hover text-muted border border-hairline rounded-full flex items-center gap-1 text-[12px] font-medium transition-all shadow-[0_1px_2px_rgba(0,0,0,0.02)]';
+      starIcon.style.fontVariationSettings = "'FILL' 0";
+    }
+
+    // 三级认知切片
+    document.getElementById('detail-fact').textContent = eventData.fact;
+    document.getElementById('detail-view').textContent = eventData.view;
+    document.getElementById('detail-inference').textContent = eventData.inference;
+
+    // 相关文章与信源
+    document.getElementById('sources-header-label').textContent = `相关文章与来源 (${eventData.sources.length})`;
+    const sourcesContainer = document.getElementById('detail-sources-list');
+    sourcesContainer.innerHTML = '';
+    eventData.sources.forEach(src => {
+      const a = document.createElement('a');
+      a.className = 'p-2.5 bg-surface-card hover:bg-white hover:border-amber-300 border border-hairline rounded-md flex flex-col gap-1 transition-all group shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-pointer';
+      a.onclick = (e) => {
+        e.preventDefault();
+        showToast(`正在跳转至原链：${src.label}`);
+      };
+      a.innerHTML = `
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-[11px] ${src.isPrimary ? 'text-primary font-bold' : 'text-body font-bold'}">${src.label}</span>
+          <span class="font-mono text-[11px] text-muted">${src.time}</span>
+        </div>
+        <div class="text-[12.5px] text-ink font-semibold group-hover:text-primary transition-colors">
+          ${src.title}
+        </div>
+        <div class="flex items-center justify-end text-muted group-hover:text-primary font-mono text-[11px] gap-0.5">
+          <span>查看原文</span>
+          <span class="material-symbols-outlined text-[13px]">north_east</span>
+        </div>
+      `;
+      sourcesContainer.appendChild(a);
+    });
+
+    // 时序时间线
+    const timelineContainer = document.getElementById('detail-timeline-list');
+    timelineContainer.innerHTML = '';
+    eventData.timeline.forEach(node => {
+      const div = document.createElement('div');
+      div.className = 'relative flex flex-col gap-0.5';
+      div.innerHTML = `
+        <span class="absolute -left-[23px] top-1 w-3 h-3 rounded-full bg-white border-2 ${node.ringColor}"></span>
+        <div class="flex items-center gap-2">
+          <span class="font-mono text-[11.5px] text-ink font-bold">${node.time}</span>
+          <span class="font-mono text-[11px] text-muted">来源：${node.source}</span>
+        </div>
+        <p class="text-[12px] text-body leading-relaxed">${node.desc}</p>
+      `;
+      timelineContainer.appendChild(div);
+    });
+
+    // 研判笔记草稿
+    const textarea = document.getElementById('thesis-textarea');
+    textarea.value = eventData.draftNote || '';
+    updateCharCounter();
+  }
+
+  // 4. 选中某张事件卡片联动
+  function selectCardById(id) {
+    const targetData = EVENTS_DATA[id];
+    if (!targetData) return;
+
+    currentSelectedId = id;
+
+    // 更新列表中所有卡片的样式
+    document.querySelectorAll('.event-card').forEach(card => {
+      const isSelected = card.getAttribute('data-id') === id;
+      const statusIndicator = card.querySelector('.card-status-indicator');
+      const footer = card.querySelector('.card-footer');
+
+      if (isSelected) {
+        card.className = 'event-card relative flex flex-col p-5 bg-[#faf5ed] rounded-lg border border-amber-200/90 border-l-4 border-l-primary cursor-pointer shadow-sm transition-all hover:shadow-md';
+        if (footer) footer.className = 'flex items-center justify-between mt-3.5 pt-2.5 border-t border-amber-200/60 font-mono text-[11.5px] text-muted card-footer';
+        if (statusIndicator) {
+          statusIndicator.innerHTML = `
+            <span class="text-primary font-semibold shrink-0 text-[12px] flex items-center gap-1">
+              <span>正在研判</span>
+              <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </span>
+          `;
+        }
+      } else {
+        card.className = 'event-card flex flex-col p-5 bg-surface-card rounded-lg border border-hairline hover:bg-surface-hover cursor-pointer transition-all shadow-[0_1px_2px_rgba(0,0,0,0.02)] hover:border-hairline-strong group';
+        if (footer) footer.className = 'flex items-center justify-between mt-3.5 pt-2.5 border-t border-hairline font-mono text-[11.5px] text-muted card-footer';
+        if (statusIndicator) {
+          statusIndicator.innerHTML = `
+            <span class="font-mono text-[11px] text-muted bg-[#f3ede3] px-2 py-0.5 rounded">交叉核验完成</span>
+          `;
+        }
+      }
+
+      // 卡片内收藏按钮状态同步
+      const cardStar = card.querySelector('.card-star-btn');
+      const itemData = EVENTS_DATA[card.getAttribute('data-id')];
+      if (cardStar && itemData) {
+        if (itemData.isStarred) {
+          cardStar.className = 'card-star-btn flex items-center gap-1 font-mono text-[11.5px] text-primary font-medium hover:opacity-80 transition-opacity';
+          cardStar.innerHTML = '<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: \'FILL\' 1;">star</span><span>已收藏</span>';
+        } else {
+          cardStar.className = 'card-star-btn flex items-center gap-1 font-mono text-[11.5px] text-muted hover:text-ink transition-colors';
+          cardStar.innerHTML = '<span class="material-symbols-outlined text-[15px]">star</span><span>收藏</span>';
+        }
+      }
+    });
+
+    renderDetail(targetData);
+  }
+
+  // 5. 统计字数
+  function updateCharCounter() {
+    const textarea = document.getElementById('thesis-textarea');
+    const counter = document.getElementById('char-counter');
+    if (textarea && counter) {
+      counter.textContent = `${textarea.value.length} / 500 字`;
+    }
+  }
+
+  // 6. 全局检索快捷弹窗操作
+  function openSearchModal() {
+    const modal = document.getElementById('quick-search-modal');
+    modal.classList.remove('hidden');
+    setTimeout(() => document.getElementById('modal-search-input').focus(), 50);
+  }
+  function closeSearchModal() {
+    document.getElementById('quick-search-modal').classList.add('hidden');
+  }
+
+  // 7. 系统设置弹窗操作
+  function showSettingsModal(tab) {
+    document.getElementById('settings-modal').classList.remove('hidden');
+  }
+  function closeSettingsModal() {
+    document.getElementById('settings-modal').classList.add('hidden');
+  }
+
+  // 初始化 DOM 事件绑定
+  document.addEventListener('DOMContentLoaded', () => {
+    // A. 绑定流卡片点击
+    document.querySelectorAll('.event-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        // 如果点击的是收藏按钮，跳过选择
+        if (e.target.closest('.card-star-btn')) return;
+        const id = card.getAttribute('data-id');
+        selectCardById(id);
+      });
+
+      // 卡片内的独立收藏按钮
+      const starBtn = card.querySelector('.card-star-btn');
+      if (starBtn) {
+        starBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const cardId = card.getAttribute('data-id');
+          toggleStar(cardId);
+        });
+      }
+    });
+
+    // 切换单条事件收藏状态
+    function toggleStar(id) {
+      if (!EVENTS_DATA[id]) return;
+      EVENTS_DATA[id].isStarred = !EVENTS_DATA[id].isStarred;
+      const starred = EVENTS_DATA[id].isStarred;
+      showToast(starred ? '已添加到个人关注与收藏' : '已从收藏列表中移除');
+      selectCardById(id);
+    }
+
+    // B. 右侧顶栏收藏按钮
+    const detailStarBtn = document.getElementById('detail-star-btn');
+    if (detailStarBtn) {
+      detailStarBtn.addEventListener('click', () => {
+        toggleStar(currentSelectedId);
+      });
+    }
+
+    // C. 复制快报按钮
+    const copyBtn = document.getElementById('copy-summary-btn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        const item = EVENTS_DATA[currentSelectedId];
+        const clipText = `【Signal Desk 简报 · ${item.category}】\n${item.title}\n\n客观事实：${item.fact}\n模型推断：${item.inference}\n信源时间：${item.time}`;
+        navigator.clipboard?.writeText(clipText);
+        showToast('已复制事件标题、摘要与来源链接至剪贴板');
+        const origHtml = copyBtn.innerHTML;
+        copyBtn.innerHTML = '<span class="material-symbols-outlined text-[14px] text-accent-teal">done</span><span>已复制</span>';
+        setTimeout(() => copyBtn.innerHTML = origHtml, 1600);
+      });
+    }
+
+    // D. 研判笔记草稿箱
+    const textarea = document.getElementById('thesis-textarea');
+    const saveIndicator = document.getElementById('save-status-indicator');
+    const saveBtn = document.getElementById('save-thesis-btn');
+    const clearBtn = document.getElementById('clear-draft-btn');
+
+    if (textarea) {
+      textarea.addEventListener('input', () => {
+        updateCharCounter();
+        saveIndicator.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span> 正在键入草稿...';
+        saveIndicator.className = 'font-mono text-[11px] text-primary flex items-center gap-1';
+      });
+    }
+
+    if (saveBtn && textarea) {
+      saveBtn.addEventListener('click', () => {
+        EVENTS_DATA[currentSelectedId].draftNote = textarea.value;
+        saveIndicator.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-accent-teal"></span> 刚才已同步';
+        saveIndicator.className = 'font-mono text-[11px] text-accent-teal flex items-center gap-1 font-semibold';
+        showToast('研判已保存至本地知识库与 Obsidian 索引目录');
+      });
+    }
+
+    if (clearBtn && textarea) {
+      clearBtn.addEventListener('click', () => {
+        textarea.value = '';
+        updateCharCounter();
+        saveIndicator.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-muted"></span> 草稿已清空';
+        saveIndicator.className = 'font-mono text-[11px] text-muted flex items-center gap-1';
+        showToast('已清空当前研判笔记输入框');
+        textarea.focus();
+      });
+    }
+
+    // E. 分类胶囊标签切换联动
+    const catTabs = document.querySelectorAll('#category-tabs .cat-pill');
+    catTabs.forEach(pill => {
+      pill.addEventListener('click', () => {
+        catTabs.forEach(p => {
+          p.className = 'cat-pill px-3 py-1 rounded-full text-[12px] font-medium text-body hover:bg-surface-muted hover:text-ink transition-colors whitespace-nowrap bg-surface-card border border-hairline';
+        });
+        pill.className = 'cat-pill px-3 py-1 rounded-full text-[12px] font-semibold bg-ink text-white whitespace-nowrap shadow-sm';
+
+        const category = pill.getAttribute('data-cat');
+        filterFeed(category, document.getElementById('feed-search-input').value.trim());
+      });
+    });
+
+    // F. 流内关键词实时检索与清空
+    const searchInput = document.getElementById('feed-search-input');
+    const clearSearchBtn = document.getElementById('clear-search-btn');
+
+    function filterFeed(category, query) {
+      let visibleCount = 0;
+      const lowerQuery = query.toLowerCase();
+
+      document.querySelectorAll('.event-card').forEach(card => {
+        const cardCat = card.getAttribute('data-cat');
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        const desc = card.querySelector('.card-desc').textContent.toLowerCase();
+
+        const matchCat = (category === 'all' || !category || cardCat === category);
+        const matchQuery = !lowerQuery || title.includes(lowerQuery) || desc.includes(lowerQuery);
+
+        if (matchCat && matchQuery) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      const noResult = document.getElementById('no-results-msg');
+      const endIndicator = document.getElementById('feed-end-indicator');
+      const endText = document.getElementById('feed-end-text');
+
+      if (visibleCount === 0) {
+        noResult.classList.remove('hidden');
+        noResult.classList.add('flex');
+        endIndicator.classList.add('hidden');
+      } else {
+        noResult.classList.add('hidden');
+        noResult.classList.remove('flex');
+        endIndicator.classList.remove('hidden');
+        endText.textContent = `已显示全部 ${visibleCount} 条匹配事件 · 实时流守候中`;
+      }
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const val = e.target.value.trim();
+        if (val.length > 0) {
+          clearSearchBtn.classList.remove('hidden');
+        } else {
+          clearSearchBtn.classList.add('hidden');
+        }
+        const activePill = document.querySelector('#category-tabs .bg-ink');
+        const activeCat = activePill ? activePill.getAttribute('data-cat') : 'all';
+        filterFeed(activeCat, val);
+      });
+
+      clearSearchBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        clearSearchBtn.classList.add('hidden');
+        const activePill = document.querySelector('#category-tabs .bg-ink');
+        const activeCat = activePill ? activePill.getAttribute('data-cat') : 'all';
+        filterFeed(activeCat, '');
+      });
+    }
+
+    // G. 刷新按钮模拟
+    const refreshBtn = document.getElementById('refresh-feed-btn');
+    const refreshIcon = document.getElementById('refresh-feed-icon');
+    const refreshAlert = document.getElementById('refresh-alert');
+
+    if (refreshBtn && refreshIcon && refreshAlert) {
+      refreshBtn.addEventListener('click', () => {
+        refreshIcon.classList.add('rotate-180');
+        refreshBtn.disabled = true;
+        refreshBtn.classList.add('opacity-60');
+
+        setTimeout(() => {
+          refreshIcon.classList.remove('rotate-180');
+          refreshBtn.disabled = false;
+          refreshBtn.classList.remove('opacity-60');
+          refreshAlert.classList.remove('hidden');
+          refreshAlert.classList.add('flex');
+          showToast('信源同步完成：已更新至最新状态，捕获 3 篇相关最新报道');
+
+          setTimeout(() => {
+            refreshAlert.classList.add('hidden');
+            refreshAlert.classList.remove('flex');
+          }, 4000);
+        }, 600);
+      });
+    }
+
+    // H. 全局快捷键 ⌘K / Ctrl+K
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        openSearchModal();
+      }
+      if (e.key === 'Escape') {
+        closeSearchModal();
+        closeSettingsModal();
+      }
+    });
+
+    document.getElementById('global-search-trigger')?.addEventListener('click', openSearchModal);
+    document.getElementById('quick-search-modal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'quick-search-modal') closeSearchModal();
+    });
+
+    // I. 设置弹窗事件
+    document.getElementById('open-settings-btn')?.addEventListener('click', () => showSettingsModal('all'));
+    document.getElementById('close-settings-modal-btn')?.addEventListener('click', closeSettingsModal);
+    document.getElementById('cancel-settings-btn')?.addEventListener('click', closeSettingsModal);
+    document.getElementById('confirm-settings-btn')?.addEventListener('click', () => {
+      closeSettingsModal();
+      showToast('系统偏好配置已持久化至本地');
+    });
+
+    // J. 导航栏切换高亮
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.addEventListener('click', () => {
+        document.querySelectorAll('.nav-item').forEach(n => {
+          n.className = 'nav-item flex items-center justify-between px-2.5 py-1.5 rounded-md text-body hover:bg-surface-muted hover:text-ink transition-colors text-[13px] group w-full text-left';
+          const icon = n.querySelector('.material-symbols-outlined');
+          if (icon) icon.className = 'material-symbols-outlined text-[17px] text-muted group-hover:text-primary transition-colors';
+        });
+
+        item.className = 'nav-item flex items-center justify-between px-2.5 py-1.5 rounded-md bg-[#fff7ed] text-primary font-semibold border border-amber-200/80 shadow-[0_1px_2px_rgba(217,119,6,0.06)] text-[13px] group w-full text-left';
+        const activeIcon = item.querySelector('.material-symbols-outlined');
+        if (activeIcon) activeIcon.className = 'material-symbols-outlined text-[17px] text-primary';
+
+        const navName = item.querySelector('span span')?.textContent || '频道';
+        showToast(`已切换至频道：${navName}`);
+      });
+    });
+
+    // K. 顶栏下拉（语言与账号）
+    const langBtn = document.getElementById('lang-switch-btn');
+    const langDropdown = document.getElementById('lang-dropdown');
+    const userBtn = document.getElementById('user-profile-btn');
+    const userDropdown = document.getElementById('user-dropdown');
+
+    if (langBtn && langDropdown) {
+      langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langDropdown.classList.toggle('hidden');
+        if (userDropdown) userDropdown.classList.add('hidden');
+      });
+    }
+
+    document.querySelectorAll('.lang-opt').forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const selectedLang = opt.getAttribute('data-lang');
+        document.getElementById('current-lang-label').textContent = selectedLang;
+        langDropdown.classList.add('hidden');
+        showToast(`界面语言已设置为：${selectedLang}`);
+      });
+    });
+
+    if (userBtn && userDropdown) {
+      userBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        userDropdown.classList.toggle('hidden');
+        if (langDropdown) langDropdown.classList.add('hidden');
+      });
+    }
+
+    document.addEventListener('click', () => {
+      if (langDropdown) langDropdown.classList.add('hidden');
+      if (userDropdown) userDropdown.classList.add('hidden');
+    });
+
+    // L. 主题切换
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    const themeIcon = document.getElementById('theme-icon');
+    let isDark = false;
+    if (themeBtn && themeIcon) {
+      themeBtn.addEventListener('click', () => {
+        isDark = !isDark;
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+          themeIcon.textContent = 'dark_mode';
+          showToast('已切换至暗色护眼模式');
+        } else {
+          document.documentElement.classList.remove('dark');
+          themeIcon.textContent = 'light_mode';
+          showToast('已恢复日光暖纸模式');
+        }
+      });
+    }
+
+    // 初始载入
+    renderDetail(EVENTS_DATA['claude-37']);
+  });
+</script>
+
+
+
+
+</body></html>

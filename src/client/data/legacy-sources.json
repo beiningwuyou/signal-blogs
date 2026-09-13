@@ -1,0 +1,452 @@
+[
+  {
+    "id": "src-semianalysis",
+    "name": "SemiAnalysis",
+    "match": "SemiAnalysis",
+    "url": "https://semianalysis.com/feed",
+    "category": "硬科技与半导体",
+    "weight": 95,
+    "enabled": true
+  },
+  {
+    "id": "src-latent-space",
+    "name": "Latent.Space",
+    "match": "Latent.Space",
+    "url": "https://latent.space/feed",
+    "category": "AI 算法与模型",
+    "weight": 90,
+    "enabled": true
+  },
+  {
+    "id": "src-anthropic-engineering",
+    "name": "Anthropic Engineering",
+    "match": "Anthropic",
+    "url": "https://anthropic.com/engineering/rss.xml",
+    "category": "AI 算法与模型",
+    "weight": 98,
+    "enabled": true
+  },
+  {
+    "id": "src-cloudflare-blog",
+    "name": "Cloudflare Blog",
+    "match": "Cloudflare",
+    "url": "https://blog.cloudflare.com/rss",
+    "category": "硬科技与半导体",
+    "weight": 88,
+    "enabled": true
+  },
+  {
+    "id": "src-sam-altman-sama",
+    "name": "Sam Altman (@sama)",
+    "match": "Sam",
+    "url": "https://nitter.net/sama/rss",
+    "category": "宏观策略与独家",
+    "weight": 92,
+    "enabled": true
+  },
+  {
+    "id": "src-deepseek-ai-lab",
+    "name": "DeepSeek AI Lab",
+    "match": "DeepSeek",
+    "url": "https://deepseek.com/blog/feed",
+    "category": "AI 算法与模型",
+    "weight": 96,
+    "enabled": true
+  },
+  {
+    "id": "src-google-deepmind",
+    "name": "Google DeepMind",
+    "match": "Google",
+    "url": "https://deepmind.google/blog/rss.xml",
+    "category": "AI 算法与模型",
+    "weight": 94,
+    "enabled": true
+  },
+  {
+    "id": "src-anandtech-hardware",
+    "name": "AnandTech Hardware",
+    "match": "AnandTech",
+    "url": "https://anandtech.com/rss",
+    "category": "硬科技与半导体",
+    "weight": 89,
+    "enabled": true
+  },
+  {
+    "id": "src-openai-research",
+    "name": "OpenAI Research",
+    "match": "OpenAI",
+    "url": "https://openai.com/research/rss",
+    "category": "AI 算法与模型",
+    "weight": 99,
+    "enabled": true
+  },
+  {
+    "id": "src-tsmc-investors-intel",
+    "name": "TSMC Investors Intel",
+    "match": "TSMC",
+    "url": "https://tsmc.com/investor/feed",
+    "category": "硬科技与半导体",
+    "weight": 93,
+    "enabled": true
+  },
+  {
+    "id": "src-stratechery-by-ben-thompson",
+    "name": "Stratechery by Ben Thompson",
+    "match": "Stratechery",
+    "url": "https://stratechery.com/feed",
+    "category": "宏观策略与独家",
+    "weight": 91,
+    "enabled": true
+  },
+  {
+    "id": "src-hugging-face-daily-papers",
+    "name": "Hugging Face Daily Papers",
+    "match": "Hugging",
+    "url": "https://huggingface.co/papers/rss",
+    "category": "AI 算法与模型",
+    "weight": 92,
+    "enabled": true
+  },
+  {
+    "id": "src-asml-global-insights",
+    "name": "ASML Global Insights",
+    "match": "ASML",
+    "url": "https://asml.com/news/feed.xml",
+    "category": "硬科技与半导体",
+    "weight": 87,
+    "enabled": true
+  },
+  {
+    "id": "src-nvidia-technical-blog",
+    "name": "Nvidia Technical Blog",
+    "match": "Nvidia",
+    "url": "https://developer.nvidia.com/blog/feed",
+    "category": "硬科技与半导体",
+    "weight": 97,
+    "enabled": true
+  },
+  {
+    "id": "src-the-information-exclusive",
+    "name": "The Information Exclusive",
+    "match": "The",
+    "url": "https://theinformation.com/rss",
+    "category": "宏观策略与独家",
+    "weight": 94,
+    "enabled": true
+  },
+  {
+    "id": "src-meta-ai-research",
+    "name": "Meta AI Research",
+    "match": "Meta",
+    "url": "https://ai.meta.com/blog/rss",
+    "category": "AI 算法与模型",
+    "weight": 93,
+    "enabled": true
+  },
+  {
+    "id": "src-wikichip-fuse",
+    "name": "WikiChip Fuse",
+    "match": "WikiChip",
+    "url": "https://fuse.wikichip.org/feed",
+    "category": "硬科技与半导体",
+    "weight": 86,
+    "enabled": true
+  },
+  {
+    "id": "src-sec-ai-regulatory-filings",
+    "name": "SEC AI Regulatory Filings",
+    "match": "SEC",
+    "url": "https://sec.gov/edgar/searchedgar/rss",
+    "category": "宏观策略与独家",
+    "weight": 88,
+    "enabled": true
+  },
+  {
+    "id": "src-morgan-stanley-tmt-pulse",
+    "name": "Morgan Stanley TMT Pulse",
+    "match": "Morgan",
+    "url": "https://morganstanley.com/tmt/feed",
+    "category": "宏观策略与独家",
+    "weight": 89,
+    "enabled": true
+  },
+  {
+    "id": "src-broadcom-netx-insights",
+    "name": "Broadcom NetX Insights",
+    "match": "Broadcom",
+    "url": "https://broadcom.com/blog/feed",
+    "category": "硬科技与半导体",
+    "weight": 85,
+    "enabled": true
+  },
+  {
+    "id": "src-berkeley-bair-blog",
+    "name": "Berkeley BAIR Blog",
+    "match": "Berkeley",
+    "url": "https://bair.berkeley.edu/blog/feed.xml",
+    "category": "AI 算法与模型",
+    "weight": 91,
+    "enabled": true
+  },
+  {
+    "id": "src-dan-wang-dispatches",
+    "name": "Dan Wang Dispatches",
+    "match": "Dan",
+    "url": "https://danwang.co/feed",
+    "category": "宏观策略与独家",
+    "weight": 90,
+    "enabled": true
+  },
+  {
+    "id": "src-ee-times-semiconductor",
+    "name": "EE Times Semiconductor",
+    "match": "EE",
+    "url": "https://eetimes.com/rss-feeds",
+    "category": "硬科技与半导体",
+    "weight": 82,
+    "enabled": true
+  },
+  {
+    "id": "src-simons-foundation-quantum",
+    "name": "Simons Foundation Quantum",
+    "match": "Simons",
+    "url": "https://simonsfoundation.org/feed",
+    "category": "硬科技与半导体",
+    "weight": 84,
+    "enabled": true
+  },
+  {
+    "id": "src-lilian-weng-lil-log",
+    "name": "Lilian Weng (Lil'Log)",
+    "match": "Lilian",
+    "url": "https://lilianweng.github.io/index.xml",
+    "category": "AI 算法与模型",
+    "weight": 97,
+    "enabled": true
+  },
+  {
+    "id": "src-eu-ai-act-compliance-monitor",
+    "name": "EU AI Act Compliance Monitor",
+    "match": "EU",
+    "url": "https://artificialintelligenceact.eu/feed",
+    "category": "宏观策略与独家",
+    "weight": 86,
+    "enabled": true
+  },
+  {
+    "id": "src-arm-architecture-journal",
+    "name": "Arm Architecture Journal",
+    "match": "Arm",
+    "url": "https://community.arm.com/feed",
+    "category": "硬科技与半导体",
+    "weight": 87,
+    "enabled": true
+  },
+  {
+    "id": "src-distill-pub-archive-feed",
+    "name": "Distill.pub Archive & Feed",
+    "match": "Distill.pub",
+    "url": "https://distill.pub/rss.xml",
+    "category": "AI 算法与模型",
+    "weight": 88,
+    "enabled": true
+  },
+  {
+    "id": "src-paul-graham-essays",
+    "name": "Paul Graham Essays",
+    "match": "Paul",
+    "url": "https://paulgraham.com/rss.html",
+    "category": "宏观策略与独家",
+    "weight": 93,
+    "enabled": true
+  },
+  {
+    "id": "src-applied-materials-blog",
+    "name": "Applied Materials Blog",
+    "match": "Applied",
+    "url": "https://appliedmaterials.com/blog/feed",
+    "category": "硬科技与半导体",
+    "weight": 81,
+    "enabled": true
+  },
+  {
+    "id": "src-stanford-hai-research",
+    "name": "Stanford HAI Research",
+    "match": "Stanford",
+    "url": "https://hai.stanford.edu/news/rss",
+    "category": "AI 算法与模型",
+    "weight": 91,
+    "enabled": true
+  },
+  {
+    "id": "src-goldman-sachs-top-of-mind",
+    "name": "Goldman Sachs Top of Mind",
+    "match": "Goldman",
+    "url": "https://goldmansachs.com/insights/feed",
+    "category": "宏观策略与独家",
+    "weight": 90,
+    "enabled": true
+  },
+  {
+    "id": "src-micron-tech-hbm-stream",
+    "name": "Micron Tech HBM Stream",
+    "match": "Micron",
+    "url": "https://micron.com/blog/feed",
+    "category": "硬科技与半导体",
+    "weight": 85,
+    "enabled": true
+  },
+  {
+    "id": "src-andrej-karpathy-dispatches",
+    "name": "Andrej Karpathy Dispatches",
+    "match": "Andrej",
+    "url": "https://karpathy.substack.com/feed",
+    "category": "AI 算法与模型",
+    "weight": 98,
+    "enabled": true
+  },
+  {
+    "id": "src-semiconductor-engineering",
+    "name": "Semiconductor Engineering",
+    "match": "Semiconductor",
+    "url": "https://semiengineering.com/feed",
+    "category": "硬科技与半导体",
+    "weight": 83,
+    "enabled": true
+  },
+  {
+    "id": "src-matt-levine-money-stuff",
+    "name": "Matt Levine (Money Stuff)",
+    "match": "Matt",
+    "url": "https://bloomberg.com/opinion/moneystuff.xml",
+    "category": "宏观策略与独家",
+    "weight": 92,
+    "enabled": true
+  },
+  {
+    "id": "src-mistral-ai-engineering",
+    "name": "Mistral AI Engineering",
+    "match": "Mistral",
+    "url": "https://mistral.ai/news/index.xml",
+    "category": "AI 算法与模型",
+    "weight": 94,
+    "enabled": true
+  },
+  {
+    "id": "src-intel-technology-blog",
+    "name": "Intel Technology Blog",
+    "match": "Intel",
+    "url": "https://intel.com/content/www/us/en/newsroom/feed",
+    "category": "硬科技与半导体",
+    "weight": 86,
+    "enabled": true
+  },
+  {
+    "id": "src-ft-tech-strategy-wire",
+    "name": "FT Tech Strategy Wire",
+    "match": "FT",
+    "url": "https://ft.com/technology/rss",
+    "category": "宏观策略与独家",
+    "weight": 89,
+    "enabled": true
+  },
+  {
+    "id": "src-interconnects-by-nathan-lambert",
+    "name": "Interconnects by Nathan Lambert",
+    "match": "Interconnects",
+    "url": "https://interconnects.ai/feed",
+    "category": "AI 算法与模型",
+    "weight": 92,
+    "enabled": true
+  },
+  {
+    "id": "src-synopsys-design-insights",
+    "name": "Synopsys Design Insights",
+    "match": "Synopsys",
+    "url": "https://synopsys.com/blogs/feed",
+    "category": "硬科技与半导体",
+    "weight": 84,
+    "enabled": true
+  },
+  {
+    "id": "src-venturebeat-ai-beat",
+    "name": "VentureBeat AI Beat",
+    "match": "VentureBeat",
+    "url": "https://venturebeat.com/category/ai/feed",
+    "category": "AI 算法与模型",
+    "weight": 87,
+    "enabled": true
+  },
+  {
+    "id": "src-marc-andreessen-pmarca",
+    "name": "Marc Andreessen (pmarca)",
+    "match": "Marc",
+    "url": "https://pmarca.substack.com/feed",
+    "category": "宏观策略与独家",
+    "weight": 91,
+    "enabled": true
+  },
+  {
+    "id": "src-kla-metrology-insights",
+    "name": "KLA Metrology Insights",
+    "match": "KLA",
+    "url": "https://kla.com/advance/feed",
+    "category": "硬科技与半导体",
+    "weight": 82,
+    "enabled": true
+  },
+  {
+    "id": "src-together-ai-research",
+    "name": "Together AI Research",
+    "match": "Together",
+    "url": "https://together.ai/blog/rss",
+    "category": "AI 算法与模型",
+    "weight": 93,
+    "enabled": true
+  },
+  {
+    "id": "src-nist-ai-safety-institute",
+    "name": "NIST AI Safety Institute",
+    "match": "NIST",
+    "url": "https://nist.gov/itl/ai-risk-mgmt/feed",
+    "category": "宏观策略与独家",
+    "weight": 88,
+    "enabled": true
+  },
+  {
+    "id": "src-lam-research-tech-brief",
+    "name": "Lam Research Tech Brief",
+    "match": "Lam",
+    "url": "https://lamresearch.com/feed",
+    "category": "硬科技与半导体",
+    "weight": 83,
+    "enabled": true
+  },
+  {
+    "id": "src-chip-huyen-ai-systems",
+    "name": "Chip Huyen AI Systems",
+    "match": "Chip",
+    "url": "https://chiphuyen.com/feed",
+    "category": "AI 算法与模型",
+    "weight": 93,
+    "enabled": true
+  },
+  {
+    "id": "src-ark-invest-innovation-wire",
+    "name": "ARK Invest Innovation Wire",
+    "match": "ARK",
+    "url": "https://ark-invest.com/feed",
+    "category": "宏观策略与独家",
+    "weight": 85,
+    "enabled": true
+  },
+  {
+    "id": "src-cadence-eda-frontiers",
+    "name": "Cadence EDA Frontiers",
+    "match": "Cadence",
+    "url": "https://community.cadence.com/rss",
+    "category": "硬科技与半导体",
+    "weight": 84,
+    "enabled": true
+  }
+]

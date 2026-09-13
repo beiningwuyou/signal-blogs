@@ -1,0 +1,1250 @@
+<!DOCTYPE html><html class="h-full" lang="zh-CN" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Signal Desk · 每日早报与情报归档研读</title>
+<!-- Google Fonts: Newsreader (Editorial Serif) & Inter (Clean UI Sans) -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "success": "#15803d",
+            "tertiary-container": "#007abd",
+            "hairline": "#e7e2d9",
+            "hairline-subtle": "#f0ebe1",
+            "hairline-strong": "#d6cec2",
+            "primary-fixed": "#fef3c7",
+            "inverse-on-surface": "#f5f0ec",
+            "surface-dark": "#1c1917",
+            "outline-variant": "#dccfbe",
+            "primary": "#d97706",
+            "primary-hover": "#b45309",
+            "primary-active": "#92400e",
+            "primary-soft": "#fef9ee",
+            "muted": "#78716c",
+            "muted-soft": "#a8a29e",
+            "surface": "#f7f3ec",
+            "surface-card": "#ffffff",
+            "surface-card-hover": "#fdfcfa",
+            "surface-card-subtle": "#fbf8f2",
+            "canvas": "#fcf9f6",
+            "background": "#fcf9f6",
+            "ink": "#1c1917",
+            "body": "#44403c",
+            "body-strong": "#292524",
+            "warning": "#d97706",
+            "accent-amber": "#d97706",
+            "surface-container-high": "#ebe5dc",
+            "surface-container": "#f4efe7"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "md": "0.375rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            "code": ["JetBrains Mono", "monospace"],
+            "title-lg": ["Inter", "sans-serif"],
+            "caption": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "caption-uppercase": ["Inter", "sans-serif"],
+            "title-sm": ["Inter", "sans-serif"],
+            "title-md": ["Inter", "sans-serif"],
+            "display-xl": ["Newsreader", "serif"],
+            "display-lg": ["Newsreader", "serif"],
+            "display-md": ["Newsreader", "serif"],
+            "display-sm": ["Newsreader", "serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+      vertical-align: middle;
+    }
+    
+    /* Warm Oat Paper Scroller */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #fcf9f6;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #e7e2d9;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #d6cec2;
+    }
+
+    /* Staggered Fade-in Animation */
+    @keyframes editorialFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .stagger-in {
+      animation: editorialFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+    }
+
+    .delay-1 { animation-delay: 40ms; }
+    .delay-2 { animation-delay: 90ms; }
+    .delay-3 { animation-delay: 150ms; }
+    .delay-4 { animation-delay: 210ms; }
+
+    /* Collapsible Tree Transition */
+    .collapse-content {
+      display: grid;
+      grid-template-rows: 1fr;
+      transition: grid-template-rows 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+    }
+    .collapse-content.is-closed {
+      grid-template-rows: 0fr;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .collapse-inner {
+      overflow: hidden;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-background text-ink antialiased font-body-md min-h-screen flex flex-col selection:bg-amber-100 selection:text-amber-950">
+<!-- ==================== TOP NAVIGATION ==================== -->
+<header class="h-14 sticky top-0 z-40 bg-[#fcf9f6]/95 backdrop-blur-md border-b border-[#e8e3d8] flex items-center justify-between px-8 py-2.5 w-full">
+  <!-- Left: Global Search Bar -->
+  <div class="flex items-center gap-4">
+    <div class="relative w-80 lg:w-96">
+      <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-muted text-[18px]">search</span>
+      <input class="w-full bg-[#f4efe7] border border-hairline rounded-lg pl-9 pr-9 py-1.5 text-xs text-ink placeholder:text-muted focus:outline-none focus:border-warning focus:ring-1 focus:ring-warning/30 transition-all shadow-2xs" id="globalSearchInput" placeholder="搜索事件、信源、笔记..." type="text">
+      <kbd class="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] text-muted bg-surface px-1.5 py-0.5 rounded border border-hairline font-code select-none">⌘K</kbd>
+    </div>
+  </div>
+  <!-- Right: Tools, Lang, Theme & Analyst Badge -->
+  <div class="flex items-center gap-3">
+    <!-- Language Switcher -->
+    <button class="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium border border-hairline bg-surface-card rounded-lg hover:bg-surface text-body hover:text-ink transition-colors focus:outline-none" id="langToggleBtn" onclick="toggleLang()">
+      <span class="material-symbols-outlined text-[16px] text-muted">translate</span>
+      <span class="">简体中文</span>
+      <span class="material-symbols-outlined text-[16px] text-muted">expand_more</span>
+    </button>
+    <!-- Theme Switcher -->
+    <button class="p-1.5 border border-hairline bg-surface-card rounded-lg hover:bg-surface text-body hover:text-ink transition-colors focus:outline-none flex items-center justify-center" onclick="toggleTheme()" title="切换日夜阅读模式">
+      <span class="material-symbols-outlined text-[18px] text-muted" id="themeIcon">light_mode</span>
+    </button>
+    <div class="h-4 w-[1px] bg-hairline mx-0.5"></div>
+    <!-- Chief Analyst Workspace Badge -->
+    <div class="flex items-center gap-2.5 pl-1 cursor-pointer group" onclick="showToast('已接入首席分析师战略工作台', 'account_circle')" title="首席分析师 · 战略工作台">
+      <div class="size-8 rounded-full border border-hairline bg-[#f4efe7] flex items-center justify-center font-display-sm text-xs font-semibold text-warning overflow-hidden shadow-2xs group-hover:border-warning/60 transition-all group-hover:scale-105">
+        <span class="">AV</span>
+      </div>
+      <div class="flex flex-col text-left">
+        <span class="text-xs font-semibold text-ink leading-tight group-hover:text-primary transition-colors">首席分析师</span>
+        <span class="text-[10px] text-muted font-caption uppercase leading-tight mt-0.5">战略工作台</span>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- ==================== MAIN 3-PANE WORKSPACE ==================== -->
+<div class="flex-1 flex overflow-hidden">
+<!-- PANE 1: GLOBAL PRIMARY SIDEBAR (Desk Navigation) -->
+<aside class="w-56 shrink-0 border-r border-hairline bg-[#faf6f1] flex flex-col justify-between hidden md:flex">
+<div class="p-3.5 flex flex-col gap-5 overflow-y-auto flex-1">
+<div class="space-y-1">
+<div class="px-2.5 py-1 text-[11px] font-caption-uppercase uppercase tracking-wider text-muted font-semibold">个人空间</div>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150" href="#" onclick="showToast('进入私人早报订阅池', 'bookmark_heart'); return false;">
+<span class="material-symbols-outlined text-[18px]">bookmark_heart</span>
+<span class="">私人早报</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150" href="#" onclick="showToast('关注列表更新：12 组实体活跃', 'radar'); return false;">
+<span class="material-symbols-outlined text-[18px]">radar</span>
+<span class="">正在关注</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150 group" href="#" onclick="showToast('打开我的阅读清单', 'folder_special'); return false;">
+<span class="material-symbols-outlined text-[18px]">folder_special</span>
+<span class="">我的阅读</span>
+<span class="ml-auto text-[10px] bg-[#ebe5dc] group-hover:bg-amber-100 group-hover:text-amber-900 text-muted font-code px-1.5 py-0.5 rounded transition-colors" id="savedReadCountBadge">3</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150" href="#" onclick="showToast('打开最近 7 天浏览足迹', 'history'); return false;">
+<span class="material-symbols-outlined text-[18px]">history</span>
+<span class="">浏览足迹</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150" href="#" onclick="showToast('今日回顾快照已生成', 'summarize'); return false;">
+<span class="material-symbols-outlined text-[18px]">summarize</span>
+<span class="">今日回顾</span>
+</a>
+</div>
+<div class="space-y-1 pt-1 border-t border-hairline/60">
+<div class="px-2.5 py-1 text-[11px] font-caption-uppercase uppercase tracking-wider text-muted font-semibold">公共广场</div>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150" href="#" onclick="showToast('切换至精选事件流', 'bolt'); return false;">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span class="">精选事件</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150" href="#" onclick="showToast('探索全网情报广场', 'explore'); return false;">
+<span class="material-symbols-outlined text-[18px]">explore</span>
+<span class="">内容广场</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg bg-warning/10 text-primary font-semibold text-xs border-l-2 border-warning shadow-2xs transition-all" href="#" onclick="return false;">
+<span class="material-symbols-outlined text-[18px] text-warning" style="font-variation-settings: 'FILL' 1;">newspaper</span>
+<span class="">每日早报</span>
+<span class="ml-auto text-[10px] bg-warning text-white px-1.5 py-0.2 rounded font-code leading-none shadow-2xs">LIVE</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150" href="#" onclick="showToast('正在调取精选周刊合辑', 'menu_book'); return false;">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+<span class="">精选周刊</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150" href="#" onclick="showToast('正在打开主题深度研判', 'lightbulb'); return false;">
+<span class="material-symbols-outlined text-[18px]">lightbulb</span>
+<span class="">主题解读</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-body hover:bg-surface hover:text-ink text-xs transition-colors duration-150" href="#" onclick="showToast('正在加载产业事件演进轴', 'timeline'); return false;">
+<span class="material-symbols-outlined text-[18px]">timeline</span>
+<span class="">事件时间轴</span>
+</a>
+</div>
+</div>
+<div class="p-3 border-t border-hairline flex flex-col gap-2 bg-[#fcf9f6]">
+<div class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-[#f7f3ec] border border-hairline">
+<span class="relative flex size-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
+<span class="relative inline-flex rounded-full size-2 bg-success"></span>
+</span>
+<div class="flex flex-col">
+<span class="text-[11px] font-semibold text-ink leading-tight">本地服务运行中</span>
+<span class="text-[10px] text-muted font-code">端口: 8080 · 双向同步</span>
+</div>
+</div>
+<button class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-muted hover:text-ink hover:bg-surface text-xs transition-colors duration-150 focus:outline-none" onclick="showToast('已打开偏好配置与密钥管理', 'settings')">
+<span class="material-symbols-outlined text-[17px]">settings</span>
+<span class="">系统设置</span>
+</button>
+</div>
+</aside>
+<!-- PANE 2: SECONDARY HISTORICAL ARCHIVE SIDEBAR (历史早报归档) -->
+<nav aria-label="历史早报归档" class="w-72 shrink-0 border-r border-hairline bg-[#fdfbf8] flex flex-col h-full select-none">
+<!-- Archive Header -->
+<div class="p-3.5 border-b border-hairline bg-surface-card/70">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-muted text-[17px]">calendar_month</span>
+<h2 class="text-xs font-semibold text-ink uppercase tracking-wider font-title-sm">往期日报</h2>
+</div>
+<span class="text-[11px] text-muted font-code" id="totalIssuesLabel">共 142 期</span>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-muted text-[16px]">filter_list</span>
+<input class="w-full bg-surface-card border border-hairline rounded-md pl-8 pr-3 py-1 text-xs text-ink placeholder:text-muted focus:outline-none focus:border-warning transition-colors" id="archiveFilterInput" oninput="filterArchiveList(this.value)" placeholder="按关键字搜索往期..." type="text">
+</div>
+</div>
+<!-- Archive Tree List -->
+<div class="flex-1 overflow-y-auto p-3 space-y-3" id="archiveTreeContainer">
+<!-- 2026年9月 (当前月份，展开状态) -->
+<div class="month-group" data-month="2026-09">
+<button class="w-full flex items-center justify-between py-1.5 px-2 rounded-md hover:bg-surface text-left text-xs font-semibold text-ink group transition-colors" onclick="toggleMonthCollapse('month-2026-09')" type="button">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-muted transition-transform duration-200 rotate-90" id="icon-month-2026-09">arrow_right</span>
+<span class="">2026 年 09 月</span>
+</div>
+<span class="text-[10px] text-muted font-code bg-surface px-1.5 py-0.5 rounded border border-hairline group-hover:border-outline-variant">8 期</span>
+</button>
+<!-- 9月列表 -->
+<div class="collapse-content" id="wrapper-month-2026-09">
+<div class="collapse-inner mt-1 ml-3 pl-2 border-l border-hairline space-y-1" id="list-month-2026-09">
+<!-- 9月8日 (当前高亮) -->
+<button class="issue-item w-full text-left p-2 rounded-lg text-xs transition-all border block border-warning/30 bg-warning/10 text-primary shadow-2xs" data-issue="2026-09-08" onclick="selectIssue('2026-09-08')" type="button">
+<div class="flex items-center justify-between mb-0.5">
+<span class="font-code font-bold">09-08 周二 · 第142期</span>
+<span class="text-[10px] bg-warning text-white px-1 rounded font-code">最新</span>
+</div>
+<div class="text-[11px] text-ink font-medium truncate">Anthropic发布Claude 3.7混合推理，英伟达新推理集群交付</div>
+</button>
+<!-- 9月7日 -->
+<button class="issue-item w-full text-left p-2 rounded-lg text-xs transition-all border hover:bg-surface hover:text-ink block border-transparent text-body" data-issue="2026-09-07" onclick="selectIssue('2026-09-07')" type="button">
+<div class="flex items-center justify-between mb-0.5">
+<span class="font-code text-muted">09-07 周一 · 第141期</span>
+<span class="text-[10px] text-muted font-code">3 篇</span>
+</div>
+<div class="text-[11px] truncate">OpenAI企业级Agent框架灰度上线；欧洲AI法案首轮落地审查</div>
+</button>
+<!-- 9月6日 -->
+<button class="issue-item w-full text-left p-2 rounded-lg text-xs transition-all border hover:bg-surface hover:text-ink block border-transparent text-body" data-issue="2026-09-06" onclick="selectIssue('2026-09-06')" type="button">
+<div class="flex items-center justify-between mb-0.5">
+<span class="font-code text-muted">09-06 周日 · 第140期</span>
+<span class="text-[10px] text-muted font-code">2 篇</span>
+</div>
+<div class="text-[11px] truncate">奥特曼致歉与模型训练能耗专项；深蓝半导体3nm良率突破</div>
+</button>
+<!-- 9月5日 -->
+<button class="issue-item w-full text-left p-2 rounded-lg text-xs transition-all border border-transparent hover:bg-surface text-body hover:text-ink block" data-issue="2026-09-05" onclick="selectIssue('2026-09-05')" type="button">
+<div class="flex items-center justify-between mb-0.5">
+<span class="font-code text-muted">09-05 周六 · 第139期</span>
+<span class="text-[10px] text-muted font-code">3 篇</span>
+</div>
+<div class="text-[11px] truncate">斯坦福发布具身智能世界模型基准测试报告；苹果AI端侧更新</div>
+</button>
+<!-- 9月4日 -->
+<button class="issue-item w-full text-left p-2 rounded-lg text-xs transition-all border border-transparent hover:bg-surface text-body hover:text-ink block" data-issue="2026-09-04" onclick="selectIssue('2026-09-04')" type="button">
+<div class="flex items-center justify-between mb-0.5">
+<span class="font-code text-muted">09-04 周五 · 第138期</span>
+<span class="text-[10px] text-muted font-code">4 篇</span>
+</div>
+<div class="text-[11px] truncate">Meta开源混合架构Llama-4-Lite；硅谷投资机构三季度复盘</div>
+</button>
+</div>
+</div>
+</div>
+<!-- 2026年8月 (折叠状态) -->
+<div class="month-group" data-month="2026-08">
+<button class="w-full flex items-center justify-between py-1.5 px-2 rounded-md hover:bg-surface text-left text-xs font-semibold text-ink group transition-colors" onclick="toggleMonthCollapse('month-2026-08')" type="button">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-muted transition-transform duration-200" id="icon-month-2026-08">arrow_right</span>
+<span class="">2026 年 08 月</span>
+</div>
+<span class="text-[10px] text-muted font-code bg-surface px-1.5 py-0.5 rounded border border-hairline group-hover:border-outline-variant">31 期</span>
+</button>
+<div class="collapse-content is-closed" id="wrapper-month-2026-08">
+<div class="collapse-inner mt-1 ml-3 pl-2 border-l border-hairline space-y-1" id="list-month-2026-08">
+<button class="issue-item w-full text-left p-2 rounded-lg text-xs transition-all border border-transparent hover:bg-surface text-body block" onclick="selectIssue('2026-08-31')" type="button">
+<div class="font-code text-muted text-[11px]">08-31 第137期 · 8月技术全景盘点</div>
+</button>
+<button class="issue-item w-full text-left p-2 rounded-lg text-xs transition-all border border-transparent hover:bg-surface text-body block" onclick="selectIssue('2026-08-30')" type="button">
+<div class="font-code text-muted text-[11px]">08-30 第136期 · 算力跨境调度白皮书</div>
+</button>
+<button class="issue-item w-full text-left p-2 rounded-lg text-xs transition-all border border-transparent hover:bg-surface text-body block" onclick="selectIssue('2026-08-29')" type="button">
+<div class="font-code text-muted text-[11px]">08-29 第135期 · 具身双足机器人量产订单</div>
+</button>
+</div>
+</div>
+</div>
+<!-- 2026年7月 (折叠状态) -->
+<div class="month-group" data-month="2026-07">
+<button class="w-full flex items-center justify-between py-1.5 px-2 rounded-md hover:bg-surface text-left text-xs font-semibold text-ink group transition-colors" onclick="toggleMonthCollapse('month-2026-07')" type="button">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-muted transition-transform duration-200" id="icon-month-2026-07">arrow_right</span>
+<span class="">2026 年 07 月</span>
+</div>
+<span class="text-[10px] text-muted font-code bg-surface px-1.5 py-0.5 rounded border border-hairline group-hover:border-outline-variant">31 期</span>
+</button>
+<div class="collapse-content is-closed" id="wrapper-month-2026-07">
+<div class="collapse-inner mt-1 ml-3 pl-2 border-l border-hairline space-y-1" id="list-month-2026-07">
+<button class="issue-item w-full text-left p-2 rounded-lg text-xs transition-all border border-transparent hover:bg-surface text-body block" onclick="selectIssue('2026-07-31')" type="button">
+<div class="font-code text-muted text-[11px]">07-31 第106期 · 具身智能通用大脑评测</div>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Archive Jump -->
+
+</nav>
+<!-- PANE 3: MAIN ARTICLE & SYNTHESIS FEED (主早报呈现区) -->
+<main class="flex-1 overflow-y-auto bg-canvas flex flex-col transition-all duration-300 relative" id="mainFeedScroll">
+<!-- Top Action Bar for Daily Issue -->
+<section class="sticky top-0 z-20 border-b border-hairline bg-[#fcf9f6]/95 backdrop-blur-md px-6 lg:px-8 py-2.5 flex items-center justify-between gap-4 transition-colors duration-200">
+  <div class="flex items-center gap-3">
+    <div class="inline-flex items-center rounded-lg border border-hairline bg-surface-card p-0.5 shadow-2xs">
+      <button class="px-2.5 py-1 rounded-md text-xs font-medium text-body hover:text-ink hover:bg-surface flex items-center gap-1 transition-all focus:outline-none" id="prevDayBtn" onclick="navigateDay(-1)" title="查看前一日">
+        <span class="material-symbols-outlined text-[16px]">chevron_left</span>
+        <span class="hidden sm:inline font-code" id="prevDayLabel">前一日 (09-07)</span>
+      </button>
+      <div class="h-3.5 w-[1px] bg-hairline my-auto mx-0.5"></div>
+      <div class="px-3 py-1 text-xs font-semibold text-primary bg-warning/10 rounded-md flex items-center gap-1.5 transition-all shadow-2xs">
+        <span class="size-1.5 rounded-full bg-warning animate-pulse"></span>
+        <span id="currentBreadcrumbDate" class="font-code tracking-tight">2026-09-08 第142期</span>
+        <span class="text-[10px] bg-warning text-white px-1 py-0.2 rounded font-code leading-none ml-0.5 shadow-2xs">最新</span>
+      </div>
+      <div class="h-3.5 w-[1px] bg-hairline my-auto mx-0.5"></div>
+      <button class="px-2.5 py-1 rounded-md text-xs font-medium flex items-center gap-1 cursor-not-allowed bg-surface-container-high text-muted-soft transition-all focus:outline-none" disabled="" id="nextDayBtn" onclick="navigateDay(1)" title="暂无更新">
+        <span class="hidden sm:inline font-code" id="nextDayLabel">今日最新</span>
+        <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+      </button>
+    </div>
+  </div>
+  <div class="flex items-center gap-2">
+    <button class="p-1.5 text-muted hover:text-ink rounded-lg hover:bg-surface border border-hairline transition-colors focus:outline-none" onclick="toggleReadingWidth()" title="沉浸宽卷阅读模式">
+      <span class="material-symbols-outlined text-[17px]" id="widthModeIcon">close_fullscreen</span>
+    </button>
+    <button class="p-1.5 text-muted hover:text-ink rounded-lg hover:bg-surface border border-hairline transition-colors focus:outline-none" onclick="exportCurrentMarkdown()" title="导出今日研报 Markdown">
+      <span class="material-symbols-outlined text-[17px]">download</span>
+    </button>
+    <button class="flex items-center gap-1.5 bg-warning hover:bg-primary-hover active:bg-primary-active text-white text-xs font-medium px-3.5 py-1.5 rounded-lg shadow-sm transition-all duration-150 focus:outline-none" onclick="shareIssueReport()" title="分享本期早报">
+      <span class="material-symbols-outlined text-[15px]">share</span>
+      <span class="">分享</span>
+    </button>
+  </div>
+</section>
+<!-- Content Container (Dynamic according to date selection) -->
+<div class="mx-auto w-full px-6 lg:px-8 py-8 space-y-7 transition-all duration-300 max-w-6xl" id="contentContainerWrapper">
+<!-- Header Banner & Title -->
+<div class="border-b border-hairline pb-5 space-y-2 stagger-in delay-1">
+
+<h1 class="text-3xl sm:text-4xl font-display-md text-ink font-semibold tracking-tight" id="issueMainTitle">日报 —— 2026-09-08</h1>
+</div>
+<!-- Today's Editorial Highlights Abstract (看点速览) -->
+<div class="bg-surface-card border border-hairline rounded-xl p-5 shadow-2xs space-y-3 stagger-in delay-2 hover:border-[#d6cec2] transition-colors">
+<div class="flex items-center gap-2 text-primary font-semibold text-xs font-title-sm uppercase tracking-wide">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span class="">看点速览</span>
+</div>
+<div class="text-sm leading-relaxed text-body space-y-2.5" id="editorialSummaryText">
+<p class=""><strong>1. Anthropic 发布 Claude 3.7 Sonnet 混合推理机制：</strong> 首次在商业 API 开放按 Token 调节「慢思考」与「极速生成」双通道，官方实测 SWE-bench Verified 飙升至 70.3%，代码重构与大型工程任务准确率显著领跑。</p>
+<p class=""><strong>2. 英伟达第 3 代智算集群交付头部实验室：</strong> 供应链证实新一代冷板液冷方案全面排产，单集群互联带宽突破 3.2 Tbps，多模态物理世界仿真训练进入规模化放量周期。</p>
+</div>
+</div>
+<!-- ==================== ARTICLE LIST (文章卡片列表) ==================== -->
+<div class="space-y-6 stagger-in delay-3" id="dailyArticlesList">
+<article class="article-item bg-surface-card border border-hairline rounded-xl p-6 shadow-sm hover:shadow-md hover:border-[#d6cec2] transition-all duration-200 group">
+<div class="flex items-center justify-between gap-4 mb-3">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 text-[11px] font-semibold font-code uppercase bg-warning/10 text-primary rounded border border-warning/20">
+          模型架构 · 深度研读
+        </span>
+<span class="text-xs text-muted font-code">#ART-2026-0908-01</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 text-muted hover:text-warning rounded hover:bg-surface transition-colors focus:outline-none" onclick="toggleCardBookmark(this, 'Anthropic 正式推出 Claude 3.7 Sonnet：首次引入混合推理（Hybrid Reasoning）机制，重塑代码重构基准')" title="加入我的阅读">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1; color: #d97706;">
+            bookmark
+          </span>
+</button>
+<button class="p-1.5 text-muted hover:text-ink rounded hover:bg-surface transition-colors focus:outline-none" onclick="copySingleArticleLink('Anthropic 正式推出 Claude 3.7 Sonnet：首次引入混合推理（Hybrid Reasoning）机制，重塑代码重构基准')" title="分享单篇研读">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+<h2 class="text-xl font-display-sm text-ink font-semibold group-hover:text-primary transition-colors cursor-pointer leading-snug" onclick="openDrawer('art-1')">
+      Anthropic 正式推出 Claude 3.7 Sonnet：首次引入混合推理（Hybrid Reasoning）机制，重塑代码重构基准
+    </h2>
+<p class="text-sm text-body leading-relaxed mt-2.5">
+      Anthropic 今日早间正式向企业级客户与公有云开发者开放 Claude 3.7 Sonnet。该模型首次在单一权重内融合「瞬时响应模式」与「扩展推理模式」，开发者可通过 thinking_budget_tokens 参数无缝控制推理深度。
+    </p>
+<div class="mt-4 p-4 bg-[#fcf9f6] border-l-2 border-warning rounded-r-lg space-y-1.5 text-xs text-body border border-hairline/60">
+<div class="font-semibold text-ink flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-warning">lightbulb</span>
+<span class="">核心研判与数据：</span>
+</div>
+<ul class="list-disc pl-4 space-y-1 text-body/90 leading-normal">
+<li class="">SWE-bench Verified 评分达到 70.3%，相比 3.5 Sonnet 提升 13.8 个百分点；</li>
+<li class="">推理模式允许长达 64k 的内部自校准 Chain-of-Thought，且支持随时截断输出；</li>
+<li class="">信源已交叉比对 Anthropic 官方技术文档、GitHub 样例库与 AWS Bedrock 接口规范。</li>
+</ul>
+</div>
+<div class="mt-4 pt-3.5 border-t border-hairline flex flex-wrap items-center justify-between gap-3 text-xs">
+<div class="flex items-center gap-4 text-muted">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="">预计研读 4 分钟</span>
+</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">link</span>
+<span class="">4 个原始引用信源</span>
+</span>
+</div>
+<button class="flex items-center gap-1 text-primary font-semibold hover:text-primary-hover hover:underline transition-all" onclick="openDrawer('art-1')">
+<span class="">展开研读抽屉与交叉验证</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<article class="article-item bg-surface-card border border-hairline rounded-xl p-6 shadow-sm hover:shadow-md hover:border-[#d6cec2] transition-all duration-200 group">
+<div class="flex items-center justify-between gap-4 mb-3">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 text-[11px] font-semibold font-code uppercase bg-warning/10 text-primary rounded border border-warning/20">
+          硬件与算力 · 供应链追踪
+        </span>
+<span class="text-xs text-muted font-code">#ART-2026-0908-02</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 text-muted hover:text-warning rounded hover:bg-surface transition-colors focus:outline-none" onclick="toggleCardBookmark(this, '英伟达第 3 代全液冷智算集群展开规模化交钥匙测试：单卡算力利用率（MFU）提升至 58%')" title="加入我的阅读">
+<span class="material-symbols-outlined text-[18px]">
+            bookmark_border
+          </span>
+</button>
+<button class="p-1.5 text-muted hover:text-ink rounded hover:bg-surface transition-colors focus:outline-none" onclick="copySingleArticleLink('英伟达第 3 代全液冷智算集群展开规模化交钥匙测试：单卡算力利用率（MFU）提升至 58%')" title="分享单篇研读">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+<h2 class="text-xl font-display-sm text-ink font-semibold group-hover:text-primary transition-colors cursor-pointer leading-snug" onclick="openDrawer('art-2')">
+      英伟达第 3 代全液冷智算集群展开规模化交钥匙测试：单卡算力利用率（MFU）提升至 58%
+    </h2>
+<p class="text-sm text-body leading-relaxed mt-2.5">
+      来自北美与亚太的算力托管监测显示，最新部署的冷板液冷机柜已经在三大核心训练基地完成上电加电测试。在百万卡级调度模拟中，光互联模块故障率相比去年同期降低 42%，为具身物理引擎基础大模型的下一阶段预训练奠定了基础设施。
+    </p>
+<div class="mt-4 p-4 bg-[#fcf9f6] border-l-2 border-warning rounded-r-lg space-y-1.5 text-xs text-body border border-hairline/60">
+<div class="font-semibold text-ink flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-warning">lightbulb</span>
+<span class="">核心研判与数据：</span>
+</div>
+<ul class="list-disc pl-4 space-y-1 text-body/90 leading-normal">
+<li class="">散热方案从风液混合彻底转向 100% 盲插式全浸没/微通道冷板；</li>
+<li class="">网络拓扑结构更新，NVLink 域进一步向机柜外扩展，跨机架显存池化时延压低至亚微秒级；</li>
+<li class="">第三方测算显示单千瓦训练产出 Token 效能提升约 2.1 倍。</li>
+</ul>
+</div>
+<div class="mt-4 pt-3.5 border-t border-hairline flex flex-wrap items-center justify-between gap-3 text-xs">
+<div class="flex items-center gap-4 text-muted">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="">预计研读 3 分钟</span>
+</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">link</span>
+<span class="">供应链渠道一手研报</span>
+</span>
+</div>
+<button class="flex items-center gap-1 text-primary font-semibold hover:text-primary-hover hover:underline transition-all" onclick="openDrawer('art-2')">
+<span class="">展开研读抽屉与交叉验证</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</article>
+</div>
+<!-- Issue Footer / Navigation Between Days -->
+<div class="p-4 bg-surface-card border border-hairline rounded-xl flex items-center justify-between shadow-2xs stagger-in delay-4 hover:border-[#d6cec2] transition-colors">
+<div class="flex items-center gap-3">
+<div class="size-9 rounded-lg bg-warning/10 text-primary flex items-center justify-center shrink-0 border border-warning/20">
+<span class="material-symbols-outlined text-[20px]">auto_stories</span>
+</div>
+<div>
+<div class="text-xs font-semibold text-ink font-title-sm">这周太忙没跟上？读本周精选周报</div>
+<div class="text-[11px] text-muted mt-0.5">聚合前 7 天 28 篇核心研读、产业大事记与决策参考图谱</div>
+</div>
+</div>
+<button class="px-3.5 py-1.5 bg-[#f7f3ec] hover:bg-surface-card border border-hairline text-xs font-medium text-ink rounded-lg transition-all duration-150 flex items-center gap-1.5 hover:shadow-2xs focus:outline-none" onclick="showToast('正在打开本周精选周报合辑...', 'menu_book')">
+<span class="">阅读精选周报</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+
+</div>
+</main>
+<!-- PANE 4: SLIDE-OVER STUDY DRAWER (研读抽屉：信源交叉、论据与笔记) -->
+<aside class="fixed inset-y-0 right-0 z-50 w-full sm:w-[500px] lg:w-[580px] bg-[#fcf9f6] border-l border-hairline shadow-2xl transform transition-transform duration-300 ease-out flex flex-col translate-x-full" id="studyDrawer">
+<!-- Drawer Header -->
+<div class="p-4 border-b border-hairline bg-surface-card flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="size-8 rounded-lg bg-warning/10 text-primary flex items-center justify-center border border-warning/20">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-ink font-title-sm" id="drawerTitle">研读抽屉与事实核查</h3>
+<p class="text-[11px] text-muted" id="drawerSubTitle">信源交叉验证与分析师笔记</p>
+</div>
+</div>
+<button class="p-1.5 text-muted hover:text-ink rounded-lg hover:bg-surface transition-colors focus:outline-none" onclick="closeDrawer()" title="关闭研读抽屉 (Esc)">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Drawer Body (Scrollable) -->
+<div class="flex-1 overflow-y-auto p-5 space-y-6">
+<!-- Active Article Meta in Drawer -->
+<div class="space-y-2 pb-4 border-b border-hairline">
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-code px-2 py-0.5 bg-warning/10 text-primary rounded font-semibold border border-warning/20" id="drawerCategoryPill">模型架构 · 深度拆解</span>
+<span class="text-xs text-muted font-code" id="drawerArticleId">#ART-2026-0908-01</span>
+</div>
+<h4 class="text-base font-display-sm text-ink font-semibold leading-snug" id="drawerArticleHeadline">Claude 3.7 Sonnet 混合推理机制深度拆解与评测证据</h4>
+</div>
+<!-- Section 1: 信源交叉比对与置信度 -->
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-ink uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-success">verified_user</span>
+<span class="">信源交叉验证链路 (100% 覆盖)</span>
+</span>
+<span class="text-[11px] font-code text-success font-semibold">4 / 4 源匹配</span>
+</div>
+<!-- Sources list -->
+<div class="space-y-2 text-xs">
+<a class="flex items-start justify-between p-3 rounded-lg border border-hairline bg-surface-card hover:border-warning/50 transition-colors group" href="https://anthropic.com" target="_blank">
+<div class="space-y-0.5">
+<div class="font-medium text-ink flex items-center gap-1 group-hover:text-primary">
+<span class="">Anthropic Research 官方白皮书</span>
+<span class="material-symbols-outlined text-[13px]">open_in_new</span>
+</div>
+<div class="text-[11px] text-muted">官方权威发布 · 提供权重架构与评估基准数据</div>
+</div>
+<span class="text-[10px] text-success font-code bg-success/10 px-1.5 py-0.5 rounded">原始信源</span>
+</a>
+<a class="flex items-start justify-between p-3 rounded-lg border border-hairline bg-surface-card hover:border-warning/50 transition-colors group" href="https://github.com" target="_blank">
+<div class="space-y-0.5">
+<div class="font-medium text-ink flex items-center gap-1 group-hover:text-primary">
+<span class="">SWE-bench Verified 评测排行榜更新</span>
+<span class="material-symbols-outlined text-[13px]">open_in_new</span>
+</div>
+<div class="text-[11px] text-muted">第三方开源基准 · 70.3% 成绩已由社区复核</div>
+</div>
+<span class="text-[10px] text-primary font-code bg-warning/10 px-1.5 py-0.5 rounded">复现验证</span>
+</a>
+<a class="flex items-start justify-between p-3 rounded-lg border border-hairline bg-surface-card hover:border-warning/50 transition-colors group" href="https://aws.amazon.com" target="_blank">
+<div class="space-y-0.5">
+<div class="font-medium text-ink flex items-center gap-1 group-hover:text-primary">
+<span class="">AWS Bedrock API 上线公告及配额文档</span>
+<span class="material-symbols-outlined text-[13px]">open_in_new</span>
+</div>
+<div class="text-[11px] text-muted">商业可用性证据 · 确认按需定价与 Token 吞吐率限制</div>
+</div>
+<span class="text-[10px] text-body-strong font-code bg-[#ebe5dc] px-1.5 py-0.5 rounded">商业验证</span>
+</a>
+</div>
+</div>
+<!-- Section 2: 事实与观点研判 (Facts vs Claims) -->
+<div class="space-y-3">
+<span class="text-xs font-semibold text-ink uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-warning">balance</span>
+<span class="">事实 vs 官方宣传观点研判</span>
+</span>
+<div class="bg-surface-card border border-hairline rounded-lg p-3.5 space-y-2.5 text-xs">
+<div>
+<div class="text-[11px] font-semibold text-success font-code uppercase">确凿事实 (Verified Facts):</div>
+<p class="text-body mt-1 leading-relaxed">
+          模型支持流式输出 Thinking 过程；Token 消耗与推理耗时成严格线性关系；API 已经向全部 Tier 4 账号全量铺开。
+        </p>
+</div>
+<div class="border-t border-hairline pt-2.5">
+<div class="text-[11px] font-semibold text-warning font-code uppercase">保留观点 (Unverified Claims):</div>
+<p class="text-body mt-1 leading-relaxed">
+          关于“在金融量化代码场景全面超越人类高阶工程师”的表述目前仅源自官方自建测试集，仍需第三方独立复现。
+        </p>
+</div>
+</div>
+</div>
+<!-- Section 3: 演进时间轴 Trace -->
+<div class="space-y-3">
+<span class="text-xs font-semibold text-ink uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">timeline</span>
+<span class="">演进时间轴 Trace (相关技术节点)</span>
+</span>
+<div class="p-3 bg-surface-card border border-hairline rounded-lg space-y-2.5 text-xs">
+<div class="flex items-start gap-2.5">
+<span class="size-1.5 bg-warning rounded-full mt-1.5 shrink-0"></span>
+<div>
+<span class="font-code text-muted text-[11px]">2026-03</span>
+<p class="text-ink font-medium">Anthropic 确立单一模型混合推理架构预研目标</p>
+</div>
+</div>
+<div class="flex items-start gap-2.5">
+<span class="size-1.5 bg-warning rounded-full mt-1.5 shrink-0"></span>
+<div>
+<span class="font-code text-muted text-[11px]">2026-07</span>
+<p class="text-ink font-medium">北美电网签署首批 4.2 GW 专用智算供电专线合同</p>
+</div>
+</div>
+<div class="flex items-start gap-2.5">
+<span class="size-1.5 bg-success rounded-full mt-1.5 shrink-0"></span>
+<div>
+<span class="font-code text-success text-[11px]">2026-09-08 (今日)</span>
+<p class="text-ink font-semibold">5170 亿美元算力锁仓协议正式进入执行期</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 4: 分析师即时研究笔记 -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-ink uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">edit_note</span>
+<span class="">分析师即时备忘与批注</span>
+</span>
+<span class="text-[10px] text-muted font-code" id="noteSaveStatus">已自动存入本地</span>
+</div>
+<textarea class="w-full bg-surface-card border border-hairline rounded-lg p-3 text-xs text-ink placeholder:text-muted focus:outline-none focus:border-warning font-body-md leading-relaxed resize-none shadow-2xs" id="analystNoteArea" oninput="handleNoteTyping()" placeholder="记录针对此条情报的推论、对持仓标的的影响评估，或待跟进的问题清单..." rows="4">【研判备忘】Claude 3.7 的混合思考架构直接压缩了此前在本地堆叠思维链的开源 Agent 框架生存空间；建议本周五前复测团队自研代码评审流水线升级兼容性。</textarea>
+<div class="flex items-center justify-end gap-2 pt-1">
+<button class="px-2.5 py-1 text-xs text-muted hover:text-ink transition-colors" onclick="clearNote()">清空</button>
+<button class="px-3 py-1 bg-surface-card border border-hairline text-ink hover:bg-surface rounded-md text-xs font-medium shadow-2xs transition-colors" onclick="saveNoteManual()">
+        导出为 Markdown
+      </button>
+</div>
+</div>
+</div>
+<!-- Drawer Footer -->
+<div class="p-3.5 border-t border-hairline bg-surface-card flex items-center justify-between">
+<button class="flex items-center gap-1.5 text-xs text-body hover:text-ink font-medium px-2 py-1 rounded transition-colors focus:outline-none" id="drawerBookmarkBtn" onclick="toggleCardBookmarkFromDrawer()">
+<span class="material-symbols-outlined text-[17px]">bookmark_border</span>
+<span class="">加入阅读书签</span>
+</button>
+<button class="px-4 py-1.5 bg-ink text-white rounded-md text-xs font-medium hover:bg-body-strong transition-all duration-150 shadow-sm focus:outline-none" onclick="closeDrawer()">
+    完成研读
+  </button>
+</div>
+</aside>
+<!-- DRAWER BACKDROP -->
+<div class="fixed inset-0 z-40 bg-black/25 backdrop-blur-[2px] transition-opacity duration-300 hidden" id="drawerBackdrop" onclick="closeDrawer()"></div>
+<!-- ==================== TOAST COMPONENT ==================== -->
+<div class="fixed bottom-6 right-6 z-50 transform transition-all duration-300 ease-out flex items-center gap-2 bg-[#1c1917] text-[#fcf9f6] px-4 py-2.5 rounded-lg shadow-xl text-xs font-medium border border-hairline/20 translate-y-16 opacity-0 pointer-events-none" id="toastNotification">
+<span class="material-symbols-outlined text-warning text-[18px]" id="toastIcon">info</span>
+<span id="toastMessage" class="">已开启出版级宽卷沉浸阅读</span>
+</div>
+<!-- ==================== JAVASCRIPT LOGIC ==================== -->
+<script>
+    // --- Mock Database for Daily Issues ---
+    const dailyArchiveData = {
+      "2026-09-08": {
+        dateString: "2026-09-08",
+        breadcrumb: "2026-09-08 第142期",
+        weekday: "周二",
+        issueNumber: "第142期",
+        title: "Signal Desk · 每日早报",
+        desc: "晨间 08:30 汇编 · 包含 2 篇核心研读与 18 个独立信源交叉比对，综合置信度 98.4%",
+        summaryHtml: `
+          <p><strong>1. Anthropic 发布 Claude 3.7 Sonnet 混合推理机制：</strong> 首次在商业 API 开放按 Token 调节「慢思考」与「极速生成」双通道，官方实测 SWE-bench Verified 飙升至 70.3%，代码重构与大型工程任务准确率显著领跑。</p>
+          <p><strong>2. 英伟达第 3 代智算集群交付头部实验室：</strong> 供应链证实新一代冷板液冷方案全面排产，单集群互联带宽突破 3.2 Tbps，多模态物理世界仿真训练进入规模化放量周期。</p>
+        `,
+        articles: [
+          {
+            id: "art-1",
+            category: "模型架构 · 深度研读",
+            code: "#ART-2026-0908-01",
+            headline: "Anthropic 正式推出 Claude 3.7 Sonnet：首次引入混合推理（Hybrid Reasoning）机制，重塑代码重构基准",
+            body: "Anthropic 今日早间正式向企业级客户与公有云开发者开放 Claude 3.7 Sonnet。该模型首次在单一权重内融合「瞬时响应模式」与「扩展推理模式」，开发者可通过 thinking_budget_tokens 参数无缝控制推理深度。",
+            takeaways: [
+              "SWE-bench Verified 评分达到 70.3%，相比 3.5 Sonnet 提升 13.8 个百分点；",
+              "推理模式允许长达 64k 的内部自校准 Chain-of-Thought，且支持随时截断输出；",
+              "信源已交叉比对 Anthropic 官方技术文档、GitHub 样例库与 AWS Bedrock 接口规范。"
+            ],
+            readTime: "预计研读 4 分钟",
+            sourceSummary: "4 个原始引用信源"
+          },
+          {
+            id: "art-2",
+            category: "硬件与算力 · 供应链追踪",
+            code: "#ART-2026-0908-02",
+            headline: "英伟达第 3 代全液冷智算集群展开规模化交钥匙测试：单卡算力利用率（MFU）提升至 58%",
+            body: "来自北美与亚太的算力托管监测显示，最新部署的冷板液冷机柜已经在三大核心训练基地完成上电加电测试。在百万卡级调度模拟中，光互联模块故障率相比去年同期降低 42%，为具身物理引擎基础大模型的下一阶段预训练奠定了基础设施。",
+            takeaways: [
+              "散热方案从风液混合彻底转向 100% 盲插式全浸没/微通道冷板；",
+              "网络拓扑结构更新，NVLink 域进一步向机柜外扩展，跨机架显存池化时延压低至亚微秒级；",
+              "第三方测算显示单千瓦训练产出 Token 效能提升约 2.1 倍。"
+            ],
+            readTime: "预计研读 3 分钟",
+            sourceSummary: "供应链渠道一手研报"
+          }
+        ]
+      },
+      "2026-09-07": {
+        dateString: "2026-09-07",
+        breadcrumb: "2026-09-07 第141期",
+        weekday: "周一",
+        issueNumber: "第141期",
+        title: "Signal Desk · 每日早报",
+        desc: "晨间 08:30 汇编 · 聚焦 OpenAI 企业级 Agent 调度架构灰度与欧盟监管执行审查",
+        summaryHtml: `
+          <p><strong>1. OpenAI 灰度发布 Agent Operator 生产级控制台：</strong> 支持在严格受限的沙盒虚拟容器内执行长程财务账单审计与跨 CRM 系统调账，企业 API 首批采用席位已满。</p>
+          <p><strong>2. 欧盟 AI Office 开启通用模型水印及溯源法案测试：</strong> 包括 Google、Mistral 在内的 6 家机构参与提交了第一轮合成音视频的隐形指纹注入评测数据。</p>
+        `,
+        articles: [
+          {
+            id: "art-3",
+            category: "企业落地 · Agent 平台",
+            code: "#ART-2026-0907-01",
+            headline: "OpenAI 启动企业级 Agent Operator 闭门测试：多步交互任务自恢复率达 89%",
+            body: "据多位参与内测的金融与法务客户透露，OpenAI 本次重点突破了复杂长流程调用中的“死循环”与“幻觉分支自动剪枝”机制，允许分析师在任意时步直接接管人工确认。",
+            takeaways: [
+              "内置针对网络请求与敏感凭证加密保管的专用硬件隔离机制；",
+              "全面对齐企业 SOC2 Type II 审查标准；",
+              "首批测试仅针对订阅年消耗超过 50 万美元的特邀客户开放。"
+            ],
+            readTime: "预计研读 3.5 分钟",
+            sourceSummary: "3 份产业内测问卷"
+          },
+          {
+            id: "art-4",
+            category: "全球合规 · 政策风向",
+            code: "#ART-2026-0907-02",
+            headline: "欧盟 AI 监管机构发布最新合规检查指引：强调推理层能耗公示与版权指纹留存",
+            body: "布鲁塞尔今日更新了针对 Frontier Models 的落地执行细则。要求自 2026 年第 4 季度起，所有在欧洲区运行的大规模推理集群，必须每日向公众公开平均单次会话的等效碳足迹指标。",
+            takeaways: [
+              "界定 10^26 FLOPs 以上模型为一级受监管实体；",
+              "要求必须在多模态生成图片与视频元数据中注入符合 C2PA 2.1 规范的密码学签名；",
+              "未达标企业面临最高全球年营业额 3% 的惩罚性违约核查。"
+            ],
+            readTime: "预计研读 4 分钟",
+            sourceSummary: "欧盟官方公报原文"
+          }
+        ]
+      },
+      "2026-09-06": {
+        dateString: "2026-09-06",
+        breadcrumb: "2026-09-06 第140期",
+        weekday: "周日",
+        issueNumber: "第140期",
+        title: "Signal Desk · 每日早报",
+        desc: "晨间 08:30 汇编 · 包含奥特曼对模型过热事件的回应与芯片工艺动态",
+        summaryHtml: `
+          <p><strong>1. OpenAI CEO 就推理负载激增致服务器短时降级公开发文：</strong> 承诺增加备用集群切流预案，并设立算力平稳基金保障核心 API 业务 SLA。</p>
+          <p><strong>2. 先进制程代工厂 2nm 试产良率优于预期：</strong> 高性能高频计算芯片首批量产晶圆将在年底前送样验证。</p>
+        `,
+        articles: [
+          {
+            id: "art-5",
+            category: "运营故障复盘 · 服务保障",
+            code: "#ART-2026-0906-01",
+            headline: "OpenAI 发布服务降级事故 RCA 报告：根因定位在向量数据库并发热点击穿",
+            body: "周日凌晨官方公布了长达 14 页的故障复盘文档。故障并非此前外界猜测的黑客攻击或光纤被挖断，而是在灰度新一代推理插件时由于分布式锁竞争导致队列雪崩。",
+            takeaways: [
+              "影响了约 6.2% 的欧美区并发请求，平均延迟从 320ms 飙升至 4.8s；",
+              "已在全区回滚路由中间件，并重构了自适应限流降级算法；",
+              "对受影响的企业客户提供本月消费额 15% 的服务抵扣券。"
+            ],
+            readTime: "预计研读 2.5 分钟",
+            sourceSummary: "官方技术状态公告"
+          },
+          {
+            id: "art-6",
+            category: "芯片与半导体 · 工艺先锋",
+            code: "#ART-2026-0906-02",
+            headline: "台积电与英特尔 2nm 制程节点客户名单逐步清晰：首波产能由移动与 AI 芯片瓜分",
+            body: "半导体供应链调研确认，背部供电网络（BSPDN）技术在 2nm 晶圆上的良率突破 65% 阈值，预计将在 2027 年上半年正式开启规模化代工交付。",
+            takeaways: [
+              "背部供电有效减少了逻辑电路与电源线路的信号干扰；",
+              "晶体管密度相比 3nm 增强版提升约 18%，功耗降低 12%；",
+              "设计端需全面适配新的 EDA 物理验证工具链。"
+            ],
+            readTime: "预计研读 3 分钟",
+            sourceSummary: "供应链投研机构电话会"
+          }
+        ]
+      }
+    };
+
+    // Global Active State
+    let currentSelectedDate = "2026-09-08";
+    let isWideReadingMode = false;
+    let isLightMode = true;
+    let savedBookmarks = new Set([
+      "Anthropic 正式推出 Claude 3.7 Sonnet：首次引入混合推理（Hybrid Reasoning）机制，重塑代码重构基准",
+      "Anthropic 正式发布 Claude 3.7 Sonnet"
+    ]);
+
+    // --- Toast Function ---
+    function showToast(msg, icon = "info") {
+      const toast = document.getElementById("toastNotification");
+      const toastMsg = document.getElementById("toastMessage");
+      const toastIcon = document.getElementById("toastIcon");
+
+      toastMsg.innerText = msg;
+      toastIcon.innerText = icon;
+
+      toast.classList.remove("translate-y-16", "opacity-0", "pointer-events-none");
+      toast.classList.add("translate-y-0", "opacity-100");
+
+      if (window.toastTimer) clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => {
+        toast.classList.remove("translate-y-0", "opacity-100");
+        toast.classList.add("translate-y-16", "opacity-0", "pointer-events-none");
+      }, 2600);
+    }
+
+    // --- Month Fold/Unfold Interaction with smooth grid transition ---
+    function toggleMonthCollapse(monthId) {
+      const wrapperEl = document.getElementById(`wrapper-${monthId}`);
+      const iconEl = document.getElementById(`icon-${monthId}`);
+      if (!wrapperEl) return;
+
+      if (wrapperEl.classList.contains("is-closed")) {
+        wrapperEl.classList.remove("is-closed");
+        if (iconEl) iconEl.classList.add("rotate-90");
+      } else {
+        wrapperEl.classList.add("is-closed");
+        if (iconEl) iconEl.classList.remove("rotate-90");
+      }
+    }
+
+    // --- Select and Switch Issue ---
+    function selectIssue(dateStr) {
+      if (!dailyArchiveData[dateStr]) {
+        showToast(`归档 ${dateStr} 正在冷存储下载解压...`, "cloud_download");
+        return;
+      }
+
+      currentSelectedDate = dateStr;
+      const data = dailyArchiveData[dateStr];
+
+      // Update Left List Active States
+      document.querySelectorAll(".issue-item").forEach(el => {
+        el.classList.remove("border-warning/30", "bg-warning/10", "text-primary", "shadow-2xs");
+        el.classList.add("border-transparent", "text-body");
+      });
+
+      const currentItemBtn = document.querySelector(`.issue-item[data-issue="${dateStr}"]`);
+      if (currentItemBtn) {
+        currentItemBtn.classList.remove("border-transparent", "text-body");
+        currentItemBtn.classList.add("border-warning/30", "bg-warning/10", "text-primary", "shadow-2xs");
+      }
+
+      // Update Breadcrumb & Top Bar
+      document.getElementById("currentBreadcrumbDate").innerText = data.breadcrumb;
+      
+      const prevBtn = document.getElementById("prevDayBtn");
+      const nextBtn = document.getElementById("nextDayBtn");
+      const prevLabel = document.getElementById("prevDayLabel");
+      const nextLabel = document.getElementById("nextDayLabel");
+
+      if (dateStr === "2026-09-08") {
+        prevBtn.disabled = false;
+        prevBtn.classList.remove("cursor-not-allowed", "opacity-50");
+        prevLabel.innerText = "前一日 (09-07)";
+
+        nextBtn.disabled = true;
+        nextBtn.classList.add("cursor-not-allowed", "bg-surface-container-high", "text-muted-soft");
+        nextBtn.classList.remove("hover:bg-surface", "text-ink");
+        nextLabel.innerText = "今日最新";
+      } else if (dateStr === "2026-09-07") {
+        prevBtn.disabled = false;
+        prevBtn.classList.remove("cursor-not-allowed", "opacity-50");
+        prevLabel.innerText = "前一日 (09-06)";
+
+        nextBtn.disabled = false;
+        nextBtn.classList.remove("cursor-not-allowed", "bg-surface-container-high", "text-muted-soft");
+        nextBtn.classList.add("hover:bg-surface", "text-ink");
+        nextLabel.innerText = "后一日 (09-08)";
+      } else if (dateStr === "2026-09-06") {
+        prevBtn.disabled = false;
+        prevLabel.innerText = "前一日 (09-05)";
+
+        nextBtn.disabled = false;
+        nextBtn.classList.remove("cursor-not-allowed", "bg-surface-container-high", "text-muted-soft");
+        nextBtn.classList.add("hover:bg-surface", "text-ink");
+        nextLabel.innerText = "后一日 (09-07)";
+      }
+
+      // Render Main Content
+      document.getElementById("issueMainTitle").innerText = `${data.title} · ${data.dateString}`;
+      document.getElementById("issueSubDesc").innerText = data.desc;
+      document.getElementById("editorialSummaryText").innerHTML = data.summaryHtml;
+
+      // Render Articles with subtle stagger re-entry
+      const articlesContainer = document.getElementById("dailyArticlesList");
+      articlesContainer.innerHTML = "";
+
+      data.articles.forEach((art, index) => {
+        const isSaved = savedBookmarks.has(art.headline);
+        const cardHtml = `
+          <article class="article-item bg-surface-card border border-hairline rounded-xl p-6 shadow-sm hover:shadow-md hover:border-[#d6cec2] transition-all duration-200 group stagger-in" style="animation-delay: ${index * 80 + 50}ms;">
+            <div class="flex items-center justify-between gap-4 mb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 text-[11px] font-semibold font-code uppercase bg-warning/10 text-primary rounded border border-warning/20">
+                  ${art.category}
+                </span>
+                <span class="text-xs text-muted font-code">${art.code}</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <button onclick="toggleCardBookmark(this, '${art.headline}')" class="p-1.5 text-muted hover:text-warning rounded hover:bg-surface transition-colors focus:outline-none" title="加入我的阅读">
+                  <span class="material-symbols-outlined text-[18px]" style="${isSaved ? "font-variation-settings: 'FILL' 1; color: #d97706;" : ""}">
+                    ${isSaved ? "bookmark" : "bookmark_border"}
+                  </span>
+                </button>
+                <button onclick="copySingleArticleLink('${art.headline}')" class="p-1.5 text-muted hover:text-ink rounded hover:bg-surface transition-colors focus:outline-none" title="分享单篇研读">
+                  <span class="material-symbols-outlined text-[18px]">share</span>
+                </button>
+              </div>
+            </div>
+
+            <h2 class="text-xl font-display-sm text-ink font-semibold group-hover:text-primary transition-colors cursor-pointer leading-snug" onclick="openDrawer('${art.id}')">
+              ${art.headline}
+            </h2>
+
+            <p class="text-sm text-body leading-relaxed mt-2.5">
+              ${art.body}
+            </p>
+
+            <div class="mt-4 p-4 bg-[#fcf9f6] border-l-2 border-warning rounded-r-lg space-y-1.5 text-xs text-body border border-hairline/60">
+              <div class="font-semibold text-ink flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[16px] text-warning">lightbulb</span>
+                <span>核心研判与数据：</span>
+              </div>
+              <ul class="list-disc pl-4 space-y-1 text-body/90 leading-normal">
+                ${art.takeaways.map(t => `<li>${t}</li>`).join("")}
+              </ul>
+            </div>
+
+            <div class="mt-4 pt-3.5 border-t border-hairline flex flex-wrap items-center justify-between gap-3 text-xs">
+              <div class="flex items-center gap-4 text-muted">
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px]">schedule</span>
+                  <span>${art.readTime}</span>
+                </span>
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px]">link</span>
+                  <span>${art.sourceSummary}</span>
+                </span>
+              </div>
+
+              <button onclick="openDrawer('${art.id}')" class="flex items-center gap-1 text-primary font-semibold hover:text-primary-hover hover:underline transition-all">
+                <span>展开研读抽屉与交叉验证</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </button>
+            </div>
+          </article>
+        `;
+        articlesContainer.insertAdjacentHTML("beforeend", cardHtml);
+      });
+
+      // Smooth scroll back to top of feed
+      document.getElementById("mainFeedScroll").scrollTo({ top: 0, behavior: "smooth" });
+      showToast(`已切换至 ${data.breadcrumb}`, "event_available");
+    }
+
+    // --- Next / Prev Day Navigator ---
+    function navigateDay(offset) {
+      const dates = ["2026-09-06", "2026-09-07", "2026-09-08"];
+      const currentIndex = dates.indexOf(currentSelectedDate);
+      const newIndex = currentIndex + offset;
+      if (newIndex >= 0 && newIndex < dates.length) {
+        selectIssue(dates[newIndex]);
+      } else if (newIndex < 0) {
+        showToast("已抵达本地缓存最早一期，点击左侧归档查看更多", "info");
+      } else {
+        showToast("当前已经是最新发布的早报", "check_circle");
+      }
+    }
+
+    // --- Filter Archive List via Input ---
+    function filterArchiveList(query) {
+      const q = query.trim().toLowerCase();
+      const items = document.querySelectorAll(".issue-item");
+      let visibleCount = 0;
+
+      items.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        if (text.includes(q)) {
+          item.style.display = "block";
+          visibleCount++;
+        } else {
+          item.style.display = "none";
+        }
+      });
+
+      document.getElementById("totalIssuesLabel").innerText = q ? `匹配 ${visibleCount} 期` : "共 142 期";
+    }
+
+    // --- Drawer Control ---
+    let activeDrawerArticleId = null;
+
+    function openDrawer(artId) {
+      activeDrawerArticleId = artId;
+      const drawer = document.getElementById("studyDrawer");
+      const backdrop = document.getElementById("drawerBackdrop");
+
+      if (artId === "art-1" || artId === "art-3" || artId === "art-5") {
+        document.getElementById("drawerCategoryPill").innerText = "模型架构 · 深度拆解";
+        document.getElementById("drawerArticleId").innerText = "#ART-2026-0908-01";
+        document.getElementById("drawerArticleHeadline").innerText = "Claude 3.7 Sonnet 混合推理机制深度拆解与评测证据";
+      } else {
+        document.getElementById("drawerCategoryPill").innerText = "硬件基建 · 供应链调查";
+        document.getElementById("drawerArticleId").innerText = "#ART-2026-0908-02";
+        document.getElementById("drawerArticleHeadline").innerText = "英伟达全液冷集群单卡算力利用率（MFU）提升分析";
+      }
+
+      backdrop.classList.remove("hidden");
+      drawer.classList.remove("translate-x-full");
+      document.body.classList.add("overflow-hidden");
+    }
+
+    function closeDrawer() {
+      const drawer = document.getElementById("studyDrawer");
+      const backdrop = document.getElementById("drawerBackdrop");
+
+      drawer.classList.add("translate-x-full");
+      backdrop.classList.add("hidden");
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    // Keyboard shortcut ESC to close drawer & Cmd+K to search
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeDrawer();
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        document.getElementById("globalSearchInput").focus();
+      }
+    });
+
+    // --- Bookmarks Interaction ---
+    function toggleCardBookmark(btn, title) {
+      const icon = btn.querySelector(".material-symbols-outlined");
+      if (savedBookmarks.has(title)) {
+        savedBookmarks.delete(title);
+        icon.innerText = "bookmark_border";
+        icon.style.color = "";
+        icon.style.fontVariationSettings = "";
+        showToast("已从阅读清单移除");
+      } else {
+        savedBookmarks.add(title);
+        icon.innerText = "bookmark";
+        icon.style.color = "#d97706";
+        icon.style.fontVariationSettings = "'FILL' 1";
+        showToast("已存入我的阅读清单", "bookmark_added");
+      }
+      document.getElementById("savedReadCountBadge").innerText = savedBookmarks.size;
+    }
+
+    function toggleCardBookmarkFromDrawer() {
+      showToast("当前篇目已加入阅读清单", "bookmark_added");
+      const btn = document.getElementById("drawerBookmarkBtn");
+      btn.classList.add("text-warning");
+      btn.innerHTML = `<span class="material-symbols-outlined text-[17px]" style="font-variation-settings: 'FILL' 1;">bookmark</span><span>已存入书签</span>`;
+      savedBookmarks.add("当前研读重点章节");
+      document.getElementById("savedReadCountBadge").innerText = savedBookmarks.size;
+    }
+
+    // --- Share Functions ---
+    function shareIssueReport() {
+      const url = `${window.location.origin || 'https://signaldesk.internal'}/daily/${currentSelectedDate}`;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(() => {
+          showToast(`早报链接已复制 (${currentSelectedDate})`, "share");
+        }).catch(() => {
+          showToast(`已生成早报分享卡片: ${currentSelectedDate}`, "share");
+        });
+      } else {
+        showToast(`已生成早报分享卡片: ${currentSelectedDate}`, "share");
+      }
+    }
+
+    function copySingleArticleLink(title) {
+      showToast(`已复制「${title.slice(0, 18)}...」研读分享切片`, "share");
+    }
+
+    // --- Reading Width Toggle ---
+    function toggleReadingWidth() {
+      isWideReadingMode = !isWideReadingMode;
+      const wrapper = document.getElementById("contentContainerWrapper");
+      const icon = document.getElementById("widthModeIcon");
+
+      if (isWideReadingMode) {
+        wrapper.classList.remove("max-w-5xl");
+        wrapper.classList.add("max-w-6xl");
+        icon.innerText = "close_fullscreen";
+        showToast("已开启出版级宽卷沉浸阅读");
+      } else {
+        wrapper.classList.remove("max-w-6xl");
+        wrapper.classList.add("max-w-5xl");
+        icon.innerText = "aspect_ratio";
+        showToast("已恢复标准排版页宽");
+      }
+    }
+
+    // --- Export Archive Index ---
+    function exportArchiveIndex() {
+      showToast("已导出历史 142 期日报索引切片 (CSV/JSON)", "download");
+    }
+
+    function exportCurrentMarkdown() {
+      const current = dailyArchiveData[currentSelectedDate];
+      const mdContent = `# ${current.title} · ${current.dateString}\n\n> ${current.desc}\n\n## 看点速览\n${current.summaryHtml.replace(/<[^>]*>/g, '')}\n\n## 研读文章\n` +
+        current.articles.map(a => `### ${a.headline}\n${a.body}\n`).join('\n');
+      
+      const blob = new Blob([mdContent], { type: "text/markdown;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `SignalDesk-${currentSelectedDate}.md`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast(`已导出 ${currentSelectedDate} 完整研报 Markdown`, "download");
+    }
+
+    // --- Analyst Notes Autosave ---
+    let noteTimer = null;
+    function handleNoteTyping() {
+      const status = document.getElementById("noteSaveStatus");
+      status.innerText = "正在保存...";
+      status.classList.add("text-warning");
+      
+      clearTimeout(noteTimer);
+      noteTimer = setTimeout(() => {
+        status.innerText = "已自动存入本地草稿库";
+        status.classList.remove("text-warning");
+      }, 700);
+    }
+
+    function clearNote() {
+      document.getElementById("analystNoteArea").value = "";
+      showToast("已清空研读笔记草稿");
+      handleNoteTyping();
+    }
+
+    function saveNoteManual() {
+      const text = document.getElementById("analystNoteArea").value;
+      const blob = new Blob([text], { type: "text/markdown;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `SignalDesk-Note-${currentSelectedDate}.md`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast("已导出分析师笔记 Markdown", "download");
+    }
+
+    // --- Lang Toggle ---
+    let isEn = false;
+    function toggleLang() {
+      isEn = !isEn;
+      const btn = document.getElementById("langToggleBtn");
+      btn.innerText = isEn ? "EN / 中" : "中 / EN";
+      showToast(isEn ? "Switched to English Executive Synthesis" : "已切换至中文深度研析版本");
+    }
+
+    // --- Theme Toggle ---
+    function toggleTheme() {
+      isLightMode = !isLightMode;
+      const icon = document.getElementById("themeIcon");
+      if (isLightMode) {
+        icon.innerText = "wb_sunny";
+        showToast("当前为燕麦暖纸日间阅读模式", "wb_sunny");
+      } else {
+        icon.innerText = "nightlight";
+        showToast("已开启护眼墨水屏沉浸模式", "nightlight");
+      }
+    }
+  </script>
+</div>
+
+
+
+
+
+</body></html>

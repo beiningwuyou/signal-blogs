@@ -1,0 +1,380 @@
+[
+  {
+    "id": "pod-1",
+    "name": "Y Combinator",
+    "category": "创业与投资",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@ycombinator",
+    "enabled": true,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-2",
+    "name": "Every",
+    "category": "AI 与知识工作",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@EveryInc",
+    "enabled": true,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-3",
+    "name": "Lenny's Podcast",
+    "category": "产品与增长",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@LennysPodcast",
+    "enabled": true,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-4",
+    "name": "CNBC Television",
+    "category": "市场与商业",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@CNBCtelevision",
+    "enabled": true,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-5",
+    "name": "Peter Yang",
+    "category": "产品与创作者",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@PeterYangYT",
+    "enabled": true,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-6",
+    "name": "The All-In Podcast",
+    "category": "AI、政策与资本",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@allin",
+    "enabled": true,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-7",
+    "name": "Latent Space",
+    "category": "AI 技术与研究",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@LatentSpacePod",
+    "enabled": true,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-8",
+    "name": "The MAD Podcast",
+    "category": "AI 与基础设施",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@DataDrivenNYC",
+    "enabled": true,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-9",
+    "name": "Dwarkesh Patel",
+    "category": "AI 前沿",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@DwarkeshPatel",
+    "enabled": true,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-10",
+    "name": "Lex Fridman",
+    "category": "科学与思想",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@lexfridman",
+    "enabled": true,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-11",
+    "name": "a16z",
+    "category": "科技与投资",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@a16z",
+    "enabled": false,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-12",
+    "name": "South Park Commons",
+    "category": "技术创业",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@southparkcommons",
+    "enabled": false,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-13",
+    "name": "Stanford GSB",
+    "category": "商业与领导力",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@stanfordgsb",
+    "enabled": false,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-14",
+    "name": "The Information Bottleneck",
+    "category": "AI 研究",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@information_bottleneck",
+    "enabled": false,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-15",
+    "name": "20VC with Harry Stebbings",
+    "category": "融资与增长",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@20VC",
+    "enabled": false,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-16",
+    "name": "Google for Developers",
+    "category": "开发者与 API",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@GoogleDevelopers",
+    "enabled": false,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-17",
+    "name": "TBPN",
+    "category": "科技商业",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@TBPNLive",
+    "enabled": false,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-18",
+    "name": "The Pragmatic Engineer",
+    "category": "工程与组织",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@ThePragmaticEngineer",
+    "enabled": false,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-19",
+    "name": "David Senra",
+    "category": "创业史与公司",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@DavidSenra",
+    "enabled": false,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-20",
+    "name": "Joseph Noel Walker",
+    "category": "科技与社会",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@josephnoelwalker",
+    "enabled": false,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-21",
+    "name": "Acquired",
+    "category": "公司与商业模式",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@AcquiredFM",
+    "enabled": false,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-22",
+    "name": "AI Engineer",
+    "category": "AI 工程",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@aiDotEngineer",
+    "enabled": false,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-23",
+    "name": "Andrej Karpathy",
+    "category": "AI 教育",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@AndrejKarpathy",
+    "enabled": false,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-24",
+    "name": "Anthropic",
+    "category": "AI 安全与模型",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@anthropic-ai",
+    "enabled": false,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-25",
+    "name": "Big Technology",
+    "category": "科技新闻",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@BigTechnologyPodcast",
+    "enabled": false,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-26",
+    "name": "Brett Malinowski",
+    "category": "AI 工具与自动化",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@TheBrettWay",
+    "enabled": false,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-27",
+    "name": "Core Memory",
+    "category": "硬科技与人物",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@CoreMemoryVideos",
+    "enabled": false,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-28",
+    "name": "Goldman Sachs",
+    "category": "市场与宏观",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@GoldmanSachs",
+    "enabled": false,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-29",
+    "name": "Google DeepMind",
+    "category": "AI 科研",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@googledeepmind",
+    "enabled": false,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-30",
+    "name": "Hard Fork",
+    "category": "AI 与平台",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@hardfork",
+    "enabled": false,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-31",
+    "name": "How I Write",
+    "category": "写作与知识系统",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@DavidPerellChannel",
+    "enabled": false,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-32",
+    "name": "Huberman Lab",
+    "category": "认知与行为科学",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@hubermanlab",
+    "enabled": false,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-33",
+    "name": "Invest Like the Best",
+    "category": "投资与资本配置",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@ILTB_Podcast",
+    "enabled": false,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-34",
+    "name": "Mckay Wrigley",
+    "category": "AI coding",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@realmckaywrigley",
+    "enabled": false,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-35",
+    "name": "No Priors",
+    "category": "AI 创业与研究",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@NoPriorsPodcast",
+    "enabled": false,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-36",
+    "name": "Patrick Boyle",
+    "category": "金融与宏观",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@PBoyle",
+    "enabled": false,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-37",
+    "name": "Product Pathways",
+    "category": "产品与组织",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/channel/UCFHnDTQrRshnLzLUJ3mvGQQ",
+    "enabled": false,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-38",
+    "name": "Real Vision",
+    "category": "宏观与投资",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@RealVisionFinance",
+    "enabled": false,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-39",
+    "name": "Sequoia Capital",
+    "category": "创业与 AI builder",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/channel/UCWrF0oN6unbXrWsTN7RctTw",
+    "enabled": false,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-40",
+    "name": "Stratechery",
+    "category": "科技战略",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@Stratechery",
+    "enabled": false,
+    "freq": "双周更新"
+  },
+  {
+    "id": "pod-41",
+    "name": "The AI Daily Brief",
+    "category": "AI 日报",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@TheAIDailyBrief",
+    "enabled": false,
+    "freq": "每周更新"
+  },
+  {
+    "id": "pod-42",
+    "name": "Tiago Forte",
+    "category": "知识管理",
+    "platform": "YouTube / RSS 原声",
+    "url": "https://youtube.com/@TiagoFort",
+    "enabled": false,
+    "freq": "双周更新"
+  }
+]
