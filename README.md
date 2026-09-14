@@ -57,7 +57,7 @@
 
 ### 1. 克隆项目与安装依赖
 ```bash
-git clone https://github.com/your-username/signal-desk.git
+git clone https://github.com/beiningwuyou/signal-desk.git
 cd signal-desk
 npm ci
 ```
