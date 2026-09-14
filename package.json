@@ -17,7 +17,7 @@
     "check": "node scripts/check.js",
     "smoke": "npm run build && node scripts/smoke.js",
     "smoke:desktop": "npm run build && electron . --smoke-test",
-    "test": "node --test scripts/selectors.test.js tests/*.test.js",
+    "test": "npm run build && node --test scripts/selectors.test.js tests/*.test.js",
     "format": "prettier --write \"src/client/**/*.{js,jsx,css}\" tailwind.config.js postcss.config.js",
     "format:check": "prettier --check \"src/client/**/*.{js,jsx,css}\" tailwind.config.js postcss.config.js"
   },

@@ -1,7 +1,7 @@
 # Signal Desk — 核心开发上下文与协作规则 (Agent Context & Collaboration Rules)
 
 **版本**：V1.0  
-**基准文档**：`signal_desk_prd_v1.0.md` (PRD V1.0 最终发布版)  
+**基准文档**：`docs/specs/prd-v1.0.md` (PRD V1.0 交付基准)  
 **设计规范**：`stitch_signal_desk/amber_ink_editorial/DESIGN.md` (Amber-Ink-Editorial 暖调黄灰纸质风)  
 **原型参考**：`stitch_signal_desk/` 目录下的 11 组高保真原型  
 **适用对象**：全栈开发 Agent / 人机协同开发团队  
@@ -49,7 +49,10 @@
 
 ```text
 daily-news/ (工作区根目录)
-├── signal_desk_prd_v1.0.md      # 核心 PRD V1.0 交付基准
+├── docs/                        # 统一文档中心
+│   ├── specs/                   # 核心 PRD 交付基准 (prd-v1.0.md)
+│   ├── design/                  # 设计系统规范 (MASTER.md)
+│   └── history/                 # 历史演进与立项备忘 (project-origin.md)
 ├── stitch_signal_desk/          # 高保真原型 HTML 与设计规范资产库
 │   ├── amber_ink_editorial/     # Amber-Ink-Editorial 官方设计令牌
 │   ├── signal_desk_1 ~ 10/      # 各模块参考 HTML 与截图
@@ -72,10 +75,9 @@ daily-news/ (工作区根目录)
 │   │   └── ingestion/           # RSS 解析、网络健康探测、OPML 解析
 │   └── shared/                  # 跨端通用常量与类型定义
 ├── electron/                    # 桌面端主进程 (main.js)
-├── data/                        # SQLite 数据库与本地持久化文件目录
+├── data/                        # SQLite 数据库与本地持久化文件目录 (.gitkeep 占位)
 ├── public/                      # 静态资源与本地离线字体资源
-├── scripts/                     # 语法检查、烟测与自动化测试脚本
-├── archive/                     # 历史早期版本与归档备份
+├── scripts/                     # 语法检查、烟测与构建脚本
 ├── tailwind.config.js           # Amber-Ink-Editorial 主题配置
 ├── vite.config.js               # Vite 构建配置
 └── package.json                 # 项目依赖与运行脚本
