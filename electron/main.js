@@ -15,7 +15,7 @@ let exitCode = 0;
 async function createWindow() {
   const win = new BrowserWindow({
     width: 1440, height: 900, minWidth: 480, minHeight: 500,
-    show: !smoke, title: 'Signal Desk', backgroundColor: '#faf9f5',
+    show: !smoke, title: 'Signal Blogs · 私人日报', backgroundColor: '#faf9f5',
     webPreferences: { contextIsolation: true, nodeIntegration: false, sandbox: true },
   });
   win.webContents.setWindowOpenHandler(({ url }) => {

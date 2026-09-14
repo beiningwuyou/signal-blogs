@@ -311,7 +311,7 @@ export function ReviewPage() {
   const handleExportMarkdown = () => {
     const completedCount = todos.filter((t) => t.completed).length;
     const md =
-      `# Signal Desk — 今日研读复盘简报 (2026-09-08)\n\n` +
+      `# Signal Blogs — 今日研读复盘简报 (2026-09-08)\n\n` +
       `## 态势矩阵指标\n` +
       `- 今日深度精读: ${metrics.reads} 篇 (完读率 83%)\n` +
       `- 沉淀核心高光: ${metrics.quotes} 处研判引用\n` +

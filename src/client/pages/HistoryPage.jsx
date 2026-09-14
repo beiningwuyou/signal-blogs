@@ -248,7 +248,7 @@ export function HistoryPage() {
       return;
     }
     const md =
-      `# Signal Desk — 研读浏览足迹\n\n导出时间: ${new Date().toLocaleString('zh-CN')}\n共计: ${filteredHistory.length} 条足迹\n\n---\n\n` +
+      `# Signal Blogs — 研读浏览足迹\n\n导出时间: ${new Date().toLocaleString('zh-CN')}\n共计: ${filteredHistory.length} 条足迹\n\n---\n\n` +
       filteredHistory
         .map((item, idx) => {
           return `${idx + 1}. [${item.time}] **${item.title}** (${item.source})\n   - 停留断点: ${item.readingSpot}\n   - 时长: ${item.dwellTime}\n`;

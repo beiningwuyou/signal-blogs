@@ -120,7 +120,7 @@ export function TimelinePage() {
 
   const handleExportTimeline = () => {
     const md =
-      `# Signal Desk — 产业重大事件演进时间轴\n\n导出时间: ${new Date().toLocaleString('zh-CN')}\n共收录: ${filteredNodes.length} 个核心历史节点\n\n---\n\n` +
+      `# Signal Blogs — 产业重大事件演进时间轴\n\n导出时间: ${new Date().toLocaleString('zh-CN')}\n共收录: ${filteredNodes.length} 个核心历史节点\n\n---\n\n` +
       filteredNodes
         .map(
           (n, i) =>

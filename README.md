@@ -1,4 +1,4 @@
-# 📰 Signal Desk (暖纸情报工作台)
+# 📰 Signal Blogs · 私人日报 (暖纸情报研判工作台)
 
 > **专为深度阅读者、行业分析师与独立研究员打造的个人严肃情报与研判工作台。**  
 > 告别冷灰刺眼的算法信息流，拥抱温润的出版级纸质排版与 100% 本地隐私安全。
@@ -12,14 +12,14 @@
 
 ---
 
-## ✨ 为什么需要 Signal Desk？
+## ✨ 为什么需要 Signal Blogs？
 
 在算法推荐与营销噪音过载的时代，严肃资讯消费面临三大痛点：
 1. **界面同质化与视觉疲劳**：千篇一律的暗黑冷灰“黑客风”界面，长时间高密度阅读极易引发眼部疲劳。
 2. **云端遥测与隐私外泄**：个人的关注热点、研读笔记和信源画像被商业平台无声采集分析。
 3. **事实与观点混淆**：碎片化短讯缺乏上下文证据链，缺少对一手事实（Facts）、来源观点（Takes）与行业底层逻辑的结构化解构。
 
-**Signal Desk** 重新将“信息主权”交还给读者——运行于你的本地机器，数据永不出门，提供兼具人文出版美感与严肃分析力度的深度研读环境。
+**Signal Blogs** 重新将“信息主权”交还给读者——运行于你的本地机器，数据永不出门，提供兼具人文出版美感与严肃分析力度的深度研读环境。
 
 ---
 
@@ -57,8 +57,8 @@
 
 ### 1. 克隆项目与安装依赖
 ```bash
-git clone https://github.com/beiningwuyou/signal-desk.git
-cd signal-desk
+git clone https://github.com/beiningwuyou/signal-blogs.git
+cd signal-blogs
 npm ci
 ```
 
@@ -95,7 +95,7 @@ npm run smoke:desktop  # 启动 Electron 自动化环境探测
 ## 📂 项目结构概览
 
 ```text
-signal-desk/
+signal-blogs/
 ├── src/
 │   ├── client/                  # 前端核心源码 (React 19 + Tailwind CSS 3)
 │   │   ├── components/          # 通用组件 (Sidebar, Drawer, Card, AudioBar 等)
@@ -125,8 +125,8 @@ signal-desk/
 ## 🔒 本地优先与隐私安全说明
 
 - **数据库存放位置**：
-  - **浏览器模式**：默认存放在本地 `data/local/signal-desk.sqlite`。
-  - **Electron 桌面模式**：存储于系统原生安全用户目录（macOS 位于 `~/Library/Application Support/Signal Desk Skeleton/data/`）。
+  - **浏览器模式**：默认存放在本地 `data/local/signal-blogs.sqlite`。
+  - **Electron 桌面模式**：存储于系统原生安全用户目录（macOS 位于 `~/Library/Application Support/Signal Blogs Skeleton/data/`）。
 - **零数据追踪**：本项目不包含任何用户分析探针、无第三方 Cookie、不上传任何阅读足迹。
 - **环境隔离配置**：可参考 `.env.example` 进行自定义端口或数据路径覆写，所有的私人配置与数据库文件均已被 `.gitignore` 严格屏蔽。
 - **演示数据**：开源仓库所附条目为原型演示内容，真实个人订阅与笔记完全生成并保存在你的本地机器中。

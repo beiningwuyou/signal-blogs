@@ -43,9 +43,9 @@ export function LiveLayout() {
         />
         <Link to="/events" className="live-brand">
           <Icon name="logo" size={24} />
-          Signal Desk
+          Signal Blogs
         </Link>
-        <span className="live-caption">个人情报工作台</span>
+        <span className="live-caption">私人日报</span>
         <div className="live-top-actions">
           <button
             className="button"

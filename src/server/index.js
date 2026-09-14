@@ -3,7 +3,7 @@ import { startServer } from './app.js';
 
 try {
   const service = await startServer({ ...loadConfig(), dev: process.argv.includes('--dev') });
-  console.log(`Signal Desk 已启动：${service.url}`);
+  console.log(`Signal Blogs (私人日报) 已启动：${service.url}`);
   for (const signal of ['SIGINT', 'SIGTERM']) {
     process.once(signal, () => {
       service.close().then(() => process.exit(0)).catch(error => {

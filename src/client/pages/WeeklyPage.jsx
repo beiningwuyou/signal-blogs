@@ -81,7 +81,7 @@ export function WeeklyPage() {
 
   const handleExportIssue = () => {
     const md =
-      `# Signal Desk — ${activeIssueData.number} · ${activeIssueData.title}\n\n` +
+      `# Signal Blogs — ${activeIssueData.number} · ${activeIssueData.title}\n\n` +
       `发布时间: ${activeIssueData.date} | 收录: ${activeIssueData.articleCount} 篇精选研报\n\n` +
       `## 导读摘要\n${activeIssueData.leadText}\n\n` +
       `## 精选导读清单\n` +

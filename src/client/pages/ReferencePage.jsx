@@ -9,7 +9,7 @@ export function ReferencePage({ route }) {
   return (
     <div className="reference-page">
       <div className="page-heading">
-        <p className="eyebrow">SIGNAL DESK / DESIGN REFERENCE</p>
+        <p className="eyebrow">SIGNAL BLOGS / DESIGN REFERENCE</p>
         <h1>{route.label}</h1>
         <p>
           路由已建立。本页保留高保真原型参考；本轮优先完成「每日早报」与「正在关注」的组件和交互。

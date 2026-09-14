@@ -24,7 +24,7 @@ try {
     const page = await fetch(service.url);
     assert.equal(page.status, 200);
     const html = await page.text();
-    assert.match(html, /Signal Desk/);
+    assert.match(html, /Signal (Blogs|Desk)/);
     const script = html.match(/<script[^>]+src="([^"]+)"/)[1];
     const asset = await fetch(new URL(script, service.url));
     assert.equal(asset.status, 200);

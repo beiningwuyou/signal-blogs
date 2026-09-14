@@ -236,7 +236,7 @@ export function ReadingPage() {
     }
 
     const mdContent =
-      `# Signal Desk — 我的阅读文献导出\n\n导出时间: ${new Date().toLocaleString('zh-CN')}\n共收录: ${targetItems.length} 篇知识文献\n\n---\n\n` +
+      `# Signal Blogs — 我的阅读文献导出\n\n导出时间: ${new Date().toLocaleString('zh-CN')}\n共收录: ${targetItems.length} 篇知识文献\n\n---\n\n` +
       targetItems
         .map((item, idx) => {
           return (

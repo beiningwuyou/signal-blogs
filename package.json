@@ -1,7 +1,7 @@
 {
-  "name": "signal-desk",
+  "name": "signal-blogs",
   "version": "0.1.0",
-  "description": "Signal Desk 暖纸情报工作台",
+  "description": "Signal Blogs · 私人日报 暖纸情报研判工作台",
   "license": "MIT",
   "private": true,
   "type": "module",

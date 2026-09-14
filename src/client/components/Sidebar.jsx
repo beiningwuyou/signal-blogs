@@ -76,10 +76,15 @@ export function Sidebar({ open, onClose }) {
               onClick={onClose}
               className="flex items-center gap-2.5 text-ink group focus:outline-none select-none"
             >
-              <SignalDeskLogo className="w-6 h-6 text-primary" />
-              <span className="text-ink font-serif font-semibold tracking-tight text-[16px] leading-none">
-                Signal Desk
-              </span>
+              <SignalDeskLogo className="w-6 h-6 text-primary shrink-0" />
+              <div className="flex flex-col">
+                <span className="text-ink font-serif font-semibold tracking-tight text-[15px] leading-tight">
+                  Signal Blogs
+                </span>
+                <span className="text-[10px] text-amber-700/80 font-sans tracking-widest uppercase font-medium">
+                  私人日报
+                </span>
+              </div>
             </Link>
           </div>
 
