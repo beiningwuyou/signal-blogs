@@ -1,8 +1,8 @@
 # 📰 Signal Blogs · 私人日报 (暖纸情报研判工作台)
 
-> **围绕一个研究议题，把“找信息、辨来源、做判断、留记录”接成连续闭环的工作流。**  
-> 专为深度阅读者、行业分析师与独立研究员打造的个人严肃情报与研判工作台。  
-> 告别冷灰刺眼的算法信息流，拥抱温润的出版级纸质排版与 100% 本地隐私安全。
+> **围绕你的偏好议题，把“找信息、辨来源、做判断、留记录”接成连续闭环的工作流。**  
+> 专为深度阅读者、行业分析师与相关研究者打造的个人严肃情报与研判工作台。  
+> 告别冷灰刺眼的算法信息流，拥抱本地知识库沉淀与 100% 本地隐私安全。
 
 <p align="center">
   <img src="docs/assets/screenshots/hero-personal-daily.png" alt="Signal Blogs 私人早报核心工作台" width="100%" style="border-radius: 8px; box-shadow: 0 8px 30px rgba(0,0,0,0.08);" />
@@ -21,10 +21,11 @@
 
 ## ✨ 为什么需要 Signal Blogs？
 
-在算法推荐与营销噪音过载的时代，严肃资讯消费面临三大困扰：
+在算法推荐与营销噪音过载的时代，新闻资讯消费面临三大困扰：
 1. **界面同质化与视觉疲劳**：千篇一律的暗黑冷灰“黑客风”界面，长时间高密度阅读极易引发眼部疲劳。
 2. **云端遥测与隐私外泄**：个人的关注热点、研读笔记和信源画像被商业平台无声采集与商业化。
 3. **事实与观点混淆**：碎片化短讯缺乏上下文证据链，缺少对一手事实（Facts）、来源观点（Takes）与行业底层逻辑的结构化解构。
+4. **读过≠记住**：把你读过看过的消息与思考，沉淀为可复用的知识资产。
 
 **Signal Blogs** 重新将“信息主权”交还给读者——运行于本地机器，数据永不出门，提供兼具人文出版美感与严肃分析力度的深度研读环境。
 
@@ -32,16 +33,16 @@
 
 ## 🏛️ 核心设计原则与功能特性
 
-### 1. 📜 Amber-Ink-Editorial 暖纸人文美学
+### 1. 📜 纸质版人文美学
 - **温润燕麦纸质感**：摒弃冰冷科技青灰，采用温润燕麦暖纸底色（`#faf8f5` / `#fcf9f6`）、纯白微卡片、深炭墨排印（`#171614`）与 1px 极细发丝分割线（`#e8e3d8`）。
 - **学术出版级字系**：报头大标题选用精装衬线体（EB Garamond / Newsreader），正文搭配高可读性无衬线体（Inter），技术指标与编号采用 JetBrains Mono。
 
 ---
 
-### 2. 📑 深度研判抽屉：一手事实与来源观点严格分层
+### 2. 📑 深度研判抽屉：一手事实与来源观点严格区分
 针对重点情报一键滑出 560px 沉浸式研读抽屉（支持 `Esc` 退出与键盘流循环）。
 - **严格区隔**：一手事实（Facts）、来源观点（Takes）、四维解构（算力 / 工程 / 商业 / 供应链）及原文证据链；
-- **500 字本地独立思考笔记**：人工判断与模型分析严格分层，支持一键导出纯净 Markdown。
+- **500 字本地独立思考笔记**：人工判断与模型分析严格分层，支持一键导出纯净 Markdown，作为后续可复用的个人思考资产。
 
 <p align="center">
   <img src="docs/assets/screenshots/feature-synthesis-drawer.png" alt="深度研判抽屉与分析师工作台" width="100%" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);" />
@@ -51,9 +52,9 @@
 
 ---
 
-### 3. 📊 正在关注与宏观态势矩阵 (Signal Monitor)
-- **态势矩阵与焦点追踪**：单屏容纳 6~8 组高密情报流，支持按机构、技术栈、资产标签多维组合筛选；
-- **快速降噪处理**：按加权评分/时间即时重排，一键标记当前筛选结果已读。
+### 3. 📊 正在关注与趋势追踪
+- **信息矩阵与趋势追踪**：单屏容纳 6~8 组高密情报流，支持按机构、技术栈、资产标签多维组合筛选；
+- **信息流降噪**：按加权评分/时间即时重排，一键标记当前筛选结果已读。
 
 <p align="center">
   <img src="docs/assets/screenshots/feature-following-matrix.png" alt="宏观态势监控与焦点标签即时过滤" width="100%" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);" />
@@ -63,8 +64,8 @@
 
 ---
 
-### 4. ✍️ 今日回顾与认知沉淀工作台 (Daily Retrospective)
-- **态势矩阵与量化回顾**：呈现今日精读篇数、完读率、沉淀高光引文数；
+### 4. ✍️ 今日回顾与沉淀
+- **态势矩阵与回顾**：呈现今日精读篇数、完读率、沉淀高光引文数；
 - **随想草稿纸与待办清单**：将日常碎片研读沉淀为系统性的研究备忘录。
 
 <p align="center">
@@ -75,34 +76,36 @@
 
 ---
 
-### 5. 🔬 主题深度研判与四维视角解构 (Deep Topic Analysis)
-- **产业范式与架构实测**：多权威产业信源交叉求证，提炼宏观核心论点（Editorial Thesis）与技术降本临界点；
-- **四维视角立体解构**：从「算力与硬件自研架构」、「算法与推理工程」、「商业与定价冲击」、「供应链与产能博弈」穿透技术与商业纵深。
+### 5. 📰 每日早报与往期归档
+- **历史早报回溯**：左侧提供按月份折叠的历史早报树形索引，支持前后期无缝穿梭；
+- **标准/宽屏阅读模式**：纯粹日报流与研判抽屉联动，支持一键导出单期或整周归档。
 
 <p align="center">
-  <img src="docs/assets/screenshots/feature-topic-analysis.png" alt="主题深度研判与四维视角解构" width="100%" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);" />
+  <img src="docs/assets/screenshots/feature-daily-archive.png" alt="每日早报与往期树形归档" width="100%" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);" />
   <br />
-  <em>▲ 图 5：主题研判 —— 多源交叉求证、宏观论点定调与四维立体解构</em>
+  <em>▲ 图 5：每日早报 —— 往期日报归档与出版排版</em>
 </p>
 
 ---
 
-### 6. ⚙️ 信源自管理与消费彻底解耦 (System Settings)
-- **阅读与配置彻底解耦**：日常阅读界面（私人早报、正在关注）保持纯净，无任何配置杂音与调试按钮；
+### 6. ⚙️ 信息源管理
+- **阅读与配置**：日常阅读界面（私人早报、正在关注）保持纯净，无任何配置杂音与调试按钮；
 - **独立信源中台**：RSS/Atom 订阅三列表格管理、Switch 轮询启停、连通性心跳探测与 OPML 一键导入导出，所有信源治理收拢于独立「系统设置」后台。
+
 
 ---
 
-## 🖼️ 产品原型全景画廊 (Interface Gallery)
+## 产品原型全景画廊
 
 为便于全面了解 Signal Blogs 的信息架构与各模块交互职责，以下展示其余核心工作模块的高保真原型：
 
 | 模块名称与定位 | 高保真原型界面预览 | 核心交互与职责 |
 | :--- | :--- | :--- |
 | **精选周刊**<br>`/weekly`<br>*深度导读期刊* | <img src="docs/assets/screenshots/feature-weekly-magazine.png" width="340" /> | 精装期刊封面排印、当期核心导读视窗、往期周刊网格归档切换。 |
-| **我的阅读**<br>`/reading`<br>*个人知识文献库* | <img src="docs/assets/screenshots/feature-reading-vault.png" width="340" /> | 通栏高密卡片流、本地划线收藏过滤、一键打包导出 Markdown 备忘。 |
-| **内容广场**<br>`/explore`<br>*全网动态降噪流* | <img src="docs/assets/screenshots/feature-explore-square.png" width="340" /> | 全网科技资讯按最新/权重/多媒体形态筛选，快速捕捉突发态势。 |
 | **系统设置**<br>`/settings`<br>*信源治理中台* | <img src="docs/assets/screenshots/feature-settings-rss.png" width="340" /> | 集中管理 RSS/Atom 订阅管道、Switch 启停轮询与 OPML 导入导出。 |
+| **内容广场**<br>`/explore`<br>*全网动态降噪流* | <img src="docs/assets/screenshots/feature-explore-square.png" width="340" /> | 全网科技资讯按最新/权重/多媒体形态筛选，快速捕捉突发态势。 |
+| **主题深度解读**<br>`/topics`<br>*产业范式解构* | <img src="docs/assets/screenshots/feature-topic-analysis.png" width="340" /> | 公司、模型与底层算法横向解耦，呈现跨周期的量化指标对比。 |
+| **我的阅读**<br>`/reading`<br>*个人知识文献库* | <img src="docs/assets/screenshots/feature-reading-vault.png" width="340" /> | 通栏高密卡片流、本地划线收藏过滤、一键打包导出 Markdown 备忘。 |
 
 ---
 
