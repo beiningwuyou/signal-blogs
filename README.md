@@ -1,51 +1,115 @@
 # 📰 Signal Blogs · 私人日报 (暖纸情报研判工作台)
 
-> **专为深度阅读者、行业分析师与独立研究员打造的个人严肃情报与研判工作台。**  
+> **围绕一个研究议题，把“找信息、辨来源、做判断、留记录”接成连续闭环的工作流。**  
+> 专为深度阅读者、行业分析师与独立研究员打造的个人严肃情报与研判工作台。  
 > 告别冷灰刺眼的算法信息流，拥抱温润的出版级纸质排版与 100% 本地隐私安全。
+
+<p align="center">
+  <img src="docs/assets/screenshots/hero-personal-daily.png" alt="Signal Blogs 私人早报核心工作台" width="100%" style="border-radius: 8px; box-shadow: 0 8px 30px rgba(0,0,0,0.08);" />
+  <br />
+  <em>▲ 图 1：私人早报高保真原型 —— 晨间导读、置信度量化、今日要闻精读与音频精读联动</em>
+</p>
 
 [![React 19](https://img.shields.io/badge/React-19-61dafb?logo=react&logoColor=black)](https://react.dev/)
 [![Tailwind CSS 3](https://img.shields.io/badge/Tailwind-Amber--Ink-d97706?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![SQLite](https://img.shields.io/badge/Storage-Local_SQLite-003B57?logo=sqlite&logoColor=white)](https://www.sqlite.org/)
 [![Electron](https://img.shields.io/badge/Desktop-Electron_44+-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
-[![Local First](https://img.shields.io/badge/Privacy-100%25_Local_First-16a34a)](#-本地优先与隐私安全)
+[![Local First](https://img.shields.io/badge/Privacy-100%25_Local_First-16a34a)](#-本地优先与隐私安全说明)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
 
 ## ✨ 为什么需要 Signal Blogs？
 
-在算法推荐与营销噪音过载的时代，严肃资讯消费面临三大痛点：
+在算法推荐与营销噪音过载的时代，严肃资讯消费面临三大困扰：
 1. **界面同质化与视觉疲劳**：千篇一律的暗黑冷灰“黑客风”界面，长时间高密度阅读极易引发眼部疲劳。
-2. **云端遥测与隐私外泄**：个人的关注热点、研读笔记和信源画像被商业平台无声采集分析。
+2. **云端遥测与隐私外泄**：个人的关注热点、研读笔记和信源画像被商业平台无声采集与商业化。
 3. **事实与观点混淆**：碎片化短讯缺乏上下文证据链，缺少对一手事实（Facts）、来源观点（Takes）与行业底层逻辑的结构化解构。
 
-**Signal Blogs** 重新将“信息主权”交还给读者——运行于你的本地机器，数据永不出门，提供兼具人文出版美感与严肃分析力度的深度研读环境。
+**Signal Blogs** 重新将“信息主权”交还给读者——运行于本地机器，数据永不出门，提供兼具人文出版美感与严肃分析力度的深度研读环境。
 
 ---
 
-## 🏛️ 核心设计原则与特性
+## 🏛️ 核心设计原则与功能特性
 
 ### 1. 📜 Amber-Ink-Editorial 暖纸人文美学
 - **温润燕麦纸质感**：摒弃冰冷科技青灰，采用温润燕麦暖纸底色（`#faf8f5` / `#fcf9f6`）、纯白微卡片、深炭墨排印（`#171614`）与 1px 极细发丝分割线（`#e8e3d8`）。
 - **学术出版级字系**：报头大标题选用精装衬线体（EB Garamond / Newsreader），正文搭配高可读性无衬线体（Inter），技术指标与编号采用 JetBrains Mono。
 
-### 2. 🛡️ 本地优先架构 (Local-First & 0% Telemetry)
-- **100% 离线与断网可用**：数据完全存储于本机 SQLite 数据库，无任何第三方云端遥测或用户行为跟踪脚本。
-- **本地研判闭环**：收藏、500 字研读笔记、阅读足迹、专题关注与自定义信源完全本地持久化。
+---
 
-### 3. 📑 深度研判抽屉 (Slide-over Drawer)
-- 针对重点情报一键滑出 560px 沉浸式研读视窗（支持 `Esc` 快速退出与键盘流操作）。
-- **结构化研判分离**：严格区隔一手事实（Facts）、来源观点（Takes）、四维解构（算力 / 工程 / 商业 / 供应链）及原文证据链。
-- **一键导出**：支持研判卡片与个人笔记一键导出为纯净 Markdown。
+### 2. 📑 深度研判抽屉：一手事实与来源观点严格分层
+针对重点情报一键滑出 560px 沉浸式研读抽屉（支持 `Esc` 退出与键盘流循环）。
+- **严格区隔**：一手事实（Facts）、来源观点（Takes）、四维解构（算力 / 工程 / 商业 / 供应链）及原文证据链；
+- **500 字本地独立思考笔记**：人工判断与模型分析严格分层，支持一键导出纯净 Markdown。
 
-### 4. 🗂️ 双维度空间与消费配置解耦
-- **个人空间**：私人早报（晨间决策简报）、正在关注（多维标签过滤）、我的阅读（收藏与划线）、浏览足迹、今日回顾。
-- **公共广场**：内容广场、每日早报（支持往期树形归档切换）、精选周刊、事件时间轴（分支泳道）。
-- **配置与阅读解耦**：信源增删改查、Switch 轮询启停、权重调节与 OPML 导入导出彻底下沉至独立「系统设置」，阅读界面纯粹无噪。
+<p align="center">
+  <img src="docs/assets/screenshots/feature-synthesis-drawer.png" alt="深度研判抽屉与分析师工作台" width="100%" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);" />
+  <br />
+  <em>▲ 图 2：深度研判抽屉 —— 事实、来源观点、模型推断与个人笔记分层研读</em>
+</p>
 
-### 5. 💻 Web + 原生桌面双模态
-- **本地 Web 模式**：通过极轻量 Node.js 原生 HTTP 服务与 Vite 驱动，监听本地端口。
-- **macOS / 跨端桌面应用**：内置 Electron 44+ 入口，支持原生窗口运行与系统快捷键。
+---
+
+### 3. 📊 正在关注与宏观态势矩阵 (Signal Monitor)
+- **态势矩阵与焦点追踪**：单屏容纳 6~8 组高密情报流，支持按机构、技术栈、资产标签多维组合筛选；
+- **快速降噪处理**：按加权评分/时间即时重排，一键标记当前筛选结果已读。
+
+<p align="center">
+  <img src="docs/assets/screenshots/feature-following-matrix.png" alt="宏观态势监控与焦点标签即时过滤" width="100%" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);" />
+  <br />
+  <em>▲ 图 3：正在关注 —— 宏观态势矩阵与焦点标签组合过滤流</em>
+</p>
+
+---
+
+### 4. ✍️ 今日回顾与认知沉淀工作台 (Daily Retrospective)
+- **态势矩阵与量化回顾**：呈现今日精读篇数、完读率、沉淀高光引文数；
+- **随想草稿纸与待办清单**：将日常碎片研读沉淀为系统性的研究备忘录。
+
+<p align="center">
+  <img src="docs/assets/screenshots/feature-review-retrospective.png" alt="今日回顾与认知沉淀工作台" width="100%" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);" />
+  <br />
+  <em>▲ 图 4：今日回顾 —— 核心洞察提炼、高光划线引文与复盘草稿纸</em>
+</p>
+
+---
+
+### 5. ⏱️ 事件时序演进时间轴 (Event Timeline)
+- **四维时空拓扑**：单轨时序流与算力、商业、工程、政策多分支泳道平移拖拽，溯源技术与行业演进拐点；
+- **多期历史对比**：支持横向缩放与周期筛选，直观查看事件的衍生探讨与交叉验证脉络。
+
+<p align="center">
+  <img src="docs/assets/screenshots/feature-timeline-motion.png" alt="事件时序时间轴与分支泳道" width="100%" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);" />
+  <br />
+  <em>▲ 图 5：事件时间轴 —— 单轨深度流与四维时序演进分支泳道</em>
+</p>
+
+---
+
+### 6. ⚙️ 信源自管理与消费彻底解耦 (System Settings)
+- **阅读与配置解耦**：日常阅读界面保持纯净，无任何配置杂音；
+- **独立信源中台**：RSS 三列数据表、Switch 启停开关、连通性心跳探测、权重调整与 OPML 一键导入导出。
+
+<p align="center">
+  <img src="docs/assets/screenshots/feature-settings-rss.png" alt="RSS 信源管理与系统设置" width="100%" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);" />
+  <br />
+  <em>▲ 图 6：系统设置 —— RSS/Atom 订阅管理、连通性探测与 OPML 导入导出</em>
+</p>
+
+---
+
+## 🖼️ 产品原型全景画廊 (Interface Gallery)
+
+为便于全面了解 Signal Blogs 的信息架构与各模块交互职责，以下展示其余核心工作模块的高保真原型：
+
+| 模块名称与定位 | 高保真原型界面预览 | 核心交互与职责 |
+| :--- | :--- | :--- |
+| **精选周刊**<br>`/weekly`<br>*深度导读期刊* | <img src="docs/assets/screenshots/feature-weekly-magazine.png" width="340" /> | 精装期刊封面排印、当期核心导读视窗、往期周刊网格归档切换。 |
+| **每日早报**<br>`/daily`<br>*时序早报归档* | <img src="docs/assets/screenshots/feature-daily-archive.png" width="340" /> | 历史早报树形索引归档折叠、前后期快速跳跃、标准/宽卷阅读模式切换。 |
+| **内容广场**<br>`/explore`<br>*全网动态降噪流* | <img src="docs/assets/screenshots/feature-explore-square.png" width="340" /> | 全网科技资讯按最新/权重/多媒体形态筛选，快速捕捉突发态势。 |
+| **主题深度解读**<br>`/topics`<br>*产业范式解构* | <img src="docs/assets/screenshots/feature-topic-analysis.png" width="340" /> | 公司、模型与底层算法横向解耦，呈现跨周期的量化指标对比。 |
+| **我的阅读**<br>`/reading`<br>*个人知识文献库* | <img src="docs/assets/screenshots/feature-reading-vault.png" width="340" /> | 通栏高密卡片流、本地划线收藏过滤、一键打包导出 Markdown 备忘。 |
 
 ---
 
@@ -76,16 +140,10 @@ npm run app
 ```
 *提示：按 `Cmd+Q` (macOS) 可完全退出桌面端。*
 
-### 4. 生产环境构建与预览
-```bash
-npm run build
-npm start
-```
-
-### 5. 自动化质量验证
+### 4. 自动化质量验证与测试
 ```bash
 npm run check          # JavaScript 语法与代码规范校验
-npm test               # 运行本地存储、筛选排序与数据边界测试
+npm test               # 自动编译并运行 10 项数据存储与过滤测试套件
 npm run smoke          # 自动化端到端冒烟测试 (SQLite 重启、深链接等)
 npm run smoke:desktop  # 启动 Electron 自动化环境探测
 ```
@@ -112,9 +170,13 @@ signal-blogs/
 ├── electron/                    # 桌面端主进程 (main.js)
 ├── data/                        # 本地数据目录 (内置 .gitkeep，已排除用户真实数据库)
 ├── public/                      # 静态资源与离线字体资源
-├── scripts/                     # 语法检查、烟测与自动化测试脚本
+├── scripts/                     # 统一脚本库 (语法检查、冒烟测试、打包脚本)
 ├── tests/                       # 核心业务逻辑与数据存储自动化测试套件
-├── docs/                        # 项目设计方案、前端说明与交付复盘
+├── docs/                        # 统一文档中心 (PRD 交付基准、设计规范、截图资产)
+│   ├── assets/screenshots/      # 高保真原型图示资产
+│   ├── specs/                   # 产品需求文档 (prd-v1.0.md)
+│   ├── design/                  # 设计系统核心规范
+│   └── history/                 # 历史演进与立项备忘
 ├── tailwind.config.js           # Amber-Ink-Editorial 官方设计令牌配置
 ├── vite.config.js               # Vite 8 构建配置
 └── package.json                 # 项目依赖、脚本与元数据
