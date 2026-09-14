@@ -75,14 +75,14 @@
 
 ---
 
-### 5. 📰 每日早报与往期时序归档 (Daily Archives)
-- **历史早报时序回溯**：左侧提供按月份折叠的历史早报树形索引，支持前后期无缝穿梭；
-- **标准/宽卷双阅读模式**：纯粹日报流与研判抽屉联动，支持一键导出单期或整周归档。
+### 5. 🔬 主题深度研判与四维视角解构 (Deep Topic Analysis)
+- **产业范式与架构实测**：多权威产业信源交叉求证，提炼宏观核心论点（Editorial Thesis）与技术降本临界点；
+- **四维视角立体解构**：从「算力与硬件自研架构」、「算法与推理工程」、「商业与定价冲击」、「供应链与产能博弈」穿透技术与商业纵深。
 
 <p align="center">
-  <img src="docs/assets/screenshots/feature-daily-archive.png" alt="每日早报与往期树形归档" width="100%" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);" />
+  <img src="docs/assets/screenshots/feature-topic-analysis.png" alt="主题深度研判与四维视角解构" width="100%" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);" />
   <br />
-  <em>▲ 图 5：每日早报 —— 往期日报树形归档与标准出版排版</em>
+  <em>▲ 图 5：主题研判 —— 多源交叉求证、宏观论点定调与四维立体解构</em>
 </p>
 
 ---
@@ -90,7 +90,6 @@
 ### 6. ⚙️ 信源自管理与消费彻底解耦 (System Settings)
 - **阅读与配置彻底解耦**：日常阅读界面（私人早报、正在关注）保持纯净，无任何配置杂音与调试按钮；
 - **独立信源中台**：RSS/Atom 订阅三列表格管理、Switch 轮询启停、连通性心跳探测与 OPML 一键导入导出，所有信源治理收拢于独立「系统设置」后台。
-
 
 ---
 
@@ -101,10 +100,9 @@
 | 模块名称与定位 | 高保真原型界面预览 | 核心交互与职责 |
 | :--- | :--- | :--- |
 | **精选周刊**<br>`/weekly`<br>*深度导读期刊* | <img src="docs/assets/screenshots/feature-weekly-magazine.png" width="340" /> | 精装期刊封面排印、当期核心导读视窗、往期周刊网格归档切换。 |
-| **系统设置**<br>`/settings`<br>*信源治理中台* | <img src="docs/assets/screenshots/feature-settings-rss.png" width="340" /> | 集中管理 RSS/Atom 订阅管道、Switch 启停轮询与 OPML 导入导出。 |
-| **内容广场**<br>`/explore`<br>*全网动态降噪流* | <img src="docs/assets/screenshots/feature-explore-square.png" width="340" /> | 全网科技资讯按最新/权重/多媒体形态筛选，快速捕捉突发态势。 |
-| **主题深度解读**<br>`/topics`<br>*产业范式解构* | <img src="docs/assets/screenshots/feature-topic-analysis.png" width="340" /> | 公司、模型与底层算法横向解耦，呈现跨周期的量化指标对比。 |
 | **我的阅读**<br>`/reading`<br>*个人知识文献库* | <img src="docs/assets/screenshots/feature-reading-vault.png" width="340" /> | 通栏高密卡片流、本地划线收藏过滤、一键打包导出 Markdown 备忘。 |
+| **内容广场**<br>`/explore`<br>*全网动态降噪流* | <img src="docs/assets/screenshots/feature-explore-square.png" width="340" /> | 全网科技资讯按最新/权重/多媒体形态筛选，快速捕捉突发态势。 |
+| **系统设置**<br>`/settings`<br>*信源治理中台* | <img src="docs/assets/screenshots/feature-settings-rss.png" width="340" /> | 集中管理 RSS/Atom 订阅管道、Switch 启停轮询与 OPML 导入导出。 |
 
 ---
 
